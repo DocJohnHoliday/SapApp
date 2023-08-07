@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Login_Controller">
+    <children>
+        <Label fx:id="SigninLabel" alignment="TOP_CENTER" layoutX="198.0" layoutY="106.0" prefHeight="88.0" prefWidth="427.0" text="Sign In" textAlignment="CENTER">
+            <font>
+                <Font size="60.0" />
+            </font>
+        </Label>
+        <Label fx:id="UsernameLabel" layoutX="158.0" layoutY="244.0" prefHeight="27.0" prefWidth="178.0" text="Username">
+            <font>
+                <Font size="18.0" />
+            </font></Label>
+        <TextField fx:id="Name" layoutX="341.0" layoutY="238.0">
+            <font>
+                <Font size="18.0" />
+            </font></TextField>
+        <Label fx:id="PasswordLabel" layoutX="158.0" layoutY="294.0" prefHeight="27.0" prefWidth="178.0" text="Password:">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="Password" layoutX="341.0" layoutY="288.0">
+            <font>
+                <Font size="18.0" />
+            </font></TextField>
+        <Label fx:id="LocationLabel" layoutX="158.0" layoutY="343.0" prefHeight="27.0" prefWidth="178.0" text="Location:">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Button fx:id="logIn" layoutX="370.0" layoutY="385.0" mnemonicParsing="false" onAction="#loginButton" prefHeight="39.0" prefWidth="143.0" text="Log in">
+            <font>
+                <Font size="18.0" />
+            </font></Button>
+        <Label fx:id="ZoneLabel" layoutX="341.0" layoutY="337.0" prefHeight="39.0" prefWidth="224.0">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Button fx:id="newUserButton" layoutX="381.0" layoutY="486.0" mnemonicParsing="false" onAction="#newUser" style="-fx-background-color: transparent;" text="New User?" textFill="#2636c6">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="forgotButton" layoutX="345.0" layoutY="444.0" mnemonicParsing="false" onAction="#forgot" style="-fx-background-color: transparent;" text="Forgot Username or Password?" textFill="#2636c6" />
+    </children>
+</AnchorPane>

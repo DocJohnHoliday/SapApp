@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="850.0" prefWidth="1170.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.WeightCheck_Controller">
+    <children>
+        <Label layoutX="452.0" layoutY="31.0" text="Weight Check" underline="true">
+            <font>
+                <Font size="45.0" />
+            </font>
+        </Label>
+        <Label layoutX="460.0" layoutY="97.0" text="&quot;Helping Amy get Bill of Ladings done before 2 since 2023&quot;">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </Label>
+        <AnchorPane layoutX="14.0" layoutY="170.0" prefHeight="671.0" prefWidth="291.0" style="-fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #ADD8E6;">
+            <children>
+                <AnchorPane layoutX="10.0" layoutY="6.0" prefHeight="138.0" prefWidth="269.0" style="-fx-border-color: black; -fx-border-radius: 10px;">
+                    <children>
+                        <Label layoutX="8.0" layoutY="16.0" text="First Tier:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="firstFirstCombo" layoutX="111.0" layoutY="13.0" prefWidth="150.0" />
+                        <ComboBox fx:id="firstSecondCombo" layoutX="111.0" layoutY="52.0" prefWidth="150.0" />
+                        <ComboBox fx:id="firstThirdCombo" layoutX="111.0" layoutY="93.0" prefWidth="150.0" />
+                        <Button fx:id="clearFirstButton" layoutX="8.0" layoutY="93.0" mnemonicParsing="false" onAction="#clearFirst" prefHeight="25.0" prefWidth="78.0" text="Clear" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane layoutX="11.0" layoutY="158.0" prefHeight="138.0" prefWidth="269.0" style="-fx-border-color: black; -fx-border-radius: 10px;">
+                    <children>
+                        <Label layoutX="8.0" layoutY="16.0" text="Second Tier">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="secondFirstCombo" layoutX="111.0" layoutY="13.0" prefWidth="150.0" />
+                        <ComboBox fx:id="secondSecondCombo" layoutX="111.0" layoutY="52.0" prefWidth="150.0" />
+                        <ComboBox fx:id="secondThirdCombo" layoutX="111.0" layoutY="93.0" prefWidth="150.0" />
+                        <Button fx:id="clearSecondButton" layoutX="8.0" layoutY="93.0" mnemonicParsing="false" onAction="#ClearSecond" prefHeight="25.0" prefWidth="78.0" text="Clear" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane layoutX="10.0" layoutY="306.0" prefHeight="138.0" prefWidth="269.0" style="-fx-border-color: black; -fx-border-radius: 10px;">
+                    <children>
+                        <Label layoutX="8.0" layoutY="16.0" text="Third Tier">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="thirdFirstCombo" layoutX="111.0" layoutY="13.0" prefWidth="150.0" />
+                        <ComboBox fx:id="thirdSecondCombo" layoutX="111.0" layoutY="52.0" prefWidth="150.0" />
+                        <ComboBox fx:id="thirdThirdCombo" layoutX="111.0" layoutY="93.0" prefWidth="150.0" />
+                        <Button fx:id="clearThirdButton" layoutX="8.0" layoutY="93.0" mnemonicParsing="false" onAction="#clearThird" prefHeight="25.0" prefWidth="78.0" text="Clear" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane layoutX="10.0" layoutY="457.0" prefHeight="138.0" prefWidth="269.0" style="-fx-border-color: black; -fx-border-radius: 10px;">
+                    <children>
+                        <Label layoutX="8.0" layoutY="16.0" text="Fourth Tier">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="fourthFirstCombo" layoutX="111.0" layoutY="13.0" prefWidth="150.0" />
+                        <ComboBox fx:id="fourthSecondCombo" layoutX="111.0" layoutY="52.0" prefWidth="150.0" />
+                        <ComboBox fx:id="fourthThirdCombo" layoutX="111.0" layoutY="93.0" prefWidth="150.0" />
+                        <Button fx:id="clearFourthButton" layoutX="8.0" layoutY="93.0" mnemonicParsing="false" onAction="#ClearFourth" prefHeight="25.0" prefWidth="78.0" text="Clear" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+        <Label layoutX="86.0" layoutY="140.0" text="Input Components here">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <AnchorPane layoutX="326.0" layoutY="171.0" prefHeight="200.0" prefWidth="529.0" style="-fx-background-color: #ADD8E6; -fx-border-color: Black; -fx-border-radius: 10px;">
+            <children>
+                <Label layoutX="199.0" layoutY="25.0" text="WEIGHT">
+                    <font>
+                        <Font size="36.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="palletWeightSpot" alignment="CENTER" editable="false" layoutX="134.0" layoutY="100.0" prefHeight="66.0" prefWidth="261.0" promptText="Pallet Weight">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </TextField>
+            </children>
+        </AnchorPane>
+        <Button fx:id="submitButton" layoutX="177.0" layoutY="783.0" mnemonicParsing="false" onAction="#submitTier" prefHeight="53.0" prefWidth="112.0" text="Submit" />
+        <Button fx:id="clearAllButton" layoutX="48.0" layoutY="783.0" mnemonicParsing="false" onAction="#clearTier" prefHeight="53.0" prefWidth="112.0" text="Clear All" />
+        <Label layoutX="961.0" layoutY="140.0" text="Input Data Here">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <AnchorPane layoutX="887.0" layoutY="170.0" prefHeight="671.0" prefWidth="269.0" style="-fx-background-color: #ADD8E6; -fx-border-color: black; -fx-border-radius: 10px;">
+            <children>
+                <Label layoutX="91.0" layoutY="31.0" text="Base Weight">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="inputBaseWeight" alignment="CENTER" layoutX="60.0" layoutY="56.0" promptText="0" />
+                <TextField fx:id="outputBaseWeight" alignment="CENTER" editable="false" layoutX="61.0" layoutY="96.0" style="-fx-background-color: #A6ACAF;" />
+                <Label layoutX="76.0" layoutY="141.0" text="Tier(Slat) Weight">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="inputTierWeight" alignment="CENTER" layoutX="60.0" layoutY="166.0" promptText="0" />
+                <TextField fx:id="outputTierWeight" alignment="CENTER" editable="false" layoutX="61.0" layoutY="207.0" style="-fx-background-color: #A6ACAF;" />
+                <AnchorPane layoutX="35.0" layoutY="330.0" prefHeight="258.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-radius: 10px;">
+                    <children>
+                        <ComboBox fx:id="partCombo" layoutX="26.0" layoutY="27.0" prefWidth="150.0" />
+                        <Label layoutX="86.0" layoutY="2.0" text="Part">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="58.0" layoutY="127.0" text="Part Weight">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="outputPartWeight" alignment="CENTER" editable="false" layoutX="26.0" layoutY="162.0" style="-fx-background-color: #A6ACAF;" />
+                        <Label layoutX="53.0" layoutY="62.0" text="Parts per Tier">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="partsPerTier" alignment="CENTER" layoutX="28.0" layoutY="87.0" promptText="0" />
+                    </children>
+                </AnchorPane>
+                <Label layoutX="14.0" layoutY="100.0" text="Average" />
+                <Label layoutX="14.0" layoutY="211.0" text="Average" />
+                <Button fx:id="inputClearButton" layoutX="35.0" layoutY="258.0" mnemonicParsing="false" onAction="#clearWood" prefHeight="40.0" prefWidth="82.0" text="Clear All" />
+                <Button layoutX="138.0" layoutY="258.0" mnemonicParsing="false" onAction="#submitWood" prefHeight="40.0" prefWidth="82.0" text="Submit" />
+            </children>
+        </AnchorPane>
+        <Button layoutX="920.0" layoutY="790.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="82.0" text="Clear All" />
+        <Button layoutX="1049.0" layoutY="790.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="82.0" text="Submit" />
+        <AnchorPane layoutX="326.0" layoutY="388.0" prefHeight="456.0" prefWidth="529.0" style="-fx-background-color: #ADD8E6; -fx-border-color: Black; -fx-border-radius: 10px;">
+            <children>
+                <Label layoutX="169.0" layoutY="25.0" text="Parts Create">
+                    <font>
+                        <Font size="36.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="partsCreate" alignment="CENTER" layoutX="134.0" layoutY="87.0" prefHeight="66.0" prefWidth="261.0" promptText="Ex. 12&quot; SL">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="partsWeight" alignment="CENTER" layoutX="135.0" layoutY="157.0" prefHeight="66.0" prefWidth="261.0" promptText="Ex. 12">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="partsWidth" alignment="CENTER" layoutX="134.0" layoutY="228.0" prefHeight="66.0" prefWidth="261.0" promptText="Ex. 12">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="partsLength" alignment="CENTER" layoutX="134.0" layoutY="303.0" prefHeight="66.0" prefWidth="261.0" promptText="Ex. 86">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </TextField>
+                <Button layoutX="322.0" layoutY="394.0" mnemonicParsing="false" onAction="#submitPart" prefHeight="40.0" prefWidth="78.0" text="Submit Part" />
+                <Label layoutX="41.0" layoutY="248.0" text="Width:">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="38.0" layoutY="323.0" text="Height:">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="41.0" layoutY="120.0" text="Name:">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <Button layoutX="133.0" layoutY="394.0" mnemonicParsing="false" onAction="#clearPart" prefHeight="40.0" prefWidth="73.0" text="Clear Part" />
+                <Label layoutX="41.0" layoutY="177.0" text="Weight:">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
