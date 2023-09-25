@@ -24,10 +24,6 @@
                 <Font size="18.0" />
             </font>
         </Label>
-        <TextField fx:id="Password" layoutX="341.0" layoutY="288.0">
-            <font>
-                <Font size="18.0" />
-            </font></TextField>
         <Label fx:id="LocationLabel" layoutX="158.0" layoutY="343.0" prefHeight="27.0" prefWidth="178.0" text="Location:">
             <font>
                 <Font size="18.0" />
@@ -48,5 +44,6 @@
             </font>
         </Button>
         <Button fx:id="forgotButton" layoutX="345.0" layoutY="444.0" mnemonicParsing="false" onAction="#forgot" style="-fx-background-color: transparent;" text="Forgot Username or Password?" textFill="#2636c6" />
+      <PasswordField fx:id="Password" layoutX="344.0" layoutY="288.0" prefHeight="39.0" prefWidth="218.0" />
     </children>
 </AnchorPane>

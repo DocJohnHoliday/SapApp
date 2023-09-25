@@ -74,7 +74,7 @@ public void loginButton(ActionEvent actionEvent) throws IOException {
 //                stage.setScene(new Scene(scene));
 //                stage.show();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/View/Weight_Check.fxml"));
+        loader.setLocation(getClass().getResource("/View/Which_Page.fxml"));
         loader.load();
 
         stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();

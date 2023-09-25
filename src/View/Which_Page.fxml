@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="537.0" prefWidth="967.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.WhichPageController">
+   <children>
+      <Button layoutX="325.0" layoutY="209.0" mnemonicParsing="false" onAction="#toPallet" prefHeight="67.0" prefWidth="103.0" text="Pallet App" />
+      <Button layoutX="532.0" layoutY="209.0" mnemonicParsing="false" onAction="#toPrint" prefHeight="67.0" prefWidth="116.0" text="Print Drawer" />
+   </children>
+</AnchorPane>
