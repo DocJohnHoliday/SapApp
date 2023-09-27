@@ -195,5 +195,15 @@
                 </Label>
             </children>
         </AnchorPane>
+      <Button layoutX="34.0" layoutY="19.0" mnemonicParsing="false" onAction="#logout" prefHeight="40.0" prefWidth="99.0" text="Log Out">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="34.0" layoutY="64.0" mnemonicParsing="false" onAction="#drawings" prefHeight="53.0" prefWidth="99.0" text="Drawings">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

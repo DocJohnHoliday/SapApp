@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/View/Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/View/Print_Drawer.fxml"));
         stage.setTitle("");
         stage.setScene(new Scene(root, 800, 600));
         stage.show();
