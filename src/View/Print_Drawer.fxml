@@ -20,7 +20,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="845.0" prefWidth="1336.0">
                      <children>
-                        <AnchorPane layoutX="14.0" layoutY="457.0" prefHeight="174.0" prefWidth="447.0" style="-fx-border-color: black; -fx-border-radius: 10px;">
+                        <AnchorPane layoutX="14.0" layoutY="457.0" prefHeight="174.0" prefWidth="447.0" style="-fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #8ac7db;">
                            <children>
                               <Label layoutX="156.0" layoutY="8.0" prefHeight="27.0" prefWidth="114.0" text="Dimensions">
                                  <font>
@@ -47,7 +47,7 @@
                                  </font>
                               </Label>
                               <TextField fx:id="doorHeight" layoutX="224.0" layoutY="73.0" prefHeight="25.0" prefWidth="74.0" promptText="Height" />
-                              <TextField fx:id="doorWidth" layoutX="314.0" layoutY="73.0" prefHeight="25.0" prefWidth="74.0" promptText="Width" />
+                              <TextField fx:id="doorWidth" layoutX="314.0" layoutY="73.0" onAction="#doorWidthChange" prefHeight="25.0" prefWidth="74.0" promptText="Width" />
                               <Label layoutX="224.0" layoutY="109.0" prefHeight="27.0" prefWidth="56.0" text="Mid Rail">
                                  <font>
                                     <Font size="14.0" />
@@ -61,7 +61,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="14.0" layoutY="638.0" prefHeight="174.0" prefWidth="447.0" style="-fx-border-color: black; -fx-border-radius: 10px;">
+                        <AnchorPane layoutX="14.0" layoutY="638.0" prefHeight="174.0" prefWidth="447.0" style="-fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #8ac7db;">
                            <children>
                               <Label layoutX="158.0" layoutY="14.0" prefHeight="27.0" prefWidth="114.0" text="Uneven Pair">
                                  <font>
@@ -90,7 +90,7 @@
                               <ChoiceBox fx:id="hardwareUneven" layoutX="254.0" layoutY="73.0" prefWidth="150.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="435.0" prefWidth="447.0" style="-fx-border-color: black; -fx-border-radius: 10px;">
+                        <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="435.0" prefWidth="447.0" style="-fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #8ac7db;">
                            <children>
                               <Label layoutX="190.0" layoutY="14.0" prefHeight="27.0" prefWidth="67.0" text="General">
                                  <font>
@@ -160,7 +160,7 @@
                               <ChoiceBox fx:id="pull" layoutX="257.0" layoutY="376.0" prefWidth="150.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="481.0" layoutY="14.0" prefHeight="363.0" prefWidth="853.0" style="-fx-border-color: black; -fx-border-radius: 10px;">
+                        <AnchorPane layoutX="468.0" layoutY="14.0" prefHeight="363.0" prefWidth="853.0" style="-fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #8ac7db;">
                            <children>
                               <Label layoutX="402.0" layoutY="14.0" prefHeight="30.0" prefWidth="57.0" text="Notes">
                                  <font>
@@ -170,7 +170,7 @@
                               <TextArea fx:id="notes" layoutX="16.0" layoutY="82.0" prefHeight="263.0" prefWidth="824.0" promptText="Anything to add not covered e.g. &quot;No flushbolts&quot;" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="481.0" layoutY="381.0" prefHeight="371.0" prefWidth="856.0" style="-fx-border-color: black; -fx-border-radius: 10px;">
+                        <AnchorPane layoutX="467.0" layoutY="381.0" prefHeight="371.0" prefWidth="870.0" style="-fx-border-color: black; -fx-border-radius: 10px;">
                            <children>
                               <Canvas fx:id="previewCanvas" height="282.0" layoutX="8.0" layoutY="55.0" width="837.0" />
                               <Label layoutX="397.0" layoutY="14.0" text="Preview">
@@ -208,7 +208,7 @@
                               <TextArea layoutX="16.0" layoutY="82.0" prefHeight="263.0" prefWidth="824.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="14.0" layoutY="16.0" prefHeight="363.0" prefWidth="447.0" style="-fx-border-color: black; -fx-border-radius: 10px;">
+                        <AnchorPane layoutX="14.0" layoutY="16.0" prefHeight="363.0" prefWidth="447.0" style="-fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #4fabc9;">
                            <children>
                               <Label layoutX="158.0" layoutY="14.0" prefHeight="27.0" prefWidth="114.0" text="General">
                                  <font>

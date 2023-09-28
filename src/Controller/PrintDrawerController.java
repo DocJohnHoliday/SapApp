@@ -1,19 +1,20 @@
 package Controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.ArcType;
+import javafx.stage.Stage;
 
-import java.awt.*;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 public class PrintDrawerController implements Initializable {
 
     public TextField openingHeight;
@@ -45,15 +46,16 @@ public class PrintDrawerController implements Initializable {
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
         type.getItems().add("Custom Single RH");
         type.getItems().add("Custom Single LH");
         type.getItems().add("Custom Pair");
+        type.setValue("Custom Single LH");
 
         hinging.getItems().add("No Hinging");
         hinging.getItems().add("Continuous Hinge");
         hinging.getItems().add("Pivots");
         hinging.getItems().add("Butt Hinge");
+        hinging.setValue("Pivots");
 
         glass.getItems().add("No Glass");
         glass.getItems().add("3/16 Clear");
@@ -64,9 +66,11 @@ public class PrintDrawerController implements Initializable {
         glass.getItems().add("1/4 Grey");
         glass.getItems().add("IG");
         glass.getItems().add("Low E");
+        glass.setValue("3/16 Clear");
 
         hardware.getItems().add("No Hardware");
         hardware.getItems().add("Cylinder");
+        hardware.getItems().add("Deadbolt");
         hardware.getItems().add("RIM");
         hardware.getItems().add("CVR");
         hardware.getItems().add("Thumb-turn");
@@ -74,9 +78,11 @@ public class PrintDrawerController implements Initializable {
         hardware.getItems().add("Lever Latch");
         hardware.getItems().add("Electric Strike Surface Mount");
         hardware.getItems().add("Electric Strike Integrated");
+        hardware.setValue("Deadbolt");
 
         secondHardware.getItems().add("No Hardware");
         secondHardware.getItems().add("Cylinder");
+        secondHardware.getItems().add("Deadbolt");
         secondHardware.getItems().add("RIM");
         secondHardware.getItems().add("CVR");
         secondHardware.getItems().add("Thumb-turn");
@@ -84,23 +90,28 @@ public class PrintDrawerController implements Initializable {
         secondHardware.getItems().add("Lever Latch");
         secondHardware.getItems().add("Electric Strike Surface Mount");
         secondHardware.getItems().add("Electric Strike Integrated");
+        secondHardware.setValue("Cylinder");
 
         bottomRail.getItems().add("4");
         bottomRail.getItems().add("7 1/2");
         bottomRail.getItems().add("10");
+        bottomRail.setValue("4");
 
         stileSize.getItems().add("Narrow");
         stileSize.getItems().add("Medium");
         stileSize.getItems().add("Wide");
+        stileSize.setValue("Narrow");
 
         color.getItems().add("Bronze");
         color.getItems().add("Clear");
         color.getItems().add("White");
         color.getItems().add("Black");
+        color.setValue("Bronze");
 
         pull.getItems().add("8\" In-house");
         pull.getItems().add("8\" Chrome");
         pull.getItems().add("10\" Chrome");
+        pull.setValue("8\" In-house");
 
         hardwareUneven.getItems().add("No Hardware");
         hardwareUneven.getItems().add("Cylinder");
@@ -112,68 +123,81 @@ public class PrintDrawerController implements Initializable {
         hardwareUneven.getItems().add("Electric Strike Surface Mount");
         hardwareUneven.getItems().add("Electric Strike Integrated");
 
-
-    }
-
-    public void clear(ActionEvent actionEvent) {
-
-        clearCanvas(previewCanvas.getGraphicsContext2D());
+        quantity.setText("0");
+        doorWidth.setText("35 15/16");
+        doorHeight.setText("83 1/4");
 
     }
 
     public void submit(ActionEvent actionEvent) {
-        drawShapes(previewCanvas.getGraphicsContext2D());
-        drawShapes(doorCanvas.getGraphicsContext2D());
+
+        System.out.println(fractionToDecimal(doorWidth.getText()));
     }
 
-    public void mainMenu(ActionEvent actionEvent) {
+    public void doorWidthChange(ActionEvent actionEvent) {
+
+        int x = 300;
+        int y = 50;
+        int z = 200;
+        int m = 12;
+
+        drawTopRail(x, y, z, m);
+
     }
 
-    private void clearCanvas(GraphicsContext gc) {
-        gc.clearRect(0, 0, previewCanvas.getWidth(), previewCanvas.getHeight());
+    private void drawTopRail(int x, int y, int z, int m) {
+        GraphicsContext graphicsContext = previewCanvas.getGraphicsContext2D();
+        GraphicsContext graphicsContext1 = doorCanvas.getGraphicsContext2D();
+
+        if (fractionToDecimal(doorWidth.getText()) == 35.9375 && color.getValue().equals("Bronze")) {
+            graphicsContext.setStroke(Color.BLACK);
+            graphicsContext.fillRect(x, y, z, m);
+            graphicsContext1.setStroke(Color.BLACK);
+            graphicsContext1.strokeRect(x, y, z, m);
+        } else if (fractionToDecimal(doorWidth.getText()) <= 37.0 && fractionToDecimal(doorWidth.getText()) <= 41.9999 && color.getValue().equals("Bronze")) {
+            graphicsContext.setStroke(Color.RED);
+            graphicsContext.strokeRect(x, y, z + 29, m);
+            graphicsContext1.setStroke(Color.RED);
+            graphicsContext1.strokeRect(x, y, z+ 29, m);
+        } else if (fractionToDecimal(doorWidth.getText()) >= 42.0 && color.getValue().equals("Bronze")) {
+            graphicsContext.setStroke(Color.GREEN);
+            graphicsContext.strokeRect(x, y, z + 79, m);
+            graphicsContext1.setStroke(Color.GREEN);
+            graphicsContext1.strokeRect(x, y, z + 79, m);
+        }
     }
 
-    private void drawShapes(GraphicsContext gc) {
+    public void clear(ActionEvent actionEvent) {
+        GraphicsContext clearCanvas = previewCanvas.getGraphicsContext2D();
+        clearCanvas.clearRect(0, 0, previewCanvas.getWidth(), previewCanvas.getHeight());
+    }
+
+    public void mainMenu(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/View/Print_Drawer.fxml"));
+        loader.load();
+
+        Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+        Parent scene = loader.getRoot();
+        stage.setScene(new Scene(scene));
+        stage.show();
+    }
+
+    private double fractionToDecimal(String x) {
+        String width = doorWidth.getText();
 
         try {
+            String[] split = width.trim().split("\\s+");
+            String fraction = split[1];
+            String[] splitFraction = fraction.split("/");
+            double y = Double.parseDouble(splitFraction[0]);
+            double z = Double.parseDouble(splitFraction[1]);
+            String whole = split[0];
+            double wholeNum = Double.parseDouble(whole);
 
-            String doorXString = doorHeight.getText();
-            int doorX = Integer.parseInt(String.valueOf(doorXString));
-
-            if (doorX > 20) {
-                gc.setStroke(Color.CHOCOLATE);
-                gc.setLineWidth(10);
-                gc.strokeLine(100, 100, 100, 100);
-                gc.setFill(Color.CHOCOLATE);
-            } else {
-                gc.setStroke(Color.BLUE);
-                gc.setLineWidth(10);
-                gc.strokeLine(200, 200, 200, 200);
-                gc.setFill(Color.BLUE);
-            }
-        } catch (NumberFormatException e) {
-            System.out.println("Shit");
+            return wholeNum + (y / z);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            return Double.parseDouble(width);
         }
-
-//        gc.fillOval(10, 60, 30, 30);
-//        gc.strokeOval(60, 60, 30, 30);
-//        gc.fillRoundRect(110, 60, 30, 30, 10, 10);
-//        gc.strokeRoundRect(160, 60, 30, 30, 10, 10);
-//        gc.fillArc(10, 110, 30, 30, 45, 240, ArcType.OPEN);
-//        gc.fillArc(60, 110, 30, 30, 45, 240, ArcType.CHORD);
-//        gc.fillArc(110, 110, 30, 30, 45, 240, ArcType.ROUND);
-//        gc.strokeArc(10, 160, 30, 30, 45, 240, ArcType.OPEN);
-//        gc.strokeArc(60, 160, 30, 30, 45, 240, ArcType.CHORD);
-//        gc.strokeArc(110, 160, 30, 30, 45, 240, ArcType.ROUND);
-//        gc.fillPolygon(new double[]{10, 40, 10, 40},
-//                new double[]{210, 210, 240, 240}, 4);
-//        gc.strokePolygon(new double[]{60, 90, 60, 90},
-//                new double[]{210, 210, 240, 240}, 4);
-//        gc.strokePolyline(new double[]{110, 140, 110, 140},
-//                new double[]{210, 210, 240, 240}, 4);
-    }
-    private void moveCanvas(int x, int y) {
-        previewCanvas.setTranslateX(x);
-        previewCanvas.setTranslateY(y);
     }
 }
