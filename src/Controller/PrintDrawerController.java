@@ -138,33 +138,28 @@ public class PrintDrawerController implements Initializable {
 
         int x = 300;
         int y = 50;
-        int z = 200;
+        int z = 150;
         int m = 12;
 
         drawTopRail(x, y, z, m);
-
     }
 
     private void drawTopRail(int x, int y, int z, int m) {
         GraphicsContext graphicsContext = previewCanvas.getGraphicsContext2D();
         GraphicsContext graphicsContext1 = doorCanvas.getGraphicsContext2D();
+        double a = fractionToDecimal(doorWidth.getText());
 
-        if (fractionToDecimal(doorWidth.getText()) == 35.9375 && color.getValue().equals("Bronze")) {
-            graphicsContext.setStroke(Color.BLACK);
-            graphicsContext.fillRect(x, y, z, m);
-            graphicsContext1.setStroke(Color.BLACK);
-            graphicsContext1.strokeRect(x, y, z, m);
-        } else if (fractionToDecimal(doorWidth.getText()) <= 37.0 && fractionToDecimal(doorWidth.getText()) <= 41.9999 && color.getValue().equals("Bronze")) {
-            graphicsContext.setStroke(Color.RED);
-            graphicsContext.strokeRect(x, y, z + 29, m);
-            graphicsContext1.setStroke(Color.RED);
-            graphicsContext1.strokeRect(x, y, z+ 29, m);
-        } else if (fractionToDecimal(doorWidth.getText()) >= 42.0 && color.getValue().equals("Bronze")) {
-            graphicsContext.setStroke(Color.GREEN);
-            graphicsContext.strokeRect(x, y, z + 79, m);
-            graphicsContext1.setStroke(Color.GREEN);
-            graphicsContext1.strokeRect(x, y, z + 79, m);
+        if (color.getValue().equals("Bronze") && a > 36 && stileSize.getValue().equals("Narrow")) {
+            int i = 0;
+            for (i = 35; i < a; i++)
+                System.out.println(i);
+            int b = (i - 36) * 5;
+            System.out.println(b);
+            graphicsContext.setFill(Color.BLACK);
+            graphicsContext.fillRect(x, y, z + b, m);
+            System.out.println(z + b);
         }
+
     }
 
     public void clear(ActionEvent actionEvent) {
