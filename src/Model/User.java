@@ -1,9 +1,9 @@
 package Model;
 /**This class creates a User object as well as getters.*/
 public class User {
-    private int id;
-    private String name;
-    private String password;
+    private final int id;
+    private final String name;
+    private final String password;
     /**This method constructs a user object.
      * @param id User ID.
      * @param name User Name.

@@ -2,11 +2,11 @@ package Model;
 
 public class Part {
 
-    private int partId;
-    private String partName;
-    private int partWeight;
-    private int partWidth;
-    private int partHeight;
+    private final int partId;
+    private final String partName;
+    private final int partWeight;
+    private final int partWidth;
+    private final int partHeight;
 
     public Part(int partId, String partName, int partWeight, int partWidth, int partHeight) {
         this.partId = partId;

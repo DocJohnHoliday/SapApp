@@ -43,6 +43,7 @@ public class PrintDrawerController implements Initializable {
     public ChoiceBox<String> pull;
     public Canvas doorCanvas;
     public Canvas windowCanvas;
+    public TextField midRail;
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -131,7 +132,7 @@ public class PrintDrawerController implements Initializable {
 
     public void submit(ActionEvent actionEvent) {
 
-        System.out.println(fractionToDecimal(doorWidth.getText()));
+        //System.out.println(fractionToDecimal(doorWidth.getText()));
     }
 
     public void doorWidthChange(ActionEvent actionEvent) {
@@ -141,23 +142,106 @@ public class PrintDrawerController implements Initializable {
         int z = 150;
         int m = 12;
 
-        drawTopRail(x, y, z, m);
+        GraphicsContext clearCanvas = previewCanvas.getGraphicsContext2D();
+        clearCanvas.clearRect(0, 0, previewCanvas.getWidth(), previewCanvas.getHeight());
+
+       // drawTopRail(x, y, z, m);
+        drawBottomRail(x, y, z, m);
+        drawStile(x, y, z, m);
     }
 
     private void drawTopRail(int x, int y, int z, int m) {
         GraphicsContext graphicsContext = previewCanvas.getGraphicsContext2D();
         GraphicsContext graphicsContext1 = doorCanvas.getGraphicsContext2D();
-        double a = fractionToDecimal(doorWidth.getText());
+        double a = fractionToDecimalWidth(doorWidth.getText());
 
-        if (color.getValue().equals("Bronze") && a > 36 && stileSize.getValue().equals("Narrow")) {
+        if (color.getValue().equals("Bronze") && a >= 36 && stileSize.getValue().equals("Narrow")) {
             int i = 0;
             for (i = 35; i < a; i++)
                 System.out.println(i);
             int b = (i - 36) * 5;
-            System.out.println(b);
             graphicsContext.setFill(Color.BLACK);
-            graphicsContext.fillRect(x, y, z + b, m);
-            System.out.println(z + b);
+            graphicsContext.fillRect(x, y + 25, z + b, m);
+            graphicsContext1.setFill(Color.BLACK);
+            graphicsContext1.fillRect(x, y + 25, z + b, m);
+        } else if (color.getValue().equals("Bronze") && a < 36 && stileSize.getValue().equals("Narrow")) {
+            int i = 0;
+            for (i = 0; i < a; i++)
+                System.out.println(i);
+            int b = (i - 36) * 5;
+            graphicsContext.setFill(Color.BLACK);
+            graphicsContext.fillRect(x, y + 25, z + b, m + 8);
+            graphicsContext1.setFill(Color.BLACK);
+            graphicsContext1.fillRect(x, y + 25, z + b, m + 8);
+        }
+
+    }
+
+    private void drawBottomRail(int x, int y, int z, int m) {
+        GraphicsContext graphicsContext = previewCanvas.getGraphicsContext2D();
+        GraphicsContext graphicsContext1 = doorCanvas.getGraphicsContext2D();
+        double a = fractionToDecimalWidth(doorWidth.getText());
+
+        if (color.getValue().equals("Bronze") && a >= 36 && stileSize.getValue().equals("Narrow")) {
+            int i = 0;
+            for (i = 35; i < a; i++)
+                System.out.println(i);
+            int b = (i - 36) * 5;
+            graphicsContext.setFill(Color.BLACK);
+            graphicsContext.fillRect(x, y + 25, z + b, m);
+            graphicsContext1.setFill(Color.BLACK);
+            graphicsContext1.fillRect(x, y + 25, z + b, m);
+        } else if (color.getValue().equals("Bronze") && a < 36 && stileSize.getValue().equals("Narrow")) {
+            int i = 0;
+            for (i = 0; i < a; i++)
+                System.out.println(i);
+            int b = (i - 36) * 5;
+            graphicsContext.setFill(Color.BLACK);
+            graphicsContext.fillRect(x, y + 25, z + b, m + 8);
+            graphicsContext1.setFill(Color.BLACK);
+            graphicsContext1.fillRect(x, y + 25, z + b, m + 8);
+        }
+
+    }
+
+    public void doorHeightChange(ActionEvent actionEvent) {
+        int x = 300;
+        int y = 50;
+        int z = 17;
+        int m = 500;
+
+        GraphicsContext clearCanvas = previewCanvas.getGraphicsContext2D();
+        clearCanvas.clearRect(0, 0, previewCanvas.getWidth(), previewCanvas.getHeight());
+
+        drawStile(x, y, z, m);
+        drawTopRail(x, y, z, m);
+        drawBottomRail(x, y, z, m);
+    }
+
+
+    private void drawStile(int x, int y, int z, int m) {
+        GraphicsContext graphicsContext = previewCanvas.getGraphicsContext2D();
+        GraphicsContext graphicsContext1 = doorCanvas.getGraphicsContext2D();
+        double a = fractionToDecimalHeight(doorHeight.getText());
+
+        if (color.getValue().equals("Bronze") && a >= 84 && stileSize.getValue().equals("Narrow")) {
+            int i = 0;
+            for (i = 83; i < a; i++)
+                System.out.println(i);
+            int b = (i - 84) * 5;
+            graphicsContext.setFill(Color.BLACK);
+            graphicsContext.fillRect(x, y, z, m + b);
+            graphicsContext1.setFill(Color.BLACK);
+            graphicsContext1.fillRect(x, y, z, m + b);
+        } else if (color.getValue().equals("Bronze") && a < 84 && stileSize.getValue().equals("Narrow")) {
+            int i = 0;
+            for (i = 0; i < a; i++)
+                System.out.println(i);
+            int b = (i - 84) * 5;
+            graphicsContext.setFill(Color.BLACK);
+            graphicsContext.fillRect(x, y, z, m + b);
+            graphicsContext1.setFill(Color.BLACK);
+            graphicsContext1.fillRect(x, y, z, m + b);
         }
 
     }
@@ -178,7 +262,7 @@ public class PrintDrawerController implements Initializable {
         stage.show();
     }
 
-    private double fractionToDecimal(String x) {
+    private double fractionToDecimalWidth(String x) {
         String width = doorWidth.getText();
 
         try {
@@ -193,6 +277,24 @@ public class PrintDrawerController implements Initializable {
             return wholeNum + (y / z);
         } catch (ArrayIndexOutOfBoundsException e) {
             return Double.parseDouble(width);
+        }
+    }
+
+    private double fractionToDecimalHeight(String x) {
+        String height = doorHeight.getText();
+
+        try {
+            String[] split = height.trim().split("\\s+");
+            String fraction = split[1];
+            String[] splitFraction = fraction.split("/");
+            double y = Double.parseDouble(splitFraction[0]);
+            double z = Double.parseDouble(splitFraction[1]);
+            String whole = split[0];
+            double wholeNum = Double.parseDouble(whole);
+
+            return wholeNum + (y / z);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            return Double.parseDouble(height);
         }
     }
 }

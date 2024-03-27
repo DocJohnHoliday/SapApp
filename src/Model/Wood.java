@@ -2,7 +2,7 @@ package Model;
 
 public class Wood {
 
-    private int woodBaseWeight;
+    private final int woodBaseWeight;
 
     private int woodTierWeight;
 
