@@ -132,11 +132,6 @@ public class PrintDrawerController implements Initializable {
 
     public void submit(ActionEvent actionEvent) {
 
-        //System.out.println(fractionToDecimal(doorWidth.getText()));
-    }
-
-    public void doorWidthChange(ActionEvent actionEvent) {
-
         int x = 300;
         int y = 50;
         int z = 150;
@@ -145,28 +140,52 @@ public class PrintDrawerController implements Initializable {
         GraphicsContext clearCanvas = previewCanvas.getGraphicsContext2D();
         clearCanvas.clearRect(0, 0, previewCanvas.getWidth(), previewCanvas.getHeight());
 
-        drawTopRail(x, y, z, m);
+        GraphicsContext graphicsContext = previewCanvas.getGraphicsContext2D();
+        double doorWidthDouble = fractionToDecimalWidth(doorWidth.getText());
+        double doorHeightDouble = fractionToDecimalHeight(doorHeight.getText());
+
+//        graphicsContext.stroke();
+//        graphicsContext.rect(x,y,z, m);
+
+        if (color.getValue().equals("Bronze") && doorWidthDouble >= 36 && stileSize.getValue().equals("Narrow") && doorHeightDouble >= 84 ) {
+
+            int i = 0;
+            for (i = 35; i < doorWidthDouble; i++)
+                System.out.println(i);
+            int b = (i - 36) * 5;
+
+            int j = 0;
+            for (j = 35; j < doorHeightDouble; j++)
+                System.out.println(j);
+            int c = (j - 36) * 5;
+
+            //Top Rail
+            graphicsContext.setFill(Color.BLACK);
+            graphicsContext.fillRect(x, y + 25, z + b, m);
+            //Bottom Rail
+            graphicsContext.setFill(Color.BLACK);
+            graphicsContext.fillRect(x, y + 100, z + b, m + 8);
+            //Stile
+            graphicsContext.setFill(Color.BLACK);
+            graphicsContext.fillRect(x +25, y, z, m);
+
+        } else if (color.getValue().equals("Bronze") && doorWidthDouble < 36 && stileSize.getValue().equals("Narrow")) {
+            int i = 0;
+            for (i = 0; i < doorWidthDouble; i++)
+                System.out.println(i);
+            int b = (i - 36) * 5;
+            graphicsContext.setFill(Color.BLACK);
+            graphicsContext.fillRect(x, y + 25, z + b, m );
+            graphicsContext.setFill(Color.BLACK);
+            graphicsContext.fillRect(x, y + 100, z + b, m + 8);
+        }
+    }
+
+    public void doorWidthChange(ActionEvent actionEvent) {
+
     }
 
     private void drawTopRail(int x, int y, int z, int m) {
-        GraphicsContext graphicsContext = previewCanvas.getGraphicsContext2D();
-        double a = fractionToDecimalWidth(doorWidth.getText());
-
-        if (color.getValue().equals("Bronze") && a >= 36 && stileSize.getValue().equals("Narrow")) {
-            int i = 0;
-            for (i = 35; i < a; i++)
-                System.out.println(i);
-            int b = (i - 36) * 5;
-            graphicsContext.setFill(Color.BLACK);
-            graphicsContext.fillRect(x, y + 25, z + b, m);
-        } else if (color.getValue().equals("Bronze") && a < 36 && stileSize.getValue().equals("Narrow")) {
-            int i = 0;
-            for (i = 0; i < a; i++)
-                System.out.println(i);
-            int b = (i - 36) * 5;
-            graphicsContext.setFill(Color.BLACK);
-            graphicsContext.fillRect(x, y + 25, z + b, m + 8);
-        }
 
     }
 
@@ -215,5 +234,11 @@ public class PrintDrawerController implements Initializable {
         } catch (ArrayIndexOutOfBoundsException e) {
             return Double.parseDouble(height);
         }
+    }
+
+    public void clear(ActionEvent actionEvent) {
+
+        GraphicsContext clearCanvas = previewCanvas.getGraphicsContext2D();
+        clearCanvas.clearRect(0, 0, previewCanvas.getWidth(), previewCanvas.getHeight());
     }
 }

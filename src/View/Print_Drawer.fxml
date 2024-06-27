@@ -184,12 +184,12 @@
             </AnchorPane>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="129.0" text="Clear">
+                  <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="129.0" text="Clear" onAction="#clear">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="129.0" text="Submit">
+                  <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="129.0" text="Submit" onAction="#submit">
                      <font>
                         <Font size="18.0" />
                      </font>
