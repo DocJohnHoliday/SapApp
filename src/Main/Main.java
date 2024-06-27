@@ -14,6 +14,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/View/Print_Drawer.fxml"));
         stage.setTitle("");
         stage.setScene(new Scene(root, 800, 600));
+        stage.setMaximized(true);
         stage.show();
     }
     /**This is the main method.
@@ -23,11 +24,11 @@ public class Main extends Application {
 
         /* Test for French */
         //Locale.setDefault(new Locale("fr"));
-
-        JDBC.openConnection();
+//
+//        JDBC.openConnection();
 
         launch(args);
 
-        JDBC.closeConnection();
+//        JDBC.closeConnection();
     }
 }
