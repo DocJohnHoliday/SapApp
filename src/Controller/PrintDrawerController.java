@@ -46,8 +46,12 @@ public class PrintDrawerController implements Initializable {
     public Canvas doorCanvas;
     public Canvas windowCanvas;
     public TextField midRail;
+    public ComboBox hand;
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        hand.getItems().add("Right");
+        hand.getItems().add("Left");
 
         type.getItems().add("Custom Single RH");
         type.getItems().add("Custom Single LH");
@@ -155,7 +159,7 @@ public class PrintDrawerController implements Initializable {
             int i = 0;
             for (i = 35; i < doorWidthDouble; i++)
                 System.out.println(i);
-            int b = (i - 36) * 10;
+            int b = (i - 40) * 10;
 
             int j = 0;
             for (j = 83; j < doorHeightDouble; j++)
@@ -183,7 +187,7 @@ public class PrintDrawerController implements Initializable {
             int i = 0;
             for (i = 0; i < doorWidthDouble; i++)
                 System.out.println(i);
-            int b = (i - 36) * 10;
+            int b = (i - 40) * 10;
 
             int j = 0;
             for (j = 0; j < doorHeightDouble; j++)
@@ -207,11 +211,19 @@ public class PrintDrawerController implements Initializable {
             graphicsContext.setFill(Color.rgb(95, 87,87));
             graphicsContext.fillRect(x + z + b, y, m, z + c + m + 15 + 150);
 
+            if(secondHardware.getValue().equals("Cylinder") && hand.getValue().equals("Left")) {
+                graphicsContext.setFill(Color.WHITE);
+                graphicsContext.fillOval(x - m + 1, z + c + m + 15, 10, 10);
+            } else {
+                graphicsContext.setFill(Color.WHITE);
+                graphicsContext.fillOval(x + z + b + 1, z + c + m + 15, 10, 10);
+            }
+
         } else if (color.getValue().equals("Bronze") && doorWidthDouble < 36 && stileSize.getValue().equals("Narrow") && doorHeightDouble >= 84) {
             int i = 0;
             for (i = 0; i < doorWidthDouble; i++)
                 System.out.println(i);
-            int b = (i - 36) * 10;
+            int b = (i - 40) * 10;
 
             int j = 0;
             for (j = 83; j < doorHeightDouble; j++)
@@ -239,7 +251,7 @@ public class PrintDrawerController implements Initializable {
             int i = 0;
             for (i = 35; i < doorWidthDouble; i++)
                 System.out.println(i);
-            int b = (i - 36) * 10;
+            int b = (i - 40) * 10;
 
             int j = 0;
             for (j = 0; j < doorHeightDouble; j++)
@@ -267,7 +279,7 @@ public class PrintDrawerController implements Initializable {
             int i = 0;
             for (i = 0; i < doorWidthDouble; i++)
                 System.out.println(i);
-            int b = (i - 36) * 10;
+            int b = (i - 40) * 10;
 
             int j = 0;
             for (j = 0; j < doorHeightDouble; j++)
@@ -294,7 +306,7 @@ public class PrintDrawerController implements Initializable {
             int i = 0;
             for (i = 35; i < doorWidthDouble; i++)
                 System.out.println(i);
-            int b = (i - 36) * 10;
+            int b = (i - 40) * 10;
 
             int j = 0;
             for (j = 83; j < doorHeightDouble; j++)
@@ -320,7 +332,7 @@ public class PrintDrawerController implements Initializable {
             int i = 0;
             for (i = 35; i < doorWidthDouble; i++)
                 System.out.println(i);
-            int b = (i - 36) * 10;
+            int b = (i - 40) * 10;
 
             int j = 0;
             for (j = 0; j < doorHeightDouble; j++)
@@ -346,7 +358,7 @@ public class PrintDrawerController implements Initializable {
         int i = 0;
         for (i = 35; i < doorWidthDouble; i++)
             System.out.println(i);
-        int b = (i - 36) * 10;
+        int b = (i - 40) * 10;
 
         int j = 0;
         for (j = 0; j < doorHeightDouble; j++)
@@ -367,8 +379,6 @@ public class PrintDrawerController implements Initializable {
             graphicsContext.strokeText(doorHeightString, ((x + z + b) + m) + 2, (double) (z + c + m + 15 + 150) / 2);
             //Second Stile
             graphicsContext.strokeRect(x + z + b, y, m, z + c + m + 15 + 150);
-
-
         }
     }
 
