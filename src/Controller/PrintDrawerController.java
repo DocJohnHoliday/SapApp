@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.input.ZoomEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Polyline;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -138,10 +139,10 @@ public class PrintDrawerController implements Initializable {
 
     public void submit(ActionEvent actionEvent) {
 
-        int x = 300; //Start in X axis
-        int y = 50; //Start in Y axis
-        int z = 300; //Rectangle Width
-        int m = 12; //Rectangle Height
+        int startX = 300; //Start in X axis
+        int startY = 50; //Start in Y axis
+        int recWidth = 300; //Rectangle Width
+        int recHeight = 12; //Rectangle Height
 
         String doorWidthString = doorWidth.getText();
         String doorHeightString = doorHeight.getText();
@@ -149,7 +150,7 @@ public class PrintDrawerController implements Initializable {
         GraphicsContext clearCanvas = previewCanvas.getGraphicsContext2D();
         clearCanvas.clearRect(0, 0, previewCanvas.getWidth(), previewCanvas.getHeight());
 
-        GraphicsContext graphicsContext = previewCanvas.getGraphicsContext2D();
+        GraphicsContext gc = previewCanvas.getGraphicsContext2D();
         double doorWidthDouble = fractionToDecimalWidth(doorWidth.getText());
         double doorHeightDouble = fractionToDecimalHeight(doorHeight.getText());
 
@@ -159,226 +160,289 @@ public class PrintDrawerController implements Initializable {
             int i = 0;
             for (i = 35; i < doorWidthDouble; i++)
                 System.out.println(i);
-            int b = (i - 40) * 10;
+            int doorWidthRatio = (i - 40) * 10;
 
             int j = 0;
             for (j = 83; j < doorHeightDouble; j++)
                 System.out.println(j);
-            int c = (j - 84) * 10;
+            int doorHeightRatio = (j - 84) * 10;
 
             //Top Rail
-            graphicsContext.setFill(Color.rgb(95, 87,87));
-            graphicsContext.fillRect(x, y, z + b, m);
+            gc.setFill(Color.rgb(95, 87,87));
+            gc.fillRect(startX, startY, recWidth + doorWidthRatio, recHeight);
             //Top Rail Text
-            graphicsContext.strokeText(doorWidthString, (x - m) + ((double) (z + b) / 2), y + (2 * m));
+            gc.strokeText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight));
             //Bottom Rail
-            graphicsContext.setFill(Color.rgb(95, 87,87));
-            graphicsContext.fillRect(x, y + z + c + 150, z + b, m + 15);
+            gc.setFill(Color.rgb(95, 87,87));
+            gc.fillRect(startX, startY + recWidth + doorHeightRatio + 150, recWidth + doorWidthRatio, recHeight + 15);
             //Stile
-            graphicsContext.setFill(Color.rgb(95, 87,87));
-            graphicsContext.fillRect(x - m, y, m, z + c + m + 15 + 150);
+            gc.setFill(Color.rgb(95, 87,87));
+            gc.fillRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 150);
             //Stile Text
-            graphicsContext.strokeText(doorHeightString, ((x + z + b) + m) + 2, (double) (z + c + m + 15 + 150) / 2);
+            gc.strokeText(doorHeightString, ((startX + recWidth + doorWidthRatio) + recHeight) + 2, (double) (recWidth + doorHeightRatio + recHeight + 15 + 150) / 2);
             //Second Stile
-            graphicsContext.setFill(Color.rgb(95, 87,87));
-            graphicsContext.fillRect(x + z + b, y, m, z + c + m + 15 + 150);
+            gc.setFill(Color.rgb(95, 87,87));
+            gc.fillRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 150);
 
         } else if (color.getValue().equals("Bronze") && doorWidthDouble < 36 && stileSize.getValue().equals("Narrow") && doorHeightDouble < 84) {
             int i = 0;
             for (i = 0; i < doorWidthDouble; i++)
                 System.out.println(i);
-            int b = (i - 40) * 10;
+            int doorWidthRatio = (i - 40) * 10;
 
             int j = 0;
             for (j = 0; j < doorHeightDouble; j++)
                 System.out.println(j);
-            int c = (j - 84) * 10;
+            int doorHeightRatio = (j - 84) * 10;
 
             //Top Rail
-            graphicsContext.setFill(Color.rgb(95, 87,87));
-            graphicsContext.fillRect(x, y, z + b, m);
+            gc.setFill(Color.rgb(95, 87,87));
+            gc.setStroke(Color.WHITE);
+            gc.fillRect(startX + 1, startY, recWidth + doorWidthRatio - 1, recHeight);
+            gc.strokeRect(startX, startY, recWidth + doorWidthRatio + 2, recHeight);
+            gc.setStroke(Color.BLACK);
             //Top Rail Text
-            graphicsContext.strokeText(doorWidthString, (x - m) + ((double) (z + b) / 2), y + (2 * m));
+            gc.strokeText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight));
             //Bottom Rail
-            graphicsContext.setFill(Color.rgb(95, 87,87));
-            graphicsContext.fillRect(x, y + z + c + 150, z + b, m + 15);
+            gc.setFill(Color.rgb(95, 87,87));
+            gc.setStroke(Color.WHITE);
+            gc.fillRect(startX + 1, startY + recWidth + doorHeightRatio + 150, recWidth + doorWidthRatio - 1, recHeight + 15);
+            gc.strokeRect(startX, startY + recWidth + doorHeightRatio + 150, recWidth + doorWidthRatio + 2, recHeight + 15);
+            gc.setStroke(Color.BLACK);
             //Stile
-            graphicsContext.setFill(Color.rgb(95, 87,87));
-            graphicsContext.fillRect(x - m, y, m, z + c + m + 15 + 150);
+            gc.setFill(Color.rgb(95, 87,87));
+            gc.fillRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 150);
             //Stile Text
-            graphicsContext.strokeText(doorHeightString, ((x + z + b) + m) + 2, (double) (z + c + m + 15 + 150) / 2);
+            gc.strokeText(doorHeightString, ((startX + recWidth + doorWidthRatio) + recHeight) + 2, (double) (recWidth + doorHeightRatio + recHeight + 15 + 150) / 2);
             //Second Stile
-            graphicsContext.setFill(Color.rgb(95, 87,87));
-            graphicsContext.fillRect(x + z + b, y, m, z + c + m + 15 + 150);
+            gc.setFill(Color.rgb(95, 87,87));
+            gc.fillRect(startX + 1 + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 150);
 
             if(secondHardware.getValue().equals("Cylinder") && hand.getValue().equals("Left")) {
-                graphicsContext.setFill(Color.WHITE);
-                graphicsContext.fillOval(x - m + 1, z + c + m + 15, 10, 10);
+                gc.setFill(Color.WHITE);
+                gc.fillOval(startX - recHeight + 1, recWidth + doorHeightRatio + recHeight + 15, 10, 10);
+
+                double[] pullHandlePoly = new double[4];
+                pullHandlePoly[0] = startX;                 //First X Point
+                pullHandlePoly[1] = startX - recHeight + 30;//Second X point
+                pullHandlePoly[2] = startX - recHeight + 30;//Third X point
+                pullHandlePoly[3] = startX;                 //Fourth X point
+                double[] pullHandlePoly1 = new double[4];
+                pullHandlePoly1[0] = recWidth + doorHeightRatio + recHeight;      //First Y Point
+                pullHandlePoly1[1] = recWidth + doorHeightRatio + recHeight;     //Second Y Point
+                pullHandlePoly1[2] = recWidth + doorHeightRatio + recHeight - 50;//Third Y Point
+                pullHandlePoly1[3] = recWidth + doorHeightRatio + recHeight - 50;//Fourth Y Point
+                gc.setLineWidth(5.0);
+                gc.setStroke(Color.rgb(173, 172, 172));
+                gc.strokePolyline(pullHandlePoly, pullHandlePoly1, 4);
+                gc.setLineWidth(1.0);
+
+                double[] pushBarPoly = new double[2];
+                pushBarPoly[0] = startX;
+                pushBarPoly[1] = startX + recWidth + doorWidthRatio;
+
+                double[] pushBarPoly1 = new double[2];
+                pushBarPoly1[0] = recWidth + doorHeightRatio + recHeight - 50;
+                pushBarPoly1[1] = recWidth + doorHeightRatio + recHeight - 50;
+
+                gc.setLineWidth(5.0);
+                gc.setStroke(Color.rgb(173, 172, 172));
+                gc.strokePolyline(pushBarPoly, pushBarPoly1, 2);
+                gc.setLineWidth(1.0);
+
             } else {
-                graphicsContext.setFill(Color.WHITE);
-                graphicsContext.fillOval(x + z + b + 1, z + c + m + 15, 10, 10);
+                gc.setFill(Color.WHITE);
+                gc.fillOval(startX + recWidth + doorWidthRatio + 2, recWidth + doorHeightRatio + recHeight + 15, 10, 10);
+
+                double[] pullHandlePoly = new double[4];
+                pullHandlePoly[0] = startX + 2 + recWidth + doorWidthRatio;     //First X Point
+                pullHandlePoly[1] = startX + 2 + recWidth + doorWidthRatio - 20;//Second X point
+                pullHandlePoly[2] = startX + 2 + recWidth + doorWidthRatio - 20;//Third X point
+                pullHandlePoly[3] = startX + 2 + recWidth + doorWidthRatio;     //Fourth X point
+                double[] pullHandlePoly1 = new double[4];
+                pullHandlePoly1[0] = recWidth + doorHeightRatio + recHeight;     //First Y Point
+                pullHandlePoly1[1] = recWidth + doorHeightRatio + recHeight;     //Second Y Point
+                pullHandlePoly1[2] = recWidth + doorHeightRatio + recHeight - 50;//Third Y Point
+                pullHandlePoly1[3] = recWidth + doorHeightRatio + recHeight - 50;//Fourth Y Point
+                gc.setLineWidth(5.0);
+                gc.setStroke(Color.rgb(173, 172, 172));
+                gc.strokePolyline(pullHandlePoly, pullHandlePoly1, 4);
+                gc.setLineWidth(1.0);
+
+                double[] pushBarPoly = new double[2];
+                pushBarPoly[0] = startX;
+                pushBarPoly[1] = startX + recWidth + doorWidthRatio;
+
+                double[] pushBarPoly1 = new double[2];
+                pushBarPoly1[0] = recWidth + doorHeightRatio + recHeight - 50;
+                pushBarPoly1[1] = recWidth + doorHeightRatio + recHeight - 50;
+
+                gc.setLineWidth(5.0);
+                gc.setStroke(Color.rgb(173, 172, 172));
+                gc.strokePolyline(pushBarPoly, pushBarPoly1, 2);
+                gc.setLineWidth(1.0);
             }
 
         } else if (color.getValue().equals("Bronze") && doorWidthDouble < 36 && stileSize.getValue().equals("Narrow") && doorHeightDouble >= 84) {
             int i = 0;
             for (i = 0; i < doorWidthDouble; i++)
                 System.out.println(i);
-            int b = (i - 40) * 10;
+            int doorWidthRatio = (i - 40) * 10;
 
             int j = 0;
             for (j = 83; j < doorHeightDouble; j++)
                 System.out.println(j);
-            int c = (j - 84) * 10;
+            int doorHeightRatio = (j - 84) * 10;
 
             //Top Rail
-            graphicsContext.setFill(Color.rgb(95, 87,87));
-            graphicsContext.fillRect(x, y, z + b, m);
+            gc.setFill(Color.rgb(95, 87,87));
+            gc.fillRect(startX, startY, recWidth + doorWidthRatio, recHeight);
             //Top Rail Text
-            graphicsContext.strokeText(doorWidthString, (x - m) + ((double) (z + b) / 2), y + (2 * m));
+            gc.strokeText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight));
             //Bottom Rail
-            graphicsContext.setFill(Color.rgb(95, 87,87));
-            graphicsContext.fillRect(x, y + z + c + 150, z + b, m + 15);
+            gc.setFill(Color.rgb(95, 87,87));
+            gc.fillRect(startX, startY + recWidth + doorHeightRatio + 150, recWidth + doorWidthRatio, recHeight + 15);
             //Stile
-            graphicsContext.setFill(Color.rgb(95, 87,87));
-            graphicsContext.fillRect(x - m, y, m, z + c + m + 15 + 150);
+            gc.setFill(Color.rgb(95, 87,87));
+            gc.fillRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 150);
             //Stile Text
-            graphicsContext.strokeText(doorHeightString, ((x + z + b) + m) + 2, (double) (z + c + m + 15 + 150) / 2);
+            gc.strokeText(doorHeightString, ((startX + recWidth + doorWidthRatio) + recHeight) + 2, (double) (recWidth + doorHeightRatio + recHeight + 15 + 150) / 2);
             //Second Stile
-            graphicsContext.setFill(Color.rgb(95, 87,87));
-            graphicsContext.fillRect(x + z + b, y, m, z + c + m + 15 + 150);
+            gc.setFill(Color.rgb(95, 87,87));
+            gc.fillRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 150);
 
         } else if (color.getValue().equals("Bronze") && doorWidthDouble >= 36 && stileSize.getValue().equals("Narrow") && doorHeightDouble < 84) {
             int i = 0;
             for (i = 35; i < doorWidthDouble; i++)
                 System.out.println(i);
-            int b = (i - 40) * 10;
+            int doorWidthRatio = (i - 40) * 10;
 
             int j = 0;
             for (j = 0; j < doorHeightDouble; j++)
                 System.out.println(j);
-            int c = (j - 84) * 10;
+            int doorHeightRatio = (j - 84) * 10;
 
             //Top Rail
-            graphicsContext.setFill(Color.rgb(95, 87,87));
-            graphicsContext.fillRect(x, y, z + b, m);
+            gc.setFill(Color.rgb(95, 87,87));
+            gc.fillRect(startX, startY, recWidth + doorWidthRatio, recHeight);
             //Top Rail Text
-            graphicsContext.strokeText(doorWidthString, (x - m) + ((double) (z + b) / 2), y + (2 * m));
+            gc.strokeText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight));
             //Bottom Rail
-            graphicsContext.setFill(Color.rgb(95, 87,87));
-            graphicsContext.fillRect(x, y + z + c + 150, z + b, m + 15);
+            gc.setFill(Color.rgb(95, 87,87));
+            gc.fillRect(startX, startY + recWidth + doorHeightRatio + 150, recWidth + doorWidthRatio, recHeight + 15);
             //Stile
-            graphicsContext.setFill(Color.rgb(95, 87,87));
-            graphicsContext.fillRect(x - m, y, m, z + c + m + 15 + 150);
+            gc.setFill(Color.rgb(95, 87,87));
+            gc.fillRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 150);
             //Stile Text
-            graphicsContext.strokeText(doorHeightString, ((x + z + b) + m) + 2, (double) (z + c + m + 15 + 150) / 2);
+            gc.strokeText(doorHeightString, ((startX + recWidth + doorWidthRatio) + recHeight) + 2, (double) (recWidth + doorHeightRatio + recHeight + 15 + 150) / 2);
             //Second Stile
-            graphicsContext.setFill(Color.rgb(95, 87,87));
-            graphicsContext.fillRect(x + z + b, y, m, z + c + m + 15 + 150);
+            gc.setFill(Color.rgb(95, 87,87));
+            gc.fillRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 150);
 
         } else if (color.getValue().equals("Clear") && doorWidthDouble < 36 && stileSize.getValue().equals("Narrow") && doorHeightDouble < 84) {
             int i = 0;
             for (i = 0; i < doorWidthDouble; i++)
                 System.out.println(i);
-            int b = (i - 40) * 10;
+            int doorWidthRatio = (i - 40) * 10;
 
             int j = 0;
             for (j = 0; j < doorHeightDouble; j++)
                 System.out.println(j);
-            int c = (j - 84) * 10;
+            int doorHeightRatio = (j - 84) * 10;
 
             //Top Rail
-            graphicsContext.strokeRect(x, y, z + b, m);
+            gc.strokeRect(startX, startY, recWidth + doorWidthRatio, recHeight);
             //Top Rail Text
-            graphicsContext.strokeText(doorWidthString, (x - m) + ((double) (z + b) / 2), y + (2 * m));
+            gc.strokeText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight));
 
             //Bottom Rail
-            graphicsContext.strokeRect(x, y + z + c + 150, z + b, m + 15);
+            gc.strokeRect(startX, startY + recWidth + doorHeightRatio + 150, recWidth + doorWidthRatio, recHeight + 15);
 
             //First Stile
-            graphicsContext.strokeRect(x - m, y, m, z + c + m + 15 + 150);
+            gc.strokeRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 150);
             //Stile Text
-            graphicsContext.strokeText(doorHeightString, ((x + z + b) + m) + 2, (double) (z + c + m + 15 + 150) / 2);
+            gc.strokeText(doorHeightString, ((startX + recWidth + doorWidthRatio) + recHeight) + 2, (double) (recWidth + doorHeightRatio + recHeight + 15 + 150) / 2);
             //Second Stile
-            graphicsContext.strokeRect(x + z + b, y, m, z + c + m + 15 + 150);
+            gc.strokeRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 150);
 
         } else if (color.getValue().equals("Clear") && doorWidthDouble >= 36 && stileSize.getValue().equals("Narrow") && doorHeightDouble >= 84) {
 
             int i = 0;
             for (i = 35; i < doorWidthDouble; i++)
                 System.out.println(i);
-            int b = (i - 40) * 10;
+            int doorWidthRatio = (i - 40) * 10;
 
             int j = 0;
             for (j = 83; j < doorHeightDouble; j++)
                 System.out.println(j);
-            int c = (j - 84) * 10;
+            int doorHeightRatio = (j - 84) * 10;
 
             //Top Rail
-            graphicsContext.strokeRect(x, y, z + b, m);
+            gc.strokeRect(startX, startY, recWidth + doorWidthRatio, recHeight);
             //Top Rail Text
-            graphicsContext.strokeText(doorWidthString, (x - m) + ((double) (z + b) / 2), y + (2 * m));
+            gc.strokeText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight));
 
             //Bottom Rail
-            graphicsContext.strokeRect(x, y + z + c + 150, z + b, m + 15);
+            gc.strokeRect(startX, startY + recWidth + doorHeightRatio + 150, recWidth + doorWidthRatio, recHeight + 15);
 
             //First Stile
-            graphicsContext.strokeRect(x - m, y, m, z + c + m + 15 + 150);
+            gc.strokeRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 150);
             //Stile Text
-            graphicsContext.strokeText(doorHeightString, ((x + z + b) + m) + 2, (double) (z + c + m + 15 + 150) / 2);
+            gc.strokeText(doorHeightString, ((startX + recWidth + doorWidthRatio) + recHeight) + 2, (double) (recWidth + doorHeightRatio + recHeight + 15 + 150) / 2);
             //Second Stile
-            graphicsContext.strokeRect(x + z + b, y, m, z + c + m + 15 + 150);
+            gc.strokeRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 150);
 
         } else if (color.getValue().equals("Clear") && doorWidthDouble >= 36 && stileSize.getValue().equals("Narrow") && doorHeightDouble < 84) {
             int i = 0;
             for (i = 35; i < doorWidthDouble; i++)
                 System.out.println(i);
-            int b = (i - 40) * 10;
+            int doorWidthRatio = (i - 40) * 10;
 
             int j = 0;
             for (j = 0; j < doorHeightDouble; j++)
                 System.out.println(j);
-            int c = (j - 84) * 10;
+            int doorHeightRatio = (j - 84) * 10;
 
             //Top Rail
-            graphicsContext.strokeRect(x, y, z + b, m);
+            gc.strokeRect(startX, startY, recWidth + doorWidthRatio, recHeight);
             //Top Rail Text
-            graphicsContext.strokeText(doorWidthString, (x - m) + ((double) (z + b) / 2), y + (2 * m));
+            gc.strokeText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight));
 
             //Bottom Rail
-            graphicsContext.strokeRect(x, y + z + c + 150, z + b, m + 15);
+            gc.strokeRect(startX, startY + recWidth + doorHeightRatio + 150, recWidth + doorWidthRatio, recHeight + 15);
 
             //First Stile
-            graphicsContext.strokeRect(x - m, y, m, z + c + m + 15 + 150);
+            gc.strokeRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 150);
             //Stile Text
-            graphicsContext.strokeText(doorHeightString, ((x + z + b) + m) + 2, (double) (z + c + m + 15 + 150) / 2);
+            gc.strokeText(doorHeightString, ((startX + recWidth + doorWidthRatio) + recHeight) + 2, (double) (recWidth + doorHeightRatio + recHeight + 15 + 150) / 2);
             //Second Stile
-            graphicsContext.strokeRect(x + z + b, y, m, z + c + m + 15 + 150);
+            gc.strokeRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 150);
 
         }  else if (color.getValue().equals("Clear") && doorWidthDouble < 36 && stileSize.getValue().equals("Narrow") && doorHeightDouble >= 84) {
         int i = 0;
         for (i = 35; i < doorWidthDouble; i++)
             System.out.println(i);
-        int b = (i - 40) * 10;
+        int doorWidthRatio = (i - 40) * 10;
 
         int j = 0;
         for (j = 0; j < doorHeightDouble; j++)
             System.out.println(j);
-        int c = (j - 84) * 10;
+        int doorHeightRatio = (j - 84) * 10;
 
             //Top Rail
-            graphicsContext.strokeRect(x, y, z + b, m);
+            gc.strokeRect(startX, startY, recWidth + doorWidthRatio, recHeight);
             //Top Rail Text
-            graphicsContext.strokeText(doorWidthString, (x - m) + ((double) (z + b) / 2), y + (2 * m));
+            gc.strokeText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight));
 
             //Bottom Rail
-            graphicsContext.strokeRect(x, y + z + c + 150, z + b, m + 15);
+            gc.strokeRect(startX, startY + recWidth + doorHeightRatio + 150, recWidth + doorWidthRatio, recHeight + 15);
 
             //First Stile
-            graphicsContext.strokeRect(x - m, y, m, z + c + m + 15 + 150);
+            gc.strokeRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 150);
             //Stile Text
-            graphicsContext.strokeText(doorHeightString, ((x + z + b) + m) + 2, (double) (z + c + m + 15 + 150) / 2);
+            gc.strokeText(doorHeightString, ((startX + recWidth + doorWidthRatio) + recHeight) + 2, (double) (recWidth + doorHeightRatio + recHeight + 15 + 150) / 2);
             //Second Stile
-            graphicsContext.strokeRect(x + z + b, y, m, z + c + m + 15 + 150);
+            gc.strokeRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 150);
         }
     }
 
