@@ -220,27 +220,14 @@ public class PrintDrawerController implements Initializable {
             gc.setFill(Color.rgb(95, 87,87));
             gc.fillRect(startX + 1 + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 150);
 
-            //leftHandPull(doorWidthDouble, doorHeightDouble);
 
             if(secondHardware.getValue().equals("Cylinder") && hand.getValue().equals("Left")) {
                 gc.setFill(Color.WHITE);
                 gc.fillOval(startX - recHeight + 1, recWidth + doorHeightRatio + recHeight + 15, 10, 10);
 
-                //Pull Bar
-                double[] pullHandlePoly = new double[4];
-                pullHandlePoly[0] = startX;                 //First X Point
-                pullHandlePoly[1] = startX - recHeight + 30;//Second X point
-                pullHandlePoly[2] = startX - recHeight + 30;//Third X point
-                pullHandlePoly[3] = startX;                 //Fourth X point
-                double[] pullHandlePoly1 = new double[4];
-                pullHandlePoly1[0] = recWidth + doorHeightRatio + recHeight;     //First Y Point
-                pullHandlePoly1[1] = recWidth + doorHeightRatio + recHeight;     //Second Y Point
-                pullHandlePoly1[2] = recWidth + doorHeightRatio + recHeight - 50;//Third Y Point
-                pullHandlePoly1[3] = recWidth + doorHeightRatio + recHeight - 50;//Fourth Y Point
-                gc.setLineWidth(5.0);
-                gc.setStroke(Color.rgb(173, 172, 172));
-                gc.strokePolyline(pullHandlePoly, pullHandlePoly1, 4);
-                gc.setLineWidth(1.0);
+                //Pull Bar Left Hand
+                Handles handles = new Handles();
+                handles.leftHandPull(doorWidthDouble,doorHeightDouble,gc);
 
                 //Push Bar LH
                 double[] pushBarPoly = new double[2];

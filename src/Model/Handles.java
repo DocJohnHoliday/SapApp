@@ -7,28 +7,26 @@ import javafx.scene.paint.Color;
 
 public class Handles extends PrintDrawerController {
 
-    public static TextField doorHeight;
-    public static TextField doorWidth;
+    int startX = 300; //Start in X axis
+    int startY = 50; //Start in Y axis
+    int recWidth = 300; //Rectangle Width
+    int recHeight = 12; //Rectangle Height
 
-    static double doorWidthDouble;
-    static double doorHeightDouble;
+    int j = 0;
 
-    static int startX = 300; //Start in X axis
-    static int startY = 50; //Start in Y axis
-    static int recWidth = 300; //Rectangle Width
-    static int recHeight = 12; //Rectangle Height
-
-    static int j = 0;
-
-    static int i = 0;
+    int i = 0;
 
 
-    GraphicsContext gc = previewCanvas.getGraphicsContext2D();
+    public void leftHandPull(double doorWidthDouble,double doorHeightDouble, GraphicsContext gc) {
 
-    public void leftHandPull(double doorWidth, double doorHeight) {
+        int startX = 300; //Start in X axis
+        int startY = 50; //Start in Y axis
+        int recWidth = 300; //Rectangle Width
+        int recHeight = 12; //Rectangle Height
 
-        double doorWidthDouble = doorWidth;
-        double doorHeightDouble = doorHeight;
+        int j = 0;
+
+        int i = 0;
 
         for (i = 35; i < doorWidthDouble; i++)
             System.out.println(i);
