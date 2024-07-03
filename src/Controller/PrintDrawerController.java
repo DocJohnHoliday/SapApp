@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Handles;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -8,18 +9,20 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.input.ScrollEvent;
-import javafx.scene.input.ZoomEvent;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Polyline;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class PrintDrawerController implements Initializable {
 
+public class PrintDrawerController implements Initializable {
     public TextField openingHeight;
     public TextField openingWidth;
     public TextField frameHeight;
@@ -147,10 +150,9 @@ public class PrintDrawerController implements Initializable {
         String doorWidthString = doorWidth.getText();
         String doorHeightString = doorHeight.getText();
 
-        GraphicsContext clearCanvas = previewCanvas.getGraphicsContext2D();
-        clearCanvas.clearRect(0, 0, previewCanvas.getWidth(), previewCanvas.getHeight());
-
         GraphicsContext gc = previewCanvas.getGraphicsContext2D();
+        gc.clearRect(0, 0, previewCanvas.getWidth(), previewCanvas.getHeight());
+
         double doorWidthDouble = fractionToDecimalWidth(doorWidth.getText());
         double doorHeightDouble = fractionToDecimalHeight(doorHeight.getText());
 
@@ -218,17 +220,20 @@ public class PrintDrawerController implements Initializable {
             gc.setFill(Color.rgb(95, 87,87));
             gc.fillRect(startX + 1 + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 150);
 
+            //leftHandPull(doorWidthDouble, doorHeightDouble);
+
             if(secondHardware.getValue().equals("Cylinder") && hand.getValue().equals("Left")) {
                 gc.setFill(Color.WHITE);
                 gc.fillOval(startX - recHeight + 1, recWidth + doorHeightRatio + recHeight + 15, 10, 10);
 
+                //Pull Bar
                 double[] pullHandlePoly = new double[4];
                 pullHandlePoly[0] = startX;                 //First X Point
                 pullHandlePoly[1] = startX - recHeight + 30;//Second X point
                 pullHandlePoly[2] = startX - recHeight + 30;//Third X point
                 pullHandlePoly[3] = startX;                 //Fourth X point
                 double[] pullHandlePoly1 = new double[4];
-                pullHandlePoly1[0] = recWidth + doorHeightRatio + recHeight;      //First Y Point
+                pullHandlePoly1[0] = recWidth + doorHeightRatio + recHeight;     //First Y Point
                 pullHandlePoly1[1] = recWidth + doorHeightRatio + recHeight;     //Second Y Point
                 pullHandlePoly1[2] = recWidth + doorHeightRatio + recHeight - 50;//Third Y Point
                 pullHandlePoly1[3] = recWidth + doorHeightRatio + recHeight - 50;//Fourth Y Point
@@ -237,6 +242,7 @@ public class PrintDrawerController implements Initializable {
                 gc.strokePolyline(pullHandlePoly, pullHandlePoly1, 4);
                 gc.setLineWidth(1.0);
 
+                //Push Bar LH
                 double[] pushBarPoly = new double[2];
                 pushBarPoly[0] = startX;
                 pushBarPoly[1] = startX + recWidth + doorWidthRatio;
@@ -250,10 +256,23 @@ public class PrintDrawerController implements Initializable {
                 gc.strokePolyline(pushBarPoly, pushBarPoly1, 2);
                 gc.setLineWidth(1.0);
 
+                //Top Pivot LH
+                gc.setFill(Color.WHITE);
+                gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startY, 7, 10);
+                gc.setFill(Color.rgb(173, 172, 172));
+                gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startY, 6, 9);
+
+                //Bottom Pivot LH
+                gc.setFill(Color.WHITE);
+                gc.fillRect(startX + 5 + recWidth + doorWidthRatio, recWidth + doorHeightRatio + recHeight + 15 + 190, 7, 10);
+                gc.setFill(Color.rgb(173, 172, 172));
+                gc.fillRect(startX + 5 + recWidth + doorWidthRatio, recWidth + doorHeightRatio + recHeight + 15 + 190, 6, 9);
+
             } else {
                 gc.setFill(Color.WHITE);
                 gc.fillOval(startX + recWidth + doorWidthRatio + 2, recWidth + doorHeightRatio + recHeight + 15, 10, 10);
 
+                //Pull Handle RH
                 double[] pullHandlePoly = new double[4];
                 pullHandlePoly[0] = startX + 2 + recWidth + doorWidthRatio;     //First X Point
                 pullHandlePoly[1] = startX + 2 + recWidth + doorWidthRatio - 20;//Second X point
@@ -269,6 +288,7 @@ public class PrintDrawerController implements Initializable {
                 gc.strokePolyline(pullHandlePoly, pullHandlePoly1, 4);
                 gc.setLineWidth(1.0);
 
+                //Push Bar RH
                 double[] pushBarPoly = new double[2];
                 pushBarPoly[0] = startX;
                 pushBarPoly[1] = startX + recWidth + doorWidthRatio;
@@ -281,6 +301,18 @@ public class PrintDrawerController implements Initializable {
                 gc.setStroke(Color.rgb(173, 172, 172));
                 gc.strokePolyline(pushBarPoly, pushBarPoly1, 2);
                 gc.setLineWidth(1.0);
+
+                //Top Pivot RH
+                gc.setFill(Color.WHITE);
+                gc.fillRect(startX - recHeight + 1, startY, 7, 10);
+                gc.setFill(Color.rgb(173, 172, 172));
+                gc.fillRect(startX - recHeight + 1, startY, 6, 9);
+
+                //Bottom Pivot RH
+                gc.setFill(Color.WHITE);
+                gc.fillRect(startX - recHeight + 1, recWidth + doorHeightRatio + recHeight + 15 + 190, 7, 10);
+                gc.setFill(Color.rgb(173, 172, 172));
+                gc.fillRect(startX - recHeight + 1, recWidth + doorHeightRatio + recHeight + 15 + 190, 6, 9);
             }
 
         } else if (color.getValue().equals("Bronze") && doorWidthDouble < 36 && stileSize.getValue().equals("Narrow") && doorHeightDouble >= 84) {
@@ -461,7 +493,7 @@ public class PrintDrawerController implements Initializable {
         stage.show();
     }
 
-    private double fractionToDecimalWidth(String x) {
+    public double fractionToDecimalWidth(String x) {
         String width = doorWidth.getText();
 
         try {
@@ -479,7 +511,7 @@ public class PrintDrawerController implements Initializable {
         }
     }
 
-    private double fractionToDecimalHeight(String x) {
+    public double fractionToDecimalHeight(String x) {
         String height = doorHeight.getText();
 
         try {
