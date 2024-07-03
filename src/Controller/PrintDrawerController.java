@@ -227,21 +227,10 @@ public class PrintDrawerController implements Initializable {
 
                 //Pull Bar Left Hand
                 Handles handles = new Handles();
-                handles.leftHandPull(doorWidthDouble,doorHeightDouble,gc);
+                handles.leftHandPull( doorWidthDouble, doorHeightDouble, gc );
 
                 //Push Bar LH
-                double[] pushBarPoly = new double[2];
-                pushBarPoly[0] = startX;
-                pushBarPoly[1] = startX + recWidth + doorWidthRatio;
-
-                double[] pushBarPoly1 = new double[2];
-                pushBarPoly1[0] = recWidth + doorHeightRatio + recHeight - 50;
-                pushBarPoly1[1] = recWidth + doorHeightRatio + recHeight - 50;
-
-                gc.setLineWidth(5.0);
-                gc.setStroke(Color.rgb(173, 172, 172));
-                gc.strokePolyline(pushBarPoly, pushBarPoly1, 2);
-                gc.setLineWidth(1.0);
+                handles.leftHandPush(doorWidthDouble, doorHeightDouble, gc);
 
                 //Top Pivot LH
                 gc.setFill(Color.WHITE);

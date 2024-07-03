@@ -19,15 +19,6 @@ public class Handles extends PrintDrawerController {
 
     public void leftHandPull(double doorWidthDouble,double doorHeightDouble, GraphicsContext gc) {
 
-        int startX = 300; //Start in X axis
-        int startY = 50; //Start in Y axis
-        int recWidth = 300; //Rectangle Width
-        int recHeight = 12; //Rectangle Height
-
-        int j = 0;
-
-        int i = 0;
-
         for (i = 35; i < doorWidthDouble; i++)
             System.out.println(i);
         int doorWidthRatio = (i - 40) * 10;
@@ -49,6 +40,31 @@ public class Handles extends PrintDrawerController {
         gc.setLineWidth(5.0);
         gc.setStroke(Color.rgb(173, 172, 172));
         gc.strokePolyline(pullHandlePoly, pullHandlePoly1, 4);
+        gc.setLineWidth(1.0);
+
+    }
+
+    public void leftHandPush(double doorWidthDouble,double doorHeightDouble, GraphicsContext gc) {
+
+        for (i = 0; i < doorWidthDouble; i++)
+            System.out.println(i);
+        int doorWidthRatio = (i - 40) * 10;
+
+        for (j = 0; j < doorHeightDouble; j++)
+            System.out.println(j);
+        int doorHeightRatio = (j - 84) * 10;
+
+        double[] pushBarPoly = new double[2];
+        pushBarPoly[0] = startX;
+        pushBarPoly[1] = startX + recWidth + doorWidthRatio;
+
+        double[] pushBarPoly1 = new double[2];
+        pushBarPoly1[0] = recWidth + doorHeightRatio + recHeight - 50;
+        pushBarPoly1[1] = recWidth + doorHeightRatio + recHeight - 50;
+
+        gc.setLineWidth(5.0);
+        gc.setStroke(Color.rgb(173, 172, 172));
+        gc.strokePolyline(pushBarPoly, pushBarPoly1, 2);
         gc.setLineWidth(1.0);
 
     }
