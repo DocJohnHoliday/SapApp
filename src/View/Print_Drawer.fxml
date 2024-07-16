@@ -195,6 +195,11 @@
                         <Font size="18.0" />
                      </font>
                   </Button>
+                  <Button layoutX="259.0" layoutY="10.0" mnemonicParsing="false" onAction="#print" prefHeight="51.0" prefWidth="129.0" text="Print">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
                </children>
                <padding>
                   <Insets left="100.0" />

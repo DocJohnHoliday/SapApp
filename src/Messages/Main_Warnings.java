@@ -86,6 +86,15 @@ public class Main_Warnings {
             clearDialogOptionSelections();
         });
     }
+
+    public static void nothingWarning() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Not accessible");
+        alert.setContentText("Those features or elements are not available at this time.");
+        alert.showAndWait().ifPresent((btnType) -> {
+            clearDialogOptionSelections();
+        });
+    }
     /**An empty method for dialog boxes. */
     private static void clearDialogOptionSelections() {
     }
