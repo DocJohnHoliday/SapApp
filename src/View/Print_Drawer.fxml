@@ -185,7 +185,7 @@
             </AnchorPane>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#clear" prefHeight="51.0" prefWidth="129.0" text="Clear">
+                  <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clear" prefHeight="51.0" prefWidth="129.0" text="Clear">
                      <font>
                         <Font size="18.0" />
                      </font>

@@ -2,26 +2,36 @@ package Controller;
 
 import Messages.Main_Warnings;
 import Model.*;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.print.*;
+import javafx.scene.*;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.ScrollEvent;
 import javafx.stage.Stage;
+
+import javax.imageio.ImageIO;
 import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 
 public class PrintDrawerController implements Initializable {
@@ -52,7 +62,8 @@ public class PrintDrawerController implements Initializable {
     public Canvas doorCanvas;
     public Canvas windowCanvas;
     public TextField midRail;
-    public ComboBox hand;
+    public ComboBox<String> hand;
+    public Button clearButton;
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -162,8 +173,7 @@ public class PrintDrawerController implements Initializable {
             stiles.stilesGreaterThanOrEqual84(doorWidthDouble, doorHeightDouble, doorHeightString, gc);
 
         } else if (color.getValue().equals("Bronze") && doorWidthDouble < 36 && stileSize.getValue().equals("Narrow") && doorHeightDouble < 84) {
-            Stiles stiles = new Stiles()
-                    ;
+            Stiles stiles = new Stiles();
             Rails rails = new Rails();
             //Rails
             rails.railsLessThan36(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
@@ -174,7 +184,7 @@ public class PrintDrawerController implements Initializable {
             Stiles stiles = new Stiles();
             Rails rails = new Rails();
             //Rails
-            rails.railsLessThan36StilesGreaterThan84(doorWidthDouble, doorHeightDouble,doorWidthString, gc);
+            rails.railsLessThan36StilesGreaterThan84(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
             //Stiles
             stiles.stilesGreaterThanOrEqual84RailsLessThan36(doorWidthDouble, doorHeightDouble, doorHeightString, gc);
 
@@ -210,7 +220,7 @@ public class PrintDrawerController implements Initializable {
             //Stiles
             stiles.stilesLessThan84RailGreaterThan36Clear(doorWidthDouble, doorHeightDouble, doorHeightString, gc);
 
-        }  else if (color.getValue().equals("Clear") && doorWidthDouble < 36 && stileSize.getValue().equals("Narrow") && doorHeightDouble >= 84) {
+        } else if (color.getValue().equals("Clear") && doorWidthDouble < 36 && stileSize.getValue().equals("Narrow") && doorHeightDouble >= 84) {
             Stiles stiles = new Stiles();
             Rails rails = new Rails();
             //Rails
@@ -220,16 +230,16 @@ public class PrintDrawerController implements Initializable {
         } else {
             Main_Warnings.nothingWarning();
         }
-        if(secondHardware.getValue().equals("Cylinder") && hand.getValue().equals("Left") && color.getValue().equals("Bronze")) {
+        if (secondHardware.getValue().equals("Cylinder") && hand.getValue().equals("Left") && color.getValue().equals("Bronze")) {
             Hardware hw = new Hardware();
             Handles handles = new Handles();
             Pivots pivots = new Pivots();
             //Pull Bar Left Hand
-            handles.leftHandPull( doorWidthDouble, doorHeightDouble, gc );
+            handles.leftHandPull(doorWidthDouble, doorHeightDouble, gc);
             //Push Bar LH
             handles.leftHandPush(doorWidthDouble, doorHeightDouble, gc);
             //Left Hand Pivots
-            pivots.leftHandPivots( doorWidthDouble, doorHeightDouble, gc);
+            pivots.leftHandPivots(doorWidthDouble, doorHeightDouble, gc);
             //Left Hand Cylinder
             hw.leftHandCylindersBronze(doorWidthDouble, doorHeightDouble, gc);
         } else if (secondHardware.getValue().equals("Cylinder") && hand.getValue().equals("Right") && color.getValue().equals("Bronze")) {
@@ -322,20 +332,84 @@ public class PrintDrawerController implements Initializable {
         }
     }
 
-
     public void clear(ActionEvent actionEvent) {
 
-        GraphicsContext clearCanvas = previewCanvas.getGraphicsContext2D();
-        clearCanvas.clearRect(0, 0, previewCanvas.getWidth(), previewCanvas.getHeight());
+//        GraphicsContext clearCanvas = previewCanvas.getGraphicsContext2D();
+//        clearCanvas.clearRect(0, 0, previewCanvas.getWidth(), previewCanvas.getHeight());
+
+
+//        Button btn = new Button();
+//        btn.setTranslateY(100);
+//        btn.setText("To Pdf'");
+        clearButton.setOnAction(new EventHandler<ActionEvent>() {
+
+
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println(" button pressed");
+                WritableImage nodeshot = previewCanvas.snapshot(new SnapshotParameters(),
+                        null);
+                File file = new File("pane.png");
+
+                try {
+                    ImageIO.write(SwingFXUtils.fromFXImage(nodeshot, null), "png", file);
+                } catch (IOException e) {
+
+                }
+
+                PDDocument doc = new PDDocument();
+                PDPage page = new PDPage();
+                PDImageXObject pdimage;
+                PDPageContentStream content;
+                try {
+                    pdimage = PDImageXObject.createFromFile("pane.png",doc);
+                    content = new PDPageContentStream(doc, page);
+                    content.drawImage(pdimage, 15  , 15);
+                    content.close();
+                    doc.addPage(page);
+                    doc.save("pdf_file.pdf");
+                    doc.close();
+                    file.delete();
+                } catch (IOException ex) {
+                    //Logger.getLogger(NodeToPdf.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+        });
+
     }
 
     public void Zoom(ScrollEvent scrollEvent) {
+
+        AnimatedZoomOperator zoomOperator = new AnimatedZoomOperator();
+        previewCanvas.setOnScroll(new EventHandler<ScrollEvent>() {
+            @Override
+            public void handle(ScrollEvent event) {
+                double zoomFactor = 1.5;
+                if (event.getDeltaY() <= 0) {
+                    // zoom out
+                    zoomFactor = 1 / zoomFactor;
+                }
+                zoomOperator.zoom(previewCanvas, zoomFactor, event.getSceneX(), event.getSceneY());
+            }
+        });
     }
+
 
     public void print(ActionEvent actionEvent) throws PrinterException {
 
         GraphicsContext gc = previewCanvas.getGraphicsContext2D();
-        PrinterJob job = PrinterJob.getPrinterJob();
+
+        PrinterJob printerJob = PrinterJob.createPrinterJob();
+        if (printerJob != null) {
+            PageLayout pageLayout = printerJob.getPrinter().createPageLayout(Paper.NA_LETTER, PageOrientation.LANDSCAPE, 0, 0, 0, 0);
+
+            boolean success = printerJob.printPage(pageLayout, gc.getCanvas());
+            if (success) {
+                printerJob.endJob();
+            }
+        }
 
     }
+
 }
