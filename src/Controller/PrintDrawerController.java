@@ -337,15 +337,6 @@ public class PrintDrawerController implements Initializable {
 //        GraphicsContext clearCanvas = previewCanvas.getGraphicsContext2D();
 //        clearCanvas.clearRect(0, 0, previewCanvas.getWidth(), previewCanvas.getHeight());
 
-
-//        Button btn = new Button();
-//        btn.setTranslateY(100);
-//        btn.setText("To Pdf'");
-        clearButton.setOnAction(new EventHandler<ActionEvent>() {
-
-
-            @Override
-            public void handle(ActionEvent event) {
                 System.out.println(" button pressed");
                 WritableImage nodeshot = previewCanvas.snapshot(new SnapshotParameters(),
                         null);
@@ -364,7 +355,7 @@ public class PrintDrawerController implements Initializable {
                 try {
                     pdimage = PDImageXObject.createFromFile("pane.png",doc);
                     content = new PDPageContentStream(doc, page);
-                    content.drawImage(pdimage, 15  , 15);
+                    content.drawImage(pdimage, 15 , 15);
                     content.close();
                     doc.addPage(page);
                     doc.save("pdf_file.pdf");
@@ -373,26 +364,17 @@ public class PrintDrawerController implements Initializable {
                 } catch (IOException ex) {
                     //Logger.getLogger(NodeToPdf.class.getName()).log(Level.SEVERE, null, ex);
                 }
-
-            }
-        });
-
     }
 
     public void Zoom(ScrollEvent scrollEvent) {
 
         AnimatedZoomOperator zoomOperator = new AnimatedZoomOperator();
-        previewCanvas.setOnScroll(new EventHandler<ScrollEvent>() {
-            @Override
-            public void handle(ScrollEvent event) {
                 double zoomFactor = 1.5;
-                if (event.getDeltaY() <= 0) {
+                if (scrollEvent.getDeltaY() <= 0) {
                     // zoom out
                     zoomFactor = 1 / zoomFactor;
                 }
-                zoomOperator.zoom(previewCanvas, zoomFactor, event.getSceneX(), event.getSceneY());
-            }
-        });
+                zoomOperator.zoom(previewCanvas, zoomFactor, scrollEvent.getSceneX(), scrollEvent.getSceneY());
     }
 
 
