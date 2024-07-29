@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.TextField;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.ScrollEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 import javax.imageio.ImageIO;
@@ -24,12 +25,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.scene.SnapshotParameters;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDPage;
-import org.apache.pdfbox.pdmodel.PDPageContentStream;
-import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
-import org.bouncycastle.jcajce.provider.drbg.DRBG;
-
 
 public class PrintDrawerController implements Initializable {
     public TextField openingHeight;
@@ -176,6 +171,16 @@ public class PrintDrawerController implements Initializable {
 
         GraphicsContext gc = previewCanvas.getGraphicsContext2D();
         gc.clearRect(0, 0, previewCanvas.getWidth(), previewCanvas.getHeight());
+
+        if(sfdNum.getLength() != 0) {
+            String sfdNumber = sfdNum.getText();
+            gc.setFont(new Font(100));
+            gc.setFill(Color.BLACK);
+            gc.fillText("SFD-" + sfdNumber, (previewCanvas.getWidth() / 2) - 100, 150);
+            gc.setFont(new Font(12));
+        } else {
+            Drawing_Warning.sfdNotEntered();
+        }
 
         FractionToDecimal fTD = new FractionToDecimal();
 
@@ -397,6 +402,7 @@ public class PrintDrawerController implements Initializable {
             GraphicsContext gc = previewCanvas.getGraphicsContext2D();
             String sfdNumber = sfdNum.getText();
             gc.setFont(new Font(100));
+            gc.setFill(Color.BLACK);
             gc.fillText("SFD-" + sfdNumber, (previewCanvas.getWidth() / 2) - 100, 150);
             gc.setFont(new Font(12));
         } else {

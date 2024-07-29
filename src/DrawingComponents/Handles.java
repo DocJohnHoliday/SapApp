@@ -6,7 +6,7 @@ import javafx.scene.paint.Color;
 public class Handles{
 
     int startX = 1650 - 200; //Start in X axis
-    int startY = startX - 250; //Start in Y axis
+    int startY = startX ; //Start in Y axis
     int recWidth = 350; //Rectangle Width
     int recHeight = 24; //Rectangle Height
 
@@ -19,7 +19,7 @@ public class Handles{
 
         for (j = 83; j < doorHeightDouble; j++)
             System.out.println(j);
-        int doorHeightRatio = (j - 84) * 10;
+        int doorHeightRatio = (j - 84) * 2;
 
         double[] pullHandlePoly = new double[4];
         pullHandlePoly[0] = startX;                 //First X Point
@@ -27,11 +27,11 @@ public class Handles{
         pullHandlePoly[2] = startX - recHeight + 30;//Third X point
         pullHandlePoly[3] = startX;                 //Fourth X point
         double[] pullHandlePoly1 = new double[4];
-        pullHandlePoly1[0] = startY + recWidth + doorHeightRatio + recHeight;     //First Y Point
-        pullHandlePoly1[1] = startY + recWidth + doorHeightRatio + recHeight;     //Second Y Point
-        pullHandlePoly1[2] = startY + recWidth + doorHeightRatio + recHeight - 50;//Third Y Point
-        pullHandlePoly1[3] = startY + recWidth + doorHeightRatio + recHeight - 50;//Fourth Y Point
-        gc.setLineWidth(5.0);
+        pullHandlePoly1[0] = startY + recWidth + doorHeightRatio + recHeight + 100;     //First Y Point
+        pullHandlePoly1[1] = startY + recWidth + doorHeightRatio + recHeight + 100;     //Second Y Point
+        pullHandlePoly1[2] = startY + recWidth + doorHeightRatio + recHeight - 50 + 100;//Third Y Point
+        pullHandlePoly1[3] = startY + recWidth + doorHeightRatio + recHeight - 50 + 100;//Fourth Y Point
+        gc.setLineWidth(10.0);
         gc.setStroke(Color.rgb(173, 172, 172));
         gc.strokePolyline(pullHandlePoly, pullHandlePoly1, 4);
         gc.setLineWidth(1.0);
@@ -42,21 +42,21 @@ public class Handles{
 
         for (i = 0; i < doorWidthDouble; i++)
             System.out.println(i);
-        int doorWidthRatio = (i - 40) * 10;
+        int doorWidthRatio = (i - 40) * 2;
 
         for (j = 0; j < doorHeightDouble; j++)
             System.out.println(j);
-        int doorHeightRatio = (j - 84) * 10;
+        int doorHeightRatio = (j - 84) * 2;
 
         double[] pushBarPoly = new double[2];
         pushBarPoly[0] = startX;
         pushBarPoly[1] = startX + recWidth + doorWidthRatio;
 
         double[] pushBarPoly1 = new double[2];
-        pushBarPoly1[0] = startY + recWidth + doorHeightRatio + recHeight - 50;
-        pushBarPoly1[1] = startY + recWidth + doorHeightRatio + recHeight - 50;
+        pushBarPoly1[0] = startY + recWidth + doorHeightRatio + recHeight - 50 + 100;
+        pushBarPoly1[1] = startY + recWidth + doorHeightRatio + recHeight - 50 + 100;
 
-        gc.setLineWidth(5.0);
+        gc.setLineWidth(10.0);
         gc.setStroke(Color.rgb(173, 172, 172));
         gc.strokePolyline(pushBarPoly, pushBarPoly1, 2);
         gc.setLineWidth(1.0);
@@ -67,11 +67,11 @@ public class Handles{
 
         for (i = 0; i < doorWidthDouble; i++)
             System.out.println(i);
-        int doorWidthRatio = (i - 40) * 10;
+        int doorWidthRatio = (i - 40) * 2;
 
         for (j = 83; j < doorHeightDouble; j++)
             System.out.println(j);
-        int doorHeightRatio = (j - 84) * 10;
+        int doorHeightRatio = (j - 84) * 2;
 
         //Pull Handle RH
         double[] pullHandlePoly = new double[4];
@@ -80,11 +80,11 @@ public class Handles{
         pullHandlePoly[2] = startX + 2 + recWidth + doorWidthRatio - 20;//Third X point
         pullHandlePoly[3] = startX + 2 + recWidth + doorWidthRatio;     //Fourth X point
         double[] pullHandlePoly1 = new double[4];
-        pullHandlePoly1[0] = startY + recWidth + doorHeightRatio + recHeight;     //First Y Point
-        pullHandlePoly1[1] = startY + recWidth + doorHeightRatio + recHeight;     //Second Y Point
-        pullHandlePoly1[2] = startY + recWidth + doorHeightRatio + recHeight - 50;//Third Y Point
-        pullHandlePoly1[3] = startY + recWidth + doorHeightRatio + recHeight - 50;//Fourth Y Point
-        gc.setLineWidth(5.0);
+        pullHandlePoly1[0] = startY + recWidth + doorHeightRatio + recHeight + 100;     //First Y Point
+        pullHandlePoly1[1] = startY + recWidth + doorHeightRatio + recHeight + 100;     //Second Y Point
+        pullHandlePoly1[2] = startY + recWidth + doorHeightRatio + recHeight - 50 + 100;//Third Y Point
+        pullHandlePoly1[3] = startY + recWidth + doorHeightRatio + recHeight - 50 + 100;//Fourth Y Point
+        gc.setLineWidth(10.0);
         gc.setStroke(Color.rgb(173, 172, 172));
         gc.strokePolyline(pullHandlePoly, pullHandlePoly1, 4);
         gc.setLineWidth(1.0);
@@ -95,11 +95,11 @@ public class Handles{
 
         for (i = 0; i < doorWidthDouble; i++)
             System.out.println(i);
-        int doorWidthRatio = (i - 40) * 10;
+        int doorWidthRatio = (i - 40) * 2;
 
         for (j = 0; j < doorHeightDouble; j++)
             System.out.println(j);
-        int doorHeightRatio = (j - 84) * 10;
+        int doorHeightRatio = (j - 84) * 2;
 
         //Push Bar RH
         double[] pushBarPoly = new double[2];
@@ -107,10 +107,10 @@ public class Handles{
         pushBarPoly[1] = startX + recWidth + doorWidthRatio;
 
         double[] pushBarPoly1 = new double[2];
-        pushBarPoly1[0] = startY + recWidth + doorHeightRatio + recHeight - 50;
-        pushBarPoly1[1] = startY + recWidth + doorHeightRatio + recHeight - 50;
+        pushBarPoly1[0] = startY + recWidth + doorHeightRatio + recHeight - 50 + 100;
+        pushBarPoly1[1] = startY + recWidth + doorHeightRatio + recHeight - 50 + 100;
 
-        gc.setLineWidth(5.0);
+        gc.setLineWidth(10.0);
         gc.setStroke(Color.rgb(173, 172, 172));
         gc.strokePolyline(pushBarPoly, pushBarPoly1, 2);
         gc.setLineWidth(1.0);
