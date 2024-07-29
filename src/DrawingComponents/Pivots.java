@@ -1,4 +1,4 @@
-package Model;
+package DrawingComponents;
 
 
 import javafx.scene.canvas.GraphicsContext;
@@ -6,10 +6,10 @@ import javafx.scene.paint.Color;
 
 public class Pivots {
 
-    int startX = 300; //Start in X axis
-    int startY = 50; //Start in Y axis
-    int recWidth = 300; //Rectangle Width
-    int recHeight = 12; //Rectangle Height
+    int startX = 1650  - 200; //Start in X axis
+    int startY = startX - 250; //Start in Y axis
+    int recWidth = 350; //Rectangle Width
+    int recHeight = 24; //Rectangle Height
 
     int j = 0;
 
@@ -33,9 +33,9 @@ public class Pivots {
 
         //Bottom Pivot LH
         gc.setFill(Color.WHITE);
-        gc.fillRect(startX + 5 + recWidth + doorWidthRatio, recWidth + doorHeightRatio + recHeight + 15 + 190, 7, 10);
+        gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startY + recWidth + doorHeightRatio + recHeight + 155, 7, 10);
         gc.setFill(Color.rgb(173, 172, 172));
-        gc.fillRect(startX + 5 + recWidth + doorWidthRatio, recWidth + doorHeightRatio + recHeight + 15 + 190, 6, 9);
+        gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startY + recWidth + doorHeightRatio + recHeight + 1550, 6, 9);
 
     }
 
@@ -57,9 +57,9 @@ public class Pivots {
 
         //Bottom Pivot RH
         gc.setFill(Color.WHITE);
-        gc.fillRect(startX - recHeight + 1, recWidth + doorHeightRatio + recHeight + 15 + 190, 7, 10);
+        gc.fillRect(startX - recHeight + 1, startY + recWidth + doorHeightRatio + recHeight + 155, 7, 10);
         gc.setFill(Color.rgb(173, 172, 172));
-        gc.fillRect(startX - recHeight + 1, recWidth + doorHeightRatio + recHeight + 15 + 190, 6, 9);
+        gc.fillRect(startX - recHeight + 1, startY + recWidth + doorHeightRatio + recHeight + 155, 6, 9);
 
     }
 }
