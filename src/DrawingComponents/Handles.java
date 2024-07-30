@@ -18,7 +18,7 @@ public class Handles{
     public void leftHandPull(double doorHeightDouble, GraphicsContext gc) {
 
         for (j = 83; j < doorHeightDouble; j++)
-            System.out.println(j);
+            j=j;
         int doorHeightRatio = (j - 84) * 2;
 
         double[] pullHandlePoly = new double[4];
@@ -41,11 +41,11 @@ public class Handles{
     public void leftHandPush(double doorWidthDouble,double doorHeightDouble, GraphicsContext gc) {
 
         for (i = 0; i < doorWidthDouble; i++)
-            System.out.println(i);
+            i=i;
         int doorWidthRatio = (i - 40) * 2;
 
         for (j = 0; j < doorHeightDouble; j++)
-            System.out.println(j);
+            j=j;
         int doorHeightRatio = (j - 84) * 2;
 
         double[] pushBarPoly = new double[2];
@@ -66,11 +66,11 @@ public class Handles{
     public void rightHandPull(double doorWidthDouble,double doorHeightDouble, GraphicsContext gc) {
 
         for (i = 0; i < doorWidthDouble; i++)
-            System.out.println(i);
+            i=i;
         int doorWidthRatio = (i - 40) * 2;
 
         for (j = 83; j < doorHeightDouble; j++)
-            System.out.println(j);
+            j=j;
         int doorHeightRatio = (j - 84) * 2;
 
         //Pull Handle RH
@@ -94,11 +94,11 @@ public class Handles{
     public void RightHandPush(double doorWidthDouble,double doorHeightDouble, GraphicsContext gc) {
 
         for (i = 0; i < doorWidthDouble; i++)
-            System.out.println(i);
+            i=i;
         int doorWidthRatio = (i - 40) * 2;
 
         for (j = 0; j < doorHeightDouble; j++)
-            System.out.println(j);
+            j=j;
         int doorHeightRatio = (j - 84) * 2;
 
         //Push Bar RH

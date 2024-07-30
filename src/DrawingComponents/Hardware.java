@@ -19,17 +19,16 @@ public class Hardware {
 
         int i = 0;
         for (i = 0; i < doorWidthDouble; i++)
-            System.out.println(i);
+            i=i;
         int doorWidthRatio = (i - 40) * 2;
 
         int j = 0;
         for (j = 0; j < doorHeightDouble; j++)
-            System.out.println(j);
+            j=j;
         int doorHeightRatio = (j - 84) * 2;
 
         gc.setFill(Color.WHITE);
         gc.fillOval(startX - recHeight + 1, startY + recWidth + doorHeightRatio + recHeight + 15 + 100, 20, 20);
-
         gc.setStroke(Color.BLACK);
     }
 
@@ -37,17 +36,16 @@ public class Hardware {
 
         int i = 0;
         for (i = 0; i < doorWidthDouble; i++)
-            System.out.println(i);
+            i=i;
         int doorWidthRatio = (i - 40) * 2;
 
         int j = 0;
         for (j = 0; j < doorHeightDouble; j++)
-            System.out.println(j);
+            j=j;
         int doorHeightRatio = (j - 84) * 2;
 
         gc.setFill(Color.WHITE);
         gc.fillOval(startX + recWidth + doorWidthRatio + 2, startY + recWidth + doorHeightRatio + recHeight + 15 + 100, 20, 20);
-
         gc.setStroke(Color.BLACK);
     }
 
@@ -56,17 +54,16 @@ public class Hardware {
 
         int i = 0;
         for (i = 0; i < doorWidthDouble; i++)
-            System.out.println(i);
+            i=i;
         int doorWidthRatio = (i - 40) * 2;
 
         int j = 0;
         for (j = 0; j < doorHeightDouble; j++)
-            System.out.println(j);
+            j=j;
         int doorHeightRatio = (j - 84) * 2;
 
         gc.setFill(Color.rgb(173, 172, 172));
         gc.fillOval(startX - recHeight + 1, startY + recWidth + doorHeightRatio + recHeight + 15 + 100, 20, 20);
-
         gc.setStroke(Color.BLACK);
     }
 
@@ -74,17 +71,16 @@ public class Hardware {
 
         int i = 0;
         for (i = 0; i < doorWidthDouble; i++)
-            System.out.println(i);
+            i=i;
         int doorWidthRatio = (i - 40) * 2;
 
         int j = 0;
         for (j = 0; j < doorHeightDouble; j++)
-            System.out.println(j);
+            j=j;
         int doorHeightRatio = (j - 84) * 2;
 
         gc.setFill(Color.rgb(173, 172, 172));
         gc.fillOval(startX + recWidth + doorWidthRatio + 2, startY + recWidth + doorHeightRatio + recHeight + 15 + 100, 20, 20);
-
         gc.setStroke(Color.BLACK);
     }
 }

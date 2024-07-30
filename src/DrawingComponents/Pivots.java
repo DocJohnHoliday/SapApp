@@ -6,23 +6,21 @@ import javafx.scene.paint.Color;
 
 public class Pivots {
 
-    int startX = 1650  - 200; //Start in X axis
+    int startX = 1650 - 200; //Start in X axis
     int startY = startX; //Start in Y axis
     int recWidth = 350; //Rectangle Width
     int recHeight = 24; //Rectangle Height
-
     int j = 0;
-
     int i = 0;
 
-    public void leftHandPivots(double doorWidthDouble,double doorHeightDouble, GraphicsContext gc) {
+    public void leftHandPivots(double doorWidthDouble, double doorHeightDouble, GraphicsContext gc) {
 
         for (i = 0; i < doorWidthDouble; i++)
-            System.out.println(i);
+            i = i;
         int doorWidthRatio = (i - 40) * 2;
 
         for (j = 83; j < doorHeightDouble; j++)
-            System.out.println(j);
+            j = j;
         int doorHeightRatio = (j - 84) * 2;
 
         //Top Pivot LH
@@ -39,14 +37,14 @@ public class Pivots {
 
     }
 
-    public void rightHandPivots(double doorWidthDouble,double doorHeightDouble, GraphicsContext gc) {
+    public void rightHandPivots(double doorWidthDouble, double doorHeightDouble, GraphicsContext gc) {
 
         for (i = 0; i < doorWidthDouble; i++)
-            System.out.println(i);
+            i = i;
         int doorWidthRatio = (i - 40) * 2;
 
         for (j = 83; j < doorHeightDouble; j++)
-            System.out.println(j);
+            j = j;
         int doorHeightRatio = (j - 84) * 2;
 
         //Top Pivot RH

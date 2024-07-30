@@ -1,4 +1,4 @@
-package Controller;
+package ZoomOperator;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -8,7 +8,7 @@ import javafx.scene.Node;
 import javafx.util.Duration;
 
 public class AnimatedZoomOperator {
-    private Timeline timeline;
+    private final Timeline timeline;
 
     public AnimatedZoomOperator() {
         this.timeline = new Timeline(60);

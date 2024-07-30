@@ -21,12 +21,12 @@ public class Stiles {
 
         int i = 0;
         for (i = 35; i < doorWidthDouble; i++)
-            System.out.println(i);
+            i = i;
         int doorWidthRatio = (i - 40) * 2;
 
         int j = 0;
         for (j = 83; j < doorHeightDouble; j++)
-            System.out.println(j);
+            j= j;
         int doorHeightRatio = (j - 84) * 2;
 
         //Stile
@@ -44,12 +44,12 @@ public class Stiles {
 
         int i = 0;
         for (i = 0; i < doorWidthDouble; i++)
-            System.out.println(i);
+            i = i;
         int doorWidthRatio = (i - 40) * 2;
 
         int j = 0;
         for (j = 0; j < doorHeightDouble; j++)
-            System.out.println(j);
+            j = j;
         int doorHeightRatio = (j - 84) * 2;
 
         //Stile
@@ -67,12 +67,12 @@ public class Stiles {
 
         int i = 0;
         for (i = 0; i < doorWidthDouble; i++)
-            System.out.println(i);
+            i = i;
         int doorWidthRatio = (i - 40) * 2;
 
         int j = 0;
         for (j = 83; j < doorHeightDouble; j++)
-            System.out.println(j);
+            j = j;
         int doorHeightRatio = (j - 84) * 2;
 
         //Stile
@@ -90,12 +90,12 @@ public class Stiles {
 
         int i = 0;
         for (i = 35; i < doorWidthDouble; i++)
-            System.out.println(i);
+            i = i;
         int doorWidthRatio = (i - 40) * 2;
 
         int j = 0;
         for (j = 0; j < doorHeightDouble; j++)
-            System.out.println(j);
+            j = j;
         int doorHeightRatio = (j - 84) * 2;
 
         //Stile
@@ -114,12 +114,12 @@ public class Stiles {
 
         int i = 0;
         for (i = 0; i < doorWidthDouble; i++)
-            System.out.println(i);
+            i = i;
         int doorWidthRatio = (i - 40) * 2;
 
         int j = 0;
         for (j = 0; j < doorHeightDouble; j++)
-            System.out.println(j);
+            j = j;
         int doorHeightRatio = (j - 84) * 2;
 
         //First Stile
@@ -135,12 +135,12 @@ public class Stiles {
 
         int i = 0;
         for (i = 35; i < doorWidthDouble; i++)
-            System.out.println(i);
+            i = i;
         int doorWidthRatio = (i - 40) * 2;
 
         int j = 0;
         for (j = 83; j < doorHeightDouble; j++)
-            System.out.println(j);
+            j = j;
         int doorHeightRatio = (j - 84) * 2;
 
         //First Stile
@@ -155,11 +155,11 @@ public class Stiles {
     public void stilesLessThan84RailGreaterThan36Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
         int i = 0;
         for (i = 35; i < doorWidthDouble; i++)
-            System.out.println(i);
+            i = i;
         int doorWidthRatio = (i - 40) * 2;
         int j = 0;
         for (j = 0; j < doorHeightDouble; j++)
-            System.out.println(j);
+            j = j;
         int doorHeightRatio = (j - 84) * 2;
         //First Stile
         gc.strokeRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
@@ -173,11 +173,11 @@ public class Stiles {
     public void stilesGreaterThanOrEqual84Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
         int i = 0;
         for (i = 0; i < doorWidthDouble; i++)
-            System.out.println(i);
+            i = i;
         int doorWidthRatio = (i - 40) * 2;
         int j = 0;
         for (j = 0; j < doorHeightDouble; j++)
-            System.out.println(j);
+            j = j;
         int doorHeightRatio = (j - 84) * 2;
         //First Stile
         gc.strokeRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);

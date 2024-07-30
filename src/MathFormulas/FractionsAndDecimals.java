@@ -1,6 +1,6 @@
 package MathFormulas;
 
-public class FractionToDecimal {
+public class FractionsAndDecimals {
 
     public double fractionToDecimal(String x) {
 
@@ -36,15 +36,18 @@ public class FractionToDecimal {
                 return wholeNum;
             } else {
 
-                if(a == 2) {
+                if(a == 1) {
+                    int greatestCommonFactor = gcd(y, 10);
+                    return wholeNum + "-" + (y / greatestCommonFactor) + "/" + (10 / greatestCommonFactor);
+                } else if(a == 2) {
                     int greatestCommonFactor = gcd(y, 100);
-                    return wholeNum + " " + (y / greatestCommonFactor) + "/" + (100 / greatestCommonFactor);
-                } else if(a == 3) {
+                    return wholeNum + "-" + (y / greatestCommonFactor) + "/" + (100 / greatestCommonFactor);
+                } else if (a == 3) {
                     int greatestCommonFactor = gcd(y, 1000);
-                    return wholeNum + " " + (y / greatestCommonFactor) + "/" + (1000 / greatestCommonFactor);
+                    return wholeNum + "-" + (y / greatestCommonFactor) + "/" + (1000 / greatestCommonFactor);
                 } else {
                     int greatestCommonFactor = gcd(y, 10000);
-                    return wholeNum + " " + (y / greatestCommonFactor) + "/" + (10000 / greatestCommonFactor);
+                    return wholeNum + "-" + (y / greatestCommonFactor) + "/" + (10000 / greatestCommonFactor);
                 }
             }
         } catch (ArrayIndexOutOfBoundsException e) {
