@@ -11,7 +11,7 @@ public class Glass {
     FractionsAndDecimals fTD = new FractionsAndDecimals();
 
     // Glass for 3/16" Single doors
-    public void doorGlassSize5mm4BR(double doorWidthDouble, double doorHeightDouble, GraphicsContext gc) {
+    public void doorGlass5mm4BR(double doorWidthDouble, double doorHeightDouble, GraphicsContext gc) {
         //Glass Label
         gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 75));
@@ -32,7 +32,7 @@ public class Glass {
         }
     }
 
-    public void doorGlassSize5mm10BR(double doorWidthDouble, double doorHeightDouble, GraphicsContext gc) {
+    public void doorGlass5mm10BR(double doorWidthDouble, double doorHeightDouble, GraphicsContext gc) {
         //Glass Label
         gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 75));

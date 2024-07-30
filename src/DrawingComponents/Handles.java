@@ -91,7 +91,7 @@ public class Handles{
 
     }
 
-    public void RightHandPush(double doorWidthDouble,double doorHeightDouble, GraphicsContext gc) {
+    public void rightHandPush(double doorWidthDouble, double doorHeightDouble, GraphicsContext gc) {
 
         for (i = 0; i < doorWidthDouble; i++)
             i=i;
