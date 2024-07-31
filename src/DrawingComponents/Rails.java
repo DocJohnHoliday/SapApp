@@ -252,7 +252,6 @@ public class Rails {
             i = i;
         int doorWidthRatio = (i - 40) * 2;
 
-
         for (j = 83; j < doorHeightDouble; j++)
             j = j;
         int doorHeightRatio = (j - 84) * 2;
@@ -269,8 +268,7 @@ public class Rails {
         //Bottom Rail
         gc.setFill(Color.rgb(95, 87, 87));
         gc.setStroke(Color.WHITE);
-        gc.fillRect(startX + 1, startY + recWidth + doorHeightRatio + 350 - 30, recWidth + doorWidthRatio - 1, recHeight + 15 + 30);
-        gc.strokeRect(startX, startY + recWidth + doorHeightRatio + 350, recWidth + doorWidthRatio + 2, recHeight + 15);
+        gc.fillRect(startX + 1, startY + recWidth + doorHeightRatio + 350 - 30, recWidth + doorWidthRatio - 1, recHeight + 15 + 30);;
         gc.setStroke(Color.BLACK);
         //10" Bottom Rail Text
         gc.setFill(Color.WHITE);
