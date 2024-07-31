@@ -24,6 +24,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.scene.SnapshotParameters;
+import javafx.scene.text.FontWeight;
 
 public class PrintDrawerController implements Initializable {
     public TextField openingHeight;
@@ -87,6 +88,15 @@ public class PrintDrawerController implements Initializable {
     public ChoiceBox<String> unevenPairHardware;
     public ChoiceBox<String> unevenPairActiveQuestion;
     public ScrollPane scrollPane;
+    public ChoiceBox<String> windowQuantity;
+    public ChoiceBox<String> windowGlass;
+    public ChoiceBox<String> windowPanelNum;
+    public ChoiceBox<String> windowColor;
+    public TextField windowMidRail;
+    public TextField windowWidth;
+    public TextField windowHeight;
+    public TextField windowRoughWidth;
+    public TextField windowRoughHeight;
 
     Stiles stiles = new Stiles();
     Rails rails = new Rails();
@@ -97,6 +107,7 @@ public class PrintDrawerController implements Initializable {
     Handles handles = new Handles();
     Pivots pivots = new Pivots();
     PanicDevices panics = new PanicDevices();
+    Windows windows = new Windows();
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -182,6 +193,28 @@ public class PrintDrawerController implements Initializable {
         doorWidth.setText("31 9/16");
         doorHeight.setText("83 1/4");
 
+        windowColor.getItems().add("Bronze");
+        windowColor.getItems().add("Clear");
+
+        for(int i = 0; i < 20; i++) {
+            windowQuantity.getItems().add(String.valueOf(i));
+        }
+        for(int i = 0; i < 10; i++) {
+            windowPanelNum.getItems().add(String.valueOf(i));
+        }
+
+        windowGlass.getItems().add("No Glass");
+        windowGlass.getItems().add("3/16 Clear");
+        windowGlass.getItems().add("1/4 Clear");
+        windowGlass.getItems().add("3/16 Bronze");
+        windowGlass.getItems().add("1/4 Bronze");
+        windowGlass.getItems().add("3/16 Grey");
+        windowGlass.getItems().add("1/4 Grey");
+        windowGlass.getItems().add("IG");
+        windowGlass.getItems().add("Low E");
+        windowGlass.setValue("3/16 Clear");
+
+
     }
 
     public void submitSingle(ActionEvent actionEvent) {
@@ -212,6 +245,12 @@ public class PrintDrawerController implements Initializable {
 
         String frameWidthString = fTD.convertDecimalToFraction(frameWidthDouble);
         String frameHeightString = fTD.convertDecimalToFraction(frameHeightDouble);
+
+        //Glass Label
+        gc.setFill(Color.BLACK);
+        gc.setFont(Font.font("default", FontWeight.BOLD, 75));
+        gc.fillText("Glass Sizes", 2800, 2000);
+        gc.strokeLine(2800, 2025, 3250, 2025);
 
         if (color.getValue().equals("Bronze") &&
                 doorWidthDouble >= 36 &&             //Width >= 36
@@ -380,7 +419,7 @@ public class PrintDrawerController implements Initializable {
                 hand.getValue().equals("Left") &&
                 color.getValue().equals("Bronze")) {
             //Left Hand Push
-            if(thirdHardware.getValue().equals("RIM")) {
+            if (thirdHardware.getValue().equals("RIM")) {
                 panics.rimLeftHandPush(doorWidthDouble, doorHeightDouble, gc);
                 panics.rimLeftHandPull(doorHeightDouble, gc);
             } else {
@@ -397,7 +436,7 @@ public class PrintDrawerController implements Initializable {
                 color.getValue().equals("Bronze")) {
             //Right Hand Pull
             //Right Hand Push
-            if(thirdHardware.getValue().equals("RIM")) {
+            if (thirdHardware.getValue().equals("RIM")) {
                 panics.rimRightHandPush(doorWidthDouble, doorHeightDouble, gc);
                 panics.rimRightHandPull(doorWidthDouble, doorHeightDouble, gc);
             } else {
@@ -412,7 +451,7 @@ public class PrintDrawerController implements Initializable {
         } else if (secondHardware.getValue().equals("Cylinder") &&
                 hand.getValue().equals("Left") &&
                 color.getValue().equals("Clear")) {
-            if(thirdHardware.getValue().equals("RIM")) {
+            if (thirdHardware.getValue().equals("RIM")) {
                 panics.rimLeftHandPush(doorWidthDouble, doorHeightDouble, gc);
                 panics.rimLeftHandPull(doorHeightDouble, gc);
             } else {
@@ -427,7 +466,7 @@ public class PrintDrawerController implements Initializable {
         } else if (secondHardware.getValue().equals("Cylinder") &&
                 hand.getValue().equals("Right") &&
                 color.getValue().equals("Clear")) {
-            if(thirdHardware.getValue().equals("RIM")) {
+            if (thirdHardware.getValue().equals("RIM")) {
                 panics.rimRightHandPush(doorWidthDouble, doorHeightDouble, gc);
                 panics.rimRightHandPull(doorWidthDouble, doorHeightDouble, gc);
             } else {
@@ -699,13 +738,135 @@ public class PrintDrawerController implements Initializable {
     public void submitSideLight(ActionEvent actionEvent) {
     }
 
-    public void clearWindows(ActionEvent actionEvent) {
-    }
-
-    public void submitWindows(ActionEvent actionEvent) {
-    }
 
     public void clearSliders(ActionEvent actionEvent) {
+    }
+
+    public void clearWindow(ActionEvent actionEvent) {
+    }
+
+    public void submitWindow(ActionEvent actionEvent) {
+        GraphicsContext gc = previewCanvas.getGraphicsContext2D();
+        gc.clearRect(0, 0, previewCanvas.getWidth(), previewCanvas.getHeight());
+
+        //Glass Label
+        gc.setFill(Color.BLACK);
+        gc.setFont(Font.font("default", FontWeight.BOLD, 75));
+        gc.fillText("Glass Sizes", 2800, 2000);
+        gc.strokeLine(2800, 2025, 3250, 2025);
+
+        FractionsAndDecimals fTD = new FractionsAndDecimals();
+
+        String windowWidthString = windowWidth.getText();
+        String windowHeightString = windowHeight.getText();
+
+        double windowWidthDouble = fTD.fractionToDecimal(windowWidth.getText());
+        double windowHeightDouble = fTD.fractionToDecimal(windowHeight.getText());
+
+//        double windowRoughWidthDouble = fTD.fractionToDecimal(windowRoughWidth.getText());
+//        double windowRoughHeightDouble = fTD.fractionToDecimal(windowRoughHeight.getText());
+
+//        String frameWidthString = fTD.convertDecimalToFraction(windowRoughWidthDouble);
+//        String frameHeightString = fTD.convertDecimalToFraction(windowRoughHeightDouble);
+
+        if (sfdNum.getLength() != 0) {
+            String sfdNumber = sfdNum.getText();
+            gc.setFont(new Font(100));
+            gc.setFill(Color.BLACK);
+            gc.fillText("SFD-" + sfdNumber, (previewCanvas.getWidth() / 2) - 100, 150);
+            gc.setFont(new Font(12));
+        } else {
+            //Drawing_Warning.sfdNotEntered();
+        }
+        //Width > 36 and height >= 84
+        if (color.getValue().equals("Bronze") &&
+                windowWidthDouble >= 36 &&
+                windowHeightDouble >= 84
+        ) {
+            //Jambs
+            windows.greaterThanOrEqual84(windowWidthDouble, windowHeightDouble, windowHeightString, gc);
+            //Header and Threshold
+            windows.railsGreaterThanOrEqual36(windowWidthDouble, windowHeightDouble, windowWidthString, gc);
+            //Glass
+            glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, gc);
+
+            //Width less than 36 and height less than 84
+        } else if (color.getValue().equals("Bronze") &&
+                windowWidthDouble < 36 &&
+                windowHeightDouble < 84) {
+            //Jambs
+            windows.lessThan84(windowWidthDouble, windowHeightDouble, windowHeightString, gc);
+            //Header and Threshold
+            windows.railsLessThan36(windowWidthDouble, windowHeightDouble, windowWidthString, gc);
+            //Glass
+            glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, gc);
+
+            //Width less than 36 and height greater or equal to 84
+        } else if (color.getValue().equals("Bronze") &&
+                windowWidthDouble < 36 &&
+                windowHeightDouble >= 84) {
+            //Jambs
+            windows.greaterThanOrEqual84RailsLessThan36(windowWidthDouble, windowHeightDouble, windowHeightString, gc);
+            //Header and Threshold
+            windows.railsLessThan36StilesGreaterThan84(windowWidthDouble, windowHeightDouble, windowWidthString, gc);
+            //Glass
+            glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, gc);
+
+            //Width greater or equal 36 and height less than 84
+        } else if (color.getValue().equals("Bronze") &&
+                windowWidthDouble >= 36 &&
+                windowHeightDouble < 84) {
+            //Jambs
+            windows.lessThan84RailGreaterThan36(windowWidthDouble, windowHeightDouble, windowHeightString, gc);
+            //Header and Threshold
+            windows.railsGreaterThanOrEqual36StilesLessThan84(windowWidthDouble, windowHeightDouble, windowWidthString, gc);
+            //Glass
+            glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, gc);
+
+            //Width less than 36 and height less than 84
+        } else if (color.getValue().equals("Clear") &&
+                windowWidthDouble < 36 &&
+                windowHeightDouble < 84) {
+            //Jambs
+            windows.lessThan84Clear(windowWidthDouble, windowHeightDouble, windowHeightString, gc);
+            //Header and Threshold
+            windows.railsLessThan36Clear(windowWidthDouble, windowHeightDouble, windowWidthString, gc);
+            //Glass
+            glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, gc);
+
+        } else if (color.getValue().equals("Clear") &&
+                windowWidthDouble >= 36 &&
+                windowHeightDouble >= 84) {
+            //Jambs
+            windows.lessThanOrEqual84Clear(windowWidthDouble, windowHeightDouble, windowHeightString, gc);
+            //Header and Threshold
+            windows.railsLessThanOrEqual36Clear(windowWidthDouble, windowHeightDouble, windowWidthString, gc);
+            //Glass
+            glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, gc);
+
+        } else if (color.getValue().equals("Clear") &&
+                windowWidthDouble >= 36 &&
+                windowHeightDouble < 84) {
+            //Jambs
+            windows.lessThan84RailGreaterThan36Clear(windowWidthDouble, windowHeightDouble, windowHeightString, gc);
+            //Header and Threshold
+            windows.railsGreaterThanOrEqual36Clear(windowWidthDouble, windowHeightDouble, windowWidthString, gc);
+            //Glass
+            glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, gc);
+
+        } else if (color.getValue().equals("Clear") &&
+                windowWidthDouble < 36 &&
+                windowHeightDouble >= 84) {
+            //Jambs
+            windows.greaterThanOrEqual84Clear(windowWidthDouble, windowHeightDouble, windowHeightString, gc);
+            //Header and Threshold
+            windows.railsLessThan36ClearStileGreaterThanOrEqual84(windowWidthDouble, windowHeightDouble, windowWidthString, gc);
+            //Glass
+            glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, gc);
+
+        } else {
+            Main_Warnings.nothingWarning();
+        }
     }
 
     public void submitSliders(ActionEvent actionEvent) {
