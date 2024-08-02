@@ -2,7 +2,6 @@ package DrawingComponents;
 
 import MathFormulas.FractionsAndDecimals;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
@@ -60,11 +59,11 @@ public class Glass {
     }
 
     // Glass for 3/16" Windows
-    public void windowGlass5mm(double windowWidthDouble, double windowHeightDouble, GraphicsContext gc) {
+    public void windowGlass5mm(double windowWidthDouble, double windowHeightDouble, int panels, GraphicsContext gc) {
         //Door glass
         String doorWidth = fTD.convertDecimalToFraction(windowWidthDouble - 0.5);
         String doorHeight = fTD.convertDecimalToFraction(windowHeightDouble - 3.0);
-        String glassSize = doorWidth + " x " + doorHeight;
+        String glassSize = "Qty " + panels + " "+ doorWidth + " x " + doorHeight;
         String standardGlass = "Std 4\" BR Glass";
 
         if (glassSize.equals("31-1/8 x 76-5/8")) {

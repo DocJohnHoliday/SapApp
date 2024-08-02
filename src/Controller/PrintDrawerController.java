@@ -8,23 +8,24 @@ import ZoomOperator.AnimatedZoomOperator;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.*;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import javafx.scene.SnapshotParameters;
-import javafx.scene.text.FontWeight;
 
 public class PrintDrawerController implements Initializable {
     public TextField openingHeight;
@@ -197,10 +198,10 @@ public class PrintDrawerController implements Initializable {
         windowColor.getItems().add("Bronze");
         windowColor.getItems().add("Clear");
 
-        for(int i = 0; i < 20; i++) {
+        for (int i = 1; i <= 30; i++) {
             windowQuantity.getItems().add(String.valueOf(i));
         }
-        for(int i = 0; i < 10; i++) {
+        for (int i = 1; i <= 10; i++) {
             windowPanelNum.getItems().add(String.valueOf(i));
         }
 
@@ -218,6 +219,7 @@ public class PrintDrawerController implements Initializable {
 
     }
 
+    //////////////////////////////////////Single Door/////////////////////////////////////////
     public void submitSingle(ActionEvent actionEvent) {
 
         String doorWidthString = doorWidth.getText();
@@ -233,7 +235,7 @@ public class PrintDrawerController implements Initializable {
             gc.fillText("SFD-" + sfdNumber, (previewCanvas.getWidth() / 2) - 100, 150);
             gc.setFont(new Font(12));
         } else {
-            Drawing_Warning.sfdNotEntered();
+            //Drawing_Warning.sfdNotEntered();
         }
 
         FractionsAndDecimals fTD = new FractionsAndDecimals();
@@ -359,8 +361,8 @@ public class PrintDrawerController implements Initializable {
         }
 
         if (color.getValue().equals("Clear"))
-        //Glass Label
-        gc.setFill(Color.BLACK);
+            //Glass Label
+            gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 75));
         gc.fillText("Glass Sizes", 2800, 2000);
         gc.strokeLine(2800, 2025, 3250, 2025);
@@ -531,53 +533,47 @@ public class PrintDrawerController implements Initializable {
             }
 
 
-        if (secondHardware.getValue().equals("Cylinder") &&
-                hand.getValue().equals("Left") &&
-                color.getValue().equals("Clear")) {
-            if (thirdHardware.getValue().equals("RIM")) {
-                panics.rimLeftHandPush(doorWidthDouble, doorHeightDouble, gc);
-                panics.rimLeftHandPull(doorHeightDouble, gc);
-            } else {
-                handles.leftHandPush(doorWidthDouble, doorHeightDouble, gc);
-                handles.leftHandPull(doorHeightDouble, gc);
-                //Left Hand Cylinder
-                hw.leftHandCylindersClear(doorWidthDouble, doorHeightDouble, gc);
-            }
-            //Left Hand Pivots
-            pivots.leftHandPivots(doorWidthDouble, doorHeightDouble, gc);
+            if (secondHardware.getValue().equals("Cylinder") &&
+                    hand.getValue().equals("Left") &&
+                    color.getValue().equals("Clear")) {
+                if (thirdHardware.getValue().equals("RIM")) {
+                    panics.rimLeftHandPush(doorWidthDouble, doorHeightDouble, gc);
+                    panics.rimLeftHandPull(doorHeightDouble, gc);
+                } else {
+                    handles.leftHandPush(doorWidthDouble, doorHeightDouble, gc);
+                    handles.leftHandPull(doorHeightDouble, gc);
+                    //Left Hand Cylinder
+                    hw.leftHandCylindersClear(doorWidthDouble, doorHeightDouble, gc);
+                }
+                //Left Hand Pivots
+                pivots.leftHandPivots(doorWidthDouble, doorHeightDouble, gc);
 
-        } else if (secondHardware.getValue().equals("Cylinder") &&
-                hand.getValue().equals("Right") &&
-                color.getValue().equals("Clear")) {
-            if (thirdHardware.getValue().equals("RIM")) {
-                panics.rimRightHandPush(doorWidthDouble, doorHeightDouble, gc);
-                panics.rimRightHandPull(doorWidthDouble, doorHeightDouble, gc);
-            } else {
-                handles.rightHandPush(doorWidthDouble, doorHeightDouble, gc);
-                handles.rightHandPull(doorWidthDouble, doorHeightDouble, gc);
+            } else if (secondHardware.getValue().equals("Cylinder") &&
+                    hand.getValue().equals("Right") &&
+                    color.getValue().equals("Clear")) {
+                if (thirdHardware.getValue().equals("RIM")) {
+                    panics.rimRightHandPush(doorWidthDouble, doorHeightDouble, gc);
+                    panics.rimRightHandPull(doorWidthDouble, doorHeightDouble, gc);
+                } else {
+                    handles.rightHandPush(doorWidthDouble, doorHeightDouble, gc);
+                    handles.rightHandPull(doorWidthDouble, doorHeightDouble, gc);
 
-                //Left Hand Cylinder
-                hw.rightHandCylindersClear(doorWidthDouble, doorHeightDouble, gc);
+                    //Left Hand Cylinder
+                    hw.rightHandCylindersClear(doorWidthDouble, doorHeightDouble, gc);
+                }
+                //Right Hand Pivots
+                pivots.rightHandPivots(doorWidthDouble, doorHeightDouble, gc);
             }
-            //Right Hand Pivots
-            pivots.rightHandPivots(doorWidthDouble, doorHeightDouble, gc);
         }
+    }
 
+    public void clearSingle(ActionEvent actionEvent) {
+        GraphicsContext gc = previewCanvas.getGraphicsContext2D();
+        gc.clearRect(0, 0, previewCanvas.getWidth(), previewCanvas.getHeight());
     }
 
     public void doorWidthChange(ActionEvent actionEvent) {
 
-    }
-
-    public void Zoom(ScrollEvent scrollEvent) {
-
-        AnimatedZoomOperator zoomOperator = new AnimatedZoomOperator();
-        double zoomFactor = 1.5;
-        if (scrollEvent.getDeltaY() <= 0) {
-            // zoom out
-            zoomFactor = 1 / zoomFactor;
-        }
-        zoomOperator.zoom(previewCanvas, zoomFactor, scrollEvent.getSceneX(), scrollEvent.getSceneY());
     }
 
     public void clearJob(ActionEvent actionEvent) {
@@ -594,9 +590,6 @@ public class PrintDrawerController implements Initializable {
         } else {
             Drawing_Warning.sfdNotEntered();
         }
-    }
-
-    public void clearSingle(ActionEvent actionEvent) {
     }
 
     public void clearPair(ActionEvent actionEvent) {
@@ -852,6 +845,8 @@ public class PrintDrawerController implements Initializable {
         double windowWidthDouble = fTD.fractionToDecimal(windowWidth.getText());
         double windowHeightDouble = fTD.fractionToDecimal(windowHeight.getText());
 
+        int panels = Integer.parseInt(windowPanelNum.getValue());
+
 //        double windowRoughWidthDouble = fTD.fractionToDecimal(windowRoughWidth.getText());
 //        double windowRoughHeightDouble = fTD.fractionToDecimal(windowRoughHeight.getText());
 
@@ -872,86 +867,86 @@ public class PrintDrawerController implements Initializable {
                 windowWidthDouble >= 36 &&
                 windowHeightDouble >= 84
         ) {
-            //Jambs
-            windows.greaterThanOrEqual84(windowWidthDouble, windowHeightDouble, windowHeightString, gc);
-            //Header and Threshold
-            windows.railsGreaterThanOrEqual36(windowWidthDouble, windowHeightDouble, windowWidthString, gc);
+            //Verticals
+            windows.greaterThanOrEqual84(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
+            //Horizontals
+            windows.railsGreaterThanOrEqual36(windowWidthDouble, windowHeightDouble, windowWidthString, panels, gc);
             //Glass
-            glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, gc);
+            glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, panels, gc);
 
             //Width less than 36 and height less than 84
         } else if (color.getValue().equals("Bronze") &&
                 windowWidthDouble < 36 &&
                 windowHeightDouble < 84) {
-            //Jambs
-            windows.lessThan84(windowWidthDouble, windowHeightDouble, windowHeightString, gc);
-            //Header and Threshold
-            windows.railsLessThan36(windowWidthDouble, windowHeightDouble, windowWidthString, gc);
+            //Verticals
+            windows.lessThan84(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
+            //Horizontals
+            windows.railsLessThan36(windowWidthDouble, windowHeightDouble, windowWidthString, panels, gc);
             //Glass
-            glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, gc);
+            glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, panels, gc);
 
             //Width less than 36 and height greater or equal to 84
         } else if (color.getValue().equals("Bronze") &&
                 windowWidthDouble < 36 &&
                 windowHeightDouble >= 84) {
-            //Jambs
-            windows.greaterThanOrEqual84RailsLessThan36(windowWidthDouble, windowHeightDouble, windowHeightString, gc);
-            //Header and Threshold
-            windows.railsLessThan36StilesGreaterThan84(windowWidthDouble, windowHeightDouble, windowWidthString, gc);
+            //Verticals
+            windows.greaterThanOrEqual84RailsLessThan36(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
+            //Horizontals
+            windows.railsLessThan36StilesGreaterThan84(windowWidthDouble, windowHeightDouble, windowWidthString, panels, gc);
             //Glass
-            glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, gc);
+            glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, panels, gc);
 
             //Width greater or equal 36 and height less than 84
         } else if (color.getValue().equals("Bronze") &&
                 windowWidthDouble >= 36 &&
                 windowHeightDouble < 84) {
-            //Jambs
-            windows.lessThan84RailGreaterThan36(windowWidthDouble, windowHeightDouble, windowHeightString, gc);
-            //Header and Threshold
-            windows.railsGreaterThanOrEqual36StilesLessThan84(windowWidthDouble, windowHeightDouble, windowWidthString, gc);
+            //Verticals
+            windows.lessThan84RailGreaterThan36(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
+            //Horizontals
+            windows.railsGreaterThanOrEqual36StilesLessThan84(windowWidthDouble, windowHeightDouble, windowWidthString, panels, gc);
             //Glass
-            glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, gc);
+            glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, panels, gc);
 
             //Width less than 36 and height less than 84
         } else if (color.getValue().equals("Clear") &&
                 windowWidthDouble < 36 &&
                 windowHeightDouble < 84) {
-            //Jambs
-            windows.lessThan84Clear(windowWidthDouble, windowHeightDouble, windowHeightString, gc);
-            //Header and Threshold
-            windows.railsLessThan36Clear(windowWidthDouble, windowHeightDouble, windowWidthString, gc);
+            //Verticals
+            windows.lessThan84Clear(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
+            //Horizontals
+            windows.railsLessThan36Clear(windowWidthDouble, windowHeightDouble, windowWidthString, panels, gc);
             //Glass
-            glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, gc);
+            glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, panels, gc);
 
         } else if (color.getValue().equals("Clear") &&
                 windowWidthDouble >= 36 &&
                 windowHeightDouble >= 84) {
-            //Jambs
-            windows.lessThanOrEqual84Clear(windowWidthDouble, windowHeightDouble, windowHeightString, gc);
-            //Header and Threshold
-            windows.railsLessThanOrEqual36Clear(windowWidthDouble, windowHeightDouble, windowWidthString, gc);
+            //Verticals
+            windows.lessThanOrEqual84Clear(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
+            //Horizontals
+            windows.railsLessThanOrEqual36Clear(windowWidthDouble, windowHeightDouble, windowWidthString, panels, gc);
             //Glass
-            glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, gc);
+            glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, panels, gc);
 
         } else if (color.getValue().equals("Clear") &&
                 windowWidthDouble >= 36 &&
                 windowHeightDouble < 84) {
-            //Jambs
-            windows.lessThan84RailGreaterThan36Clear(windowWidthDouble, windowHeightDouble, windowHeightString, gc);
-            //Header and Threshold
-            windows.railsGreaterThanOrEqual36Clear(windowWidthDouble, windowHeightDouble, windowWidthString, gc);
+            //Verticals
+            windows.lessThan84RailGreaterThan36Clear(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
+            //Horizontals
+            windows.railsGreaterThanOrEqual36Clear(windowWidthDouble, windowHeightDouble, windowWidthString, panels, gc);
             //Glass
-            glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, gc);
+            glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, panels, gc);
 
         } else if (color.getValue().equals("Clear") &&
                 windowWidthDouble < 36 &&
                 windowHeightDouble >= 84) {
-            //Jambs
-            windows.greaterThanOrEqual84Clear(windowWidthDouble, windowHeightDouble, windowHeightString, gc);
-            //Header and Threshold
-            windows.railsLessThan36ClearStileGreaterThanOrEqual84(windowWidthDouble, windowHeightDouble, windowWidthString, gc);
+            //Verticals
+            windows.greaterThanOrEqual84Clear(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
+            //Horizontals
+            windows.railsLessThan36ClearStileGreaterThanOrEqual84(windowWidthDouble, windowHeightDouble, windowWidthString, panels, gc);
             //Glass
-            glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, gc);
+            glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, panels, gc);
 
         } else {
             Main_Warnings.nothingWarning();
@@ -962,16 +957,24 @@ public class PrintDrawerController implements Initializable {
     }
 
     public void savePDF(ActionEvent actionEvent) {
-
         String SFD = sfdNum.getText();
         WritableImage nodeshot = previewCanvas.snapshot(new SnapshotParameters(),
                 null);
         File file = new File(SFD + ".png");
-
         try {
             ImageIO.write(SwingFXUtils.fromFXImage(nodeshot, null), "png", file);
         } catch (IOException e) {
 
         }
+    }
+
+    public void Zoom(ScrollEvent scrollEvent) {
+        AnimatedZoomOperator zoomOperator = new AnimatedZoomOperator();
+        double zoomFactor = 1.5;
+        if (scrollEvent.getDeltaY() <= 0) {
+            // zoom out
+            zoomFactor = 1 / zoomFactor;
+        }
+        zoomOperator.zoom(previewCanvas, zoomFactor, scrollEvent.getSceneX(), scrollEvent.getSceneY());
     }
 }

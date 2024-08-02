@@ -21,13 +21,13 @@ public class Stiles {
 
         //Stile
         gc.setFill(Color.rgb(95, 87,87));
-        gc.fillRect(1450 - 24, 1450, 24, 350 + doorHeightRatio + 24 + 15 + 350);
+        gc.fillRect(1426, 1450, 24, 739 + doorHeightRatio);
         //Stile Text
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorHeightString,(1450 + 1 + 350 + doorWidthRatio) + 24, ((double) (350 + doorHeightRatio + 24 + 15 + 350) / 2) + 1450);
+        gc.fillText(doorHeightString,1825 + doorWidthRatio, ((double) (739 + doorHeightRatio) / 2) + 1450);
         //Second Stile
         gc.setFill(Color.rgb(95, 87,87));
-        gc.fillRect(1450 + 1 + 350 + doorWidthRatio, 1450, 24, 350 + doorHeightRatio + 24 + 15 + 350);
+        gc.fillRect(1801 + doorWidthRatio, 1450, 24, 739 + doorHeightRatio );
     }
 
     public void stilesLessThan84RailGreaterThan36(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
