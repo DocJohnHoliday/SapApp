@@ -63,7 +63,7 @@ public class Glass {
         //Door glass
         String doorWidth = fTD.convertDecimalToFraction(windowWidthDouble - 0.5);
         String doorHeight = fTD.convertDecimalToFraction(windowHeightDouble - 3.0);
-        String glassSize = "Qty " + panels + " "+ doorWidth + " x " + doorHeight;
+        String glassSize = "(Qty " + panels + ") "+ doorWidth + " x " + doorHeight;
         String standardGlass = "Std 4\" BR Glass";
 
         if (glassSize.equals("31-1/8 x 76-5/8")) {

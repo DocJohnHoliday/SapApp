@@ -11,6 +11,76 @@ public class Windows {
 
     /////////////////////////////////////////Verticals
     /////////////////////////////////////////Bronze
+    public void lessThan84(double doorWidthDouble, double doorHeightDouble, String doorHeightString, int panels, GraphicsContext gc) {
+        for (i = 0; i < doorWidthDouble; i++)
+            i = i;
+        int doorWidthRatio = ((i - 40) * 2);
+
+        for (j = 0; j < doorHeightDouble; j++)
+            j = j;
+        int doorHeightRatio = ((j - 84) * 2);
+        if (panels == 1) {
+            //Verticals
+            gc.setFill(Color.rgb(95, 87, 87));
+            gc.fillRect(1438, 500, 12, 350 + doorHeightRatio + 12 + 15 + 350);
+            //Verticals Text
+            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+            gc.fillText(doorHeightString, (1450 + 3 + 350 + doorWidthRatio) + 12, ((double) (350 + doorHeightRatio + 12 + 15 + 350) / 2) + 500);
+            //Second Verticals
+            gc.setFill(Color.rgb(95, 87, 87));
+            gc.fillRect(1450 + 3 + 350 + doorWidthRatio, 500, 12, 350 + doorHeightRatio + 12 + 15 + 350);
+        } else if (panels == 2) {
+            //Verticals
+            gc.setFill(Color.rgb(95, 87, 87));
+            gc.fillRect(1438, 500, 12, 350 + doorHeightRatio + 12 + 15 + 350);
+            //Verticals Text
+            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+            gc.fillText(doorHeightString, (1450 + 3 + 350 + doorWidthRatio) + 12, ((double) (350 + doorHeightRatio + 12 + 15 + 350) / 2) + 500);
+            //Second Verticals
+            gc.setFill(Color.rgb(95, 87, 87));
+            gc.fillRect(1803 + doorWidthRatio, 500, 12, 727 + doorHeightRatio);
+            //Three Vertical
+            gc.setFill(Color.rgb(95, 87, 87));
+            gc.fillRect((double) (1438 + (1803 + doorWidthRatio)) / 2, 500, 12, 350 + doorHeightRatio + 12 + 15 + 350);
+        } else if (panels == 3) {
+            //Verticals
+            gc.setFill(Color.rgb(95, 87, 87));
+            gc.fillRect(1438, 500, 12, 350 + doorHeightRatio + 12 + 15 + 350);
+            System.out.println("First vertical " + 1438);
+            //Verticals Text
+            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+            gc.fillText(doorHeightString, (1450 + 3 + 350 + doorWidthRatio) + 12, ((double) (350 + doorHeightRatio + 12 + 15 + 350) / 2) + 500);
+            //Second Verticals
+            gc.setFill(Color.rgb(95, 87, 87));
+            gc.fillRect(1803 + doorWidthRatio, 500, 12, 727 + doorHeightRatio);
+            System.out.println("Second vertical " + (1803 + doorWidthRatio));
+            //Three Vertical
+            gc.setFill(Color.rgb(95, 87, 87));
+            gc.fillRect(((((1803 + doorWidthRatio) - 1438) * (double) 1 / 3) + 1438), 500, 12, 727 + doorHeightRatio);
+            //Four Vertical
+            gc.setFill(Color.rgb(95, 87, 87));
+            gc.fillRect(((((1803 + doorWidthRatio) - 1438) * (double) 1 / 3) + 1438) + ((((1803 + doorWidthRatio) - 1438) * (double) 1 / 3) + 1438) - 1438, 500, 12, 727 + doorHeightRatio);
+        } else if (panels == 4) {
+            //Verticals
+            gc.setFill(Color.rgb(95, 87, 87));
+            gc.fillRect(1438, 500, 12, 350 + doorHeightRatio + 12 + 15 + 350);
+            System.out.println("First vertical " + 1438);
+            //Verticals Text
+            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+            gc.fillText(doorHeightString, (1450 + 3 + 350 + doorWidthRatio) + 12, ((double) (350 + doorHeightRatio + 12 + 15 + 350) / 2) + 500);
+            //Second Verticals
+            gc.setFill(Color.rgb(95, 87, 87));
+            gc.fillRect(1803 + doorWidthRatio, 500, 12, 727 + doorHeightRatio);
+            System.out.println("Second vertical " + (1803 + doorWidthRatio));
+            //Three Vertical
+            gc.setFill(Color.rgb(95, 87, 87));
+            gc.fillRect(((((1803 + doorWidthRatio) - 1438) * (double) 1 / 3) + 1438), 500, 12, 727 + doorHeightRatio);
+            //Four Vertical
+            gc.setFill(Color.rgb(95, 87, 87));
+            gc.fillRect(((((1803 + doorWidthRatio) - 1438) * (double) 1 / 3) + 1438), 500, 12, 727 + doorHeightRatio);
+        }
+    }
+
     public void greaterThanOrEqual84(double doorWidthDouble, double doorHeightDouble, String doorHeightString, int panels, GraphicsContext gc) {
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
@@ -19,8 +89,8 @@ public class Windows {
         for (j = 83; j < doorHeightDouble; j++)
             j = j;
         int doorHeightRatio = (j - 84) * 2;
-        
-        if(panels == 0) {
+
+        if (panels == 0) {
             //Verticals
             gc.setFill(Color.rgb(95, 87, 87));
             gc.fillRect(1450 - 12, 500, 12, 350 + doorHeightRatio + 12 + 15 + 350);
@@ -31,27 +101,8 @@ public class Windows {
             gc.setFill(Color.rgb(95, 87, 87));
             gc.fillRect(1450 + 350 + doorWidthRatio, 500, 12, 350 + doorHeightRatio + 12 + 15 + 350);
         } else if (panels == 1) {
-            
+
         }
-    }
-
-    public void lessThan84(double doorWidthDouble, double doorHeightDouble, String doorHeightString, int panels, GraphicsContext gc) {
-        for (i = 0; i < doorWidthDouble; i++)
-            i = i;
-        int doorWidthRatio = (i - 40) * 2;
-
-        for (j = 0; j < doorHeightDouble; j++)
-            j = j;
-        int doorHeightRatio = (j - 84) * 2;
-        //Verticals
-        gc.setFill(Color.rgb(95, 87, 87));
-        gc.fillRect(1450 - 12, 500, 12, 350 + doorHeightRatio + 12 + 15 + 350);
-        //Verticals Text
-        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorHeightString, (1450 + 3 + 350 + doorWidthRatio) + 12, ((double) (350 + doorHeightRatio + 12 + 15 + 350) / 2) + 500);
-        //Second Verticals
-        gc.setFill(Color.rgb(95, 87, 87));
-        gc.fillRect(1450 + 3 + 350 + doorWidthRatio, 500, 12, 350 + doorHeightRatio + 12 + 15 + 350);
     }
 
     public void greaterThanOrEqual84RailsLessThan36(double doorWidthDouble, double doorHeightDouble, String doorHeightString, int panels, GraphicsContext gc) {
@@ -218,21 +269,25 @@ public class Windows {
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
         int doorHeightRatio = (j - 84) * 2;
-        //Header
-        gc.setFill(Color.rgb(95, 87, 87));
-        gc.setStroke(Color.WHITE);
-        gc.fillRect(1450 + 1, 500, 350 + doorWidthRatio - 1, 12);
-        gc.strokeRect(1450, 500, 350 + doorWidthRatio + 2, 12);
-        gc.setStroke(Color.BLACK);
-        //Header Text
-        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorWidthString, (1450 - 12) + ((double) (350 + doorWidthRatio) / 2), 500 + (2 * 12) + 35);
-        //Threshold
-        gc.setFill(Color.rgb(95, 87, 87));
-        gc.setStroke(Color.WHITE);
-        gc.fillRect(1450 + 1, 500 + 350 + doorHeightRatio + 350 + 15, 350 + doorWidthRatio + 1, 12);
-        gc.strokeRect(1450, 500 + 350 + doorHeightRatio + 350 + 15, 350 + doorWidthRatio + 3, 12);
-        gc.setStroke(Color.BLACK);
+        if (panels == 1) {
+            //Header
+            gc.setFill(Color.rgb(95, 87, 87));
+            gc.setStroke(Color.WHITE);
+            gc.fillRect(1450 + 1, 500, 350 + doorWidthRatio - 1, 12);
+            gc.strokeRect(1450, 500, 350 + doorWidthRatio + 2, 12);
+            gc.setStroke(Color.BLACK);
+            //Header Text
+            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+            gc.fillText(doorWidthString, (1450 - 12) + ((double) (350 + doorWidthRatio) / 2), 500 + (2 * 12) + 35);
+            //Threshold
+            gc.setFill(Color.rgb(95, 87, 87));
+            gc.setStroke(Color.WHITE);
+            gc.fillRect(1450 + 1, 500 + 350 + doorHeightRatio + 350 + 15, 350 + doorWidthRatio + 1, 12);
+            gc.strokeRect(1450, 500 + 350 + doorHeightRatio + 350 + 15, 350 + doorWidthRatio + 3, 12);
+            gc.setStroke(Color.BLACK);
+        } else if (panels == 2) {
+
+        }
     }
 
     public void railsGreaterThanOrEqual36StilesLessThan84(double doorWidthDouble, double doorHeightDouble, String doorWidthString, int panels, GraphicsContext gc) {

@@ -201,9 +201,11 @@ public class PrintDrawerController implements Initializable {
         for (int i = 1; i <= 30; i++) {
             windowQuantity.getItems().add(String.valueOf(i));
         }
+        windowQuantity.setValue("1");
         for (int i = 1; i <= 10; i++) {
             windowPanelNum.getItems().add(String.valueOf(i));
         }
+        windowPanelNum.setValue("1");
 
         windowGlass.getItems().add("No Glass");
         windowGlass.getItems().add("3/16 Clear");
