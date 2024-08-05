@@ -3,7 +3,6 @@ package Controller;
 import DrawingComponents.*;
 import MathFormulas.FractionsAndDecimals;
 import Messages.Drawing_Warning;
-import Messages.Main_Warnings;
 import ZoomOperator.AnimatedZoomOperator;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -851,30 +850,23 @@ public class PrintDrawerController implements Initializable {
 
         int panels = Integer.parseInt(windowPanelNum.getValue());
 
-//        double windowRoughWidthDouble = fTD.fractionToDecimal(windowRoughWidth.getText());
-//        double windowRoughHeightDouble = fTD.fractionToDecimal(windowRoughHeight.getText());
-
-//        String frameWidthString = fTD.convertDecimalToFraction(windowRoughWidthDouble);
-//        String frameHeightString = fTD.convertDecimalToFraction(windowRoughHeightDouble);
-
         if (sfdNum.getLength() != 0) {
             String sfdNumber = sfdNum.getText();
             gc.setFont(new Font(100));
             gc.setFill(Color.BLACK);
             gc.fillText("SFD-" + sfdNumber, (previewCanvas.getWidth() / 2) - 100, 150);
             gc.setFont(new Font(12));
-        } else {
-            //Drawing_Warning.sfdNotEntered();
         }
+
         //Width > 36 and height >= 84
         if (color.getValue().equals("Bronze") &&
                 windowWidthDouble >= 36 &&
                 windowHeightDouble >= 84
         ) {
-            //Verticals
-            windows.greaterThanOrEqual84(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
             //Horizontals
             windows.railsGreaterThanOrEqual36(windowWidthDouble, windowHeightDouble, windowWidthString, panels, gc);
+            //Verticals
+            windows.greaterThanOrEqual84(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
             //Glass
             glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, panels, gc);
 
@@ -882,10 +874,10 @@ public class PrintDrawerController implements Initializable {
         } else if (color.getValue().equals("Bronze") &&
                 windowWidthDouble < 36 &&
                 windowHeightDouble < 84) {
-            //Verticals
-            windows.lessThan84(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
             //Horizontals
             windows.railsLessThan36(windowWidthDouble, windowHeightDouble, windowWidthString, panels, gc);
+            //Verticals
+            windows.lessThan84(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
             //Glass
             glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, panels, gc);
 
@@ -893,10 +885,10 @@ public class PrintDrawerController implements Initializable {
         } else if (color.getValue().equals("Bronze") &&
                 windowWidthDouble < 36 &&
                 windowHeightDouble >= 84) {
-            //Verticals
-            windows.greaterThanOrEqual84RailsLessThan36(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
             //Horizontals
             windows.railsLessThan36StilesGreaterThan84(windowWidthDouble, windowHeightDouble, windowWidthString, panels, gc);
+            //Verticals
+            windows.greaterThanOrEqual84RailsLessThan36(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
             //Glass
             glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, panels, gc);
 
@@ -904,10 +896,10 @@ public class PrintDrawerController implements Initializable {
         } else if (color.getValue().equals("Bronze") &&
                 windowWidthDouble >= 36 &&
                 windowHeightDouble < 84) {
-            //Verticals
-            windows.lessThan84RailGreaterThan36(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
             //Horizontals
             windows.railsGreaterThanOrEqual36StilesLessThan84(windowWidthDouble, windowHeightDouble, windowWidthString, panels, gc);
+            //Verticals
+            windows.lessThan84RailGreaterThan36(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
             //Glass
             glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, panels, gc);
 
@@ -915,40 +907,40 @@ public class PrintDrawerController implements Initializable {
         } else if (color.getValue().equals("Clear") &&
                 windowWidthDouble < 36 &&
                 windowHeightDouble < 84) {
-            //Verticals
-            windows.lessThan84Clear(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
             //Horizontals
             windows.railsLessThan36Clear(windowWidthDouble, windowHeightDouble, windowWidthString, panels, gc);
+            //Verticals
+            windows.lessThan84Clear(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
             //Glass
             glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, panels, gc);
 
         } else if (color.getValue().equals("Clear") &&
                 windowWidthDouble >= 36 &&
                 windowHeightDouble >= 84) {
-            //Verticals
-            windows.lessThanOrEqual84Clear(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
             //Horizontals
             windows.railsLessThanOrEqual36Clear(windowWidthDouble, windowHeightDouble, windowWidthString, panels, gc);
+            //Verticals
+            windows.lessThanOrEqual84Clear(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
             //Glass
             glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, panels, gc);
 
         } else if (color.getValue().equals("Clear") &&
                 windowWidthDouble >= 36 &&
                 windowHeightDouble < 84) {
-            //Verticals
-            windows.lessThan84RailGreaterThan36Clear(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
             //Horizontals
             windows.railsGreaterThanOrEqual36Clear(windowWidthDouble, windowHeightDouble, windowWidthString, panels, gc);
+            //Verticals
+            windows.lessThan84RailGreaterThan36Clear(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
             //Glass
             glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, panels, gc);
 
         } else if (color.getValue().equals("Clear") &&
                 windowWidthDouble < 36 &&
                 windowHeightDouble >= 84) {
-            //Verticals
-            windows.greaterThanOrEqual84Clear(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
             //Horizontals
             windows.railsLessThan36ClearStileGreaterThanOrEqual84(windowWidthDouble, windowHeightDouble, windowWidthString, panels, gc);
+            //Verticals
+            windows.greaterThanOrEqual84Clear(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
             //Glass
             glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, panels, gc);
 
@@ -960,11 +952,11 @@ public class PrintDrawerController implements Initializable {
 
     public void savePDF(ActionEvent actionEvent) {
         String SFD = sfdNum.getText();
-        WritableImage nodeshot = previewCanvas.snapshot(new SnapshotParameters(),
+        WritableImage nodeShot = previewCanvas.snapshot(new SnapshotParameters(),
                 null);
         File file = new File(SFD + ".png");
         try {
-            ImageIO.write(SwingFXUtils.fromFXImage(nodeshot, null), "png", file);
+            ImageIO.write(SwingFXUtils.fromFXImage(nodeShot, null), "png", file);
         } catch (IOException e) {
 
         }
