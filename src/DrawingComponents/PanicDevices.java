@@ -9,12 +9,8 @@ public class PanicDevices {
     int startY = startX ; //Start in Y axis
     int recWidth = 350; //Rectangle Width
     int recHeight = 24; //Rectangle Height
-
     int j = 0;
-
     int i = 0;
-
-
     public void rimLeftHandPull(double doorHeightDouble, GraphicsContext gc) {
 
         for (j = 83; j < doorHeightDouble; j++)

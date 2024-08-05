@@ -326,39 +326,6 @@ public class PrintDrawerController implements Initializable {
                         hAT.railsLessThan36StilesGreaterThan84(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
                     }
                 }
-                if (hand.getValue().equals("Left")) {
-                    if (secondHardware.getValue().equals("Cylinder")) {
-                        //Left Hand Push
-                        if (thirdHardware.getValue().equals("RIM")) {
-                            panics.rimLeftHandPush(doorWidthDouble, doorHeightDouble, gc);
-                            panics.rimLeftHandPull(doorHeightDouble, gc);
-                        } else {
-                            handles.leftHandPush(doorWidthDouble, doorHeightDouble, gc);
-                            handles.leftHandPull(doorHeightDouble, gc);
-                            //Left Hand Cylinder
-                            hw.leftHandCylindersBronze(doorWidthDouble, doorHeightDouble, gc);
-                        }
-                        //Left Hand Pivots
-                        pivots.leftHandPivots(doorWidthDouble, doorHeightDouble, gc);
-                    }
-                }
-                if (hand.getValue().equals("Right")) {
-                    if (secondHardware.getValue().equals("Cylinder")) {
-                        //Right Hand Pull
-                        //Right Hand Push
-                        if (thirdHardware.getValue().equals("RIM")) {
-                            panics.rimRightHandPush(doorWidthDouble, doorHeightDouble, gc);
-                            panics.rimRightHandPull(doorWidthDouble, doorHeightDouble, gc);
-                        } else {
-                            handles.rightHandPush(doorWidthDouble, doorHeightDouble, gc);
-                            handles.rightHandPull(doorWidthDouble, doorHeightDouble, gc);
-                            //Left Hand Cylinder
-                            hw.rightHandCylindersBronze(doorWidthDouble, doorHeightDouble, gc);
-                        }
-                        //Right Hand Pivots
-                        pivots.rightHandPivots(doorWidthDouble, doorHeightDouble, gc);
-                    }
-                }
             }
         }
 
@@ -449,6 +416,7 @@ public class PrintDrawerController implements Initializable {
             jambs.stilesLessThan84RailGreaterThan36(frameWidthDouble, frameHeightDouble, frameHeightString, gc);
             //Header and Threshold
             hAT.railsGreaterThanOrEqual36StilesLessThan84(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
+        }
 
 
             if (color.getValue().equals("Clear") &&
@@ -530,19 +498,50 @@ public class PrintDrawerController implements Initializable {
                 //Header and Threshold
                 hAT.railsLessThan36ClearStileGreaterThanOrEqual84(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
 
-            } else {
-                Main_Warnings.nothingWarning();
             }
-
-
-            if (secondHardware.getValue().equals("Cylinder") &&
-                    hand.getValue().equals("Left") &&
-                    color.getValue().equals("Clear")) {
+        if (hand.getValue().equals("Left")) {
+            if (secondHardware.getValue().equals("Cylinder")) {
+                //Left Hand Push
                 if (thirdHardware.getValue().equals("RIM")) {
                     panics.rimLeftHandPush(doorWidthDouble, doorHeightDouble, gc);
                     panics.rimLeftHandPull(doorHeightDouble, gc);
                 } else {
                     handles.leftHandPush(doorWidthDouble, doorHeightDouble, gc);
+                    handles.leftHandPull(doorHeightDouble, gc);
+                    //Left Hand Cylinder
+                    hw.leftHandCylindersBronze(doorWidthDouble, doorHeightDouble, gc);
+                }
+                //Left Hand Pivots
+                pivots.leftHandPivots(doorWidthDouble, doorHeightDouble, gc);
+            }
+        }
+        if (hand.getValue().equals("Right")) {
+            if (secondHardware.getValue().equals("Cylinder")) {
+                //Right Hand Pull
+                //Right Hand Push
+                if (thirdHardware.getValue().equals("RIM")) {
+                    panics.rimRightHandPush(doorWidthDouble, doorHeightDouble, gc);
+                    panics.rimRightHandPull(doorWidthDouble, doorHeightDouble, gc);
+                } else {
+                    handles.rightHandPush(doorWidthDouble, doorHeightDouble, gc);
+                    handles.rightHandPull(doorWidthDouble, doorHeightDouble, gc);
+                    //Left Hand Cylinder
+                    hw.rightHandCylindersBronze(doorWidthDouble, doorHeightDouble, gc);
+                }
+                //Right Hand Pivots
+                pivots.rightHandPivots(doorWidthDouble, doorHeightDouble, gc);
+            }
+        }
+
+
+        if (secondHardware.getValue().equals("Cylinder") &&
+                hand.getValue().equals("Left") &&
+                color.getValue().equals("Clear")) {
+            if (thirdHardware.getValue().equals("RIM")) {
+                panics.rimLeftHandPush(doorWidthDouble, doorHeightDouble, gc);
+                panics.rimLeftHandPull(doorHeightDouble, gc);
+            } else {
+                handles.leftHandPush(doorWidthDouble, doorHeightDouble, gc);
                     handles.leftHandPull(doorHeightDouble, gc);
                     //Left Hand Cylinder
                     hw.leftHandCylindersClear(doorWidthDouble, doorHeightDouble, gc);
@@ -566,7 +565,6 @@ public class PrintDrawerController implements Initializable {
                 //Right Hand Pivots
                 pivots.rightHandPivots(doorWidthDouble, doorHeightDouble, gc);
             }
-        }
     }
 
     public void clearSingle(ActionEvent actionEvent) {
@@ -646,6 +644,7 @@ public class PrintDrawerController implements Initializable {
             jambs.stilesGreaterThanOrEqual84(frameWidthDouble, frameHeightDouble, frameHeightString, gc);
             //Header and Threshold
             hAT.railsGreaterThanOrEqual36(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
+            System.out.println(1);
 
             //Width less than 36 and height less than 84
         } else if (color.getValue().equals("Bronze") &&
@@ -667,6 +666,7 @@ public class PrintDrawerController implements Initializable {
             jambs.stilesLessThan84(frameWidthDouble, frameHeightDouble, frameHeightString, gc);
             //Header and Threshold
             hAT.railsLessThan36(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
+            System.out.println(1);
 
             //Width less than 36 and height greater or equal to 84
         } else if (color.getValue().equals("Bronze") &&
@@ -683,6 +683,7 @@ public class PrintDrawerController implements Initializable {
             hAT.railsLessThan36StilesGreaterThan84(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
             //Glass
             glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, gc);
+            System.out.println(1);
 
             //Width greater or equal 36 and height less than 84
         } else if (color.getValue().equals("Bronze") &&
@@ -699,6 +700,7 @@ public class PrintDrawerController implements Initializable {
             hAT.railsGreaterThanOrEqual36StilesLessThan84(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
             //Glass
             glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, gc);
+            System.out.println(1);
 
             //Width less than 36 and height less than 84
         } else if (color.getValue().equals("Clear") &&
@@ -761,12 +763,12 @@ public class PrintDrawerController implements Initializable {
             //Glass
             glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, gc);
 
-        } else {
-            Main_Warnings.nothingWarning();
         }
-        if (secondHardware.getValue().equals("Cylinder") &&
-                hand.getValue().equals("Left") &&
-                color.getValue().equals("Bronze")) {
+        if (secondHardware.getValue().equals("Cylinder") ||
+                hardware.getValue().equals("Cylinder") ||
+                thirdHardware.getValue().equals("Cylinder") &&
+                        hand.getValue().equals("Left") &&
+                        color.getValue().equals("Bronze")) {
             //Pull Bar Left Hand
             handles.leftHandPull(doorHeightDouble, gc);
             //Push Bar LH
@@ -950,8 +952,6 @@ public class PrintDrawerController implements Initializable {
             //Glass
             glass.windowGlass5mm(windowWidthDouble, windowHeightDouble, panels, gc);
 
-        } else {
-            Main_Warnings.nothingWarning();
         }
     }
 
