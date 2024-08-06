@@ -13,6 +13,15 @@ public class Drawing_Warning {
         });
     }
 
+    public static void stringEmptyEntered() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Incomplete");
+        alert.setContentText("You must enter a window size.");
+        alert.showAndWait().ifPresent((btnType) -> {
+            clearDialogOptionSelections();
+        });
+    }
+
     private static void clearDialogOptionSelections() {
     }
 }

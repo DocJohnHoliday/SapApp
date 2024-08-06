@@ -21,25 +21,34 @@ public class FractionsAndDecimals {
 
     public String convertDecimalToFraction(double decimal) {
         try {
-
             String x = String.valueOf(decimal);
 
             String[] parts = x.split("\\.");
             String wholeNum = parts[0];
             String decimalFraction = parts[1];
 
+//            if (check < 0.67 || check > 0.65)
+//                decimalFraction = "625";
+//
+//            if (check < 0.34 || check > 0.32)
+//                decimalFraction = "3125";
+//
+//            if (check < 0.17 || check > 0.15)
+//                decimalFraction = "125";
+
+
             int a = decimalFraction.length();
 
             int y = Integer.parseInt(decimalFraction);
 
-            if(y == 0) {
+            if (y == 0) {
                 return wholeNum;
             } else {
 
-                if(a == 1) {
+                if (a == 1) {
                     int greatestCommonFactor = gcd(y, 10);
                     return wholeNum + "-" + (y / greatestCommonFactor) + "/" + (10 / greatestCommonFactor);
-                } else if(a == 2) {
+                } else if (a == 2) {
                     int greatestCommonFactor = gcd(y, 100);
                     return wholeNum + "-" + (y / greatestCommonFactor) + "/" + (100 / greatestCommonFactor);
                 } else if (a == 3) {
@@ -50,6 +59,7 @@ public class FractionsAndDecimals {
                     return wholeNum + "-" + (y / greatestCommonFactor) + "/" + (10000 / greatestCommonFactor);
                 }
             }
+
         } catch (ArrayIndexOutOfBoundsException e) {
             return String.valueOf(decimal);
         }
