@@ -123,15 +123,16 @@ public class PrintDrawerController implements Initializable {
         hinging.setValue("Pivots");
 
         glassType.getItems().add("No Glass");
-        glassType.getItems().add("3/16 Clear");
-        glassType.getItems().add("1/4 Clear");
-        glassType.getItems().add("3/16 Bronze");
-        glassType.getItems().add("1/4 Bronze");
-        glassType.getItems().add("3/16 Grey");
-        glassType.getItems().add("1/4 Grey");
+        glassType.getItems().add("3/16 Clr");
+        glassType.getItems().add("1/4 Clr");
+        glassType.getItems().add("3/16 Tint");
+        glassType.getItems().add("1/4 Tint");
         glassType.getItems().add("IG");
+        glassType.getItems().add("Tinted IG");
+        glassType.getItems().add("Pattern 62");
+        glassType.getItems().add("Ribbed");
         glassType.getItems().add("Low E");
-        glassType.setValue("3/16 Clear");
+        glassType.setValue("3/16 Clr");
 
         hardware.getItems().add("No Hardware");
         hardware.getItems().add("Cylinder");
@@ -208,15 +209,16 @@ public class PrintDrawerController implements Initializable {
         windowPanelNum.setValue("1");
 
         windowGlass.getItems().add("No Glass");
-        windowGlass.getItems().add("3/16 Clear");
-        windowGlass.getItems().add("1/4 Clear");
-        windowGlass.getItems().add("3/16 Bronze");
-        windowGlass.getItems().add("1/4 Bronze");
-        windowGlass.getItems().add("3/16 Grey");
-        windowGlass.getItems().add("1/4 Grey");
+        windowGlass.getItems().add("3/16 Clr");
+        windowGlass.getItems().add("1/4 Clr");
+        windowGlass.getItems().add("3/16 Tint");
+        windowGlass.getItems().add("1/4 Tint");
         windowGlass.getItems().add("IG");
+        windowGlass.getItems().add("Tinted IG");
+        windowGlass.getItems().add("Pattern 62");
+        windowGlass.getItems().add("Ribbed");
         windowGlass.getItems().add("Low E");
-        windowGlass.setValue("3/16 Clear");
+        windowGlass.setValue("3/16 Clr");
 
 
     }
@@ -840,36 +842,39 @@ public class PrintDrawerController implements Initializable {
         //Glass Label
         gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 75));
-        gc.fillText("Glass Sizes", 2600, 2000);
-        gc.strokeLine(2600, 2025, 3250, 2025);
+        gc.fillText("Glass Sizes", 2400, 2000);
+        gc.strokeLine(2400, 2025, 3250, 2025);
 
         FractionsAndDecimals fTD = new FractionsAndDecimals();
 
         String windowWidthString = windowWidth.getText();
         String windowHeightString = windowHeight.getText();
 
+        int quantity = Integer.parseInt(windowQuantity.getValue());
+        String type = windowGlass.getValue();
+
 //        try {
-            double windowWidthDouble = fTD.fractionToDecimal(windowWidth.getText());
-            double windowHeightDouble = fTD.fractionToDecimal(windowHeight.getText());
+        double windowWidthDouble = fTD.fractionToDecimal(windowWidth.getText());
+        double windowHeightDouble = fTD.fractionToDecimal(windowHeight.getText());
 
-            int panels = Integer.parseInt(windowPanelNum.getValue());
+        int panels = Integer.parseInt(windowPanelNum.getValue());
 
-            //Width > 36 and height >= 84
-            if (windowColor.getValue().equals("Bronze") &&
-                    windowWidthDouble >= 36 &&
-                    windowHeightDouble >= 84
-            ) {
-                //Horizontals
-                windows.railsGreaterThanOrEqual36(windowWidthDouble, windowHeightDouble, windowWidthString, panels, gc);
-                //Verticals
-                windows.greaterThanOrEqual84(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
+        //Width > 36 and height >= 84
+        if (windowColor.getValue().equals("Bronze") &&
+                windowWidthDouble >= 36 &&
+                windowHeightDouble >= 84
+        ) {
+            //Horizontals
+            windows.railsGreaterThanOrEqual36(windowWidthDouble, windowHeightDouble, windowWidthString, quantity, type, panels, gc);
+            //Verticals
+            windows.greaterThanOrEqual84(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
 
-                //Width less than 36 and height less than 84
-            } else if (windowColor.getValue().equals("Bronze") &&
-                    windowWidthDouble < 36 &&
+            //Width less than 36 and height less than 84
+        } else if (windowColor.getValue().equals("Bronze") &&
+                windowWidthDouble < 36 &&
                     windowHeightDouble < 84) {
                 //Horizontals
-                windows.railsLessThan36(windowWidthDouble, windowHeightDouble, windowWidthString, panels, gc);
+            windows.railsLessThan36(windowWidthDouble, windowHeightDouble, windowWidthString, quantity, type, panels, gc);
                 //Verticals
                 windows.lessThan84(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
 
@@ -878,7 +883,7 @@ public class PrintDrawerController implements Initializable {
                     windowWidthDouble < 36 &&
                     windowHeightDouble >= 84) {
                 //Horizontals
-                windows.railsLessThan36StilesGreaterThan84(windowWidthDouble, windowHeightDouble, windowWidthString, panels, gc);
+            windows.railsLessThan36StilesGreaterThan84(windowWidthDouble, windowHeightDouble, windowWidthString, quantity, type, panels, gc);
                 //Verticals
                 windows.greaterThanOrEqual84RailsLessThan36(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
 
@@ -887,7 +892,7 @@ public class PrintDrawerController implements Initializable {
                     windowWidthDouble >= 36 &&
                     windowHeightDouble < 84) {
                 //Horizontals
-                windows.railsGreaterThanOrEqual36StilesLessThan84(windowWidthDouble, windowHeightDouble, windowWidthString, panels, gc);
+            windows.railsGreaterThanOrEqual36StilesLessThan84(windowWidthDouble, windowHeightDouble, windowWidthString, quantity, type, panels, gc);
                 //Verticals
                 windows.lessThan84RailGreaterThan36(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
 
@@ -896,7 +901,7 @@ public class PrintDrawerController implements Initializable {
                     windowWidthDouble < 36 &&
                     windowHeightDouble < 84) {
                 //Horizontals
-                windows.railsLessThan36Clear(windowWidthDouble, windowHeightDouble, windowWidthString, panels, gc);
+            windows.railsLessThan36Clear(windowWidthDouble, windowHeightDouble, windowWidthString, quantity, type, panels, gc);
                 //Verticals
                 windows.lessThan84Clear(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
 
@@ -904,7 +909,7 @@ public class PrintDrawerController implements Initializable {
                     windowWidthDouble >= 36 &&
                     windowHeightDouble >= 84) {
                 //Horizontals
-                windows.railsLessThanOrEqual36Clear(windowWidthDouble, windowHeightDouble, windowWidthString, panels, gc);
+            windows.railsLessThanOrEqual36Clear(windowWidthDouble, windowHeightDouble, windowWidthString, quantity, type, panels, gc);
                 //Verticals
                 windows.lessThanOrEqual84Clear(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
 
@@ -912,7 +917,7 @@ public class PrintDrawerController implements Initializable {
                     windowWidthDouble >= 36 &&
                     windowHeightDouble < 84) {
                 //Horizontals
-                windows.railsGreaterThanOrEqual36Clear(windowWidthDouble, windowHeightDouble, windowWidthString, panels, gc);
+            windows.railsGreaterThanOrEqual36Clear(windowWidthDouble, windowHeightDouble, windowWidthString, quantity, type, panels, gc);
                 //Verticals
                 windows.lessThan84RailGreaterThan36Clear(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
 
@@ -920,7 +925,7 @@ public class PrintDrawerController implements Initializable {
                     windowWidthDouble < 36 &&
                     windowHeightDouble >= 84) {
                 //Horizontals
-                windows.railsLessThan36ClearStileGreaterThanOrEqual84(windowWidthDouble, windowHeightDouble, windowWidthString, panels, gc);
+            windows.railsLessThan36ClearStileGreaterThanOrEqual84(windowWidthDouble, windowHeightDouble, windowWidthString, quantity, type, panels, gc);
                 //Verticals
                 windows.greaterThanOrEqual84Clear(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
 

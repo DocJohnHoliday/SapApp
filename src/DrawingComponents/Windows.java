@@ -421,7 +421,8 @@ public class Windows {
 
     //////////////////////////////Bronze
 
-    public void railsGreaterThanOrEqual36(double doorWidthDouble, double doorHeightDouble, String doorWidthString, int panels, GraphicsContext gc) {
+    public void railsGreaterThanOrEqual36(double doorWidthDouble, double doorHeightDouble, String doorWidthString,
+                                          int quantity, String type, int panels, GraphicsContext gc) {
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
         int doorWidthRatio = (i - 40) * 4;
@@ -430,14 +431,20 @@ public class Windows {
             j = j;
         int doorHeightRatio = (j - 84) * 4;
 
-        if(panels == 1) {
+        //Glass
+        if (type.equals("3/16 Clr") || type.equals("1/4 Clr") || type.equals("3/16 Tint") || type.equals("Pattern 62")
+                || type.equals("Ribbed") || type.equals("1/4 Tint"))
+            glass.windowGlass5mm(doorWidthDouble, doorHeightDouble, quantity, type, panels, gc);
+        if (type.equals("IG") || type.equals("Tinted IG") || type.equals("Low E"))
+            glass.windowGlassIG(doorWidthDouble, doorHeightDouble, quantity, type, panels, gc);
+        if (type.equals("No Glass"))
+            glass.noGlass(gc);
+
+        if (panels == 1) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 20));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 540);
         }
-        //Glass
-        glass.windowGlass5mm(doorWidthDouble, doorHeightDouble, panels, gc);
-
         if (panels == 2) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 25));
@@ -468,7 +475,8 @@ public class Windows {
         gc.setStroke(Color.BLACK);
     }
 
-    public void railsLessThan36StilesGreaterThan84(double doorWidthDouble, double doorHeightDouble, String doorWidthString, int panels, GraphicsContext gc) {
+    public void railsLessThan36StilesGreaterThan84(double doorWidthDouble, double doorHeightDouble, String doorWidthString,
+                                                   int quantity, String type, int panels, GraphicsContext gc) {
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
         int doorWidthRatio = (i - 40);
@@ -477,14 +485,20 @@ public class Windows {
             j = j;
         int doorHeightRatio = (j - 84);
 
-        if(panels == 1) {
+        //Glass
+        if (type.equals("3/16 Clr") || type.equals("1/4 Clr") || type.equals("3/16 Tint") || type.equals("Pattern 62")
+                || type.equals("Ribbed") || type.equals("1/4 Tint"))
+            glass.windowGlass5mm(doorWidthDouble, doorHeightDouble, quantity, type, panels, gc);
+        if (type.equals("IG") || type.equals("Tinted IG") || type.equals("Low E"))
+            glass.windowGlassIG(doorWidthDouble, doorHeightDouble, quantity, type, panels, gc);
+        if (type.equals("No Glass"))
+            glass.noGlass(gc);
+
+        if (panels == 1) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 25));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 540);
         }
-        //Glass
-        glass.windowGlass5mm(doorWidthDouble, doorHeightDouble, panels, gc);
-
         if (panels == 2) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 25));
@@ -515,7 +529,8 @@ public class Windows {
         gc.setStroke(Color.BLACK);
     }
 
-    public void railsLessThan36(double doorWidthDouble, double doorHeightDouble, String doorWidthString, int panels, GraphicsContext gc) {
+    public void railsLessThan36(double doorWidthDouble, double doorHeightDouble, String doorWidthString,
+                                int quantity, String type, int panels, GraphicsContext gc) {
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
         int doorWidthRatio = (i - 40);
@@ -524,14 +539,20 @@ public class Windows {
             j = j;
         int doorHeightRatio = (j - 84);
 
-        if(panels == 1) {
+        //Glass
+        if (type.equals("3/16 Clr") || type.equals("1/4 Clr") || type.equals("3/16 Tint") || type.equals("Pattern 62")
+                || type.equals("Ribbed") || type.equals("1/4 Tint"))
+            glass.windowGlass5mm(doorWidthDouble, doorHeightDouble, quantity, type, panels, gc);
+        if (type.equals("IG") || type.equals("Tinted IG") || type.equals("Low E"))
+            glass.windowGlassIG(doorWidthDouble, doorHeightDouble, quantity, type, panels, gc);
+        if (type.equals("No Glass"))
+            glass.noGlass(gc);
+
+        if (panels == 1) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 25));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 540);
         }
-        //Glass
-        glass.windowGlass5mm(doorWidthDouble, doorHeightDouble, panels, gc);
-
         if (panels == 2) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 25));
@@ -563,7 +584,8 @@ public class Windows {
         gc.setStroke(Color.BLACK);
     }
 
-    public void railsGreaterThanOrEqual36StilesLessThan84(double doorWidthDouble, double doorHeightDouble, String doorWidthString, int panels, GraphicsContext gc) {
+    public void railsGreaterThanOrEqual36StilesLessThan84(double doorWidthDouble, double doorHeightDouble, String doorWidthString,
+                                                          int quantity, String type, int panels, GraphicsContext gc) {
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
         int doorWidthRatio = (i - 40);
@@ -572,14 +594,20 @@ public class Windows {
             j = j;
         int doorHeightRatio = (j - 84);
 
-        if(panels == 1) {
+        //Glass
+        if (type.equals("3/16 Clr") || type.equals("1/4 Clr") || type.equals("3/16 Tint") || type.equals("Pattern 62")
+                || type.equals("Ribbed") || type.equals("1/4 Tint"))
+            glass.windowGlass5mm(doorWidthDouble, doorHeightDouble, quantity, type, panels, gc);
+        if (type.equals("IG") || type.equals("Tinted IG") || type.equals("Low E"))
+            glass.windowGlassIG(doorWidthDouble, doorHeightDouble, quantity, type, panels, gc);
+        if (type.equals("No Glass"))
+            glass.noGlass(gc);
+
+        if (panels == 1) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 25));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 540);
         }
-        //Glass
-        glass.windowGlass5mm(doorWidthDouble, doorHeightDouble, panels, gc);
-
         if (panels == 2) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 25));
@@ -612,7 +640,8 @@ public class Windows {
 
     ////////////////////////////////////Clear
 
-    public void railsLessThan36Clear(double doorWidthDouble, double doorHeightDouble, String doorWidthString, int panels, GraphicsContext gc) {
+    public void railsLessThan36Clear(double doorWidthDouble, double doorHeightDouble, String doorWidthString,
+                                     int quantity, String type, int panels, GraphicsContext gc) {
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
         int doorWidthRatio = (i - 40);
@@ -620,14 +649,21 @@ public class Windows {
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
         int doorHeightRatio = (j - 84);
-        if(panels == 1) {
+
+        //Glass
+        if (type.equals("3/16 Clr") || type.equals("1/4 Clr") || type.equals("3/16 Tint") || type.equals("Pattern 62")
+                || type.equals("Ribbed") || type.equals("1/4 Tint"))
+            glass.windowGlass5mm(doorWidthDouble, doorHeightDouble, quantity, type, panels, gc);
+        if (type.equals("IG") || type.equals("Tinted IG") || type.equals("Low E"))
+            glass.windowGlassIG(doorWidthDouble, doorHeightDouble, quantity, type, panels, gc);
+        if (type.equals("No Glass"))
+            glass.noGlass(gc);
+
+        if (panels == 1) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 25));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 540);
         }
-        //Glass
-        glass.windowGlass5mm(doorWidthDouble, doorHeightDouble, panels, gc);
-
         if (panels == 2) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 25));
@@ -651,7 +687,8 @@ public class Windows {
         gc.setStroke(Color.BLACK);
     }
 
-    public void railsLessThanOrEqual36Clear(double doorWidthDouble, double doorHeightDouble, String doorWidthString, int panels, GraphicsContext gc) {
+    public void railsLessThanOrEqual36Clear(double doorWidthDouble, double doorHeightDouble, String doorWidthString,
+                                            int quantity, String type, int panels, GraphicsContext gc) {
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
         int doorWidthRatio = (i - 40);
@@ -659,14 +696,21 @@ public class Windows {
         for (j = 83; j < doorHeightDouble; j++)
             j = j;
         int doorHeightRatio = (j - 84);
-        if(panels == 1) {
+
+        //Glass
+        if (type.equals("3/16 Clr") || type.equals("1/4 Clr") || type.equals("3/16 Tint") || type.equals("Pattern 62")
+                || type.equals("Ribbed") || type.equals("1/4 Tint"))
+            glass.windowGlass5mm(doorWidthDouble, doorHeightDouble, quantity, type, panels, gc);
+        if (type.equals("IG") || type.equals("Tinted IG") || type.equals("Low E"))
+            glass.windowGlassIG(doorWidthDouble, doorHeightDouble, quantity, type, panels, gc);
+        if (type.equals("No Glass"))
+            glass.noGlass(gc);
+
+        if (panels == 1) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 25));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 540);
         }
-        //Glass
-        glass.windowGlass5mm(doorWidthDouble, doorHeightDouble, panels, gc);
-
         if (panels == 2) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 25));
@@ -690,7 +734,8 @@ public class Windows {
         gc.setStroke(Color.BLACK);
     }
 
-    public void railsGreaterThanOrEqual36Clear(double doorWidthDouble, double doorHeightDouble, String doorWidthString, int panels, GraphicsContext gc) {
+    public void railsGreaterThanOrEqual36Clear(double doorWidthDouble, double doorHeightDouble, String doorWidthString,
+                                               int quantity, String type, int panels, GraphicsContext gc) {
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
         int doorWidthRatio = (i - 40);
@@ -698,14 +743,21 @@ public class Windows {
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
         int doorHeightRatio = (j - 84);
-        if(panels == 1) {
+
+        //Glass
+        if (type.equals("3/16 Clr") || type.equals("1/4 Clr") || type.equals("3/16 Tint") || type.equals("Pattern 62")
+                || type.equals("Ribbed") || type.equals("1/4 Tint"))
+            glass.windowGlass5mm(doorWidthDouble, doorHeightDouble, quantity, type, panels, gc);
+        if (type.equals("IG") || type.equals("Tinted IG") || type.equals("Low E"))
+            glass.windowGlassIG(doorWidthDouble, doorHeightDouble, quantity, type, panels, gc);
+        if (type.equals("No Glass"))
+            glass.noGlass(gc);
+
+        if (panels == 1) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 25));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 540);
         }
-        //Glass
-        glass.windowGlass5mm(doorWidthDouble, doorHeightDouble, panels, gc);
-
         if (panels == 2) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 25));
@@ -729,7 +781,8 @@ public class Windows {
         gc.setStroke(Color.BLACK);
     }
 
-    public void railsLessThan36ClearStileGreaterThanOrEqual84(double doorWidthDouble, double doorHeightDouble, String doorWidthString, int panels, GraphicsContext gc) {
+    public void railsLessThan36ClearStileGreaterThanOrEqual84(double doorWidthDouble, double doorHeightDouble, String doorWidthString,
+                                                              int quantity, String type, int panels, GraphicsContext gc) {
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
         int doorWidthRatio = (i - 40);
@@ -737,14 +790,20 @@ public class Windows {
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
         int doorHeightRatio = (j - 84);
-        if(panels == 1) {
+        //Glass
+        if (type.equals("3/16 Clr") || type.equals("1/4 Clr") || type.equals("3/16 Tint") || type.equals("Pattern 62")
+                || type.equals("Ribbed") || type.equals("1/4 Tint"))
+            glass.windowGlass5mm(doorWidthDouble, doorHeightDouble, quantity, type, panels, gc);
+        if (type.equals("IG") || type.equals("Tinted IG") || type.equals("Low E"))
+            glass.windowGlassIG(doorWidthDouble, doorHeightDouble, quantity, type, panels, gc);
+        if (type.equals("No Glass"))
+            glass.noGlass(gc);
+
+        if (panels == 1) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 25));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 540);
         }
-        //Glass
-        glass.windowGlass5mm(doorWidthDouble, doorHeightDouble, panels, gc);
-
         if (panels == 2) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 25));

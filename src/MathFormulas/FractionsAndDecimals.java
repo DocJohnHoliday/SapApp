@@ -21,20 +21,24 @@ public class FractionsAndDecimals {
 
     public String convertDecimalToFraction(double decimal) {
         try {
+            String check;
             String x = String.valueOf(decimal);
 
             String[] parts = x.split("\\.");
             String wholeNum = parts[0];
             String decimalFraction = parts[1];
 
-//            if (check < 0.67 || check > 0.65)
-//                decimalFraction = "625";
-//
-//            if (check < 0.34 || check > 0.32)
-//                decimalFraction = "3125";
-//
-//            if (check < 0.17 || check > 0.15)
-//                decimalFraction = "125";
+            if (decimalFraction.length() > 1)
+                check = decimalFraction.substring(0, 2);
+
+            if (check.equals("66"))
+                decimalFraction = "625";
+
+            if (check.equals("33"))
+                decimalFraction = "3125";
+
+            if (check.equals("16"))
+                decimalFraction = "125";
 
 
             int a = decimalFraction.length();
