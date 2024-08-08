@@ -6,6 +6,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class Windows {
     int j = 0;
     int i = 0;
@@ -560,7 +564,10 @@ public class Windows {
         } else if (panels == 3) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 25));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 5.0) / 3)), 1460, 540);
+            BigDecimal num1 = new BigDecimal(doorWidthDouble - 5.0);
+            BigDecimal num2 = new BigDecimal(3);
+            double x = num1.divide(num2, 2, RoundingMode.HALF_DOWN).doubleValue();
+            gc.fillText(fTD.convertDecimalToFraction(x), 1460, 540);
         } else if (panels == 4) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 25));

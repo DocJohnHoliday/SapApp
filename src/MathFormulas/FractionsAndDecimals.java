@@ -21,7 +21,7 @@ public class FractionsAndDecimals {
 
     public String convertDecimalToFraction(double decimal) {
         try {
-            String check;
+            String check = "here";
             String x = String.valueOf(decimal);
 
             String[] parts = x.split("\\.");
@@ -31,13 +31,15 @@ public class FractionsAndDecimals {
             if (decimalFraction.length() > 1)
                 check = decimalFraction.substring(0, 2);
 
+            check = decimalFraction;
+
             if (check.equals("66"))
                 decimalFraction = "625";
 
             if (check.equals("33"))
                 decimalFraction = "3125";
 
-            if (check.equals("16"))
+            if (check.equals("17"))
                 decimalFraction = "125";
 
 

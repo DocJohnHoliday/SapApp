@@ -2,27 +2,34 @@ package DrawingComponents;
 
 import MathFormulas.FractionsAndDecimals;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Glass {
 
     FractionsAndDecimals fTD = new FractionsAndDecimals();
 
     // Glass for 3/16" Single doors
-    public void doorGlass5mm4BR(double doorWidthDouble, double doorHeightDouble, GraphicsContext gc) {
+    public void doorGlass5mm4BR(double doorWidthDouble, double doorHeightDouble, String glass, GraphicsContext gc) {
         //Door glass
         String doorWidth = fTD.convertDecimalToFraction(doorWidthDouble - 0.5 + 0.0625);
         String doorHeight = fTD.convertDecimalToFraction(doorHeightDouble - 6.75 + 0.125);
-        String glassSize = doorWidth + " x " + doorHeight;
+        String glassSize;
+        glassSize = glass + "   " + doorWidth + " x " + doorHeight;
         String standardGlass = "Std 4\" BR Glass";
 
         if (glassSize.equals("31-1/8 x 76-5/8")) {
-            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(standardGlass, 2800, 2100);
+            gc.setFill(Color.BLACK);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+            gc.fillText(standardGlass, 2600, 2075);
         } else {
-            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(glassSize, 2800, 2100);
+            gc.setFill(Color.BLACK);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+            gc.fillText(glassSize, 2600, 2075);
         }
     }
 
@@ -105,7 +112,11 @@ public class Glass {
             gc.setFont(Font.font("default", FontWeight.BOLD, 50));
             gc.fillText(glassSize, 2400, 2100);
         } else if (panels == 3) {
-            doorWidth = fTD.convertDecimalToFraction(((windowWidthDouble - 5.5) / 3));
+            BigDecimal num1 = new BigDecimal(windowWidthDouble - 5.0);
+            BigDecimal num2 = new BigDecimal(3);
+            double x = num1.divide(num2, 2, RoundingMode.HALF_DOWN).doubleValue();
+            System.out.println(x - .5);
+            doorWidth = fTD.convertDecimalToFraction(x - .5);
             glassSize = glass + "  (Qty " + panels * quantity + ")  " + doorWidth + " x " + doorHeight;
             gc.setFont(Font.font("default", FontWeight.BOLD, 50));
             gc.fillText(glassSize, 2400, 2100);
