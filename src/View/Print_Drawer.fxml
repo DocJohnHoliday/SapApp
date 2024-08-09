@@ -108,7 +108,7 @@
                                  <children>
                                     <VBox alignment="TOP_CENTER" prefHeight="875.0" prefWidth="235.0" spacing="5.0">
                                        <children>
-                                          <AnchorPane prefHeight="177.0" prefWidth="452.0" style="-fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #8ac7db;">
+                                          <AnchorPane prefHeight="298.0" prefWidth="427.0" style="-fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #8ac7db;">
                                              <children>
                                                 <Label layoutX="156.0" layoutY="8.0" prefHeight="27.0" prefWidth="114.0" text="Dimensions">
                                                    <font>
@@ -120,22 +120,22 @@
                                                       <Font size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField fx:id="openingHeight" layoutX="14.0" layoutY="73.0" prefHeight="25.0" prefWidth="74.0" promptText="Height" />
-                                                <TextField fx:id="openingWidth" layoutX="97.0" layoutY="73.0" prefHeight="25.0" prefWidth="74.0" promptText="Width" />
+                                                <TextField fx:id="openingHeight" editable="false" layoutX="14.0" layoutY="73.0" prefHeight="25.0" prefWidth="74.0" promptText="Height" />
+                                                <TextField fx:id="openingWidth" editable="false" layoutX="97.0" layoutY="73.0" prefHeight="25.0" prefWidth="74.0" promptText="Width" />
                                                 <Label layoutX="20.0" layoutY="109.0" prefHeight="27.0" prefWidth="114.0" text="Frame">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField fx:id="frameHeight" layoutX="14.0" layoutY="135.0" prefHeight="25.0" prefWidth="74.0" promptText="Height" />
-                                                <TextField fx:id="frameWidth" layoutX="97.0" layoutY="135.0" prefHeight="25.0" prefWidth="74.0" promptText="Width" />
+                                                <TextField fx:id="frameHeight" editable="false" layoutX="14.0" layoutY="135.0" prefHeight="25.0" prefWidth="74.0" promptText="Height" />
+                                                <TextField fx:id="frameWidth" editable="false" layoutX="97.0" layoutY="135.0" prefHeight="25.0" prefWidth="74.0" promptText="Width" />
                                                 <Label layoutX="224.0" layoutY="49.0" prefHeight="27.0" prefWidth="114.0" text="Door">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField fx:id="doorHeight" layoutX="224.0" layoutY="73.0" onAction="#doorWidthChange" prefHeight="25.0" prefWidth="74.0" promptText="Height" />
-                                                <TextField fx:id="doorWidth" layoutX="314.0" layoutY="73.0" prefHeight="25.0" prefWidth="74.0" promptText="Width" />
+                                                <TextField fx:id="doorHeight" editable="false" layoutX="224.0" layoutY="73.0" onAction="#doorWidthChange" prefHeight="25.0" prefWidth="74.0" promptText="Height" />
+                                                <TextField fx:id="doorWidth" editable="false" layoutX="314.0" layoutY="73.0" prefHeight="25.0" prefWidth="74.0" promptText="Width" />
                                                 <Label layoutX="224.0" layoutY="109.0" prefHeight="27.0" prefWidth="56.0" text="Mid Rail">
                                                    <font>
                                                       <Font size="14.0" />
@@ -147,6 +147,14 @@
                                                       <Font size="10.0" />
                                                    </font>
                                                 </Label>
+                                                <ChoiceBox layoutX="13.0" layoutY="213.0" prefWidth="150.0" />
+                                                <Label layoutX="20.0" layoutY="171.0" prefHeight="36.0" prefWidth="137.0" text="Selection">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField layoutX="187.0" layoutY="213.0" prefHeight="25.0" prefWidth="74.0" />
+                                                <TextField layoutX="280.0" layoutY="213.0" prefHeight="22.0" prefWidth="74.0" />
                                              </children>
                                              <padding>
                                                 <Insets bottom="15.0" />
@@ -155,7 +163,7 @@
                                                 <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                                              </VBox.margin>
                                           </AnchorPane>
-                                          <AnchorPane prefHeight="554.0" prefWidth="427.0" style="-fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #8ac7db;">
+                                          <AnchorPane prefHeight="484.0" prefWidth="427.0" style="-fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #8ac7db;">
                                              <children>
                                                 <Label layoutX="190.0" layoutY="14.0" prefHeight="27.0" prefWidth="67.0" text="General">
                                                    <font>

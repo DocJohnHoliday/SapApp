@@ -377,6 +377,12 @@ public class PrintDrawerController implements Initializable {
         String doorWidthString = doorWidth.getText();
         String doorHeightString = doorHeight.getText();
 
+        String frameWidthString = frameWidth.getText();
+        String frameHeightString = frameHeight.getText();
+
+        String roughWidthString = openingWidth.getText();
+        String roughHeightString = openingHeight.getText();
+
         GraphicsContext gc = previewCanvas.getGraphicsContext2D();
         gc.clearRect(0, 0, previewCanvas.getWidth(), previewCanvas.getHeight());
 
@@ -395,11 +401,9 @@ public class PrintDrawerController implements Initializable {
         double doorWidthDouble = fTD.fractionToDecimal(doorWidth.getText());
         double doorHeightDouble = fTD.fractionToDecimal(doorHeight.getText());
 
-        double frameWidthDouble = fTD.fractionToDecimal(doorWidth.getText()) + 4.4375;
+        double frameWidthDouble = fTD.fractionToDecimal(doorWidth.getText() + 4.4375);
         double frameHeightDouble = fTD.fractionToDecimal(doorHeight.getText()) + 2.5;
 
-        String frameWidthString = fTD.convertDecimalToFraction(frameWidthDouble);
-        String frameHeightString = fTD.convertDecimalToFraction(frameHeightDouble);
 
         String type = glassType.getValue();
 
