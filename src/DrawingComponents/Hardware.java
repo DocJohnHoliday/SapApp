@@ -100,7 +100,7 @@ public class Hardware {
         int doorHeightRatio = (j - 84) * 2;
 
         gc.setFill(Color.WHITE);
-        gc.fillOval(startX - recHeight + 1, startY + recWidth + doorHeightRatio + recHeight + 15 + 100 - 25, 20, 20);
+        gc.fillOval(startX - recHeight + 1, startY + recWidth + doorHeightRatio + recHeight + 15 + 100 - 75, 20, 20);
         gc.setStroke(Color.BLACK);
     }
 
@@ -117,7 +117,7 @@ public class Hardware {
         int doorHeightRatio = (j - 84) * 2;
 
         gc.setFill(Color.WHITE);
-        gc.fillOval(startX + recWidth + doorWidthRatio + 2, startY + recWidth + doorHeightRatio + recHeight + 15 + 100 - 25, 20, 20);
+        gc.fillOval(startX + recWidth + doorWidthRatio + 2, startY + recWidth + doorHeightRatio + recHeight + 15 + 100 - 75, 20, 20);
         gc.setStroke(Color.BLACK);
     }
 
@@ -135,7 +135,7 @@ public class Hardware {
         int doorHeightRatio = (j - 84) * 2;
 
         gc.setFill(Color.rgb(173, 172, 172));
-        gc.fillOval(startX - recHeight + 1, startY + recWidth + doorHeightRatio + recHeight + 15 + 100 - 25, 20, 20);
+        gc.fillOval(startX - recHeight + 1, startY + recWidth + doorHeightRatio + recHeight + 15 + 100 - 75, 20, 20);
         gc.setStroke(Color.BLACK);
     }
 
@@ -152,7 +152,7 @@ public class Hardware {
         int doorHeightRatio = (j - 84) * 2;
 
         gc.setFill(Color.rgb(173, 172, 172));
-        gc.fillOval(startX + recWidth + doorWidthRatio + 2, startY + recWidth + doorHeightRatio + recHeight + 15 + 100 - 25, 20, 20);
+        gc.fillOval(startX + recWidth + doorWidthRatio + 2, startY + recWidth + doorHeightRatio + recHeight + 15 - 75, 20, 20);
         gc.setStroke(Color.BLACK);
     }
 }

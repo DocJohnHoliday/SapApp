@@ -100,6 +100,7 @@ public class PrintDrawerController implements Initializable {
     public TextField singleHeight;
     public TextField singleWidth;
     public ChoiceBox<String> panicDevices;
+    public ChoiceBox<String> singleSideLightQuestion;
 
     Stiles stiles = new Stiles();
     Rails rails = new Rails();
@@ -119,6 +120,10 @@ public class PrintDrawerController implements Initializable {
         singleSelection.getItems().add("Frame Opening");
         singleSelection.getItems().add("Door Opening");
         singleSelection.setValue("Rough Opening");
+
+        singleSideLightQuestion.getItems().add("Yes");
+        singleSideLightQuestion.getItems().add("No");
+        singleSideLightQuestion.setValue("No");
 
         hand.getItems().add("Right");
         hand.getItems().add("Left");
@@ -166,10 +171,10 @@ public class PrintDrawerController implements Initializable {
         secondHardware.getItems().add("Electric Strike Integrated");
         secondHardware.setValue("Cylinder");
 
-        panicDevices.getItems().add("No Hardware");
+        panicDevices.getItems().add("No Panic");
         panicDevices.getItems().add("RIM");
         panicDevices.getItems().add("CVR");
-        panicDevices.setValue("No Hardware");
+        panicDevices.setValue("No Panic");
 
         bottomRail.getItems().add("4");
         bottomRail.getItems().add("7 1/2");
@@ -247,24 +252,13 @@ public class PrintDrawerController implements Initializable {
 
     }
 
-    public void clearSideLight(ActionEvent actionEvent) {
-    }
-
-    public void submitSideLight(ActionEvent actionEvent) {
-    }
-
-    public void clearWindows(ActionEvent actionEvent) {
-    }
-
-    public void submitWindows(ActionEvent actionEvent) {
-    }
-
     public void clearSliders(ActionEvent actionEvent) {
     }
 
-    public void clearWindow(ActionEvent actionEvent) {
+    public void submitSliders(ActionEvent actionEvent) {
     }
 
+    //////////////////////////////////////Windows/////////////////////////////////////////////
     public void submitWindow(ActionEvent actionEvent) {
         GraphicsContext gc = previewCanvas.getGraphicsContext2D();
         gc.clearRect(0, 0, previewCanvas.getWidth(), previewCanvas.getHeight());
@@ -365,7 +359,12 @@ public class PrintDrawerController implements Initializable {
 //        }
     }
 
-    public void submitSliders(ActionEvent actionEvent) {
+    public void clearWindow(ActionEvent actionEvent) {
+        GraphicsContext gc = previewCanvas.getGraphicsContext2D();
+        gc.clearRect(0, 0, previewCanvas.getWidth(), previewCanvas.getHeight());
+
+        windowWidth.clear();
+        windowHeight.clear();
     }
 
     //////////////////////////////////////Single Door/////////////////////////////////////////
@@ -388,7 +387,7 @@ public class PrintDrawerController implements Initializable {
             gc.fillText("SFD-" + sfdNumber, (previewCanvas.getWidth() / 2) - 100, 150);
             gc.setFont(new Font(12));
         } else {
-            //Drawing_Warning.sfdNotEntered();
+            Drawing_Warning.sfdNotEntered();
         }
 
         try {
@@ -497,7 +496,11 @@ public class PrintDrawerController implements Initializable {
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
             gc.fillText(hardware1, 200, 2275);
             gc.fillText(hardware2, 200, 2325);
-            gc.fillText(panicHardware, 200, 2375);
+            if(panicHardware.equals("No Panic")) {
+                gc.fillText(" ", 200, 2375);
+            } else {
+                gc.fillText(panicHardware, 200, 2375);
+            }
 
             //Hand Label
             gc.setFill(Color.BLACK);
@@ -756,14 +759,14 @@ public class PrintDrawerController implements Initializable {
                         panics.rimLeftHandPull(doorHeightDouble, gc);
                         hw.leftHandCylindersBronzeRIM(doorWidthDouble, doorHeightDouble, gc);
                     }
-                    if (push.isSelected() || !rimTrue) {
+                    if (push.isSelected() && !rimTrue) {
                         handles.leftHandPush(doorWidthDouble, doorHeightDouble, gc);
                     } else {
                         gc.setFill(Color.BLACK);
                         gc.setFont(Font.font("default", FontWeight.BOLD, 40));
                         gc.fillText("No Push Bar", 200, 2425);
                     }
-                    if (cylinderTrue || !rimTrue) {
+                    if (cylinderTrue && !rimTrue) {
                         hw.leftHandCylindersBronze(doorWidthDouble, doorHeightDouble, gc);
                     }
                 } else {
@@ -809,19 +812,39 @@ public class PrintDrawerController implements Initializable {
                         panics.rimRightHandPull(doorWidthDouble, doorHeightDouble, gc);
                         hw.rightHandCylindersBronzeRIM(doorWidthDouble, doorHeightDouble, gc);
                     }
-                    if (push.isSelected() || !rimTrue) {
+                    if (push.isSelected() && !rimTrue) {
                         handles.rightHandPush(doorWidthDouble, doorHeightDouble, gc);
                     } else {
                         gc.setFill(Color.BLACK);
                         gc.setFont(Font.font("default", FontWeight.BOLD, 40));
                         gc.fillText("No Push Bar", 200, 2425);
                     }
-                    if (cylinderTrue  || !rimTrue) {
+                    if (cylinderTrue  && !rimTrue) {
                         hw.rightHandCylindersBronze(doorWidthDouble, doorHeightDouble, gc);
                     }
                 }
             } else {
                 if (doorHand.equals("Left")) {
+                    switch (singleHinging) {
+                        case "Pivots":
+                            if (doorHeightDouble > 84)
+                                hingeType.leftHandPivots(doorWidthDouble, doorHeightDouble, gc);
+                            if (doorHeightDouble < 84)
+                                hingeType.leftHandPivotsSmall(doorWidthDouble, doorHeightDouble, gc);
+                            break;
+                        case "Continuous Hinge":
+                            if (doorHeightDouble > 84)
+                                hingeType.leftHandContinuous(doorWidthDouble, doorHeightDouble, gc);
+                            if (doorHeightDouble < 84)
+                                hingeType.leftHandContinuousSmall(doorWidthDouble, doorHeightDouble, gc);
+                            break;
+                        case "Butt Hinge":
+                            if (doorHeightDouble > 84)
+                                hingeType.leftHandButt(doorWidthDouble, doorHeightDouble, gc);
+                            if (doorHeightDouble < 84)
+                                hingeType.leftHandButtSmall(doorWidthDouble, doorHeightDouble, gc);
+                            break;
+                    }
                     switch (pullHandle) {
                         case "8\" In-house":
                             handles.leftHandPull(doorHeightDouble, gc);
@@ -834,21 +857,42 @@ public class PrintDrawerController implements Initializable {
                             break;
                     }
                     if (rimTrue) {
+                        push.setSelected(false);
                         panics.rimLeftHandPush(doorWidthDouble, doorHeightDouble, gc);
                         panics.rimLeftHandPull(doorHeightDouble, gc);
                         hw.leftHandCylindersClearRIM(doorWidthDouble, doorHeightDouble, gc);
                     }
-                    if (push.isSelected()  || !rimTrue) {
+                    if (push.isSelected() && !rimTrue) {
                         handles.leftHandPush(doorWidthDouble, doorHeightDouble, gc);
                     } else {
                         gc.setFont(Font.font("default", FontWeight.BOLD, 40));
                         gc.fillText("No Push Bar", 200, 2425);
                     }
-                    if (cylinderTrue  || !rimTrue) {
+                    if (cylinderTrue && !rimTrue) {
                         hw.leftHandCylindersClear(doorWidthDouble, doorHeightDouble, gc);
                     }
                 } else {
                     ///////////////////Right Hand Hardware
+                    switch (singleHinging) {
+                        case "Pivots":
+                            if (doorHeightDouble > 84)
+                                hingeType.rightHandPivots(doorWidthDouble, doorHeightDouble, gc);
+                            if (doorHeightDouble < 84)
+                                hingeType.rightHandPivotsSmall(doorWidthDouble, doorHeightDouble, gc);
+                            break;
+                        case "Continuous Hinge":
+                            if (doorHeightDouble > 84)
+                                hingeType.rightHandContinuous(doorWidthDouble, doorHeightDouble, gc);
+                            if (doorHeightDouble < 84)
+                                hingeType.rightHandContinuousSmall(doorWidthDouble, doorHeightDouble, gc);
+                            break;
+                        case "Butt Hinge":
+                            if (doorHeightDouble > 84)
+                                hingeType.rightHandButt(doorWidthDouble, doorHeightDouble, gc);
+                            if (doorHeightDouble < 84)
+                                hingeType.rightHandButtSmall(doorWidthDouble, doorHeightDouble, gc);
+                            break;
+                    }
                     switch (pullHandle) {
                         case "8\" In-house":
                             handles.rightHandPull(doorWidthDouble, doorHeightDouble, gc);
@@ -865,17 +909,18 @@ public class PrintDrawerController implements Initializable {
                             break;
                     }
                     if (rimTrue) {
+                        push.setSelected(false);
                         panics.rimRightHandPush(doorWidthDouble, doorHeightDouble, gc);
                         panics.rimRightHandPull(doorWidthDouble, doorHeightDouble, gc);
                         hw.rightHandCylindersClearRIM(doorWidthDouble, doorHeightDouble, gc);
                     }
-                    if (push.isSelected()  || !rimTrue) {
+                    if (push.isSelected()  && !rimTrue) {
                         handles.rightHandPush(doorWidthDouble, doorHeightDouble, gc);
                     } else {
                         gc.setFont(Font.font("default", FontWeight.BOLD, 40));
                         gc.fillText("No Push Bar", 200, 2425);
                     }
-                    if (cylinderTrue || !rimTrue) {
+                    if (cylinderTrue && !rimTrue) {
                         hw.rightHandCylindersClear(doorWidthDouble, doorHeightDouble, gc);
                     }
                 }
@@ -895,6 +940,13 @@ public class PrintDrawerController implements Initializable {
         frameHeight.clear();
         openingWidth.clear();
         openingHeight.clear();
+    }
+
+    ///////////////////////////////////////Side Lights////////////////////////////////////////
+    public void submitSideLight(ActionEvent actionEvent) {
+    }
+
+    public void clearSideLight(ActionEvent actionEvent) {
     }
 
     public void savePDF(ActionEvent actionEvent) {
