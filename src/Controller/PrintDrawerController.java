@@ -544,6 +544,9 @@ public class PrintDrawerController implements Initializable {
             if (color.getValue().equals("Bronze")) {
                 if (stileSize.getValue().equals("Narrow")) {
                     if (doorWidthDouble >= 36) {
+//                        if (singleSideLightQuestion.getValue().equals("Yes") && doorWidthDouble < 67.6) {
+//
+//                        }
                         if (doorHeightDouble >= 84) {
                             //Rails and Glass
                             if (bottomRail.getValue().equals("4")) {
