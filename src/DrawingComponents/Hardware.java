@@ -76,11 +76,83 @@ public class Hardware {
 
         int j = 0;
         for (j = 0; j < doorHeightDouble; j++)
-            j=j;
+            j = j;
         int doorHeightRatio = (j - 84) * 2;
 
         gc.setFill(Color.rgb(173, 172, 172));
         gc.fillOval(startX + recWidth + doorWidthRatio + 2, startY + recWidth + doorHeightRatio + recHeight + 15 + 100, 20, 20);
+        gc.setStroke(Color.BLACK);
+    }
+
+    /////////////////////////////RIM Cylinder
+
+    ///////////////////////////Bronze
+    public void leftHandCylindersBronzeRIM(double doorWidthDouble, double doorHeightDouble, GraphicsContext gc) {
+
+        int i = 0;
+        for (i = 0; i < doorWidthDouble; i++)
+            i = i;
+        int doorWidthRatio = (i - 40) * 2;
+
+        int j = 0;
+        for (j = 0; j < doorHeightDouble; j++)
+            j = j;
+        int doorHeightRatio = (j - 84) * 2;
+
+        gc.setFill(Color.WHITE);
+        gc.fillOval(startX - recHeight + 1, startY + recWidth + doorHeightRatio + recHeight + 15 + 100 - 25, 20, 20);
+        gc.setStroke(Color.BLACK);
+    }
+
+    public void rightHandCylindersBronzeRIM(double doorWidthDouble, double doorHeightDouble, GraphicsContext gc) {
+
+        int i = 0;
+        for (i = 0; i < doorWidthDouble; i++)
+            i = i;
+        int doorWidthRatio = (i - 40) * 2;
+
+        int j = 0;
+        for (j = 0; j < doorHeightDouble; j++)
+            j = j;
+        int doorHeightRatio = (j - 84) * 2;
+
+        gc.setFill(Color.WHITE);
+        gc.fillOval(startX + recWidth + doorWidthRatio + 2, startY + recWidth + doorHeightRatio + recHeight + 15 + 100 - 25, 20, 20);
+        gc.setStroke(Color.BLACK);
+    }
+
+    //////////////////////////Clear
+    public void leftHandCylindersClearRIM(double doorWidthDouble, double doorHeightDouble, GraphicsContext gc) {
+
+        int i = 0;
+        for (i = 0; i < doorWidthDouble; i++)
+            i = i;
+        int doorWidthRatio = (i - 40) * 2;
+
+        int j = 0;
+        for (j = 0; j < doorHeightDouble; j++)
+            j = j;
+        int doorHeightRatio = (j - 84) * 2;
+
+        gc.setFill(Color.rgb(173, 172, 172));
+        gc.fillOval(startX - recHeight + 1, startY + recWidth + doorHeightRatio + recHeight + 15 + 100 - 25, 20, 20);
+        gc.setStroke(Color.BLACK);
+    }
+
+    public void rightHandCylindersClearRIM(double doorWidthDouble, double doorHeightDouble, GraphicsContext gc) {
+
+        int i = 0;
+        for (i = 0; i < doorWidthDouble; i++)
+            i = i;
+        int doorWidthRatio = (i - 40) * 2;
+
+        int j = 0;
+        for (j = 0; j < doorHeightDouble; j++)
+            j = j;
+        int doorHeightRatio = (j - 84) * 2;
+
+        gc.setFill(Color.rgb(173, 172, 172));
+        gc.fillOval(startX + recWidth + doorWidthRatio + 2, startY + recWidth + doorHeightRatio + recHeight + 15 + 100 - 25, 20, 20);
         gc.setStroke(Color.BLACK);
     }
 }

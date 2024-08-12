@@ -28,19 +28,26 @@ public class FractionsAndDecimals {
             String wholeNum = parts[0];
             String decimalFraction = parts[1];
 
-            if (decimalFraction.length() > 1)
+            if (decimalFraction.length() > 1) {
                 check = decimalFraction.substring(0, 2);
+            } else {
+                check = decimalFraction;
+            }
 
-            check = decimalFraction;
-
-            if (check.equals("66"))
-                decimalFraction = "625";
-
-            if (check.equals("33"))
-                decimalFraction = "3125";
-
-            if (check.equals("17"))
-                decimalFraction = "125";
+            switch (check) {
+                case "66":
+                    decimalFraction = "625";
+                    break;
+                case "33":
+                    decimalFraction = "3125";
+                    break;
+                case "17":
+                    decimalFraction = "125";
+                    break;
+                case "83":
+                    decimalFraction = "8125";
+                    break;
+            }
 
 
             int a = decimalFraction.length();
@@ -82,5 +89,19 @@ public class FractionsAndDecimals {
                 return i;
         }
         return 1;
+    }
+
+    public Double rOWidthToRailWidth(String roughOpeningWidth) {
+
+        double roughOpeningWidthDouble = Double.parseDouble(roughOpeningWidth);
+
+        return roughOpeningWidthDouble - 8.4375;
+    }
+
+    public Double rOHeightToRailHeight(String roughOpeningHeight) {
+
+        double roughOpeningHeightDouble = Double.parseDouble(roughOpeningHeight);
+
+        return roughOpeningHeightDouble - 2.75;
     }
 }

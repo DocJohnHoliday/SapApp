@@ -22,6 +22,16 @@ public class Drawing_Warning {
         });
     }
 
+    public static void singleOpeningNotEntered() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Incomplete");
+        alert.setContentText("You must enter an opening size. Please select the appropriate measuring device. Rough Opening, Frame Opening, or Door Opening." +
+                " If a side light is needed please clear the single door field and reenter the opening in the side light tab.");
+        alert.showAndWait().ifPresent((btnType) -> {
+            clearDialogOptionSelections();
+        });
+    }
+
     private static void clearDialogOptionSelections() {
     }
 }
