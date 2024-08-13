@@ -32,6 +32,15 @@ public class Drawing_Warning {
         });
     }
 
+    public static void pairOpeningNotEntered() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Incomplete");
+        alert.setContentText("You must enter an opening size.");
+        alert.showAndWait().ifPresent((btnType) -> {
+            clearDialogOptionSelections();
+        });
+    }
+
     private static void clearDialogOptionSelections() {
     }
 }

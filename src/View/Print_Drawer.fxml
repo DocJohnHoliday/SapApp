@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.canvas.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="883.0" prefWidth="1006.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PrintDrawerController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="883.0" prefWidth="1006.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PrintDrawerController">
    <children>
       <HBox prefHeight="1149.0" prefWidth="1006.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -274,66 +283,80 @@
                      <content>
                         <ScrollPane>
                            <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="987.0" prefWidth="545.0">
+                              <AnchorPane>
                                  <children>
-                                    <VBox alignment="TOP_CENTER" layoutY="13.0" prefHeight="891.0" prefWidth="460.0" spacing="5.0">
+                                    <VBox alignment="TOP_CENTER" prefHeight="875.0" prefWidth="235.0" spacing="5.0">
                                        <children>
-                                          <AnchorPane prefHeight="177.0" prefWidth="452.0" style="-fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #8ac7db;">
+                                          <AnchorPane prefHeight="298.0" prefWidth="427.0" style="-fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #8ac7db;">
                                              <children>
-                                                <Label layoutX="156.0" layoutY="8.0" prefHeight="27.0" prefWidth="114.0" text="Dimensions">
+                                                <Label layoutX="106.0" layoutY="9.0" prefHeight="27.0" prefWidth="114.0" text="Dimensions">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label layoutX="20.0" layoutY="49.0" prefHeight="27.0" prefWidth="114.0" text="R/O">
+                                                <Label layoutX="20.0" layoutY="22.0" prefHeight="27.0" prefWidth="114.0" text="R/O">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField fx:id="pairOpeningHeight" layoutX="14.0" layoutY="73.0" prefHeight="25.0" prefWidth="74.0" promptText="Height" />
-                                                <TextField fx:id="pairOpeningWidth" layoutX="97.0" layoutY="73.0" prefHeight="25.0" prefWidth="74.0" promptText="Width" />
-                                                <Label layoutX="20.0" layoutY="109.0" prefHeight="27.0" prefWidth="114.0" text="Frame">
+                                                <TextField fx:id="pairOpeningHeight" editable="false" layoutX="14.0" layoutY="50.0" prefHeight="25.0" prefWidth="74.0" promptText="Height" />
+                                                <TextField fx:id="pairOpeningWidth" editable="false" layoutX="97.0" layoutY="50.0" prefHeight="25.0" prefWidth="74.0" promptText="Width" />
+                                                <Label layoutX="20.0" layoutY="85.0" prefHeight="27.0" prefWidth="114.0" text="Frame">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField fx:id="pairFrameHeight" layoutX="14.0" layoutY="135.0" prefHeight="25.0" prefWidth="74.0" promptText="Height" />
-                                                <TextField fx:id="pairFrameWidth" layoutX="97.0" layoutY="135.0" prefHeight="25.0" prefWidth="74.0" promptText="Width" />
-                                                <Label layoutX="224.0" layoutY="49.0" prefHeight="27.0" prefWidth="114.0" text="Door">
+                                                <TextField fx:id="pairFrameHeight" editable="false" layoutX="14.0" layoutY="110.0" prefHeight="25.0" prefWidth="74.0" promptText="Height" />
+                                                <TextField fx:id="pairFrameWidth" editable="false" layoutX="97.0" layoutY="110.0" prefHeight="25.0" prefWidth="74.0" promptText="Width" />
+                                                <Label layoutX="224.0" layoutY="22.0" prefHeight="27.0" prefWidth="114.0" text="Door">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField fx:id="pairDoorHeight" layoutX="224.0" layoutY="73.0" onAction="#doorWidthChange" prefHeight="25.0" prefWidth="74.0" promptText="Height" />
-                                                <TextField fx:id="pairWidth" layoutX="314.0" layoutY="73.0" prefHeight="25.0" prefWidth="74.0" promptText="Width" />
-                                                <Label layoutX="224.0" layoutY="109.0" prefHeight="27.0" prefWidth="56.0" text="Mid Rail">
+                                                <TextField fx:id="pairDoorHeight" editable="false" layoutX="224.0" layoutY="49.0" onAction="#doorWidthChange" prefHeight="25.0" prefWidth="74.0" promptText="Height" />
+                                                <TextField fx:id="pairDoorWidth" editable="false" layoutX="307.0" layoutY="49.0" prefHeight="25.0" prefWidth="74.0" promptText="Width" />
+                                                <Label layoutX="224.0" layoutY="85.0" prefHeight="27.0" prefWidth="56.0" text="Mid Rail">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField fx:id="pairMidRail" layoutX="224.0" layoutY="135.0" prefHeight="25.0" prefWidth="74.0" promptText="Height" />
-                                                <Label layoutX="281.0" layoutY="109.0" prefHeight="27.0" prefWidth="114.0" text="*From bottom of door">
+                                                <TextField fx:id="pairMidRail" layoutX="224.0" layoutY="110.0" prefHeight="25.0" prefWidth="74.0" promptText="Height" />
+                                                <Label layoutX="281.0" layoutY="85.0" prefHeight="27.0" prefWidth="114.0" text="*From bottom of door">
                                                    <font>
                                                       <Font size="10.0" />
                                                    </font>
                                                 </Label>
+                                                <ChoiceBox fx:id="pairSelection" layoutX="13.0" layoutY="213.0" prefWidth="150.0" />
+                                                <Label layoutX="20.0" layoutY="171.0" prefHeight="36.0" prefWidth="137.0" text="Selection">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="pairHeight" layoutX="187.0" layoutY="213.0" prefHeight="25.0" prefWidth="74.0" promptText="Height" />
+                                                <TextField fx:id="pairWidth" layoutX="280.0" layoutY="213.0" prefHeight="22.0" prefWidth="74.0" promptText="Width" />
+                                                <Label layoutX="17.0" layoutY="144.0" prefHeight="27.0" prefWidth="69.0" text="Side Light">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <ChoiceBox fx:id="pairSideLightQuestion" layoutX="88.0" layoutY="145.0" prefHeight="25.0" prefWidth="60.0" />
                                              </children>
                                              <padding>
-                                                <Insets bottom="15.0" left="15.0" />
+                                                <Insets bottom="15.0" />
                                              </padding>
                                              <VBox.margin>
-                                                <Insets bottom="15.0" left="15.0" top="15.0" />
+                                                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                                              </VBox.margin>
                                           </AnchorPane>
-                                          <AnchorPane prefHeight="432.0" prefWidth="391.0" style="-fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #8ac7db;">
+                                          <AnchorPane prefHeight="484.0" prefWidth="427.0" style="-fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #8ac7db;">
                                              <children>
                                                 <Label layoutX="190.0" layoutY="14.0" prefHeight="27.0" prefWidth="67.0" text="General">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <ChoiceBox fx:id="operableSLQuestion" layoutX="14.0" layoutY="87.0" prefWidth="150.0" />
-                                                <Label layoutX="14.0" layoutY="52.0" prefHeight="27.0" prefWidth="114.0" text="Operable SL">
+                                                <ChoiceBox fx:id="pairHand" layoutX="14.0" layoutY="87.0" prefWidth="150.0" />
+                                                <Label layoutX="14.0" layoutY="52.0" prefHeight="27.0" prefWidth="114.0" text="Hand">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
@@ -349,7 +372,7 @@
                                                       <Font size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <ChoiceBox fx:id="pairGlass" layoutX="14.0" layoutY="231.0" prefWidth="150.0" />
+                                                <ChoiceBox fx:id="pairGlassType" layoutX="14.0" layoutY="231.0" prefWidth="150.0" />
                                                 <Label layoutX="14.0" layoutY="271.0" prefHeight="27.0" prefWidth="114.0" text="Hardware">
                                                    <font>
                                                       <Font size="14.0" />
@@ -386,77 +409,42 @@
                                                    </font>
                                                 </Label>
                                                 <ChoiceBox fx:id="pairHardware2" layoutX="14.0" layoutY="376.0" prefWidth="150.0" />
-                                                <CheckBox fx:id="pairPush" layoutX="257.0" layoutY="413.0" mnemonicParsing="false" text="Push" />
+                                                <CheckBox fx:id="pairPush" layoutX="257.0" layoutY="413.0" mnemonicParsing="false" selected="true" text="Push" />
                                                 <Label layoutX="260.0" layoutY="343.0" prefHeight="27.0" prefWidth="114.0" text="Handles">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <ChoiceBox fx:id="pairPullHandles" layoutX="257.0" layoutY="376.0" prefWidth="150.0" />
+                                                <ChoiceBox fx:id="pairPull" layoutX="257.0" layoutY="376.0" prefWidth="150.0" />
+                                                <Label layoutX="14.0" layoutY="417.0" prefHeight="27.0" prefWidth="114.0" text="Panic Device">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <ChoiceBox fx:id="pairPanicDevice" layoutX="14.0" layoutY="452.0" prefWidth="150.0" />
                                              </children>
                                              <padding>
-                                                <Insets bottom="15.0" />
+                                                <Insets bottom="15.0" right="15.0" />
                                              </padding>
                                              <VBox.margin>
-                                                <Insets bottom="15.0" left="15.0" />
-                                             </VBox.margin>
-                                          </AnchorPane>
-                                          <AnchorPane prefHeight="177.0" prefWidth="439.0" style="-fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #8ac7db;">
-                                             <children>
-                                                <Label layoutX="158.0" layoutY="14.0" prefHeight="27.0" prefWidth="114.0" text="Uneven Pair">
-                                                   <font>
-                                                      <Font size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label layoutX="20.0" layoutY="49.0" prefHeight="27.0" prefWidth="114.0" text="Left Hand">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <TextField fx:id="unevenPairLeftHeight" layoutX="14.0" layoutY="73.0" prefHeight="25.0" prefWidth="74.0" promptText="Height" />
-                                                <TextField fx:id="unevenPairLeftWidth" layoutX="97.0" layoutY="73.0" prefHeight="25.0" prefWidth="74.0" promptText="Width" />
-                                                <Label layoutX="20.0" layoutY="109.0" prefHeight="27.0" prefWidth="114.0" text="Right Hand">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <TextField fx:id="unevenPairRightHeight" layoutX="14.0" layoutY="135.0" prefHeight="25.0" prefWidth="74.0" promptText="Height" />
-                                                <TextField fx:id="unevenPairRightWidth" layoutX="97.0" layoutY="135.0" prefHeight="25.0" prefWidth="74.0" promptText="Width" />
-                                                <Label layoutX="261.0" layoutY="49.0" prefHeight="27.0" prefWidth="136.0" text="Hardware for second">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <ChoiceBox fx:id="unevenPairHardware" layoutX="254.0" layoutY="73.0" prefWidth="150.0" />
-                                                <Label layoutX="254.0" layoutY="109.0" prefHeight="27.0" prefWidth="136.0" text="Standard Active">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <ChoiceBox fx:id="unevenPairActiveQuestion" layoutX="254.0" layoutY="135.0" prefWidth="150.0" />
-                                             </children>
-                                             <padding>
-                                                <Insets bottom="15.0" />
-                                             </padding>
-                                             <VBox.margin>
-                                                <Insets bottom="15.0" left="15.0" />
+                                                <Insets bottom="15.0" left="15.0" right="15.0" />
                                              </VBox.margin>
                                           </AnchorPane>
                                           <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                                              <children>
-                                                <Button mnemonicParsing="false" onAction="#clearPair" prefHeight="51.0" prefWidth="129.0" text="Clear">
+                                                <Button mnemonicParsing="false" onAction="#clearPair" prefHeight="51.0" prefWidth="192.0" text="Clear">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
                                                 </Button>
-                                                <Button mnemonicParsing="false" onAction="#submitPair" prefHeight="51.0" prefWidth="129.0" text="Submit">
+                                                <Button layoutX="259.0" layoutY="10.0" mnemonicParsing="false" onAction="#submitPair" prefHeight="51.0" prefWidth="176.0" text="Submit">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
                                                 </Button>
                                              </children>
                                              <padding>
-                                                <Insets left="100.0" />
+                                                <Insets left="25.0" />
                                              </padding>
                                           </HBox>
                                        </children>

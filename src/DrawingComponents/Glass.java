@@ -41,11 +41,11 @@ public class Glass {
         String stdTenGlass = "Std 10\" BR Glass";
 
         if (glassSize.equals("31-1/8 x 71-1/8")) {
-            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(stdTenGlass, 2600, 2100);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+            gc.fillText(stdTenGlass, 2600, 2075);
         } else {
-            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(glassSize, 2600, 2100);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+            gc.fillText(glassSize, 2600, 2075);
         }
     }
 

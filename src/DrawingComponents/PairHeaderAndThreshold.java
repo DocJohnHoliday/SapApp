@@ -6,7 +6,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-public class HeaderAndThreshold {
+public class PairHeaderAndThreshold {
 
     int startX = 1650  - 200; //Start in X axis
     int startY = 500; //Start in Y axis

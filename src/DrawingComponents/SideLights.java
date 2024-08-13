@@ -7,7 +7,7 @@ import javafx.scene.text.FontWeight;
 
 public class SideLights {
 
-    int startX = 1650  - 200; //Start in X axis
+    int startX = 1650 - 200; //Start in X axis
     int startY = 500; //Start in Y axis
     int recWidth = 350; //Rectangle Width
     int recHeight = 12; //Rectangle Height
@@ -15,28 +15,21 @@ public class SideLights {
     int i = 0;
 
 
-    public void twelveSideLight(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
-
-    }
-
-    public void twentyEightSideLight(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
-
-    }
-
+    //////////////////////////////Horizontals
     //////////////////////////////Bronze
 
     public void slGreaterThanOrEqual36(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
 
         for (i = 35; i < doorWidthDouble; i++)
-            i=i;
+            i = i;
         int doorWidthRatio = (i - 40) * 2;
 
         for (j = 83; j < doorHeightDouble; j++)
-            j=j;
+            j = j;
         int doorHeightRatio = (j - 84) * 2;
 
         //Header
-        gc.setFill(Color.rgb(95, 87,87));
+        gc.setFill(Color.rgb(95, 87, 87));
         gc.setStroke(Color.WHITE);
         gc.fillRect(startX, startY, recWidth + doorWidthRatio, recHeight);
         gc.strokeRect(startX - 1, startY, recWidth + doorWidthRatio + 1, recHeight);
@@ -54,14 +47,14 @@ public class SideLights {
     public void slLessThan36StilesGreaterThan84(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
 
         for (i = 0; i < doorWidthDouble; i++)
-            i=i;
+            i = i;
         int doorWidthRatio = (i - 40) * 2;
 
         for (j = 0; j < doorHeightDouble; j++)
-            j=j;
+            j = j;
         int doorHeightRatio = (j - 84) * 2;
         //Header
-        gc.setFill(Color.rgb(95, 87,87));
+        gc.setFill(Color.rgb(95, 87, 87));
         gc.setStroke(Color.WHITE);
         gc.fillRect(startX, startY, recWidth + doorWidthRatio, recHeight);
         //Header Text
@@ -81,11 +74,11 @@ public class SideLights {
         int doorWidthRatio = (i - 40) * 2;
 
         for (j = 0; j < doorHeightDouble; j++)
-            j=j;
+            j = j;
         int doorHeightRatio = (j - 84) * 2;
 
         //Header
-        gc.setFill(Color.rgb(95, 87,87));
+        gc.setFill(Color.rgb(95, 87, 87));
         gc.setStroke(Color.WHITE);
         gc.fillRect(startX + 1, startY, recWidth + doorWidthRatio - 1, recHeight);
         gc.strokeRect(startX, startY, recWidth + doorWidthRatio + 2, recHeight);
@@ -107,10 +100,10 @@ public class SideLights {
         int doorWidthRatio = (i - 40) * 2;
 
         for (j = 0; j < doorHeightDouble; j++)
-            j=j;
+            j = j;
         int doorHeightRatio = (j - 84) * 2;
         //Header
-        gc.setFill(Color.rgb(95, 87,87));
+        gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(startX, startY, recWidth + doorWidthRatio, recHeight);
         //Header Text
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
@@ -118,7 +111,7 @@ public class SideLights {
         gc.fillText("Frame", (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 30, startY + (2 * recHeight) + 35 + 55);
         //Threshold
         gc.setFill(Color.rgb(173, 172, 172));
-        gc.fillRect(startX, startY + recWidth + doorHeightRatio + 350 + 15, recWidth + doorWidthRatio, recHeight -3);
+        gc.fillRect(startX, startY + recWidth + doorHeightRatio + 350 + 15, recWidth + doorWidthRatio, recHeight - 3);
         gc.setStroke(Color.BLACK);
     }
 
@@ -131,70 +124,7 @@ public class SideLights {
         int doorWidthRatio = (i - 40) * 2;
 
         for (j = 0; j < doorHeightDouble; j++)
-            j=j;
-        int doorHeightRatio = (j - 84) * 2;
-        //Header
-        gc.strokeRect(startX, startY, recWidth + doorWidthRatio, recHeight);
-        //Header Text
-        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight) + 35);
-        gc.fillText("Frame", (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 30, startY + (2 * recHeight) + 35 + 55);
-        //Threshold
-        gc.setFill(Color.rgb(173, 172, 172));
-        gc.fillRect(startX, startY + recWidth + doorHeightRatio + 350 + 15, recWidth + doorWidthRatio, recHeight -3);
-        gc.setStroke(Color.BLACK);
-    }
-
-    public void slLessThanOrEqual36Clear(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
-
-        for (i = 35; i < doorWidthDouble; i++)
-            i = i;
-        int doorWidthRatio = (i - 40) * 2;
-
-        for (j = 83; j < doorHeightDouble; j++)
-            j=j;
-        int doorHeightRatio = (j - 84) * 2;
-        //Header
-        gc.strokeRect(startX, startY, recWidth + doorWidthRatio, recHeight);
-        //Header Text
-        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight) + 35);
-        gc.fillText("Frame", (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 30, startY + (2 * recHeight) + 35 + 55);
-        //Threshold
-        gc.setFill(Color.rgb(173, 172, 172));
-        gc.fillRect(startX, startY + recWidth + doorHeightRatio + 350 + 15, recWidth + doorWidthRatio, recHeight -3);
-        gc.setStroke(Color.BLACK);
-    }
-
-    public void slGreaterThanOrEqual36Clear(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
-
-        for (i = 35; i < doorWidthDouble; i++)
-            i = i;
-        int doorWidthRatio = (i - 40) * 2;
-
-        for (j = 0; j < doorHeightDouble; j++)
-            j=j;
-        int doorHeightRatio = (j - 84) * 2;
-        //Header
-        gc.strokeRect(startX, startY, recWidth + doorWidthRatio, recHeight);
-        //Header Text
-        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight) + 35);
-        gc.fillText("Frame", (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 30, startY + (2 * recHeight) + 35 + 55);
-        //Threshold
-        gc.setFill(Color.rgb(173, 172, 172));
-        gc.fillRect(startX, startY + recWidth + doorHeightRatio + 350 + 15, recWidth + doorWidthRatio, recHeight -3);
-        gc.setStroke(Color.BLACK);
-    }
-
-    public void slLessThan36ClearStileGreaterThanOrEqual84(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
-
-        for (i = 0; i < doorWidthDouble; i++)
-            i = i;
-        int doorWidthRatio = (i - 40) * 2;
-
-        for (j = 0; j < doorHeightDouble; j++)
-            j=j;
+            j = j;
         int doorHeightRatio = (j - 84) * 2;
         //Header
         gc.strokeRect(startX, startY, recWidth + doorWidthRatio, recHeight);
@@ -206,5 +136,240 @@ public class SideLights {
         gc.setFill(Color.rgb(173, 172, 172));
         gc.fillRect(startX, startY + recWidth + doorHeightRatio + 350 + 15, recWidth + doorWidthRatio, recHeight - 3);
         gc.setStroke(Color.BLACK);
+    }
+
+    public void slLessThanOrEqual36Clear(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
+
+        for (i = 35; i < doorWidthDouble; i++)
+            i = i;
+        int doorWidthRatio = (i - 40) * 2;
+
+        for (j = 83; j < doorHeightDouble; j++)
+            j = j;
+        int doorHeightRatio = (j - 84) * 2;
+        //Header
+        gc.strokeRect(startX, startY, recWidth + doorWidthRatio, recHeight);
+        //Header Text
+        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+        gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight) + 35);
+        gc.fillText("Frame", (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 30, startY + (2 * recHeight) + 35 + 55);
+        //Threshold
+        gc.setFill(Color.rgb(173, 172, 172));
+        gc.fillRect(startX, startY + recWidth + doorHeightRatio + 350 + 15, recWidth + doorWidthRatio, recHeight - 3);
+        gc.setStroke(Color.BLACK);
+    }
+
+    public void slGreaterThanOrEqual36Clear(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
+
+        for (i = 35; i < doorWidthDouble; i++)
+            i = i;
+        int doorWidthRatio = (i - 40) * 2;
+
+        for (j = 0; j < doorHeightDouble; j++)
+            j = j;
+        int doorHeightRatio = (j - 84) * 2;
+        //Header
+        gc.strokeRect(startX, startY, recWidth + doorWidthRatio, recHeight);
+        //Header Text
+        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+        gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight) + 35);
+        gc.fillText("Frame", (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 30, startY + (2 * recHeight) + 35 + 55);
+        //Threshold
+        gc.setFill(Color.rgb(173, 172, 172));
+        gc.fillRect(startX, startY + recWidth + doorHeightRatio + 350 + 15, recWidth + doorWidthRatio, recHeight - 3);
+        gc.setStroke(Color.BLACK);
+    }
+
+    public void slLessThan36ClearStileGreaterThanOrEqual84(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
+
+        for (i = 0; i < doorWidthDouble; i++)
+            i = i;
+        int doorWidthRatio = (i - 40) * 2;
+
+        for (j = 0; j < doorHeightDouble; j++)
+            j = j;
+        int doorHeightRatio = (j - 84) * 2;
+        //Header
+        gc.strokeRect(startX, startY, recWidth + doorWidthRatio, recHeight);
+        //Header Text
+        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+        gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight) + 35);
+        gc.fillText("Frame", (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 30, startY + (2 * recHeight) + 35 + 55);
+        //Threshold
+        gc.setFill(Color.rgb(173, 172, 172));
+        gc.fillRect(startX, startY + recWidth + doorHeightRatio + 350 + 15, recWidth + doorWidthRatio, recHeight - 3);
+        gc.setStroke(Color.BLACK);
+    }
+
+    //////////////////////////////////////////////////Verticals
+    /////////////////////////////////////////Bronze
+    public void stilesGreaterThanOrEqual84(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
+
+
+        for (i = 35; i < doorWidthDouble; i++)
+            i = i;
+        int doorWidthRatio = (i - 40) * 2;
+
+        for (j = 83; j < doorHeightDouble; j++)
+            j = j;
+        int doorHeightRatio = (j - 84) * 2;
+
+        //Stile
+        gc.setFill(Color.rgb(95, 87, 87));
+        gc.fillRect(startX + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
+        //Stile Text
+        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+        gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        //Second Stile
+        gc.setFill(Color.rgb(95, 87, 87));
+        gc.fillRect(startX + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
+    }
+
+    public void stilesLessThan84(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
+
+
+        for (i = 0; i < doorWidthDouble; i++)
+            i = i;
+        int doorWidthRatio = (i - 40) * 2;
+
+
+        for (j = 0; j < doorHeightDouble; j++)
+            j = j;
+        int doorHeightRatio = (j - 84) * 2;
+
+        //Stile
+        gc.setFill(Color.rgb(95, 87, 87));
+        gc.fillRect(startX + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
+        //Stile Text
+        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+        gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        //Second Stile
+        gc.setFill(Color.rgb(95, 87, 87));
+        gc.fillRect(startX + 1 + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
+    }
+
+    public void stilesGreaterThanOrEqual84RailsLessThan36(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
+
+
+        for (i = 0; i < doorWidthDouble; i++)
+            i = i;
+        int doorWidthRatio = (i - 40) * 2;
+
+        for (j = 0; j < doorHeightDouble; j++)
+            j = j;
+        int doorHeightRatio = (j - 84) * 2;
+        //First Stile
+        gc.setFill(Color.rgb(95, 87, 87));
+        gc.fillRect(startX + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
+        //Stile Text
+        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+        gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        //Second Stile
+        gc.setFill(Color.rgb(95, 87, 87));
+        gc.fillRect(startX + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
+
+
+    }
+
+    public void stilesLessThan84RailGreaterThan36(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
+
+
+        for (i = 35; i < doorWidthDouble; i++)
+            i = i;
+        int doorWidthRatio = (i - 40) * 2;
+
+
+        for (j = 0; j < doorHeightDouble; j++)
+            j = j;
+        int doorHeightRatio = (j - 84) * 2;
+
+        //Stile
+        gc.setFill(Color.rgb(95, 87, 87));
+        gc.fillRect(startX + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
+        //Stile Text
+        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+        gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        //Second Stile
+        gc.setFill(Color.rgb(95, 87, 87));
+        gc.fillRect(startX + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
+    }
+
+    /////////////////////////////////////Clear
+    public void stilesLessThan84Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
+
+
+        for (i = 0; i < doorWidthDouble; i++)
+            i = i;
+        int doorWidthRatio = (i - 40) * 2;
+
+
+        for (j = 0; j < doorHeightDouble; j++)
+            j = j;
+        int doorHeightRatio = (j - 84) * 2;
+
+        //First Stile
+        gc.strokeRect(startX + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
+        //Stile Text
+        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+        gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        //Second Stile
+        gc.strokeRect(startX + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
+    }
+
+    public void stilesLessThanOrEqual84Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
+
+
+        for (i = 35; i < doorWidthDouble; i++)
+            i = i;
+        int doorWidthRatio = (i - 40) * 2;
+
+
+        for (j = 83; j < doorHeightDouble; j++)
+            j = j;
+        int doorHeightRatio = (j - 84) * 2;
+
+        //First Stile
+        gc.strokeRect(startX + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
+        //Stile Text
+        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+        gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        //Second Stile
+        gc.strokeRect(startX + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
+    }
+
+    public void stilesLessThan84RailGreaterThan36Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
+
+        for (i = 35; i < doorWidthDouble; i++)
+            i = i;
+        int doorWidthRatio = (i - 40) * 2;
+
+        for (j = 0; j < doorHeightDouble; j++)
+            j = j;
+        int doorHeightRatio = (j - 84) * 2;
+        //First Stile
+        gc.strokeRect(startX + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
+        //Stile Text
+        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+        gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        //Second Stile
+        gc.strokeRect(startX + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
+    }
+
+    public void stilesGreaterThanOrEqual84Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
+
+        for (i = 0; i < doorWidthDouble; i++)
+            i = i;
+        int doorWidthRatio = (i - 40) * 2;
+
+        for (j = 0; j < doorHeightDouble; j++)
+            j = j;
+        int doorHeightRatio = (j - 84) * 2;
+        //First Stile
+        gc.strokeRect(startX + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
+        //Stile Text
+        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+        gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        //Second Stile
+        gc.strokeRect(startX + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
     }
 }

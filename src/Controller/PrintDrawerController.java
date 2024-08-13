@@ -65,13 +65,11 @@ public class PrintDrawerController implements Initializable {
     public TextField pairOpeningHeight;
     public TextField pairOpeningWidth;
     public TextField pairFrameHeight;
-    public TextField pairFrameWidth;
     public TextField pairDoorHeight;
     public TextField pairWidth;
     public TextField pairMidRail;
-    public ChoiceBox<String> operableSLQuestion;
     public ChoiceBox<String> pairHinging;
-    public ChoiceBox<String> pairGlass;
+    public ChoiceBox<String> pairGlassType;
     public ChoiceBox<String> pairHardware1;
     public TextField pairQuantity;
     public ChoiceBox<String> pairBottomRail;
@@ -79,13 +77,6 @@ public class PrintDrawerController implements Initializable {
     public ChoiceBox<String> pairColor;
     public ChoiceBox<String> pairHardware2;
     public CheckBox pairPush;
-    public ChoiceBox<String> pairPullHandles;
-    public TextField unevenPairLeftHeight;
-    public TextField unevenPairLeftWidth;
-    public TextField unevenPairRightHeight;
-    public TextField unevenPairRightWidth;
-    public ChoiceBox<String> unevenPairHardware;
-    public ChoiceBox<String> unevenPairActiveQuestion;
     public ScrollPane scrollPane;
     public ChoiceBox<String> windowQuantity;
     public ChoiceBox<String> windowGlass;
@@ -101,6 +92,14 @@ public class PrintDrawerController implements Initializable {
     public TextField singleWidth;
     public ChoiceBox<String> panicDevices;
     public ChoiceBox<String> singleSideLightQuestion;
+    public ChoiceBox<String> pairPanicDevice;
+    public ChoiceBox<String> pairPull;
+    public ChoiceBox<String> pairHand;
+    public ChoiceBox<String> pairSideLightQuestion;
+    public TextField pairHeight;
+    public ChoiceBox<String> pairSelection;
+    public TextField pairDoorWidth;
+    public TextField pairFrameWidth;
 
     Stiles stiles = new Stiles();
     Rails rails = new Rails();
@@ -113,9 +112,15 @@ public class PrintDrawerController implements Initializable {
     PanicDevices panics = new PanicDevices();
     Windows windows = new Windows();
 
+    PairJambs pairJambs = new PairJambs();
+    PairHeaderAndThreshold pairHaT = new PairHeaderAndThreshold();
+    PairRails pairRails = new PairRails();
+    PairStiles pairStiles = new PairStiles();
+
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        //Single
         singleSelection.getItems().add("Rough Opening");
         singleSelection.getItems().add("Frame Opening");
         singleSelection.getItems().add("Door Opening");
@@ -199,6 +204,7 @@ public class PrintDrawerController implements Initializable {
 
         quantity.setText("1");
 
+        /////Windows
         windowColor.getItems().add("Bronze");
         windowColor.getItems().add("Clear");
         windowColor.setValue("Bronze");
@@ -223,6 +229,90 @@ public class PrintDrawerController implements Initializable {
         windowGlass.getItems().add("Ribbed");
         windowGlass.getItems().add("Low E");
         windowGlass.setValue("3/16 Clr");
+
+        //Single
+        pairSelection.getItems().add("Rough Opening");
+        pairSelection.getItems().add("Frame Opening");
+        pairSelection.getItems().add("Door Opening");
+        pairSelection.setValue("Rough Opening");
+
+        pairSideLightQuestion.getItems().add("Yes");
+        pairSideLightQuestion.getItems().add("No");
+        pairSideLightQuestion.setValue("No");
+
+        pairHand.getItems().add("Right");
+        pairHand.getItems().add("Left");
+        pairHand.setValue("Left");
+
+        pairHinging.getItems().add("No Hinging");
+        pairHinging.getItems().add("Continuous Hinge");
+        pairHinging.getItems().add("Pivots");
+        pairHinging.getItems().add("Butt Hinge");
+        pairHinging.setValue("Pivots");
+
+        pairGlassType.getItems().add("No Glass");
+        pairGlassType.getItems().add("3/16 Clr");
+        pairGlassType.getItems().add("1/4 Clr");
+        pairGlassType.getItems().add("3/16 Tint");
+        pairGlassType.getItems().add("1/4 Tint");
+        pairGlassType.getItems().add("IG");
+        pairGlassType.getItems().add("Tinted IG");
+        pairGlassType.getItems().add("Pattern 62");
+        pairGlassType.getItems().add("Ribbed");
+        pairGlassType.getItems().add("Low E");
+        pairGlassType.setValue("3/16 Clr");
+
+        pairHardware1.getItems().add("No Hardware");
+        pairHardware1.getItems().add("Cylinder");
+        pairHardware1.getItems().add("Deadbolt");
+        pairHardware1.getItems().add("RIM");
+        pairHardware1.getItems().add("CVR");
+        pairHardware1.getItems().add("Thumb-turn");
+        pairHardware1.getItems().add("Hook Bolt");
+        pairHardware1.getItems().add("Lever Latch");
+        pairHardware1.getItems().add("Electric Strike Surface Mount");
+        pairHardware1.getItems().add("Electric Strike Integrated");
+        pairHardware1.setValue("Deadbolt");
+
+        pairHardware2.getItems().add("No Hardware");
+        pairHardware2.getItems().add("Cylinder");
+        pairHardware2.getItems().add("Deadbolt");
+        pairHardware2.getItems().add("RIM");
+        pairHardware2.getItems().add("CVR");
+        pairHardware2.getItems().add("Thumb-turn");
+        pairHardware2.getItems().add("Hook Bolt");
+        pairHardware2.getItems().add("Lever Latch");
+        pairHardware2.getItems().add("Electric Strike Surface Mount");
+        pairHardware2.getItems().add("Electric Strike Integrated");
+        pairHardware2.setValue("Cylinder");
+
+        pairPanicDevice.getItems().add("No Panic");
+        pairPanicDevice.getItems().add("RIM");
+        pairPanicDevice.getItems().add("CVR");
+        pairPanicDevice.setValue("No Panic");
+
+        pairBottomRail.getItems().add("4");
+        pairBottomRail.getItems().add("7 1/2");
+        pairBottomRail.getItems().add("10");
+        pairBottomRail.setValue("4");
+
+        pairStileSize.getItems().add("Narrow");
+        pairStileSize.getItems().add("Medium");
+        pairStileSize.getItems().add("Wide");
+        pairStileSize.setValue("Narrow");
+
+        pairColor.getItems().add("Bronze");
+        pairColor.getItems().add("Clear");
+        pairColor.getItems().add("White");
+        pairColor.getItems().add("Black");
+        pairColor.setValue("Bronze");
+
+        pairPull.getItems().add("8\" In-house");
+        pairPull.getItems().add("8\" Chrome");
+        pairPull.getItems().add("12\" Chrome");
+        pairPull.setValue("8\" In-house");
+
+        pairQuantity.setText("1");
     }
 
     public void doorWidthChange(ActionEvent actionEvent) {
@@ -249,6 +339,596 @@ public class PrintDrawerController implements Initializable {
     }
 
     public void submitPair(ActionEvent actionEvent) {
+        GraphicsContext gc = previewCanvas.getGraphicsContext2D();
+        FractionsAndDecimals fTD = new FractionsAndDecimals();
+        gc.clearRect(0, 0, previewCanvas.getWidth(), previewCanvas.getHeight());
+        pairDoorWidth.clear();
+        pairDoorHeight.clear();
+        pairFrameWidth.clear();
+        pairFrameHeight.clear();
+        pairOpeningWidth.clear();
+        pairOpeningHeight.clear();
+
+        if (sfdNum.getLength() != 0) {
+            String sfdNumber = sfdNum.getText();
+            gc.setFont(new Font(100));
+            gc.setFill(Color.BLACK);
+            gc.fillText("SFD-" + sfdNumber, (previewCanvas.getWidth() / 2) - 100, 150);
+            gc.setFont(new Font(12));
+        } else {
+//            Drawing_Warning.sfdNotEntered();
+        }
+
+        try {
+            String openingType = pairSelection.getValue();
+            double pairWidthDouble = fTD.fractionToDecimal(pairWidth.getText());
+            double pairHeightDouble = fTD.fractionToDecimal(pairHeight.getText());
+
+            String pairDoorWidthString = pairWidth.getText();
+            String pairDoorHeightString = pairHeight.getText();
+
+            String pairFrameWidthString = pairWidth.getText();
+            String pairFrameHeightString = pairHeight.getText();
+
+            String pairRoughWidthString = pairOpeningWidth.getText();
+            String pairRoughHeightString = pairOpeningHeight.getText();
+
+            double pairDoorWidthDouble = fTD.fractionToDecimal(pairWidth.getText());
+            double pairDoorHeightDouble = fTD.fractionToDecimal(pairHeight.getText());
+
+            double pairFrameWidthDouble = fTD.fractionToDecimal(pairWidth.getText());
+            double pairFrameHeightDouble = fTD.fractionToDecimal(pairHeight.getText());
+
+            double pairRoughWidthDouble = fTD.fractionToDecimal(pairWidth.getText());
+            double pairRoughHeightDouble = fTD.fractionToDecimal(pairHeight.getText());
+
+            boolean yesSideLight;
+            yesSideLight = pairSideLightQuestion.getValue().equals("Yes");
+
+            String slAnswer = pairSideLightQuestion.getValue();
+
+
+            switch (openingType) {
+                case "Rough Opening":
+                    pairDoorWidthDouble = fTD.fractionToDecimal(String.valueOf(pairWidthDouble - 8.4375));
+                    pairDoorHeightDouble = fTD.fractionToDecimal(String.valueOf(pairHeightDouble - 2.75));
+                    pairDoorWidthString = fTD.convertDecimalToFraction(pairDoorWidthDouble);
+                    pairDoorHeightString = fTD.convertDecimalToFraction(pairDoorHeightDouble);
+                    doorWidth.setText(pairDoorWidthString);
+                    doorHeight.setText(pairDoorHeightString);
+
+                    pairFrameWidthDouble = fTD.fractionToDecimal(String.valueOf(pairWidthDouble - 4));
+                    pairFrameHeightDouble = fTD.fractionToDecimal(String.valueOf(pairHeightDouble - 0.25));
+                    pairFrameWidthString = fTD.convertDecimalToFraction(pairFrameWidthDouble);
+                    pairFrameHeightString = fTD.convertDecimalToFraction(pairFrameHeightDouble);
+                    pairFrameWidth.setText(pairFrameWidthString);
+                    pairFrameHeight.setText(pairFrameHeightString);
+                    break;
+                case "Frame Opening":
+                    pairDoorWidthDouble = fTD.fractionToDecimal(String.valueOf(pairWidthDouble - 7.9375));
+                    pairDoorHeightDouble = fTD.fractionToDecimal(String.valueOf(pairHeightDouble - 2.5));
+                    pairDoorWidthString = fTD.convertDecimalToFraction(pairDoorWidthDouble);
+                    pairDoorHeightString = fTD.convertDecimalToFraction(pairDoorHeightDouble);
+                    pairDoorWidth.setText(pairDoorWidthString);
+                    pairDoorHeight.setText(pairDoorHeightString);
+
+                    pairFrameWidthDouble = fTD.fractionToDecimal(String.valueOf(pairWidthDouble - 3.5));
+                    pairFrameHeightDouble = fTD.fractionToDecimal(String.valueOf(pairHeightDouble));
+                    pairFrameWidthString = fTD.convertDecimalToFraction(pairWidthDouble);
+                    pairFrameHeightString = fTD.convertDecimalToFraction(pairHeightDouble);
+                    pairFrameWidth.setText(pairFrameWidthString);
+                    pairFrameHeight.setText(pairFrameHeightString);
+
+                    pairRoughWidthDouble = fTD.fractionToDecimal(String.valueOf(pairWidthDouble + 0.5));
+                    pairRoughHeightDouble = fTD.fractionToDecimal(String.valueOf(pairHeightDouble + 0.25));
+                    pairRoughWidthString = fTD.convertDecimalToFraction(pairRoughWidthDouble);
+                    pairRoughHeightString = fTD.convertDecimalToFraction(pairRoughHeightDouble);
+                    pairOpeningWidth.setText(pairRoughWidthString);
+                    pairOpeningHeight.setText(pairRoughHeightString);
+                    break;
+                case "Door Opening":
+                    pairFrameWidthDouble = fTD.fractionToDecimal(String.valueOf(pairWidthDouble));
+                    pairFrameHeightDouble = fTD.fractionToDecimal(String.valueOf(pairHeightDouble + 1.75));
+                    pairFrameWidthString = fTD.convertDecimalToFraction(pairFrameWidthDouble);
+                    pairFrameHeightString = fTD.convertDecimalToFraction(pairFrameHeightDouble);
+                    pairFrameWidth.setText(pairFrameWidthString);
+                    pairFrameHeight.setText(pairFrameHeightString);
+
+                    pairRoughWidthDouble = fTD.fractionToDecimal(String.valueOf(pairWidthDouble + 4));
+                    pairRoughHeightDouble = fTD.fractionToDecimal(String.valueOf(pairHeightDouble + 2));
+                    pairRoughWidthString = fTD.convertDecimalToFraction(pairRoughWidthDouble);
+                    pairRoughHeightString = fTD.convertDecimalToFraction(pairRoughHeightDouble);
+                    pairOpeningWidth.setText(pairRoughWidthString);
+                    pairOpeningHeight.setText(pairRoughHeightString);
+
+                    pairDoorWidthDouble = fTD.fractionToDecimal(String.valueOf(pairWidthDouble - 4.4375));
+                    pairDoorHeightDouble = fTD.fractionToDecimal(String.valueOf(pairHeightDouble - 0.75));
+                    pairDoorWidthString = fTD.convertDecimalToFraction(pairDoorWidthDouble);
+                    pairDoorHeightString = fTD.convertDecimalToFraction(pairDoorHeightDouble);
+                    pairDoorWidth.setText(pairDoorWidthString);
+                    pairDoorHeight.setText(pairDoorHeightString);
+                    break;
+                default:
+                    Drawing_Warning.pairOpeningNotEntered();
+                    break;
+            }
+
+            String type = pairGlassType.getValue();
+            String doorColor = pairColor.getValue();
+            String doorHand = pairHand.getValue();
+            String doorQuantity = pairQuantity.getText();
+            String hardware1 = pairHardware1.getValue();
+            String hardware2 = pairHardware2.getValue();
+            String panicHardware = pairPanicDevice.getValue();
+            String pullHandle = pairPull.getValue();
+
+            //Hardware Label
+            gc.setFill(Color.BLACK);
+            gc.setFont(Font.font("default", FontWeight.EXTRA_BOLD, 75));
+            gc.fillText("Hardware", 200, 2200);
+            gc.strokeLine(200, 2225, 850, 2225);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+            gc.fillText(hardware1, 200, 2275);
+            gc.fillText(hardware2, 200, 2325);
+            if (panicHardware.equals("No Panic")) {
+                gc.fillText(" ", 200, 2375);
+            } else {
+                gc.fillText(panicHardware, 200, 2375);
+            }
+
+            //Hand Label
+            gc.setFill(Color.BLACK);
+            gc.setFont(Font.font("default", FontWeight.EXTRA_BOLD, 75));
+            gc.fillText("Hand", 2600, 2200);
+            gc.strokeLine(2600, 2225, 3250, 2225);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+            gc.fillText(doorHand, 2600, 2275);
+
+            //Glass Label
+            gc.setFill(Color.BLACK);
+            gc.setFont(Font.font("default", FontWeight.EXTRA_BOLD, 75));
+            gc.fillText("Glass Sizes", 2600, 2000);
+            gc.strokeLine(2600, 2025, 3250, 2025);
+
+            //Quantity Label
+            gc.setFill(Color.BLACK);
+            gc.setFont(Font.font("default", FontWeight.EXTRA_BOLD, 75));
+            gc.fillText("Quantity", 2600, 1800);
+            gc.strokeLine(2600, 1825, 3250, 1825);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+            gc.fillText(doorQuantity, 2600, 1875);
+
+            //Color Label
+            gc.setFill(Color.BLACK);
+            gc.setFont(Font.font("default", FontWeight.EXTRA_BOLD, 75));
+            gc.fillText("Color", 2600, 1600);
+            gc.strokeLine(2600, 1625, 3250, 1625);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+            gc.fillText(doorColor, 2600, 1675);
+
+            //Frame Label
+            pairFrameWidthDouble += 3.5;
+            gc.setFill(Color.BLACK);
+            gc.setFont(Font.font("default", FontWeight.EXTRA_BOLD, 75));
+            gc.fillText("Frame", 2600, 1400);
+            gc.strokeLine(2600, 1425, 3250, 1425);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+            gc.fillText(fTD.convertDecimalToFraction(pairFrameWidthDouble) + " x " + pairFrameHeightString, 2600, 1475);
+
+            if (pairColor.getValue().equals("Bronze")) {
+                if (pairStileSize.getValue().equals("Narrow")) {
+
+                    if (yesSideLight && pairRoughWidthDouble == 68) {
+                        pairFrameWidthDouble = 36;
+                        pairFrameWidthString = "36";
+                        pairDoorWidthDouble = 31.5625;
+                        pairDoorWidthString = "31 9/16";
+                        if(pairDoorHeightDouble >= 84) {
+                            pairJambs.stilesGreaterThanOrEqual84SL28(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, gc);
+                            pairHaT.railsLessThan36SL28(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
+                        } else {
+                            pairJambs.stilesLessThan84SL28(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, gc);
+                            pairHaT.railsLessThan36SL28(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
+                        }
+                    }
+                    if (yesSideLight && pairRoughWidthDouble == 52) {
+                        pairFrameWidthDouble = 36;
+                        pairFrameWidthString = "36";
+                        pairDoorWidthDouble = 31.5625;
+                        pairDoorWidthString = "31 9/16";
+                        if(pairDoorHeightDouble >= 84) {
+                            pairJambs.stilesGreaterThanOrEqual84SL12(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, gc);
+                            pairHaT.railsLessThan36SL12(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
+                        } else {
+                            pairJambs.stilesLessThan84SL12(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, gc);
+                            pairHaT.railsLessThan36SL12(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
+                        }
+                    }
+                    if (pairDoorWidthDouble >= 36) {
+                        if (pairDoorHeightDouble >= 84) {
+                            //Rails and Glass
+                            if (pairBottomRail.getValue().equals("4")) {
+                                pairRails.railsGreaterThanOrEqual36(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
+                                glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, gc);
+                            }
+                            if (pairBottomRail.getValue().equals("10")) {
+                                pairRails.tenRailsGreaterThanOrEqual36(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
+                                glass.doorGlass5mm10BR(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            }
+                            //Stile
+                            pairStiles.stilesGreaterThanOrEqual84(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorHeightString, gc);
+                            //Jambs
+                            pairJambs.stilesGreaterThanOrEqual84(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, gc);
+                            //Header and Threshold
+                            pairHaT.railsGreaterThanOrEqual36(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
+                        }
+                        if (pairDoorHeightDouble < 84) {
+                            //Rails and Glass
+                            if (pairBottomRail.getValue().equals("4")) {
+                                pairRails.railsGreaterThanOrEqual36StilesLessThan84(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
+                                glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, gc);
+                            }
+                            if (pairBottomRail.getValue().equals("10")) {
+                                pairRails.tenRailsGreaterThanOrEqual36StilesLessThan84(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
+                                glass.doorGlass5mm10BR(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            }
+                            //Stiles
+                            pairStiles.stilesLessThan84RailGreaterThan36(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorHeightString, gc);
+                            //Jambs
+                            pairJambs.stilesLessThan84RailGreaterThan36(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, gc);
+                            //Header and Threshold
+                            pairHaT.railsGreaterThanOrEqual36StilesLessThan84(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
+                        }
+                    }
+                    if (pairDoorWidthDouble < 36) {
+                        if (pairDoorHeightDouble >= 84) {
+                            //Rails and Glass
+                            if (pairBottomRail.getValue().equals("4")) {
+                                pairRails.railsLessThan36StilesGreaterThan84(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
+                                glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, gc);
+                            }
+                            if (pairBottomRail.getValue().equals("10")) {
+                                pairRails.tenRailsLessThan36StilesGreaterThan84(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
+                                glass.doorGlass5mm10BR(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            }
+                            //Stiles
+                            pairStiles.stilesGreaterThanOrEqual84RailsLessThan36(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorHeightString, gc);
+                            //Jambs
+                            pairJambs.stilesGreaterThanOrEqual84RailsLessThan36(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, slAnswer, gc);
+                            //Header and Threshold
+                            pairHaT.railsLessThan36StilesGreaterThan84(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
+                        }
+                        if (pairDoorHeightDouble < 84) {
+                            //Rails and Glass
+                            if (pairBottomRail.getValue().equals("4")) {
+                                pairRails.railsLessThan36(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
+                                glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, gc);
+                            }
+                            if (pairBottomRail.getValue().equals("10")) {
+                                pairRails.tenRailsLessThan36(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
+                                glass.doorGlass5mm10BR(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            }
+                            //Stiles
+                            pairStiles.stilesLessThan84(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorHeightString, gc);
+                            //Jambs
+                            pairJambs.stilesLessThan84(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, slAnswer ,gc);
+                            //Header and Threshold
+                            pairHaT.railsLessThan36StilesGreaterThan84(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
+                        }
+                    }
+                }
+            }
+
+            if (pairColor.getValue().equals("Clear") &&
+                    pairDoorWidthDouble < 36 &&
+                    pairStileSize.getValue().equals("Narrow") &&
+                    pairDoorHeightDouble < 84) {
+                //Rails and Glass
+                if (pairBottomRail.getValue().equals("4")) {
+                    pairRails.railsLessThan36Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
+                    glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, gc);
+                }
+                if (pairBottomRail.getValue().equals("10")) {
+                    pairRails.tenRailsLessThan36Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
+                    glass.doorGlass5mm10BR(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                }
+                //Stiles
+                pairStiles.stilesLessThan84Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorHeightString, gc);
+                //Jambs
+                pairJambs.stilesLessThan84Clear(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, gc);
+                //Header and Threshold
+                pairHaT.railsLessThan36Clear(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
+
+            } else if (pairColor.getValue().equals("Clear") &&
+                    pairDoorWidthDouble >= 36 &&
+                    pairStileSize.getValue().equals("Narrow") &&
+                    pairDoorHeightDouble >= 84) {
+                //Rails and Glass
+                if (pairBottomRail.getValue().equals("4")) {
+                    pairRails.railsLessThan36Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
+                    glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, gc);
+                }
+                if (pairBottomRail.getValue().equals("10")) {
+                    pairRails.tenRailsLessThanOrEqual36Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
+                    glass.doorGlass5mm10BR(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                }
+                //Stiles
+                pairStiles.stilesLessThanOrEqual84Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorHeightString, gc);
+                //Jambs
+                pairJambs.stilesLessThanOrEqual84Clear(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, gc);
+                //Header and Threshold
+                pairHaT.railsLessThanOrEqual36Clear(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
+
+            } else if (pairColor.getValue().equals("Clear") &&
+                    pairDoorWidthDouble >= 36 &&
+                    pairStileSize.getValue().equals("Narrow") &&
+                    pairDoorHeightDouble < 84) {
+                //Rails and Glass
+                if (pairBottomRail.getValue().equals("4")) {
+                    pairRails.railsGreaterThanOrEqual36Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
+                    glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, gc);
+                }
+                if (pairBottomRail.getValue().equals("10")) {
+                    pairRails.tenRailsGreaterThanOrEqual36Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
+                    glass.doorGlass5mm10BR(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                }
+                //Stiles
+                pairStiles.stilesLessThan84RailGreaterThan36Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorHeightString, gc);
+                //Jambs
+                pairJambs.stilesLessThan84RailGreaterThan36Clear(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, gc);
+                //Header and Threshold
+                pairHaT.railsGreaterThanOrEqual36Clear(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
+            } else if (pairColor.getValue().equals("Clear") &&
+                    pairDoorWidthDouble < 36 &&
+                    pairStileSize.getValue().equals("Narrow") &&
+                    pairDoorHeightDouble >= 84) {
+                //Rails and Glass
+                if (pairBottomRail.getValue().equals("4")) {
+                    pairRails.railsLessThan36ClearStileGreaterThanOrEqual84(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
+                    glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, gc);
+                }
+                if (pairBottomRail.getValue().equals("10")) {
+                    pairRails.tenRailsLessThan36ClearStileGreaterThanOrEqual84(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
+                    glass.doorGlass5mm10BR(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                }
+                //Stiles
+                pairStiles.stilesGreaterThanOrEqual84Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorHeightString, gc);
+                //Jambs
+                pairJambs.stilesGreaterThanOrEqual84Clear(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, gc);
+                //Header and Threshold
+                pairHaT.railsLessThan36ClearStileGreaterThanOrEqual84(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
+
+            }
+
+            /////////////////////////////Hardware
+            String cylinder = "Cylinder";
+            String deadBolt = "Deadbolt";
+            String rim = "RIM";
+            String cvr = "CVR";
+            String thumbTurn = "Thumb-turn";
+            String hookBolt = "Hook Bolt";
+            String leverLatch = "Lever Latch";
+            String eSSurfaceMount = "Electric Strike Surface Mount";
+            String eSIntegrated = "Electric Strike Integrated";
+
+            String singleHinging = hinging.getValue();
+
+            //Hinging Type
+            gc.setFill(Color.BLACK);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+            gc.fillText(singleHinging, 200, 2475);
+
+            boolean cylinderTrue = hardware1.equals("Cylinder") || hardware2.equals("Cylinder");
+            boolean rimTrue = panicHardware.equals("RIM");
+
+            if (doorColor.equals("Bronze") || doorColor.equals("Black")) {
+                if (doorHand.equals("Left")) {
+                    switch (singleHinging) {
+                        case "Pivots":
+                            if (pairDoorHeightDouble > 84)
+                                hingeType.leftHandPivots(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            if (pairDoorHeightDouble < 84)
+                                hingeType.leftHandPivotsSmall(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            break;
+                        case "Continuous Hinge":
+                            if (pairDoorHeightDouble > 84)
+                                hingeType.leftHandContinuous(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            if (pairDoorHeightDouble < 84)
+                                hingeType.leftHandContinuousSmall(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            break;
+                        case "Butt Hinge":
+                            if (pairDoorHeightDouble > 84)
+                                hingeType.leftHandButt(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            if (pairDoorHeightDouble < 84)
+                                hingeType.leftHandButtSmall(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            break;
+                    }
+                    switch (pullHandle) {
+                        case "8\" In-house":
+                            handles.leftHandPull(pairDoorHeightDouble, gc);
+                            break;
+                        case "8\" Chrome":
+                            handles.leftHandPull8Chrome(pairDoorHeightDouble, gc);
+                            break;
+                        case "12\" Chrome":
+                            handles.leftHandPull12(pairDoorHeightDouble, gc);
+                            break;
+                    }
+                    if (rimTrue) {
+                        push.setSelected(false);
+                        panics.rimLeftHandPush(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                        panics.rimLeftHandPull(pairDoorHeightDouble, gc);
+                        hw.leftHandCylindersBronzeRIM(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                    }
+                    if (push.isSelected() && !rimTrue) {
+                        handles.leftHandPush(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                    } else {
+                        gc.setFill(Color.BLACK);
+                        gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+                        gc.fillText("No Push Bar", 200, 2425);
+                    }
+                    if (cylinderTrue && !rimTrue) {
+                        hw.leftHandCylindersBronze(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                    }
+                } else {
+                    ///////////////////Right Hand Hardware
+                    switch (singleHinging) {
+                        case "Pivots":
+                            if (pairDoorHeightDouble > 84)
+                                hingeType.rightHandPivots(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            if (pairDoorHeightDouble < 84)
+                                hingeType.rightHandPivotsSmall(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            break;
+                        case "Continuous Hinge":
+                            if (pairDoorHeightDouble > 84)
+                                hingeType.rightHandContinuous(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            if (pairDoorHeightDouble < 84)
+                                hingeType.rightHandContinuousSmall(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            break;
+                        case "Butt Hinge":
+                            if (pairDoorHeightDouble > 84)
+                                hingeType.rightHandButt(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            if (pairDoorHeightDouble < 84)
+                                hingeType.rightHandButtSmall(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            break;
+                    }
+                    switch (pullHandle) {
+                        case "8\" In-house":
+                            handles.rightHandPull(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            break;
+                        case "8\" Chrome":
+                            handles.rightHandPull8Chrome(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+                            gc.fillText("8\" Chrome", 200, 2425);
+                            break;
+                        case "12\" Chrome":
+                            handles.rightHandPull12(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+                            gc.fillText("12\" Chrome", 200, 2425);
+                            break;
+                    }
+                    if (rimTrue) {
+                        push.setSelected(false);
+                        panics.rimRightHandPush(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                        panics.rimRightHandPull(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                        hw.rightHandCylindersBronzeRIM(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                    }
+                    if (push.isSelected() && !rimTrue) {
+                        handles.rightHandPush(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                    } else {
+                        gc.setFill(Color.BLACK);
+                        gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+                        gc.fillText("No Push Bar", 200, 2425);
+                    }
+                    if (cylinderTrue && !rimTrue) {
+                        hw.rightHandCylindersBronze(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                    }
+                }
+            } else {
+                if (doorHand.equals("Left")) {
+                    switch (singleHinging) {
+                        case "Pivots":
+                            if (pairDoorHeightDouble > 84)
+                                hingeType.leftHandPivots(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            if (pairDoorHeightDouble < 84)
+                                hingeType.leftHandPivotsSmall(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            break;
+                        case "Continuous Hinge":
+                            if (pairDoorHeightDouble > 84)
+                                hingeType.leftHandContinuous(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            if (pairDoorHeightDouble < 84)
+                                hingeType.leftHandContinuousSmall(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            break;
+                        case "Butt Hinge":
+                            if (pairDoorHeightDouble > 84)
+                                hingeType.leftHandButt(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            if (pairDoorHeightDouble < 84)
+                                hingeType.leftHandButtSmall(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            break;
+                    }
+                    switch (pullHandle) {
+                        case "8\" In-house":
+                            handles.leftHandPull(pairDoorHeightDouble, gc);
+                            break;
+                        case "8\" Chrome":
+                            handles.leftHandPull8Chrome(pairDoorHeightDouble, gc);
+                            break;
+                        case "12\" Chrome":
+                            handles.leftHandPull12(pairDoorHeightDouble, gc);
+                            break;
+                    }
+                    if (rimTrue) {
+                        push.setSelected(false);
+                        panics.rimLeftHandPush(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                        panics.rimLeftHandPull(pairDoorHeightDouble, gc);
+                        hw.leftHandCylindersClearRIM(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                    }
+                    if (push.isSelected() && !rimTrue) {
+                        handles.leftHandPush(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                    } else {
+                        gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+                        gc.fillText("No Push Bar", 200, 2425);
+                    }
+                    if (cylinderTrue && !rimTrue) {
+                        hw.leftHandCylindersClear(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                    }
+                } else {
+                    ///////////////////Right Hand Hardware
+                    switch (singleHinging) {
+                        case "Pivots":
+                            if (pairDoorHeightDouble > 84)
+                                hingeType.rightHandPivots(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            if (pairDoorHeightDouble < 84)
+                                hingeType.rightHandPivotsSmall(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            break;
+                        case "Continuous Hinge":
+                            if (pairDoorHeightDouble > 84)
+                                hingeType.rightHandContinuous(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            if (pairDoorHeightDouble < 84)
+                                hingeType.rightHandContinuousSmall(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            break;
+                        case "Butt Hinge":
+                            if (pairDoorHeightDouble > 84)
+                                hingeType.rightHandButt(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            if (pairDoorHeightDouble < 84)
+                                hingeType.rightHandButtSmall(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            break;
+                    }
+                    switch (pullHandle) {
+                        case "8\" In-house":
+                            handles.rightHandPull(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            break;
+                        case "8\" Chrome":
+                            handles.rightHandPull8Chrome(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+                            gc.fillText("8\" Chrome", 200, 2425);
+                            break;
+                        case "12\" Chrome":
+                            handles.rightHandPull12(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+                            gc.fillText("12\" Chrome", 200, 2425);
+                            break;
+                    }
+                    if (rimTrue) {
+                        push.setSelected(false);
+                        panics.rimRightHandPush(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                        panics.rimRightHandPull(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                        hw.rightHandCylindersClearRIM(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                    }
+                    if (push.isSelected() && !rimTrue) {
+                        handles.rightHandPush(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                    } else {
+                        gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+                        gc.fillText("No Push Bar", 200, 2425);
+                    }
+                    if (cylinderTrue && !rimTrue) {
+                        hw.rightHandCylindersClear(pairDoorWidthDouble, pairDoorHeightDouble, gc);
+                    }
+                }
+            }
+        } catch (NumberFormatException e) {
+            Drawing_Warning.singleOpeningNotEntered();
+        }
 
     }
 
@@ -387,7 +1067,7 @@ public class PrintDrawerController implements Initializable {
             gc.fillText("SFD-" + sfdNumber, (previewCanvas.getWidth() / 2) - 100, 150);
             gc.setFont(new Font(12));
         } else {
-            Drawing_Warning.sfdNotEntered();
+//            Drawing_Warning.sfdNotEntered();
         }
 
         try {
@@ -412,6 +1092,11 @@ public class PrintDrawerController implements Initializable {
 
             double roughWidthDouble = fTD.fractionToDecimal(singleWidth.getText());
             double roughHeightDouble = fTD.fractionToDecimal(singleHeight.getText());
+
+            boolean yesSideLight;
+            yesSideLight = singleSideLightQuestion.getValue().equals("Yes");
+
+            String slAnswer = singleSideLightQuestion.getValue();
 
 
             switch (openingType) {
@@ -496,7 +1181,7 @@ public class PrintDrawerController implements Initializable {
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
             gc.fillText(hardware1, 200, 2275);
             gc.fillText(hardware2, 200, 2325);
-            if(panicHardware.equals("No Panic")) {
+            if (panicHardware.equals("No Panic")) {
                 gc.fillText(" ", 200, 2375);
             } else {
                 gc.fillText(panicHardware, 200, 2375);
@@ -543,10 +1228,34 @@ public class PrintDrawerController implements Initializable {
 
             if (color.getValue().equals("Bronze")) {
                 if (stileSize.getValue().equals("Narrow")) {
+
+                    if (yesSideLight && roughWidthDouble == 68) {
+                        frameWidthDouble = 36;
+                        frameWidthString = "36";
+                        doorWidthDouble = 31.5625;
+                        doorWidthString = "31 9/16";
+                        if(doorHeightDouble >= 84) {
+                            jambs.stilesGreaterThanOrEqual84SL28(frameWidthDouble, frameHeightDouble, frameHeightString, gc);
+                            hAT.railsLessThan36SL28(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
+                        } else {
+                            jambs.stilesLessThan84SL28(frameWidthDouble, frameHeightDouble, frameHeightString, gc);
+                            hAT.railsLessThan36SL28(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
+                        }
+                    }
+                    if (yesSideLight && roughWidthDouble == 52) {
+                        frameWidthDouble = 36;
+                        frameWidthString = "36";
+                        doorWidthDouble = 31.5625;
+                        doorWidthString = "31 9/16";
+                        if(doorHeightDouble >= 84) {
+                            jambs.stilesGreaterThanOrEqual84SL12(frameWidthDouble, frameHeightDouble, frameHeightString, gc);
+                            hAT.railsLessThan36SL12(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
+                        } else {
+                            jambs.stilesLessThan84SL12(frameWidthDouble, frameHeightDouble, frameHeightString, gc);
+                            hAT.railsLessThan36SL12(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
+                        }
+                    }
                     if (doorWidthDouble >= 36) {
-//                        if (singleSideLightQuestion.getValue().equals("Yes") && doorWidthDouble < 67.6) {
-//
-//                        }
                         if (doorHeightDouble >= 84) {
                             //Rails and Glass
                             if (bottomRail.getValue().equals("4")) {
@@ -596,7 +1305,7 @@ public class PrintDrawerController implements Initializable {
                             //Stiles
                             stiles.stilesGreaterThanOrEqual84RailsLessThan36(doorWidthDouble, doorHeightDouble, doorHeightString, gc);
                             //Jambs
-                            jambs.stilesGreaterThanOrEqual84RailsLessThan36(frameWidthDouble, frameHeightDouble, frameHeightString, gc);
+                            jambs.stilesGreaterThanOrEqual84RailsLessThan36(frameWidthDouble, frameHeightDouble, frameHeightString, slAnswer, gc);
                             //Header and Threshold
                             hAT.railsLessThan36StilesGreaterThan84(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
                         }
@@ -613,7 +1322,7 @@ public class PrintDrawerController implements Initializable {
                             //Stiles
                             stiles.stilesLessThan84(doorWidthDouble, doorHeightDouble, doorHeightString, gc);
                             //Jambs
-                            jambs.stilesLessThan84(frameWidthDouble, frameHeightDouble, frameHeightString, gc);
+                            jambs.stilesLessThan84(frameWidthDouble, frameHeightDouble, frameHeightString, slAnswer ,gc);
                             //Header and Threshold
                             hAT.railsLessThan36StilesGreaterThan84(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
                         }
@@ -720,7 +1429,7 @@ public class PrintDrawerController implements Initializable {
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
             gc.fillText(singleHinging, 200, 2475);
 
-            boolean cylinderTrue = hardware1.equals("Cylinder") || hardware2.equals("Cylinder");
+            boolean cylinderTrue = hardware1.equals("Cylinder") || hardware2.equals("Cylinder") || hardware1.equals("Thumb-turn") || hardware2.equals("Thumb-turn");
             boolean rimTrue = panicHardware.equals("RIM");
 
             if (doorColor.equals("Bronze") || doorColor.equals("Black")) {
@@ -822,7 +1531,7 @@ public class PrintDrawerController implements Initializable {
                         gc.setFont(Font.font("default", FontWeight.BOLD, 40));
                         gc.fillText("No Push Bar", 200, 2425);
                     }
-                    if (cylinderTrue  && !rimTrue) {
+                    if (cylinderTrue && !rimTrue) {
                         hw.rightHandCylindersBronze(doorWidthDouble, doorHeightDouble, gc);
                     }
                 }
@@ -917,7 +1626,7 @@ public class PrintDrawerController implements Initializable {
                         panics.rimRightHandPull(doorWidthDouble, doorHeightDouble, gc);
                         hw.rightHandCylindersClearRIM(doorWidthDouble, doorHeightDouble, gc);
                     }
-                    if (push.isSelected()  && !rimTrue) {
+                    if (push.isSelected() && !rimTrue) {
                         handles.rightHandPush(doorWidthDouble, doorHeightDouble, gc);
                     } else {
                         gc.setFont(Font.font("default", FontWeight.BOLD, 40));

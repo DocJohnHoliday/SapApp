@@ -191,15 +191,15 @@ public class HingeType {
 
         //Top Pivot LH
         gc.setFill(Color.WHITE);
-        gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startY, 14, 20);
+        gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startY + 50, 20, 40);
         gc.setFill(Color.rgb(173, 172, 172));
-        gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startY, 12, 18);
+        gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startY + 50, 18, 38);
 
         //Bottom Pivot LH
         gc.setFill(Color.WHITE);
-        gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startY + recWidth + doorHeightRatio + recHeight + 145 + 205, 14, 20);
+        gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startY + recWidth + doorHeightRatio + recHeight + 145 + 205 - 50, 20, 40);
         gc.setFill(Color.rgb(173, 172, 172));
-        gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startY + recWidth + doorHeightRatio + recHeight + 145 + 205, 12, 18);
+        gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startY + recWidth + doorHeightRatio + recHeight + 145 + 205 - 50, 18, 38);
 
     }
 
@@ -215,15 +215,15 @@ public class HingeType {
 
         //Top Pivot LH
         gc.setFill(Color.WHITE);
-        gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startY, 14, 20);
+        gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startY + 50, 20, 40);
         gc.setFill(Color.rgb(173, 172, 172));
-        gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startY, 12, 18);
+        gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startY + 50, 18, 38);
 
         //Bottom Pivot LH
         gc.setFill(Color.WHITE);
-        gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startY + recWidth + doorHeightRatio + recHeight + 145 + 205, 14, 20);
+        gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startY + recWidth + doorHeightRatio + recHeight + 145 + 205 - 50, 20, 40);
         gc.setFill(Color.rgb(173, 172, 172));
-        gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startY + recWidth + doorHeightRatio + recHeight + 145 + 205, 12, 18);
+        gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startY + recWidth + doorHeightRatio + recHeight + 145 + 205 - 50, 18, 38);
 
     }
 
@@ -239,15 +239,15 @@ public class HingeType {
 
         //Top Pivot RH
         gc.setFill(Color.WHITE);
-        gc.fillRect(startX - recHeight + 1, startY, 14, 20);
+        gc.fillRect(startX - recHeight + 1, startY + 50, 20, 40);
         gc.setFill(Color.rgb(173, 172, 172));
-        gc.fillRect(startX - recHeight + 1, startY, 12, 18);
+        gc.fillRect(startX - recHeight + 1, startY + 50, 18, 38);
 
         //Bottom Pivot RH
         gc.setFill(Color.WHITE);
-        gc.fillRect(startX - recHeight + 1, startY + recWidth + doorHeightRatio + recHeight + 145 + 205, 14, 20);
+        gc.fillRect(startX - recHeight + 1, startY + recWidth + doorHeightRatio + recHeight + 145 + 205 - 50, 20, 40);
         gc.setFill(Color.rgb(173, 172, 172));
-        gc.fillRect(startX - recHeight + 1, startY + recWidth + doorHeightRatio + recHeight + 145 + 205, 12, 18);
+        gc.fillRect(startX - recHeight + 1, startY + recWidth + doorHeightRatio + recHeight + 145 + 205 - 50, 18, 38);
 
     }
 
@@ -263,15 +263,15 @@ public class HingeType {
 
         //Top Pivot RH
         gc.setFill(Color.WHITE);
-        gc.fillRect(startX - recHeight + 1, startY, 14, 20);
+        gc.fillRect(startX - recHeight + 1, startY + 50, 20, 40);
         gc.setFill(Color.rgb(173, 172, 172));
-        gc.fillRect(startX - recHeight + 1, startY, 12, 18);
+        gc.fillRect(startX - recHeight + 1, startY + 50, 18, 38);
 
         //Bottom Pivot RH
         gc.setFill(Color.WHITE);
-        gc.fillRect(startX - recHeight + 1, startY + recWidth + doorHeightRatio + recHeight + 145 + 205, 14, 20);
+        gc.fillRect(startX - recHeight + 1, startY + recWidth + doorHeightRatio + recHeight + 145 + 205 - 50, 20, 40);
         gc.setFill(Color.rgb(173, 172, 172));
-        gc.fillRect(startX - recHeight + 1, startY + recWidth + doorHeightRatio + recHeight + 145 + 205, 12, 18);
+        gc.fillRect(startX - recHeight + 1, startY + recWidth + doorHeightRatio + recHeight + 145 + 205 - 50, 18, 38);
 
     }
 }

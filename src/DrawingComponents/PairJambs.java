@@ -5,8 +5,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-public class Jambs {
-
+public class PairJambs {
     int startX = 1650 - 200; //Start in X axis
     int startY = 500; //Start in Y axis
     int recWidth = 350; //Rectangle Width
@@ -80,6 +79,7 @@ public class Jambs {
         gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(startX + recWidth + doorWidthRatio + 140, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
     }
+
     public void stilesGreaterThanOrEqual84SL28(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
 
 
