@@ -19,15 +19,19 @@ public class PairStiles {
             j = j;
         int doorHeightRatio = (j - 84) * 2;
 
-        //Stile
-        gc.setFill(Color.rgb(95, 87,87));
+        //First Stile Inactive
+        gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(1426, 1450, 24, 739 + doorHeightRatio);
         //Stile Text
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorHeightString,1825 + doorWidthRatio, ((double) (739 + doorHeightRatio) / 2) + 1450);
-        //Second Stile
-        gc.setFill(Color.rgb(95, 87,87));
-        gc.fillRect(1801 + doorWidthRatio, 1450, 24, 739 + doorHeightRatio );
+        gc.fillText(doorHeightString,1250, ((double) (739 + doorHeightRatio) / 2) + 1450);
+        //Second Stile Inactive
+        gc.fillRect(1800 + doorWidthRatio, 1450, 24, 739 + doorHeightRatio);
+
+        //First Stile Active
+        gc.fillRect(1800 + doorWidthRatio + 25, 1450, 24, 739 + doorHeightRatio);
+        //Second Stile Active
+        gc.fillRect((1800 + doorWidthRatio + 25) + 374, 1450, 24, 739 + doorHeightRatio);
     }
 
     public void stilesLessThan84RailGreaterThan36(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
@@ -40,15 +44,19 @@ public class PairStiles {
             j = j;
         int doorHeightRatio = (j - 84) * 2;
 
-        //Stile
-        gc.setFill(Color.rgb(95, 87,87));
-        gc.fillRect(1450 - 24, 1450, 24, 350 + doorHeightRatio + 24 + 15 + 350);
+        //First Stile Inactive
+        gc.setFill(Color.rgb(95, 87, 87));
+        gc.fillRect(1426, 1450, 24, 739 + doorHeightRatio);
         //Stile Text
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorHeightString,(1450 + 1 + 350 + doorWidthRatio) + 24, ((double) (350 + doorHeightRatio + 24 + 15 + 350) / 2) + 1450);
-        //Second Stile
-        gc.setFill(Color.rgb(95, 87,87));
-        gc.fillRect(1450 + 350 + doorWidthRatio, 1450, 24, 350 + doorHeightRatio + 24 + 15 + 350);
+        gc.fillText(doorHeightString,1250, ((double) (739 + doorHeightRatio) / 2) + 1450);
+        //Second Stile Inactive
+        gc.fillRect(1800 + doorWidthRatio, 1450, 24, 739 + doorHeightRatio);
+
+        //First Stile Active
+        gc.fillRect(1800 + doorWidthRatio + 25, 1450, 24, 739 + doorHeightRatio);
+        //Second Stile Active
+        gc.fillRect((1800 + doorWidthRatio + 25) + 374, 1450, 24, 739 + doorHeightRatio);
     }
     public void stilesGreaterThanOrEqual84(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
 
@@ -60,15 +68,19 @@ public class PairStiles {
             j= j;
         int doorHeightRatio = (j - 84) * 2;
 
-        //Stile
+        //First Stile Inactive
         gc.setFill(Color.rgb(95, 87, 87));
-        gc.fillRect(1426, 1450, 24, doorHeightRatio + 739);
+        gc.fillRect(1426, 1450, 24, 739 + doorHeightRatio);
         //Stile Text
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorHeightString, 1825 + doorWidthRatio, ((double) (739 + doorHeightRatio) / 2) + 1450);
-        //Second Stile
-        gc.setFill(Color.rgb(95, 87,87));
+        gc.fillText(doorHeightString,1250, ((double) (739 + doorHeightRatio) / 2) + 1450);
+        //Second Stile Inactive
         gc.fillRect(1800 + doorWidthRatio, 1450, 24, 739 + doorHeightRatio);
+
+        //First Stile Active
+        gc.fillRect(1800 + doorWidthRatio + 25, 1450, 24, 739 + doorHeightRatio);
+        //Second Stile Active
+        gc.fillRect((1800 + doorWidthRatio + 25) + 374, 1450, 24, 739 + doorHeightRatio);
     }
     public void stilesGreaterThanOrEqual84RailsLessThan36(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
 
@@ -80,15 +92,19 @@ public class PairStiles {
             j = j;
         int doorHeightRatio = (j - 84) * 2;
 
-        //Stile
-        gc.setFill(Color.rgb(95, 87,87));
-        gc.fillRect(1450 - 24, 1450, 24, 350 + doorHeightRatio + 24 + 15 + 350);
+        //First Stile Inactive
+        gc.setFill(Color.rgb(95, 87, 87));
+        gc.fillRect(1426, 1450, 24, 739 + doorHeightRatio);
         //Stile Text
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorHeightString,(1450 + 1 + 350 + doorWidthRatio) + 24, ((double) (350 + doorHeightRatio + 24 + 15 + 350) / 2) + 1450);
-        //Second Stile
-        gc.setFill(Color.rgb(95, 87,87));
-        gc.fillRect(1450 + 1 + 350 + doorWidthRatio, 1450, 24, 350 + doorHeightRatio + 24 + 15 + 350);
+        gc.fillText(doorHeightString,1250, ((double) (739 + doorHeightRatio) / 2) + 1450);
+        //Second Stile Inactive
+        gc.fillRect(1800 + doorWidthRatio, 1450, 24, 739 + doorHeightRatio);
+
+        //First Stile Active
+        gc.fillRect(1800 + doorWidthRatio + 25, 1450, 24, 739 + doorHeightRatio);
+        //Second Stile Active
+        gc.fillRect((1800 + doorWidthRatio + 25) + 374, 1450, 24, 739 + doorHeightRatio);
     }
 
     /////////////////////////////////////Clear
@@ -102,13 +118,18 @@ public class PairStiles {
             j = j;
         int doorHeightRatio = (j - 84) * 2;
 
-        //First Stile
-        gc.strokeRect(1450 - 24, 1450, 24, 350 + doorHeightRatio + 24 + 15 + 350);
+        //First Stile Inactive
+        gc.strokeRect(1426, 1450, 24, 739 + doorHeightRatio);
         //Stile Text
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorHeightString,(1450 + 1 + 350 + doorWidthRatio) + 24, ((double) (350 + doorHeightRatio + 24 + 15 + 350) / 2) + 1450);
-        //Second Stile
-        gc.strokeRect(1450 + 350 + doorWidthRatio, 1450, 24, 350 + doorHeightRatio + 24 + 15 + 350);
+        gc.fillText(doorHeightString,1250, ((double) (739 + doorHeightRatio) / 2) + 1450);
+        //Second Stile Inactive
+        gc.strokeRect(1800 + doorWidthRatio, 1450, 24, 739 + doorHeightRatio);
+
+        //First Stile Active
+        gc.strokeRect(1800 + doorWidthRatio + 25, 1450, 24, 739 + doorHeightRatio);
+        //Second Stile Active
+        gc.strokeRect((1800 + doorWidthRatio + 25) + 374, 1450, 24, 739 + doorHeightRatio);
     }
 
     public void stilesLessThanOrEqual84Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
@@ -121,13 +142,18 @@ public class PairStiles {
             j = j;
         int doorHeightRatio = (j - 84) * 2;
 
-        //First Stile
-        gc.strokeRect(1450 - 24, 1450, 24, 350 + doorHeightRatio + 24 + 15 + 350);
+        //First Stile Inactive
+        gc.strokeRect(1426, 1450, 24, 739 + doorHeightRatio);
         //Stile Text
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorHeightString,(1450 + 1 + 350 + doorWidthRatio) + 24, ((double) (350 + doorHeightRatio + 24 + 15 + 350) / 2) + 1450);
-        //Second Stile
-        gc.strokeRect(1450 + 350 + doorWidthRatio, 1450, 24, 350 + doorHeightRatio + 24 + 15 + 350);
+        gc.fillText(doorHeightString,1250, ((double) (739 + doorHeightRatio) / 2) + 1450);
+        //Second Stile Inactive
+        gc.strokeRect(1800 + doorWidthRatio, 1450, 24, 739 + doorHeightRatio);
+
+        //First Stile Active
+        gc.strokeRect(1800 + doorWidthRatio + 25, 1450, 24, 739 + doorHeightRatio);
+        //Second Stile Active
+        gc.strokeRect((1800 + doorWidthRatio + 25) + 374, 1450, 24, 739 + doorHeightRatio);
     }
 
     public void stilesLessThan84RailGreaterThan36Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
@@ -137,13 +163,18 @@ public class PairStiles {
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
         int doorHeightRatio = (j - 84) * 2;
-        //First Stile
-        gc.strokeRect(1450 - 24, 1450, 24, 350 + doorHeightRatio + 24 + 15 + 350);
+        //First Stile Inactive
+        gc.strokeRect(1426, 1450, 24, 739 + doorHeightRatio);
         //Stile Text
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorHeightString,(1450 + 1 + 350 + doorWidthRatio) + 24, ((double) (350 + doorHeightRatio + 24 + 15 + 350) / 2) + 1450);
-        //Second Stile
+        gc.fillText(doorHeightString,1250, ((double) (739 + doorHeightRatio) / 2) + 1450);
+        //Second Stile Inactive
         gc.strokeRect(1800 + doorWidthRatio, 1450, 24, 739 + doorHeightRatio);
+
+        //First Stile Active
+        gc.strokeRect(1800 + doorWidthRatio + 25, 1450, 24, 739 + doorHeightRatio);
+        //Second Stile Active
+        gc.strokeRect((1800 + doorWidthRatio + 25) + 374, 1450, 24, 739 + doorHeightRatio);
     }
 
     public void stilesGreaterThanOrEqual84Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
@@ -153,12 +184,17 @@ public class PairStiles {
             j = j;
         int doorWidthRatio = (i - 40) * 2;
         int doorHeightRatio = (j - 84) * 2;
-        //First Stile
+        //First Stile Inactive
         gc.strokeRect(1426, 1450, 24, 739 + doorHeightRatio);
         //Stile Text
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorHeightString,1825 + doorWidthRatio, ((double) (739 + doorHeightRatio) / 2) + 1450);
-        //Second Stile
+        gc.fillText(doorHeightString,1250, ((double) (739 + doorHeightRatio) / 2) + 1450);
+        //Second Stile Inactive
         gc.strokeRect(1800 + doorWidthRatio, 1450, 24, 739 + doorHeightRatio);
+
+        //First Stile Active
+        gc.strokeRect(1800 + doorWidthRatio + 25, 1450, 24, 739 + doorHeightRatio);
+        //Second Stile Active
+        gc.strokeRect((1800 + doorWidthRatio + 25) + 374, 1450, 24, 739 + doorHeightRatio);
     }
 }

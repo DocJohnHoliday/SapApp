@@ -394,8 +394,8 @@ public class PrintDrawerController implements Initializable {
                     pairDoorHeightDouble = fTD.fractionToDecimal(String.valueOf(pairHeightDouble - 2.75));
                     pairDoorWidthString = fTD.convertDecimalToFraction(pairDoorWidthDouble);
                     pairDoorHeightString = fTD.convertDecimalToFraction(pairDoorHeightDouble);
-                    doorWidth.setText(pairDoorWidthString);
-                    doorHeight.setText(pairDoorHeightString);
+                    pairDoorWidth.setText(pairDoorWidthString);
+                    pairDoorHeight.setText(pairDoorHeightString);
 
                     pairFrameWidthDouble = fTD.fractionToDecimal(String.valueOf(pairWidthDouble - 4));
                     pairFrameHeightDouble = fTD.fractionToDecimal(String.valueOf(pairHeightDouble - 0.25));

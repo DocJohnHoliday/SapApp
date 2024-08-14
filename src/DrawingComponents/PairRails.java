@@ -25,15 +25,25 @@ public class PairRails {
             j = j;
         int doorHeightRatio = (j - 84) * 2;
 
-        //Top Rail
+        //Top Rail Inactive
         gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(startX, startY, recWidth + doorWidthRatio, recHeight);
         //Top Rail Text
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 15, startY + (2 * recHeight) + 35);
-        //Bottom Rail
+        //Bottom Rail Inactive
         gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(startX, startY + recWidth + doorHeightRatio + 350, recWidth + doorWidthRatio, recHeight + 15);
+
+        //Top Rail Active
+        gc.setFill(Color.rgb(95, 87, 87));
+        gc.fillRect(startX + recWidth + doorWidthRatio + (recHeight * 2), startY, recWidth + doorWidthRatio, recHeight);
+        //Top Rail Text
+        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+        gc.fillText(doorWidthString, startX + recWidth + doorWidthRatio + (recHeight * 2) + 50, startY + (2 * recHeight) + 35);
+        //Bottom Rail Active
+        gc.setFill(Color.rgb(95, 87, 87));
+        gc.fillRect(startX + recWidth + doorWidthRatio + (recHeight * 2), startY + recWidth + doorHeightRatio + 350, recWidth + doorWidthRatio, recHeight + 15);
     }
 
     public void railsLessThan36StilesGreaterThan84(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
@@ -62,6 +72,16 @@ public class PairRails {
         gc.fillRect(startX + 1, startY + recWidth + doorHeightRatio + 350, recWidth + doorWidthRatio - 1, recHeight + 15);
         gc.strokeRect(startX, startY + recWidth + doorHeightRatio + 350, recWidth + doorWidthRatio + 2, recHeight + 15);
         gc.setStroke(Color.BLACK);
+
+        //Top Rail Active
+        gc.setFill(Color.rgb(95, 87, 87));
+        gc.fillRect(startX + recWidth + doorWidthRatio + (recHeight * 2), startY, recWidth + doorWidthRatio, recHeight);
+        //Top Rail Text
+        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+        gc.fillText(doorWidthString, startX + recWidth + doorWidthRatio + (recHeight * 2) + 50, startY + (2 * recHeight) + 35);
+        //Bottom Rail Active
+        gc.setFill(Color.rgb(95, 87, 87));
+        gc.fillRect(startX + recWidth + doorWidthRatio + (recHeight * 2), startY + recWidth + doorHeightRatio + 350, recWidth + doorWidthRatio, recHeight + 15);
     }
 
     public void railsLessThan36(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
