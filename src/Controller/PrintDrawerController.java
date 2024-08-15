@@ -457,6 +457,7 @@ public class PrintDrawerController implements Initializable {
             String doorColor = pairColor.getValue();
             String doorHand = pairHand.getValue();
             String doorQuantity = pairQuantity.getText();
+            int qty = Integer.parseInt(doorQuantity);
             String hardware1 = pairHardware1.getValue();
             String hardware2 = pairHardware2.getValue();
             String panicHardware = pairPanicDevice.getValue();
@@ -479,30 +480,30 @@ public class PrintDrawerController implements Initializable {
             //Hand Label
             gc.setFill(Color.BLACK);
             gc.setFont(Font.font("default", FontWeight.EXTRA_BOLD, 75));
-            gc.fillText("Hand", 2600, 2200);
-            gc.strokeLine(2600, 2225, 3250, 2225);
+            gc.fillText("Hand", 2500, 2200);
+            gc.strokeLine(2500, 2225, 3250, 2225);
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
             gc.fillText(doorHand, 2600, 2275);
 
             //Glass Label
             gc.setFill(Color.BLACK);
             gc.setFont(Font.font("default", FontWeight.EXTRA_BOLD, 75));
-            gc.fillText("Glass Sizes", 2600, 2000);
-            gc.strokeLine(2600, 2025, 3250, 2025);
+            gc.fillText("Glass Sizes", 2500, 2000);
+            gc.strokeLine(2500, 2025, 3250, 2025);
 
             //Quantity Label
             gc.setFill(Color.BLACK);
             gc.setFont(Font.font("default", FontWeight.EXTRA_BOLD, 75));
-            gc.fillText("Quantity", 2600, 1800);
-            gc.strokeLine(2600, 1825, 3250, 1825);
+            gc.fillText("Quantity", 2500, 1800);
+            gc.strokeLine(2500, 1825, 3250, 1825);
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
             gc.fillText(doorQuantity, 2600, 1875);
 
             //Color Label
             gc.setFill(Color.BLACK);
             gc.setFont(Font.font("default", FontWeight.EXTRA_BOLD, 75));
-            gc.fillText("Color", 2600, 1600);
-            gc.strokeLine(2600, 1625, 3250, 1625);
+            gc.fillText("Color", 2500, 1600);
+            gc.strokeLine(2500, 1625, 3250, 1625);
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
             gc.fillText(doorColor, 2600, 1675);
 
@@ -510,8 +511,8 @@ public class PrintDrawerController implements Initializable {
             pairFrameWidthDouble += 3.5;
             gc.setFill(Color.BLACK);
             gc.setFont(Font.font("default", FontWeight.EXTRA_BOLD, 75));
-            gc.fillText("Frame", 2600, 1400);
-            gc.strokeLine(2600, 1425, 3250, 1425);
+            gc.fillText("Frame", 2500, 1400);
+            gc.strokeLine(2500, 1425, 3250, 1425);
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
             gc.fillText(fTD.convertDecimalToFraction(pairFrameWidthDouble) + " x " + pairFrameHeightString, 2600, 1475);
 
@@ -523,7 +524,7 @@ public class PrintDrawerController implements Initializable {
                         pairFrameWidthString = "36";
                         pairDoorWidthDouble = 31.5625;
                         pairDoorWidthString = "31 9/16";
-                        if(pairDoorHeightDouble >= 84) {
+                        if (pairDoorHeightDouble >= 84) {
                             pairJambs.stilesGreaterThanOrEqual84SL28(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, gc);
                             pairHaT.railsLessThan36SL28(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
                         } else {
@@ -536,7 +537,7 @@ public class PrintDrawerController implements Initializable {
                         pairFrameWidthString = "36";
                         pairDoorWidthDouble = 31.5625;
                         pairDoorWidthString = "31 9/16";
-                        if(pairDoorHeightDouble >= 84) {
+                        if (pairDoorHeightDouble >= 84) {
                             pairJambs.stilesGreaterThanOrEqual84SL12(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, gc);
                             pairHaT.railsLessThan36SL12(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
                         } else {
@@ -549,7 +550,7 @@ public class PrintDrawerController implements Initializable {
                             //Rails and Glass
                             if (pairBottomRail.getValue().equals("4")) {
                                 pairRails.railsGreaterThanOrEqual36(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
-                                glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, gc);
+                                glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, qty, gc);
                             }
                             if (pairBottomRail.getValue().equals("10")) {
                                 pairRails.tenRailsGreaterThanOrEqual36(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
@@ -566,7 +567,7 @@ public class PrintDrawerController implements Initializable {
                             //Rails and Glass
                             if (pairBottomRail.getValue().equals("4")) {
                                 pairRails.railsGreaterThanOrEqual36StilesLessThan84(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
-                                glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, gc);
+                                glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, qty, gc);
                             }
                             if (pairBottomRail.getValue().equals("10")) {
                                 pairRails.tenRailsGreaterThanOrEqual36StilesLessThan84(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
@@ -585,7 +586,7 @@ public class PrintDrawerController implements Initializable {
                             //Rails and Glass
                             if (pairBottomRail.getValue().equals("4")) {
                                 pairRails.railsLessThan36StilesGreaterThan84(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
-                                glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, gc);
+                                glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, qty, gc);
                             }
                             if (pairBottomRail.getValue().equals("10")) {
                                 pairRails.tenRailsLessThan36StilesGreaterThan84(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
@@ -602,7 +603,7 @@ public class PrintDrawerController implements Initializable {
                             //Rails and Glass
                             if (pairBottomRail.getValue().equals("4")) {
                                 pairRails.railsLessThan36(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
-                                glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, gc);
+                                glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, qty, gc);
                             }
                             if (pairBottomRail.getValue().equals("10")) {
                                 pairRails.tenRailsLessThan36(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
@@ -611,7 +612,7 @@ public class PrintDrawerController implements Initializable {
                             //Stiles
                             pairStiles.stilesLessThan84(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorHeightString, gc);
                             //Jambs
-                            pairJambs.stilesLessThan84(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, slAnswer ,gc);
+                            pairJambs.stilesLessThan84(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, slAnswer, gc);
                             //Header and Threshold
                             pairHaT.railsLessThan36StilesGreaterThan84(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
                         }
@@ -626,7 +627,7 @@ public class PrintDrawerController implements Initializable {
                 //Rails and Glass
                 if (pairBottomRail.getValue().equals("4")) {
                     pairRails.railsLessThan36Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
-                    glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, gc);
+                    glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, qty, gc);
                 }
                 if (pairBottomRail.getValue().equals("10")) {
                     pairRails.tenRailsLessThan36Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
@@ -646,7 +647,7 @@ public class PrintDrawerController implements Initializable {
                 //Rails and Glass
                 if (pairBottomRail.getValue().equals("4")) {
                     pairRails.railsLessThan36Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
-                    glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, gc);
+                    glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, qty, gc);
                 }
                 if (pairBottomRail.getValue().equals("10")) {
                     pairRails.tenRailsLessThanOrEqual36Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
@@ -666,7 +667,7 @@ public class PrintDrawerController implements Initializable {
                 //Rails and Glass
                 if (pairBottomRail.getValue().equals("4")) {
                     pairRails.railsGreaterThanOrEqual36Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
-                    glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, gc);
+                    glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, qty, gc);
                 }
                 if (pairBottomRail.getValue().equals("10")) {
                     pairRails.tenRailsGreaterThanOrEqual36Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
@@ -685,7 +686,7 @@ public class PrintDrawerController implements Initializable {
                 //Rails and Glass
                 if (pairBottomRail.getValue().equals("4")) {
                     pairRails.railsLessThan36ClearStileGreaterThanOrEqual84(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
-                    glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, gc);
+                    glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, qty, gc);
                 }
                 if (pairBottomRail.getValue().equals("10")) {
                     pairRails.tenRailsLessThan36ClearStileGreaterThanOrEqual84(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
@@ -711,19 +712,19 @@ public class PrintDrawerController implements Initializable {
             String eSSurfaceMount = "Electric Strike Surface Mount";
             String eSIntegrated = "Electric Strike Integrated";
 
-            String singleHinging = hinging.getValue();
+            String pairHinge = pairHinging.getValue();
 
             //Hinging Type
             gc.setFill(Color.BLACK);
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-            gc.fillText(singleHinging, 200, 2475);
+            gc.fillText(pairHinge, 200, 2475);
 
             boolean cylinderTrue = hardware1.equals("Cylinder") || hardware2.equals("Cylinder");
             boolean rimTrue = panicHardware.equals("RIM");
 
             if (doorColor.equals("Bronze") || doorColor.equals("Black")) {
                 if (doorHand.equals("Left")) {
-                    switch (singleHinging) {
+                    switch (pairHinge) {
                         case "Pivots":
                             if (pairDoorHeightDouble > 84)
                                 hingeType.leftHandPivots(pairDoorWidthDouble, pairDoorHeightDouble, gc);
@@ -755,12 +756,12 @@ public class PrintDrawerController implements Initializable {
                             break;
                     }
                     if (rimTrue) {
-                        push.setSelected(false);
+                        pairPush.setSelected(false);
                         panics.rimLeftHandPush(pairDoorWidthDouble, pairDoorHeightDouble, gc);
                         panics.rimLeftHandPull(pairDoorHeightDouble, gc);
                         hw.leftHandCylindersBronzeRIM(pairDoorWidthDouble, pairDoorHeightDouble, gc);
                     }
-                    if (push.isSelected() && !rimTrue) {
+                    if (pairPush.isSelected() && !rimTrue) {
                         handles.leftHandPush(pairDoorWidthDouble, pairDoorHeightDouble, gc);
                     } else {
                         gc.setFill(Color.BLACK);
@@ -772,7 +773,7 @@ public class PrintDrawerController implements Initializable {
                     }
                 } else {
                     ///////////////////Right Hand Hardware
-                    switch (singleHinging) {
+                    switch (pairHinge) {
                         case "Pivots":
                             if (pairDoorHeightDouble > 84)
                                 hingeType.rightHandPivots(pairDoorWidthDouble, pairDoorHeightDouble, gc);
@@ -826,7 +827,7 @@ public class PrintDrawerController implements Initializable {
                 }
             } else {
                 if (doorHand.equals("Left")) {
-                    switch (singleHinging) {
+                    switch (pairHinge) {
                         case "Pivots":
                             if (pairDoorHeightDouble > 84)
                                 hingeType.leftHandPivots(pairDoorWidthDouble, pairDoorHeightDouble, gc);
@@ -874,7 +875,7 @@ public class PrintDrawerController implements Initializable {
                     }
                 } else {
                     ///////////////////Right Hand Hardware
-                    switch (singleHinging) {
+                    switch (pairHinge) {
                         case "Pivots":
                             if (pairDoorHeightDouble > 84)
                                 hingeType.rightHandPivots(pairDoorWidthDouble, pairDoorHeightDouble, gc);
@@ -910,12 +911,12 @@ public class PrintDrawerController implements Initializable {
                             break;
                     }
                     if (rimTrue) {
-                        push.setSelected(false);
+                        pairPush.setSelected(false);
                         panics.rimRightHandPush(pairDoorWidthDouble, pairDoorHeightDouble, gc);
                         panics.rimRightHandPull(pairDoorWidthDouble, pairDoorHeightDouble, gc);
                         hw.rightHandCylindersClearRIM(pairDoorWidthDouble, pairDoorHeightDouble, gc);
                     }
-                    if (push.isSelected() && !rimTrue) {
+                    if (pairPush.isSelected() && !rimTrue) {
                         handles.rightHandPush(pairDoorWidthDouble, pairDoorHeightDouble, gc);
                     } else {
                         gc.setFont(Font.font("default", FontWeight.BOLD, 40));
@@ -943,16 +944,13 @@ public class PrintDrawerController implements Initializable {
         GraphicsContext gc = previewCanvas.getGraphicsContext2D();
         gc.clearRect(0, 0, previewCanvas.getWidth(), previewCanvas.getHeight());
 
-        //Glass Label
-        gc.setFill(Color.BLACK);
-        gc.setFont(Font.font("default", FontWeight.BOLD, 75));
-        gc.fillText("Glass Sizes", 2400, 2000);
-        gc.strokeLine(2400, 2025, 3250, 2025);
 
         FractionsAndDecimals fTD = new FractionsAndDecimals();
 
         String windowWidthString = windowWidth.getText();
         String windowHeightString = windowHeight.getText();
+
+        String color = windowColor.getValue();
 
         int quantity = Integer.parseInt(windowQuantity.getValue());
         String type = windowGlass.getValue();
@@ -962,6 +960,36 @@ public class PrintDrawerController implements Initializable {
         double windowHeightDouble = fTD.fractionToDecimal(windowHeight.getText());
 
         int panels = Integer.parseInt(windowPanelNum.getValue());
+
+        //Glass Label
+        gc.setFill(Color.BLACK);
+        gc.setFont(Font.font("default", FontWeight.EXTRA_BOLD, 75));
+        gc.fillText("Glass Sizes", 2500, 2000);
+        gc.strokeLine(2500, 2025, 3250, 2025);
+
+        //Quantity Label
+        gc.setFill(Color.BLACK);
+        gc.setFont(Font.font("default", FontWeight.EXTRA_BOLD, 75));
+        gc.fillText("Quantity", 2500, 1800);
+        gc.strokeLine(2500, 1825, 3250, 1825);
+        gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+        gc.fillText(String.valueOf(quantity), 2600, 1875);
+
+        //Color Label
+        gc.setFill(Color.BLACK);
+        gc.setFont(Font.font("default", FontWeight.EXTRA_BOLD, 75));
+        gc.fillText("Color", 2500, 1600);
+        gc.strokeLine(2500, 1625, 3250, 1625);
+        gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+        gc.fillText(color, 2600, 1675);
+
+        //Frame Label
+        gc.setFill(Color.BLACK);
+        gc.setFont(Font.font("default", FontWeight.EXTRA_BOLD, 75));
+        gc.fillText("Frame", 2500, 1400);
+        gc.strokeLine(2500, 1425, 3250, 1425);
+        gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+        gc.fillText(fTD.convertDecimalToFraction(windowWidthDouble) + " x " + fTD.convertDecimalToFraction(windowHeightDouble), 2600, 1475);
 
         //Width > 36 and height >= 84
         if (windowColor.getValue().equals("Bronze") &&
@@ -1067,7 +1095,7 @@ public class PrintDrawerController implements Initializable {
             gc.fillText("SFD-" + sfdNumber, (previewCanvas.getWidth() / 2) - 100, 150);
             gc.setFont(new Font(12));
         } else {
-//            Drawing_Warning.sfdNotEntered();
+            Drawing_Warning.sfdNotEntered();
         }
 
         try {
@@ -1168,6 +1196,7 @@ public class PrintDrawerController implements Initializable {
             String doorColor = color.getValue();
             String doorHand = hand.getValue();
             String doorQuantity = quantity.getText();
+            int qty = Integer.parseInt(doorQuantity);
             String hardware1 = hardware.getValue();
             String hardware2 = secondHardware.getValue();
             String panicHardware = panicDevices.getValue();
@@ -1190,30 +1219,30 @@ public class PrintDrawerController implements Initializable {
             //Hand Label
             gc.setFill(Color.BLACK);
             gc.setFont(Font.font("default", FontWeight.EXTRA_BOLD, 75));
-            gc.fillText("Hand", 2600, 2200);
-            gc.strokeLine(2600, 2225, 3250, 2225);
+            gc.fillText("Hand", 2500, 2200);
+            gc.strokeLine(2500, 2225, 3250, 2225);
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
             gc.fillText(doorHand, 2600, 2275);
 
             //Glass Label
             gc.setFill(Color.BLACK);
             gc.setFont(Font.font("default", FontWeight.EXTRA_BOLD, 75));
-            gc.fillText("Glass Sizes", 2600, 2000);
-            gc.strokeLine(2600, 2025, 3250, 2025);
+            gc.fillText("Glass Sizes", 2500, 2000);
+            gc.strokeLine(2500, 2025, 3250, 2025);
 
             //Quantity Label
             gc.setFill(Color.BLACK);
             gc.setFont(Font.font("default", FontWeight.EXTRA_BOLD, 75));
-            gc.fillText("Quantity", 2600, 1800);
-            gc.strokeLine(2600, 1825, 3250, 1825);
+            gc.fillText("Quantity", 2500, 1800);
+            gc.strokeLine(2500, 1825, 3250, 1825);
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
             gc.fillText(doorQuantity, 2600, 1875);
 
             //Color Label
             gc.setFill(Color.BLACK);
             gc.setFont(Font.font("default", FontWeight.EXTRA_BOLD, 75));
-            gc.fillText("Color", 2600, 1600);
-            gc.strokeLine(2600, 1625, 3250, 1625);
+            gc.fillText("Color", 2500, 1600);
+            gc.strokeLine(2500, 1625, 3250, 1625);
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
             gc.fillText(doorColor, 2600, 1675);
 
@@ -1221,8 +1250,8 @@ public class PrintDrawerController implements Initializable {
             frameWidthDouble += 3.5;
             gc.setFill(Color.BLACK);
             gc.setFont(Font.font("default", FontWeight.EXTRA_BOLD, 75));
-            gc.fillText("Frame", 2600, 1400);
-            gc.strokeLine(2600, 1425, 3250, 1425);
+            gc.fillText("Frame", 2500, 1400);
+            gc.strokeLine(2500, 1425, 3250, 1425);
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
             gc.fillText(fTD.convertDecimalToFraction(frameWidthDouble) + " x " + frameHeightString, 2600, 1475);
 
@@ -1234,7 +1263,7 @@ public class PrintDrawerController implements Initializable {
                         frameWidthString = "36";
                         doorWidthDouble = 31.5625;
                         doorWidthString = "31 9/16";
-                        if(doorHeightDouble >= 84) {
+                        if (doorHeightDouble >= 84) {
                             jambs.stilesGreaterThanOrEqual84SL28(frameWidthDouble, frameHeightDouble, frameHeightString, gc);
                             hAT.railsLessThan36SL28(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
                         } else {
@@ -1247,7 +1276,7 @@ public class PrintDrawerController implements Initializable {
                         frameWidthString = "36";
                         doorWidthDouble = 31.5625;
                         doorWidthString = "31 9/16";
-                        if(doorHeightDouble >= 84) {
+                        if (doorHeightDouble >= 84) {
                             jambs.stilesGreaterThanOrEqual84SL12(frameWidthDouble, frameHeightDouble, frameHeightString, gc);
                             hAT.railsLessThan36SL12(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
                         } else {
@@ -1260,7 +1289,7 @@ public class PrintDrawerController implements Initializable {
                             //Rails and Glass
                             if (bottomRail.getValue().equals("4")) {
                                 rails.railsGreaterThanOrEqual36(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
-                                glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, type, gc);
+                                glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, type, qty, gc);
                             }
                             if (bottomRail.getValue().equals("10")) {
                                 rails.tenRailsGreaterThanOrEqual36(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
@@ -1277,7 +1306,7 @@ public class PrintDrawerController implements Initializable {
                             //Rails and Glass
                             if (bottomRail.getValue().equals("4")) {
                                 rails.railsGreaterThanOrEqual36StilesLessThan84(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
-                                glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, type, gc);
+                                glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, type, qty, gc);
                             }
                             if (bottomRail.getValue().equals("10")) {
                                 rails.tenRailsGreaterThanOrEqual36StilesLessThan84(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
@@ -1296,7 +1325,7 @@ public class PrintDrawerController implements Initializable {
                             //Rails and Glass
                             if (bottomRail.getValue().equals("4")) {
                                 rails.railsLessThan36StilesGreaterThan84(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
-                                glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, type, gc);
+                                glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, type, qty, gc);
                             }
                             if (bottomRail.getValue().equals("10")) {
                                 rails.tenRailsLessThan36StilesGreaterThan84(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
@@ -1313,7 +1342,7 @@ public class PrintDrawerController implements Initializable {
                             //Rails and Glass
                             if (bottomRail.getValue().equals("4")) {
                                 rails.railsLessThan36(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
-                                glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, type, gc);
+                                glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, type, qty, gc);
                             }
                             if (bottomRail.getValue().equals("10")) {
                                 rails.tenRailsLessThan36(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
@@ -1322,7 +1351,7 @@ public class PrintDrawerController implements Initializable {
                             //Stiles
                             stiles.stilesLessThan84(doorWidthDouble, doorHeightDouble, doorHeightString, gc);
                             //Jambs
-                            jambs.stilesLessThan84(frameWidthDouble, frameHeightDouble, frameHeightString, slAnswer ,gc);
+                            jambs.stilesLessThan84(frameWidthDouble, frameHeightDouble, frameHeightString, slAnswer, gc);
                             //Header and Threshold
                             hAT.railsLessThan36StilesGreaterThan84(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
                         }
@@ -1337,7 +1366,7 @@ public class PrintDrawerController implements Initializable {
                 //Rails and Glass
                 if (bottomRail.getValue().equals("4")) {
                     rails.railsLessThan36Clear(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
-                    glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, type, gc);
+                    glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, type, qty, gc);
                 }
                 if (bottomRail.getValue().equals("10")) {
                     rails.tenRailsLessThan36Clear(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
@@ -1357,7 +1386,7 @@ public class PrintDrawerController implements Initializable {
                 //Rails and Glass
                 if (bottomRail.getValue().equals("4")) {
                     rails.railsLessThan36Clear(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
-                    glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, type, gc);
+                    glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, type, qty, gc);
                 }
                 if (bottomRail.getValue().equals("10")) {
                     rails.tenRailsLessThanOrEqual36Clear(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
@@ -1377,7 +1406,7 @@ public class PrintDrawerController implements Initializable {
                 //Rails and Glass
                 if (bottomRail.getValue().equals("4")) {
                     rails.railsGreaterThanOrEqual36Clear(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
-                    glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, type, gc);
+                    glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, type, qty, gc);
                 }
                 if (bottomRail.getValue().equals("10")) {
                     rails.tenRailsGreaterThanOrEqual36Clear(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
@@ -1396,7 +1425,7 @@ public class PrintDrawerController implements Initializable {
                 //Rails and Glass
                 if (bottomRail.getValue().equals("4")) {
                     rails.railsLessThan36ClearStileGreaterThanOrEqual84(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
-                    glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, type, gc);
+                    glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, type, qty, gc);
                 }
                 if (bottomRail.getValue().equals("10")) {
                     rails.tenRailsLessThan36ClearStileGreaterThanOrEqual84(doorWidthDouble, doorHeightDouble, doorWidthString, gc);

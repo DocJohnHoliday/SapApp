@@ -110,6 +110,16 @@ public class PairRails {
         gc.fillRect(startX + 1, startY + recWidth + doorHeightRatio + 350, recWidth + doorWidthRatio - 1, recHeight + 15);
         gc.strokeRect(startX, startY + recWidth + doorHeightRatio + 350, recWidth + doorWidthRatio + 2, recHeight + 15);
         gc.setStroke(Color.BLACK);
+
+        //Top Rail Active
+        gc.setFill(Color.rgb(95, 87, 87));
+        gc.fillRect(startX + recWidth + doorWidthRatio + (recHeight * 2), startY, recWidth + doorWidthRatio, recHeight);
+        //Top Rail Text
+        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+        gc.fillText(doorWidthString, startX + recWidth + doorWidthRatio + (recHeight * 2) + 50, startY + (2 * recHeight) + 35);
+        //Bottom Rail Active
+        gc.setFill(Color.rgb(95, 87, 87));
+        gc.fillRect(startX + recWidth + doorWidthRatio + (recHeight * 2), startY + recWidth + doorHeightRatio + 350, recWidth + doorWidthRatio, recHeight + 15);
     }
 
     public void railsGreaterThanOrEqual36StilesLessThan84(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
@@ -123,13 +133,29 @@ public class PairRails {
         int doorHeightRatio = (j - 84) * 2;
         //Top Rail
         gc.setFill(Color.rgb(95, 87, 87));
-        gc.fillRect(startX, startY, recWidth + doorWidthRatio, recHeight);
+        gc.setStroke(Color.WHITE);
+        gc.fillRect(startX + 1, startY, recWidth + doorWidthRatio - 1, recHeight);
+        gc.strokeRect(startX, startY, recWidth + doorWidthRatio + 2, recHeight);
+        gc.setStroke(Color.BLACK);
         //Top Rail Text
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight) + 35);
         //Bottom Rail
         gc.setFill(Color.rgb(95, 87, 87));
-        gc.fillRect(startX, startY + recWidth + doorHeightRatio + 350, recWidth + doorWidthRatio, recHeight + 15);
+        gc.setStroke(Color.WHITE);
+        gc.fillRect(startX + 1, startY + recWidth + doorHeightRatio + 350, recWidth + doorWidthRatio - 1, recHeight + 15);
+        gc.strokeRect(startX, startY + recWidth + doorHeightRatio + 350, recWidth + doorWidthRatio + 2, recHeight + 15);
+        gc.setStroke(Color.BLACK);
+
+        //Top Rail Active
+        gc.setFill(Color.rgb(95, 87, 87));
+        gc.fillRect(startX + recWidth + doorWidthRatio + (recHeight * 2), startY, recWidth + doorWidthRatio, recHeight);
+        //Top Rail Text
+        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+        gc.fillText(doorWidthString, startX + recWidth + doorWidthRatio + (recHeight * 2) + 50, startY + (2 * recHeight) + 35);
+        //Bottom Rail Active
+        gc.setFill(Color.rgb(95, 87, 87));
+        gc.fillRect(startX + recWidth + doorWidthRatio + (recHeight * 2), startY + recWidth + doorHeightRatio + 350, recWidth + doorWidthRatio, recHeight + 15);
     }
 
     ////////////////////////////////////Clear 4" Bottom Rails

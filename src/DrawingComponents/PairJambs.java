@@ -29,11 +29,12 @@ public class PairJambs {
         gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
         //Stile Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        gc.fillText(doorHeightString, (startX + 1 + ((recWidth + doorWidthRatio * 2))) + recHeight + 375, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
         //Second Stile
         gc.setFill(Color.rgb(95, 87, 87));
-        gc.fillRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
+        gc.fillRect(startX + ((recWidth + doorWidthRatio) * 2) + 2, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
     }
 
     public void stilesLessThan84SL28(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
@@ -140,18 +141,12 @@ public class PairJambs {
         gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
         //Stile Text
-        if (sl.equals("No")) {
-            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
-            System.out.println("Here");
-        } else {
-            //SL Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(doorHeightString, startX + recWidth + doorWidthRatio + 260, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
-        }
+        gc.setFill(Color.BLACK);
+        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+        gc.fillText(doorHeightString, (startX + 1 + ((recWidth + doorWidthRatio * 2))) + recHeight + 375, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
         //Second Stile
         gc.setFill(Color.rgb(95, 87, 87));
-        gc.fillRect(startX + 1 + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
+        gc.fillRect(startX + ((recWidth + doorWidthRatio) * 2) + 2, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
     }
 
     public void stilesGreaterThanOrEqual84RailsLessThan36(double doorWidthDouble, double doorHeightDouble, String doorHeightString, String sl, GraphicsContext gc) {
@@ -164,22 +159,16 @@ public class PairJambs {
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
         int doorHeightRatio = (j - 84) * 2;
-        //First Stile
+        //Stile
         gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
         //Stile Text
-        if (sl.equals("No")) {
-            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
-            System.out.println("Here");
-        } else {
-            //SL Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(doorHeightString, startX + recWidth + doorWidthRatio + 260, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
-        }
+        gc.setFill(Color.BLACK);
+        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+        gc.fillText(doorHeightString, (startX + 1 + ((recWidth + doorWidthRatio * 2))) + recHeight + 375, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
         //Second Stile
         gc.setFill(Color.rgb(95, 87, 87));
-        gc.fillRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
+        gc.fillRect(startX + ((recWidth + doorWidthRatio) * 2) + 2, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
 
 
     }
@@ -200,11 +189,12 @@ public class PairJambs {
         gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
         //Stile Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        gc.fillText(doorHeightString, (startX + 1 + ((recWidth + doorWidthRatio * 2))) + recHeight + 375, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
         //Second Stile
         gc.setFill(Color.rgb(95, 87, 87));
-        gc.fillRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
+        gc.fillRect(startX + ((recWidth + doorWidthRatio) * 2) + 2, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
     }
 
     /////////////////////////////////////Clear
@@ -223,10 +213,11 @@ public class PairJambs {
         //First Stile
         gc.strokeRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
         //Stile Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        gc.fillText(doorHeightString, (startX + 1 + ((recWidth + doorWidthRatio) * 2)) + recHeight + 375, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
         //Second Stile
-        gc.strokeRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
+        gc.strokeRect(startX + ((recWidth + doorWidthRatio) * 2) + 2, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
     }
 
     public void stilesLessThanOrEqual84Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
@@ -244,10 +235,11 @@ public class PairJambs {
         //First Stile
         gc.strokeRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
         //Stile Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        gc.fillText(doorHeightString, (startX + 1 + ((recWidth + doorWidthRatio) * 2)) + recHeight + 375, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
         //Second Stile
-        gc.strokeRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
+        gc.strokeRect(startX + ((recWidth + doorWidthRatio) * 2) + 2, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
     }
 
     public void stilesLessThan84RailGreaterThan36Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
@@ -262,10 +254,11 @@ public class PairJambs {
         //First Stile
         gc.strokeRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
         //Stile Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        gc.fillText(doorHeightString, (startX + 1 + ((recWidth + doorWidthRatio) * 2)) + recHeight + 375, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
         //Second Stile
-        gc.strokeRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
+        gc.strokeRect(startX + ((recWidth + doorWidthRatio) * 2) + 2, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
     }
 
     public void stilesGreaterThanOrEqual84Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
@@ -280,9 +273,10 @@ public class PairJambs {
         //First Stile
         gc.strokeRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
         //Stile Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        gc.fillText(doorHeightString, (startX + 1 + ((recWidth + doorWidthRatio) * 2)) + recHeight + 375, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
         //Second Stile
-        gc.strokeRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
+        gc.strokeRect(startX + ((recWidth + doorWidthRatio) * 2) + 2, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
     }
 }

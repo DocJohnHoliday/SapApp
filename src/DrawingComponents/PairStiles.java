@@ -29,9 +29,9 @@ public class PairStiles {
         gc.fillRect(1800 + doorWidthRatio, 1450, 24, 739 + doorHeightRatio);
 
         //First Stile Active
-        gc.fillRect(1800 + doorWidthRatio + 25, 1450, 24, 739 + doorHeightRatio);
+        gc.fillRect(1825 + doorWidthRatio, 1450, 24, 739 + doorHeightRatio);
         //Second Stile Active
-        gc.fillRect((1800 + doorWidthRatio + 25) + 374, 1450, 24, 739 + doorHeightRatio);
+        gc.fillRect(2199 + doorWidthRatio, 1450, 24, 739 + doorHeightRatio);
     }
 
     public void stilesLessThan84RailGreaterThan36(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {

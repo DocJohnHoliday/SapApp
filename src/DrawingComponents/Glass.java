@@ -14,7 +14,7 @@ public class Glass {
     FractionsAndDecimals fTD = new FractionsAndDecimals();
 
     // Glass for 3/16" Single doors
-    public void doorGlass5mm4BR(double doorWidthDouble, double doorHeightDouble, String glass, GraphicsContext gc) {
+    public void doorGlass5mm4BR(double doorWidthDouble, double doorHeightDouble, String glass, int quantity, GraphicsContext gc) {
         //Door glass
         String doorWidth = fTD.convertDecimalToFraction(doorWidthDouble - 0.5 + 0.0625);
         String doorHeight = fTD.convertDecimalToFraction(doorHeightDouble - 6.75 + 0.125);
@@ -25,11 +25,11 @@ public class Glass {
         if (glassSize.equals("31-1/8 x 76-5/8")) {
             gc.setFill(Color.BLACK);
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-            gc.fillText(standardGlass, 2600, 2075);
+            gc.fillText(standardGlass, 2500, 2075);
         } else {
             gc.setFill(Color.BLACK);
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-            gc.fillText(glassSize, 2600, 2075);
+            gc.fillText(glassSize, 2500, 2075);
         }
     }
 
@@ -42,10 +42,10 @@ public class Glass {
 
         if (glassSize.equals("31-1/8 x 71-1/8")) {
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-            gc.fillText(stdTenGlass, 2600, 2075);
+            gc.fillText(stdTenGlass, 2500, 2075);
         } else {
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-            gc.fillText(glassSize, 2600, 2075);
+            gc.fillText(glassSize, 2500, 2075);
         }
     }
 
@@ -58,10 +58,10 @@ public class Glass {
 
         if (glassSize.equals("31-1/16 x 71")) {
             gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(stdTenGlass, 2400, 2100);
+            gc.fillText(stdTenGlass, 2500, 2075);
         } else {
             gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(glassSize, 2400, 2100);
+            gc.fillText(glassSize, 2500, 2075);
         }
     }
 
@@ -75,22 +75,22 @@ public class Glass {
             doorWidth = fTD.convertDecimalToFraction(windowWidthDouble - 3.125);
             glassSize = glass + "  (Qty " + panels * quantity + ") " + doorWidth + " x " + doorHeight;
             gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(glassSize, 2400, 2100);
+            gc.fillText(glassSize, 2500, 2075);
         } else if (panels == 2) {
             doorWidth = fTD.convertDecimalToFraction(((windowWidthDouble - 3.875) / 2) - 0.5);
             glassSize = glass + "  (Qty " + panels * quantity + ")  " + doorWidth + " x " + doorHeight;
             gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(glassSize, 2400, 2100);
+            gc.fillText(glassSize, 2500, 2075);
         } else if (panels == 3) {
             doorWidth = fTD.convertDecimalToFraction(((windowWidthDouble - 5.625) / 3));
             glassSize = glass + "  (Qty " + panels * quantity + ")  " + doorWidth + " x " + doorHeight;
             gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(glassSize, 2400, 2100);
+            gc.fillText(glassSize, 2500, 2075);
         } else if (panels == 4) {
-            doorWidth = fTD.convertDecimalToFraction(((windowWidthDouble - 6.375) / 4) - 0.5);
+            doorWidth = fTD.convertDecimalToFraction(((windowWidthDouble - 6.25) / 4) - 0.625);
             glassSize = glass + "  (Qty " + panels * quantity + ")  " + doorWidth + " x " + doorHeight;
             gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(glassSize, 2400, 2100);
+            gc.fillText(glassSize, 2500, 2075);
         }
     }
 
@@ -105,31 +105,30 @@ public class Glass {
             doorWidth = fTD.convertDecimalToFraction(windowWidthDouble - 3.0);
             glassSize = glass + "  (Qty " + panels * quantity + ")  " + doorWidth + " x " + doorHeight;
             gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(glassSize, 2400, 2100);
+            gc.fillText(glassSize, 2500, 2075);
         } else if (panels == 2) {
             doorWidth = fTD.convertDecimalToFraction(((windowWidthDouble - 3.75) / 2) - 0.5);
             glassSize = glass + "  (Qty " + panels * quantity + ")  " + doorWidth + " x " + doorHeight;
             gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(glassSize, 2400, 2100);
+            gc.fillText(glassSize, 2500, 2075);
         } else if (panels == 3) {
             BigDecimal num1 = new BigDecimal(windowWidthDouble - 5.0);
             BigDecimal num2 = new BigDecimal(3);
             double x = num1.divide(num2, 2, RoundingMode.HALF_DOWN).doubleValue();
-            System.out.println(x - .5);
             doorWidth = fTD.convertDecimalToFraction(x - .5);
             glassSize = glass + "  (Qty " + panels * quantity + ")  " + doorWidth + " x " + doorHeight;
             gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(glassSize, 2400, 2100);
+            gc.fillText(glassSize, 2450, 2075);
         } else if (panels == 4) {
             doorWidth = fTD.convertDecimalToFraction(((windowWidthDouble - 6.25) / 4) - 0.5);
             glassSize = glass + "  (Qty " + panels * quantity + ")  " + doorWidth + " x " + doorHeight;
             gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(glassSize, 2400, 2100);
+            gc.fillText(glassSize, 2450, 2075);
         }
     }
 
     public void noGlass(GraphicsContext gc) {
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText("\"No Glass\"", 2600, 2100);
+        gc.fillText("\"No Glass\"", 2500, 2100);
     }
 }
