@@ -15,7 +15,7 @@ public class Jambs {
     int i = 0;
 
     /////////////////////////////////////////Bronze
-    public void stilesGreaterThanOrEqual84(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
+    public void stilesGreaterThanOrEqual84(double doorWidthDouble, double doorHeightDouble, String doorHeightString, String slAnswer, GraphicsContext gc) {
 
 
         for (i = 35; i < doorWidthDouble; i++)
@@ -30,15 +30,16 @@ public class Jambs {
         gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
         //Stile Text
-        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        if (slAnswer.equals("No")) {
+            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+            gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        }
         //Second Stile
         gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
     }
 
-    public void stilesLessThan84SL28(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
-
+    public void stilesLessThan84SL28(double doorWidthDouble, double doorHeightDouble, String doorHeightString, String slAnswer, GraphicsContext gc) {
 
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
@@ -59,7 +60,7 @@ public class Jambs {
         gc.fillRect(startX + recWidth + doorWidthRatio + 240, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
     }
 
-    public void stilesLessThan84SL12(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
+    public void stilesLessThan84SL12(double doorWidthDouble, double doorHeightDouble, String doorHeightString, String slAnswer, GraphicsContext gc) {
 
 
         for (i = 0; i < doorWidthDouble; i++)
@@ -80,8 +81,8 @@ public class Jambs {
         gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(startX + recWidth + doorWidthRatio + 140, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
     }
-    public void stilesGreaterThanOrEqual84SL28(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
 
+    public void stilesGreaterThanOrEqual84SL28(double doorWidthDouble, double doorHeightDouble, String doorHeightString, String slAnswer, GraphicsContext gc) {
 
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
@@ -102,8 +103,7 @@ public class Jambs {
         gc.fillRect(startX + recWidth + doorWidthRatio + 240, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
     }
 
-    public void stilesGreaterThanOrEqual84SL12(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
-
+    public void stilesGreaterThanOrEqual84SL12(double doorWidthDouble, double doorHeightDouble, String doorHeightString, String slAnswer, GraphicsContext gc) {
 
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
@@ -126,7 +126,6 @@ public class Jambs {
 
     public void stilesLessThan84(double doorWidthDouble, double doorHeightDouble, String doorHeightString, String sl, GraphicsContext gc) {
 
-
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
         int doorWidthRatio = (i - 40) * 2;
@@ -144,10 +143,6 @@ public class Jambs {
             gc.setFont(Font.font("default", FontWeight.BOLD, 50));
             gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
             System.out.println("Here");
-        } else {
-            //SL Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(doorHeightString, startX + recWidth + doorWidthRatio + 260, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
         }
         //Second Stile
         gc.setFill(Color.rgb(95, 87, 87));
@@ -172,10 +167,6 @@ public class Jambs {
             gc.setFont(Font.font("default", FontWeight.BOLD, 50));
             gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
             System.out.println("Here");
-        } else {
-            //SL Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(doorHeightString, startX + recWidth + doorWidthRatio + 260, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
         }
         //Second Stile
         gc.setFill(Color.rgb(95, 87, 87));
@@ -184,13 +175,11 @@ public class Jambs {
 
     }
 
-    public void stilesLessThan84RailGreaterThan36(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
-
+    public void stilesLessThan84RailGreaterThan36(double doorWidthDouble, double doorHeightDouble, String doorHeightString, String slAnswer, GraphicsContext gc) {
 
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
         int doorWidthRatio = (i - 40) * 2;
-
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
@@ -200,21 +189,21 @@ public class Jambs {
         gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
         //Stile Text
-        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        if (slAnswer.equals("No")) {
+            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+            gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        }
         //Second Stile
         gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
     }
 
     /////////////////////////////////////Clear
-    public void stilesLessThan84Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
-
+    public void stilesLessThan84Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, String slAnswer, GraphicsContext gc) {
 
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
         int doorWidthRatio = (i - 40) * 2;
-
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
@@ -223,19 +212,19 @@ public class Jambs {
         //First Stile
         gc.strokeRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
         //Stile Text
-        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        if (slAnswer.equals("No")) {
+            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+            gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        }
         //Second Stile
         gc.strokeRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
     }
 
-    public void stilesLessThanOrEqual84Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
-
+    public void stilesLessThanOrEqual84Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, String slAnswer, GraphicsContext gc) {
 
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
         int doorWidthRatio = (i - 40) * 2;
-
 
         for (j = 83; j < doorHeightDouble; j++)
             j = j;
@@ -244,13 +233,15 @@ public class Jambs {
         //First Stile
         gc.strokeRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
         //Stile Text
-        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        if (slAnswer.equals("No")) {
+            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+            gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        }
         //Second Stile
         gc.strokeRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
     }
 
-    public void stilesLessThan84RailGreaterThan36Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
+    public void stilesLessThan84RailGreaterThan36Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, String slAnswer, GraphicsContext gc) {
 
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
@@ -262,13 +253,15 @@ public class Jambs {
         //First Stile
         gc.strokeRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
         //Stile Text
-        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        if (slAnswer.equals("No")) {
+            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+            gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        }
         //Second Stile
         gc.strokeRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
     }
 
-    public void stilesGreaterThanOrEqual84Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
+    public void stilesGreaterThanOrEqual84Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, String slAnswer, GraphicsContext gc) {
 
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
@@ -280,8 +273,10 @@ public class Jambs {
         //First Stile
         gc.strokeRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
         //Stile Text
-        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        if (slAnswer.equals("No")) {
+            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+            gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
+        }
         //Second Stile
         gc.strokeRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
     }

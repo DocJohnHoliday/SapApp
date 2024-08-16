@@ -5,8 +5,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-public class SideLights {
-
+public class SideLightLeft {
     int startX = 1650 - 200; //Start in X axis
     int startY = 500; //Start in Y axis
     int recWidth = 350; //Rectangle Width
@@ -18,15 +17,15 @@ public class SideLights {
     //////////////////////////////Horizontals
     //////////////////////////////Bronze
 
-    public void slGreaterThanOrEqual36(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
+    public void slGreaterThanOrEqual36Left(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
 
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40) * 2;
+        int doorWidthRatio = (i - 40) * 5;
 
         for (j = 83; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84) * 2;
+        int doorHeightRatio = (j - 84) * 5;
 
         //Header
         gc.setFill(Color.rgb(95, 87, 87));
@@ -44,15 +43,15 @@ public class SideLights {
         gc.setStroke(Color.BLACK);
     }
 
-    public void slLessThan36StilesGreaterThan84(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
+    public void slLessThan36StilesGreaterThan84Left(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
 
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40) * 2;
+        int doorWidthRatio = (i - 40) * 5;
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84) * 2;
+        int doorHeightRatio = (j - 84) * 5;
         //Header
         gc.setFill(Color.rgb(95, 87, 87));
         gc.setStroke(Color.WHITE);
@@ -67,15 +66,15 @@ public class SideLights {
         gc.setStroke(Color.BLACK);
     }
 
-    public void slLessThan36(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
+    public void slLessThan36Left(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
 
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40) * 2;
+        int doorWidthRatio = (i - 40) * 5;
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84) * 2;
+        int doorHeightRatio = (j - 84) * 5;
 
         //Header
         gc.setFill(Color.rgb(95, 87, 87));
@@ -93,15 +92,15 @@ public class SideLights {
         gc.setStroke(Color.BLACK);
     }
 
-    public void slGreaterThanOrEqual36StilesLessThan84(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
+    public void slGreaterThanOrEqual36StilesLessThan84Left(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
 
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40) * 2;
+        int doorWidthRatio = (i - 40) * 5;
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84) * 2;
+        int doorHeightRatio = (j - 84) * 5;
         //Header
         gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(startX, startY, recWidth + doorWidthRatio, recHeight);
@@ -117,15 +116,15 @@ public class SideLights {
 
     ////////////////////////////////////Clear
 
-    public void slLessThan36Clear(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
+    public void slLessThan36ClearLeft(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
 
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40) * 2;
+        int doorWidthRatio = (i - 40) * 5;
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84) * 2;
+        int doorHeightRatio = (j - 84) * 5;
         //Header
         gc.strokeRect(startX, startY, recWidth + doorWidthRatio, recHeight);
         //Header Text
@@ -138,15 +137,15 @@ public class SideLights {
         gc.setStroke(Color.BLACK);
     }
 
-    public void slLessThanOrEqual36Clear(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
+    public void slLessThanOrEqual36ClearLeft(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
 
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40) * 2;
+        int doorWidthRatio = (i - 40) * 5;
 
         for (j = 83; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84) * 2;
+        int doorHeightRatio = (j - 84) * 5;
         //Header
         gc.strokeRect(startX, startY, recWidth + doorWidthRatio, recHeight);
         //Header Text
@@ -159,15 +158,15 @@ public class SideLights {
         gc.setStroke(Color.BLACK);
     }
 
-    public void slGreaterThanOrEqual36Clear(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
+    public void slGreaterThanOrEqual36ClearLeft(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
 
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40) * 2;
+        int doorWidthRatio = (i - 40) * 5;
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84) * 2;
+        int doorHeightRatio = (j - 84) * 5;
         //Header
         gc.strokeRect(startX, startY, recWidth + doorWidthRatio, recHeight);
         //Header Text
@@ -180,15 +179,15 @@ public class SideLights {
         gc.setStroke(Color.BLACK);
     }
 
-    public void slLessThan36ClearStileGreaterThanOrEqual84(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
+    public void slLessThan36ClearStileGreaterThanOrEqual84Left(double doorWidthDouble, double doorHeightDouble, String doorWidthString, GraphicsContext gc) {
 
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40) * 2;
+        int doorWidthRatio = (i - 40) * 5;
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84) * 2;
+        int doorHeightRatio = (j - 84) * 5;
         //Header
         gc.strokeRect(startX, startY, recWidth + doorWidthRatio, recHeight);
         //Header Text
@@ -203,16 +202,16 @@ public class SideLights {
 
     //////////////////////////////////////////////////Verticals
     /////////////////////////////////////////Bronze
-    public void stilesGreaterThanOrEqual84(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
+    public void slGreaterThanOrEqual84Left(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
 
 
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40) * 2;
+        int doorWidthRatio = (i - 40) * 5;
 
         for (j = 83; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84) * 2;
+        int doorHeightRatio = (j - 84) * 5;
 
         //Stile
         gc.setFill(Color.rgb(95, 87, 87));
@@ -225,17 +224,17 @@ public class SideLights {
         gc.fillRect(startX + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
     }
 
-    public void stilesLessThan84(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
+    public void slLessThan84Left(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
 
 
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40) * 2;
+        int doorWidthRatio = (i - 40) * 5;
 
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84) * 2;
+        int doorHeightRatio = (j - 84) * 5;
 
         //Stile
         gc.setFill(Color.rgb(95, 87, 87));
@@ -248,16 +247,16 @@ public class SideLights {
         gc.fillRect(startX + 1 + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
     }
 
-    public void stilesGreaterThanOrEqual84RailsLessThan36(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
+    public void slGreaterThanOrEqual84RailsLessThan36Left(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
 
 
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40) * 2;
+        int doorWidthRatio = (i - 40) * 5;
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84) * 2;
+        int doorHeightRatio = (j - 84) * 5;
         //First Stile
         gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(startX + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
@@ -271,17 +270,17 @@ public class SideLights {
 
     }
 
-    public void stilesLessThan84RailGreaterThan36(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
+    public void slLessThan84RailGreaterThan36Left(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
 
 
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40) * 2;
+        int doorWidthRatio = (i - 40) * 5;
 
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84) * 2;
+        int doorHeightRatio = (j - 84) * 5;
 
         //Stile
         gc.setFill(Color.rgb(95, 87, 87));
@@ -295,17 +294,17 @@ public class SideLights {
     }
 
     /////////////////////////////////////Clear
-    public void stilesLessThan84Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
+    public void slLessThan84ClearLeft(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
 
 
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40) * 2;
+        int doorWidthRatio = (i - 40) * 5;
 
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84) * 2;
+        int doorHeightRatio = (j - 84) * 5;
 
         //First Stile
         gc.strokeRect(startX + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
@@ -316,17 +315,17 @@ public class SideLights {
         gc.strokeRect(startX + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
     }
 
-    public void stilesLessThanOrEqual84Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
+    public void slLessThanOrEqual84ClearLeft(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
 
 
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40) * 2;
+        int doorWidthRatio = (i - 40) * 5;
 
 
         for (j = 83; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84) * 2;
+        int doorHeightRatio = (j - 84) * 5;
 
         //First Stile
         gc.strokeRect(startX + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
@@ -337,15 +336,15 @@ public class SideLights {
         gc.strokeRect(startX + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
     }
 
-    public void stilesLessThan84RailGreaterThan36Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
+    public void slLessThan84RailGreaterThan36ClearLeft(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
 
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40) * 2;
+        int doorWidthRatio = (i - 40) * 5;
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84) * 2;
+        int doorHeightRatio = (j - 84) * 5;
         //First Stile
         gc.strokeRect(startX + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
         //Stile Text
@@ -355,15 +354,15 @@ public class SideLights {
         gc.strokeRect(startX + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
     }
 
-    public void stilesGreaterThanOrEqual84Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
+    public void slGreaterThanOrEqual84ClearLeft(double doorWidthDouble, double doorHeightDouble, String doorHeightString, GraphicsContext gc) {
 
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40) * 2;
+        int doorWidthRatio = (i - 40) * 5;
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84) * 2;
+        int doorHeightRatio = (j - 84) * 5;
         //First Stile
         gc.strokeRect(startX + recWidth + doorWidthRatio + recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
         //Stile Text

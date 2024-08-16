@@ -50,17 +50,7 @@ public class PrintDrawerController implements Initializable {
     public TextField numOfOpenings;
     public TextField sfdNum;
     public TextField priorityLevel;
-    public TextField rightSLHeight;
-    public TextField rightSLWidth;
-    public TextField leftSLHeight;
-    public TextField leftSLWidth;
-    public ChoiceBox<String> rightSLQuestion;
-    public ChoiceBox<String> leftSLQuestion;
-    public ChoiceBox<String> sideLightGlass;
-    public ChoiceBox<String> midRailQuestion;
-    public TextField midRailDistance;
     public ChoiceBox<String> sideLightColor;
-    public ChoiceBox<String> oneTwentyFiveQuestion;
     public ChoiceBox<String> hand;
     public TextField pairOpeningHeight;
     public TextField pairOpeningWidth;
@@ -100,6 +90,18 @@ public class PrintDrawerController implements Initializable {
     public ChoiceBox<String> pairSelection;
     public TextField pairDoorWidth;
     public TextField pairFrameWidth;
+    public TextField sideLightRoughHeight;
+    public TextField sideLightRoughWidth;
+    public TextField sideLightHeight;
+    public TextField sideLightWidth;
+    public ChoiceBox<Integer> numOfPanelsSideLight;
+    public ChoiceBox<String> sideLightGlassType;
+    public ChoiceBox<Integer> sideLightQuantity;
+    public ChoiceBox<Integer> leftOfDoorSideLight;
+    public ChoiceBox<Integer> rightOfDoorSideLight;
+    public TextField sideLightFrameHeight;
+    public TextField sideLightFrameWidth;
+    public ChoiceBox<String> sideLightSelection;
 
     Stiles stiles = new Stiles();
     Rails rails = new Rails();
@@ -111,11 +113,11 @@ public class PrintDrawerController implements Initializable {
     HingeType hingeType = new HingeType();
     PanicDevices panics = new PanicDevices();
     Windows windows = new Windows();
-
     PairJambs pairJambs = new PairJambs();
     PairHeaderAndThreshold pairHaT = new PairHeaderAndThreshold();
     PairRails pairRails = new PairRails();
     PairStiles pairStiles = new PairStiles();
+    SideLightsRight sideLightsRight = new SideLightsRight();
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -313,10 +315,46 @@ public class PrintDrawerController implements Initializable {
         pairPull.setValue("8\" In-house");
 
         pairQuantity.setText("1");
-    }
 
-    public void doorWidthChange(ActionEvent actionEvent) {
+        sideLightGlassType.getItems().add("No Glass");
+        sideLightGlassType.getItems().add("3/16 Clr");
+        sideLightGlassType.getItems().add("1/4 Clr");
+        sideLightGlassType.getItems().add("3/16 Tint");
+        sideLightGlassType.getItems().add("1/4 Tint");
+        sideLightGlassType.getItems().add("IG");
+        sideLightGlassType.getItems().add("Tinted IG");
+        sideLightGlassType.getItems().add("Pattern 62");
+        sideLightGlassType.getItems().add("Ribbed");
+        sideLightGlassType.getItems().add("Low E");
+        sideLightGlassType.setValue("3/16 Clr");
 
+        sideLightColor.getItems().add("Bronze");
+        sideLightColor.getItems().add("Clear");
+        sideLightColor.getItems().add("Black");
+        sideLightColor.getItems().add("White");
+        sideLightColor.setValue("Bronze");
+
+        for (int i = 1; i <= 30; i++) {
+            sideLightQuantity.getItems().add(i);
+        }
+        sideLightQuantity.setValue(1);
+        for (int i = 1; i <= 10; i++) {
+            numOfPanelsSideLight.getItems().add(1);
+        }
+        numOfPanelsSideLight.setValue(1);
+
+        for (int i = 1; i <= 10; i++) {
+            rightOfDoorSideLight.getItems().add(1);
+        }
+        rightOfDoorSideLight.setValue(1);
+        for (int i = 1; i <= 10; i++) {
+            leftOfDoorSideLight.getItems().add(1);
+        }
+        leftOfDoorSideLight.setValue(1);
+
+        sideLightSelection.getItems().add("Rough Opening");
+        sideLightSelection.getItems().add("Frame Opening");
+        sideLightSelection.setValue("Rough Opening");
     }
 
     public void clearJob(ActionEvent actionEvent) {
@@ -1222,7 +1260,7 @@ public class PrintDrawerController implements Initializable {
             gc.fillText("Hand", 2500, 2200);
             gc.strokeLine(2500, 2225, 3250, 2225);
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-            gc.fillText(doorHand, 2600, 2275);
+            gc.fillText(doorHand, 2500, 2275);
 
             //Glass Label
             gc.setFill(Color.BLACK);
@@ -1236,7 +1274,7 @@ public class PrintDrawerController implements Initializable {
             gc.fillText("Quantity", 2500, 1800);
             gc.strokeLine(2500, 1825, 3250, 1825);
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-            gc.fillText(doorQuantity, 2600, 1875);
+            gc.fillText(doorQuantity, 2500, 1875);
 
             //Color Label
             gc.setFill(Color.BLACK);
@@ -1244,7 +1282,7 @@ public class PrintDrawerController implements Initializable {
             gc.fillText("Color", 2500, 1600);
             gc.strokeLine(2500, 1625, 3250, 1625);
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-            gc.fillText(doorColor, 2600, 1675);
+            gc.fillText(doorColor, 2500, 1675);
 
             //Frame Label
             frameWidthDouble += 3.5;
@@ -1253,7 +1291,7 @@ public class PrintDrawerController implements Initializable {
             gc.fillText("Frame", 2500, 1400);
             gc.strokeLine(2500, 1425, 3250, 1425);
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-            gc.fillText(fTD.convertDecimalToFraction(frameWidthDouble) + " x " + frameHeightString, 2600, 1475);
+            gc.fillText(fTD.convertDecimalToFraction(frameWidthDouble) + " x " + frameHeightString, 2500, 1475);
 
             if (color.getValue().equals("Bronze")) {
                 if (stileSize.getValue().equals("Narrow")) {
@@ -1264,23 +1302,23 @@ public class PrintDrawerController implements Initializable {
                         doorWidthDouble = 31.5625;
                         doorWidthString = "31 9/16";
                         if (doorHeightDouble >= 84) {
-                            jambs.stilesGreaterThanOrEqual84SL28(frameWidthDouble, frameHeightDouble, frameHeightString, gc);
+                            jambs.stilesGreaterThanOrEqual84SL28(frameWidthDouble, frameHeightDouble, frameHeightString, slAnswer, gc);
                             hAT.railsLessThan36SL28(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
                         } else {
-                            jambs.stilesLessThan84SL28(frameWidthDouble, frameHeightDouble, frameHeightString, gc);
+                            jambs.stilesLessThan84SL28(frameWidthDouble, frameHeightDouble, frameHeightString, slAnswer, gc);
                             hAT.railsLessThan36SL28(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
                         }
                     }
-                    if (yesSideLight && roughWidthDouble == 52) {
+                    if (yesSideLight && roughWidthDouble == 50) {
                         frameWidthDouble = 36;
                         frameWidthString = "36";
                         doorWidthDouble = 31.5625;
                         doorWidthString = "31 9/16";
                         if (doorHeightDouble >= 84) {
-                            jambs.stilesGreaterThanOrEqual84SL12(frameWidthDouble, frameHeightDouble, frameHeightString, gc);
+                            jambs.stilesGreaterThanOrEqual84SL12(frameWidthDouble, frameHeightDouble, frameHeightString, slAnswer, gc);
                             hAT.railsLessThan36SL12(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
                         } else {
-                            jambs.stilesLessThan84SL12(frameWidthDouble, frameHeightDouble, frameHeightString, gc);
+                            jambs.stilesLessThan84SL12(frameWidthDouble, frameHeightDouble, frameHeightString, slAnswer, gc);
                             hAT.railsLessThan36SL12(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
                         }
                     }
@@ -1298,7 +1336,7 @@ public class PrintDrawerController implements Initializable {
                             //Stile
                             stiles.stilesGreaterThanOrEqual84(doorWidthDouble, doorHeightDouble, doorHeightString, gc);
                             //Jambs
-                            jambs.stilesGreaterThanOrEqual84(frameWidthDouble, frameHeightDouble, frameHeightString, gc);
+                            jambs.stilesGreaterThanOrEqual84(frameWidthDouble, frameHeightDouble, frameHeightString, slAnswer, gc);
                             //Header and Threshold
                             hAT.railsGreaterThanOrEqual36(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
                         }
@@ -1315,7 +1353,7 @@ public class PrintDrawerController implements Initializable {
                             //Stiles
                             stiles.stilesLessThan84RailGreaterThan36(doorWidthDouble, doorHeightDouble, doorHeightString, gc);
                             //Jambs
-                            jambs.stilesLessThan84RailGreaterThan36(frameWidthDouble, frameHeightDouble, frameHeightString, gc);
+                            jambs.stilesLessThan84RailGreaterThan36(frameWidthDouble, frameHeightDouble, frameHeightString, slAnswer, gc);
                             //Header and Threshold
                             hAT.railsGreaterThanOrEqual36StilesLessThan84(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
                         }
@@ -1348,12 +1386,13 @@ public class PrintDrawerController implements Initializable {
                                 rails.tenRailsLessThan36(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
                                 glass.doorGlass5mm10BR(doorWidthDouble, doorHeightDouble, gc);
                             }
+                            sideLightsRight.slLessThan84Right(doorWidthDouble, doorHeightDouble, doorHeightString, gc);
                             //Stiles
                             stiles.stilesLessThan84(doorWidthDouble, doorHeightDouble, doorHeightString, gc);
                             //Jambs
                             jambs.stilesLessThan84(frameWidthDouble, frameHeightDouble, frameHeightString, slAnswer, gc);
                             //Header and Threshold
-                            hAT.railsLessThan36StilesGreaterThan84(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
+                            hAT.railsLessThan36(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
                         }
                     }
                 }
@@ -1375,7 +1414,7 @@ public class PrintDrawerController implements Initializable {
                 //Stiles
                 stiles.stilesLessThan84Clear(doorWidthDouble, doorHeightDouble, doorHeightString, gc);
                 //Jambs
-                jambs.stilesLessThan84Clear(frameWidthDouble, frameHeightDouble, frameHeightString, gc);
+                jambs.stilesLessThan84Clear(frameWidthDouble, frameHeightDouble, frameHeightString, slAnswer, gc);
                 //Header and Threshold
                 hAT.railsLessThan36Clear(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
 
@@ -1395,7 +1434,7 @@ public class PrintDrawerController implements Initializable {
                 //Stiles
                 stiles.stilesLessThanOrEqual84Clear(doorWidthDouble, doorHeightDouble, doorHeightString, gc);
                 //Jambs
-                jambs.stilesLessThanOrEqual84Clear(frameWidthDouble, frameHeightDouble, frameHeightString, gc);
+                jambs.stilesLessThanOrEqual84Clear(frameWidthDouble, frameHeightDouble, frameHeightString, slAnswer, gc);
                 //Header and Threshold
                 hAT.railsLessThanOrEqual36Clear(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
 
@@ -1415,7 +1454,7 @@ public class PrintDrawerController implements Initializable {
                 //Stiles
                 stiles.stilesLessThan84RailGreaterThan36Clear(doorWidthDouble, doorHeightDouble, doorHeightString, gc);
                 //Jambs
-                jambs.stilesLessThan84RailGreaterThan36Clear(frameWidthDouble, frameHeightDouble, frameHeightString, gc);
+                jambs.stilesLessThan84RailGreaterThan36Clear(frameWidthDouble, frameHeightDouble, frameHeightString, slAnswer, gc);
                 //Header and Threshold
                 hAT.railsGreaterThanOrEqual36Clear(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
             } else if (color.getValue().equals("Clear") &&
@@ -1434,7 +1473,7 @@ public class PrintDrawerController implements Initializable {
                 //Stiles
                 stiles.stilesGreaterThanOrEqual84Clear(doorWidthDouble, doorHeightDouble, doorHeightString, gc);
                 //Jambs
-                jambs.stilesGreaterThanOrEqual84Clear(frameWidthDouble, frameHeightDouble, frameHeightString, gc);
+                jambs.stilesGreaterThanOrEqual84Clear(frameWidthDouble, frameHeightDouble, frameHeightString, slAnswer, gc);
                 //Header and Threshold
                 hAT.railsLessThan36ClearStileGreaterThanOrEqual84(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
 
@@ -1685,6 +1724,68 @@ public class PrintDrawerController implements Initializable {
 
     ///////////////////////////////////////Side Lights////////////////////////////////////////
     public void submitSideLight(ActionEvent actionEvent) {
+        GraphicsContext gc = previewCanvas.getGraphicsContext2D();
+        FractionsAndDecimals fTD = new FractionsAndDecimals();
+
+        sideLightRoughHeight.clear();
+        sideLightRoughWidth.clear();
+        sideLightFrameHeight.clear();
+        sideLightFrameWidth.clear();
+
+        double slHeightDouble = fTD.fractionToDecimal(sideLightHeight.getText());
+        double slWidthDouble = fTD.fractionToDecimal(sideLightWidth.getText());
+
+        String slROHeightString = sideLightHeight.getText();
+        String slROWidthString = sideLightWidth.getText();
+
+        String slFrameHeightString = sideLightHeight.getText();
+        String slFrameWidthString = sideLightWidth.getText();
+
+        String slHeight = sideLightHeight.getText();
+        String slWidth = sideLightWidth.getText();
+
+        double slROHeightDouble = fTD.fractionToDecimal(sideLightHeight.getText());
+        double slROWidthDouble = fTD.fractionToDecimal(sideLightWidth.getText());
+
+        double slFrameHeightDouble = fTD.fractionToDecimal(sideLightHeight.getText());
+        double slFrameWidthDouble = fTD.fractionToDecimal(sideLightWidth.getText());
+
+
+        String slHorizontalsString;
+        Double slHorizontalsDouble;
+
+        String selection = sideLightSelection.getValue();
+
+        String slColor = sideLightColor.getValue();
+        int qty = sideLightQuantity.getValue();
+        int panels = numOfPanelsSideLight.getValue();
+        int toLeft = leftOfDoorSideLight.getValue();
+        int toRight = rightOfDoorSideLight.getValue();
+        String type = sideLightGlassType.getValue();
+
+        switch (selection) {
+            case "Rough Opening":
+                slFrameHeightDouble = fTD.fractionToDecimal(String.valueOf(slHeightDouble - 0.25));
+                slFrameWidthDouble = fTD.fractionToDecimal(String.valueOf(slWidthDouble - 0.5));
+                slFrameHeightString = fTD.convertDecimalToFraction(slFrameHeightDouble);
+                slFrameWidthString = fTD.convertDecimalToFraction(slFrameWidthDouble);
+                sideLightFrameHeight.setText(slFrameHeightString);
+                sideLightFrameWidth.setText(slFrameWidthString);
+
+                break;
+            case "Frame Opening":
+                slROHeightDouble = fTD.fractionToDecimal(String.valueOf(slFrameHeightDouble + 0.25));
+                slROWidthDouble = fTD.fractionToDecimal(String.valueOf(slFrameWidthDouble + 0.5));
+                slROHeightString = fTD.convertDecimalToFraction(slROHeightDouble);
+                slROWidthString = fTD.convertDecimalToFraction(slROWidthDouble);
+                sideLightRoughHeight.setText(slROHeightString);
+                sideLightRoughWidth.setText(slROWidthString);
+
+                break;
+            default:
+                Drawing_Warning.singleOpeningNotEntered();
+                break;
+        }
     }
 
     public void clearSideLight(ActionEvent actionEvent) {
