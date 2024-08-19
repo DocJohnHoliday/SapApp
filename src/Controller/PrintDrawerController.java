@@ -212,6 +212,8 @@ public class PrintDrawerController implements Initializable {
         /////Windows
         windowColor.getItems().add("Bronze");
         windowColor.getItems().add("Clear");
+        windowColor.getItems().add("PC White");
+        windowColor.getItems().add("PC Black");
         windowColor.setValue("Bronze");
 
         for (int i = 1; i <= 30; i++) {
@@ -1033,7 +1035,7 @@ public class PrintDrawerController implements Initializable {
         gc.fillText(fTD.convertDecimalToFraction(windowWidthDouble) + " x " + fTD.convertDecimalToFraction(windowHeightDouble), 2600, 1475);
 
         //Width > 36 and height >= 84
-        if (windowColor.getValue().equals("Bronze") &&
+        if (windowColor.getValue().equals("Bronze") || windowColor.getValue().equals("PC Black") &&
                 windowWidthDouble >= 36 &&
                 windowHeightDouble >= 84
         ) {
@@ -1043,7 +1045,7 @@ public class PrintDrawerController implements Initializable {
             windows.greaterThanOrEqual84(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
 
             //Width less than 36 and height less than 84
-        } else if (windowColor.getValue().equals("Bronze") &&
+        } else if (windowColor.getValue().equals("Bronze") || windowColor.getValue().equals("PC Black") &&
                 windowWidthDouble < 36 &&
                 windowHeightDouble < 84) {
             //Horizontals
@@ -1052,7 +1054,7 @@ public class PrintDrawerController implements Initializable {
             windows.lessThan84(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
 
             //Width less than 36 and height greater or equal to 84
-        } else if (windowColor.getValue().equals("Bronze") &&
+        } else if (windowColor.getValue().equals("Bronze") || windowColor.getValue().equals("PC Black") &&
                 windowWidthDouble < 36 &&
                 windowHeightDouble >= 84) {
             //Horizontals
@@ -1061,7 +1063,7 @@ public class PrintDrawerController implements Initializable {
             windows.greaterThanOrEqual84RailsLessThan36(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
 
             //Width greater or equal 36 and height less than 84
-        } else if (windowColor.getValue().equals("Bronze") &&
+        } else if (windowColor.getValue().equals("Bronze") || windowColor.getValue().equals("PC Black") &&
                 windowWidthDouble >= 36 &&
                 windowHeightDouble < 84) {
             //Horizontals
@@ -1070,7 +1072,7 @@ public class PrintDrawerController implements Initializable {
             windows.lessThan84RailGreaterThan36(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
 
             //Width less than 36 and height less than 84
-        } else if (windowColor.getValue().equals("Clear") &&
+        } else if (windowColor.getValue().equals("Clear") || windowColor.getValue().equals("PC White") &&
                 windowWidthDouble < 36 &&
                 windowHeightDouble < 84) {
             //Horizontals
@@ -1078,7 +1080,7 @@ public class PrintDrawerController implements Initializable {
             //Verticals
             windows.lessThan84Clear(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
 
-        } else if (windowColor.getValue().equals("Clear") &&
+        } else if (windowColor.getValue().equals("Clear") || windowColor.getValue().equals("PC White") &&
                 windowWidthDouble >= 36 &&
                 windowHeightDouble >= 84) {
             //Horizontals
@@ -1086,7 +1088,7 @@ public class PrintDrawerController implements Initializable {
             //Verticals
             windows.lessThanOrEqual84Clear(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
 
-        } else if (windowColor.getValue().equals("Clear") &&
+        } else if (windowColor.getValue().equals("Clear") || windowColor.getValue().equals("PC White") &&
                 windowWidthDouble >= 36 &&
                 windowHeightDouble < 84) {
             //Horizontals
@@ -1094,7 +1096,7 @@ public class PrintDrawerController implements Initializable {
             //Verticals
             windows.lessThan84RailGreaterThan36Clear(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
 
-        } else if (windowColor.getValue().equals("Clear") &&
+        } else if (windowColor.getValue().equals("Clear") || windowColor.getValue().equals("PC White") &&
                 windowWidthDouble < 36 &&
                 windowHeightDouble >= 84) {
             //Horizontals
@@ -1117,7 +1119,7 @@ public class PrintDrawerController implements Initializable {
     }
 
     //////////////////////////////////////Single Door/////////////////////////////////////////
-    public void submitSingle(ActionEvent actionEvent)  {
+    public void submitSingle(ActionEvent actionEvent) {
 
         GraphicsContext gc = previewCanvas.getGraphicsContext2D();
         FractionsAndDecimals fTD = new FractionsAndDecimals();
@@ -1302,7 +1304,7 @@ public class PrintDrawerController implements Initializable {
                 if (stileSize.getValue().equals("Narrow")) {
 
                     if (yesSideLight) {
-                        submitSideLight(actionEvent);
+                        //submitSideLight(actionEvent);
                     }
                     if (doorWidthDouble >= 36) {
                         if (doorHeightDouble >= 84) {
@@ -1783,7 +1785,7 @@ public class PrintDrawerController implements Initializable {
                 slFrameHeightDouble >= 84
         ) {
             //Horizontals
-            //sideLightsRight.railsGreaterThanOrEqual36(windowWidthDouble, windowHeightDouble, windowWidthString, quantity, type, panels, gc);
+            sideLightsRight.railsGreaterThanOrEqual36(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, gc);
             //Verticals
             sideLightsRight.stilesGreaterThanOrEqual84(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, gc);
 
@@ -1792,7 +1794,7 @@ public class PrintDrawerController implements Initializable {
                 slFrameWidthDouble < 36 &&
                 slFrameHeightDouble < 84) {
             //Horizontals
-            //sideLightsRight.railsLessThan36(windowWidthDouble, windowHeightDouble, windowWidthString, quantity, type, panels, gc);
+            sideLightsRight.railsLessThan36(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, gc);
             //Verticals
             sideLightsRight.stilesLessThan84(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, gc);
 
@@ -1801,7 +1803,7 @@ public class PrintDrawerController implements Initializable {
                 slFrameWidthDouble < 36 &&
                 slFrameHeightDouble >= 84) {
             //Horizontals
-            //sideLightsRight.railsLessThan36StilesGreaterThan84(windowWidthDouble, windowHeightDouble, windowWidthString, quantity, type, panels, gc);
+            sideLightsRight.railsLessThan36StilesGreaterThan84(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, gc);
             //Verticals
             sideLightsRight.stilesGreaterThanOrEqual84RailsLessThan36(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, gc);
 
@@ -1810,7 +1812,7 @@ public class PrintDrawerController implements Initializable {
                 slFrameWidthDouble >= 36 &&
                 slFrameHeightDouble < 84) {
             //Horizontals
-            //sideLightsRight.railsGreaterThanOrEqual36StilesLessThan84(windowWidthDouble, windowHeightDouble, windowWidthString, quantity, type, panels, gc);
+            sideLightsRight.railsGreaterThanOrEqual36StilesLessThan84(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, gc);
             //Verticals
             sideLightsRight.stilesLessThan84RailGreaterThan36(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, gc);
 
@@ -1819,7 +1821,7 @@ public class PrintDrawerController implements Initializable {
                 slFrameWidthDouble < 36 &&
                 slFrameHeightDouble < 84) {
             //Horizontals
-           // sideLightsRight.railsLessThan36Clear(windowWidthDouble, windowHeightDouble, windowWidthString, quantity, type, panels, gc);
+            sideLightsRight.railsLessThan36Clear(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, gc);
             //Verticals
             sideLightsRight.stilesLessThan84Clear(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, gc);
 
@@ -1827,7 +1829,7 @@ public class PrintDrawerController implements Initializable {
                 slFrameWidthDouble >= 36 &&
                 slFrameHeightDouble >= 84) {
             //Horizontals
-           // sideLightsRight.railsLessThanOrEqual36Clear(windowWidthDouble, windowHeightDouble, windowWidthString, quantity, type, panels, gc);
+            sideLightsRight.railsLessThanOrEqual36Clear(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, gc);
             //Verticals
             sideLightsRight.stilesLessThanOrEqual84Clear(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, gc);
 
@@ -1835,7 +1837,7 @@ public class PrintDrawerController implements Initializable {
                 slFrameWidthDouble >= 36 &&
                 slFrameHeightDouble < 84) {
             //Horizontals
-            //sideLightsRight.railsGreaterThanOrEqual36Clear(windowWidthDouble, windowHeightDouble, windowWidthString, quantity, type, panels, gc);
+            sideLightsRight.railsGreaterThanOrEqual36Clear(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, gc);
             //Verticals
             sideLightsRight.stilesLessThan84RailGreaterThan36Clear(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, gc);
 
@@ -1843,7 +1845,7 @@ public class PrintDrawerController implements Initializable {
                 slFrameWidthDouble < 36 &&
                 slFrameHeightDouble >= 84) {
             //Horizontals
-            //sideLightsRight.railsLessThan36ClearStileGreaterThanOrEqual84(windowWidthDouble, windowHeightDouble, windowWidthString, quantity, type, panels, gc);
+            sideLightsRight.railsLessThan36ClearStileGreaterThanOrEqual84(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, gc);
             //Verticals
             sideLightsRight.stilesGreaterThanOrEqual84Clear(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, gc);
 

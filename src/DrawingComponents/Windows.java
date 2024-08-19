@@ -446,20 +446,20 @@ public class Windows {
         if (panels == 1) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 550);
         }
         if (panels == 2) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 3.75) / 2)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 3.75) / 2)), 1460, 550);
         } else if (panels == 3) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 5.0) / 3)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 5.0) / 3)), 1460, 550);
         } else if (panels == 4) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 550);
         }
         //Overall Text
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
@@ -500,20 +500,20 @@ public class Windows {
         if (panels == 1) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 550);
         }
         if (panels == 2) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 3.75) / 2)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 3.75) / 2)), 1460, 550);
         } else if (panels == 3) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 5.0) / 3)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 5.0) / 3)), 1460, 550);
         } else if (panels == 4) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 550);
         }
         //Overall Text
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
@@ -554,12 +554,12 @@ public class Windows {
         if (panels == 1) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 550);
         }
         if (panels == 2) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 3.75) / 2)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 3.75) / 2)), 1460, 550);
         } else if (panels == 3) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
@@ -570,7 +570,7 @@ public class Windows {
         } else if (panels == 4) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 550);
         }
 
         //Overall Text
@@ -612,20 +612,20 @@ public class Windows {
         if (panels == 1) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 550);
         }
         if (panels == 2) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 3.75) / 2)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 3.75) / 2)), 1460, 550);
         } else if (panels == 3) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 5.0) / 3)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 5.0) / 3)), 1460, 550);
         } else if (panels == 4) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 550);
         }
         //Overall Text
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
@@ -668,20 +668,20 @@ public class Windows {
         if (panels == 1) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 550);
         }
         if (panels == 2) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 3.75) / 2)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 3.75) / 2)), 1460, 550);
         } else if (panels == 3) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 5.0) / 3)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 5.0) / 3)), 1460, 550);
         } else if (panels == 4) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 550);
         }
         //Header
         gc.strokeRect(1450, 500, 350 + doorWidthRatio, 12);
@@ -715,20 +715,20 @@ public class Windows {
         if (panels == 1) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 550);
         }
         if (panels == 2) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 3.75) / 2)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 3.75) / 2)), 1460, 550);
         } else if (panels == 3) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 5.0) / 3)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 5.0) / 3)), 1460, 550);
         } else if (panels == 4) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 550);
         }
         //Header
         gc.strokeRect(1450, 500, 350 + doorWidthRatio, 12);
@@ -762,20 +762,20 @@ public class Windows {
         if (panels == 1) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 550);
         }
         if (panels == 2) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 3.75) / 2)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 3.75) / 2)), 1460, 550);
         } else if (panels == 3) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 5.0) / 3)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 5.0) / 3)), 1460, 550);
         } else if (panels == 4) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 550);
         }
         //Header
         gc.strokeRect(1450, 500, 350 + doorWidthRatio, 12);
@@ -808,20 +808,20 @@ public class Windows {
         if (panels == 1) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 550);
         }
         if (panels == 2) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 3.75) / 2)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 3.75) / 2)), 1460, 550);
         } else if (panels == 3) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 5.0) / 3)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 5.0) / 3)), 1460, 550);
         } else if (panels == 4) {
             //Horizontal Text
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 540);
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 550);
         }
         //Header
         gc.strokeRect(1450, 500, 350 + doorWidthRatio, 12);
