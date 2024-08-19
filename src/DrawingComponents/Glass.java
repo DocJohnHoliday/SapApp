@@ -22,7 +22,7 @@ public class Glass {
         glassSize = glass + "   " + doorWidth + " x " + doorHeight;
         String standardGlass = "Std 4\" BR Glass";
 
-        if (glassSize.equals("31-1/8 x 76-5/8")) {
+        if (glassSize.equals("3/16 Clr  31-1/8 x 76-5/8")) {
             gc.setFill(Color.BLACK);
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
             gc.fillText(standardGlass, 2500, 2075);
@@ -40,7 +40,7 @@ public class Glass {
         String glassSize = doorWidth + " x " + doorHeight;
         String stdTenGlass = "Std 10\" BR Glass";
 
-        if (glassSize.equals("31-1/8 x 71-1/8")) {
+        if (glassSize.equals("3/16 Clr  31-1/8 x 71-1/8")) {
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
             gc.fillText(stdTenGlass, 2500, 2075);
         } else {
@@ -82,7 +82,7 @@ public class Glass {
             gc.setFont(Font.font("default", FontWeight.BOLD, 50));
             gc.fillText(glassSize, 2500, 2075);
         } else if (panels == 3) {
-            doorWidth = fTD.convertDecimalToFraction(((windowWidthDouble - 5.625) / 3));
+            doorWidth = fTD.convertDecimalToFraction(((windowWidthDouble - 5) / 3) - 0.625);
             glassSize = glass + "  (Qty " + panels * quantity + ")  " + doorWidth + " x " + doorHeight;
             gc.setFont(Font.font("default", FontWeight.BOLD, 50));
             gc.fillText(glassSize, 2500, 2075);

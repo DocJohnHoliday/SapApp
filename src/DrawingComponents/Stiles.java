@@ -23,6 +23,7 @@ public class Stiles {
         gc.setFill(Color.rgb(95, 87,87));
         gc.fillRect(1426, 1450, 24, 739 + doorHeightRatio);
         //Stile Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorHeightString,1825 + doorWidthRatio, ((double) (739 + doorHeightRatio) / 2) + 1450);
         //Second Stile
@@ -44,6 +45,7 @@ public class Stiles {
         gc.setFill(Color.rgb(95, 87,87));
         gc.fillRect(1450 - 24, 1450, 24, 350 + doorHeightRatio + 24 + 15 + 350);
         //Stile Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorHeightString,(1450 + 1 + 350 + doorWidthRatio) + 24, ((double) (350 + doorHeightRatio + 24 + 15 + 350) / 2) + 1450);
         //Second Stile
@@ -64,6 +66,7 @@ public class Stiles {
         gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(1426, 1450, 24, doorHeightRatio + 739);
         //Stile Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorHeightString, 1825 + doorWidthRatio, ((double) (739 + doorHeightRatio) / 2) + 1450);
         //Second Stile
@@ -84,6 +87,7 @@ public class Stiles {
         gc.setFill(Color.rgb(95, 87,87));
         gc.fillRect(1450 - 24, 1450, 24, 350 + doorHeightRatio + 24 + 15 + 350);
         //Stile Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorHeightString,(1450 + 1 + 350 + doorWidthRatio) + 24, ((double) (350 + doorHeightRatio + 24 + 15 + 350) / 2) + 1450);
         //Second Stile
@@ -105,6 +109,7 @@ public class Stiles {
         //First Stile
         gc.strokeRect(1450 - 24, 1450, 24, 350 + doorHeightRatio + 24 + 15 + 350);
         //Stile Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorHeightString,(1450 + 1 + 350 + doorWidthRatio) + 24, ((double) (350 + doorHeightRatio + 24 + 15 + 350) / 2) + 1450);
         //Second Stile
@@ -124,6 +129,7 @@ public class Stiles {
         //First Stile
         gc.strokeRect(1450 - 24, 1450, 24, 350 + doorHeightRatio + 24 + 15 + 350);
         //Stile Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorHeightString,(1450 + 1 + 350 + doorWidthRatio) + 24, ((double) (350 + doorHeightRatio + 24 + 15 + 350) / 2) + 1450);
         //Second Stile
@@ -140,6 +146,7 @@ public class Stiles {
         //First Stile
         gc.strokeRect(1450 - 24, 1450, 24, 350 + doorHeightRatio + 24 + 15 + 350);
         //Stile Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorHeightString,(1450 + 1 + 350 + doorWidthRatio) + 24, ((double) (350 + doorHeightRatio + 24 + 15 + 350) / 2) + 1450);
         //Second Stile
@@ -156,6 +163,7 @@ public class Stiles {
         //First Stile
         gc.strokeRect(1426, 1450, 24, 739 + doorHeightRatio);
         //Stile Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorHeightString,1825 + doorWidthRatio, ((double) (739 + doorHeightRatio) / 2) + 1450);
         //Second Stile

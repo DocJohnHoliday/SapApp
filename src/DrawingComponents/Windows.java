@@ -8,7 +8,6 @@ import javafx.scene.text.FontWeight;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.DecimalFormat;
 
 public class Windows {
     int j = 0;
@@ -21,11 +20,11 @@ public class Windows {
     public void lessThan84(double doorWidthDouble, double doorHeightDouble, String doorHeightString, int panels, GraphicsContext gc) {
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = ((i - 40));
+        int doorWidthRatio = ((i - 40) * 10);
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = ((j - 84));
+        int doorHeightRatio = ((j - 84) * 10);
 
         //Far Left Vertical
         gc.setFill(Color.rgb(95, 87, 87));
@@ -82,11 +81,11 @@ public class Windows {
     public void greaterThanOrEqual84(double doorWidthDouble, double doorHeightDouble, String doorHeightString, int panels, GraphicsContext gc) {
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40)  * 4;
+        int doorWidthRatio = (i - 40) * 10;
 
         for (j = 83; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84)  * 4;
+        int doorHeightRatio = (j - 84) * 10;
         //Far Left Vertical
         gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(1438, 500, 12, 350 + doorHeightRatio + 12 + 15 + 350);
@@ -141,11 +140,11 @@ public class Windows {
     public void greaterThanOrEqual84RailsLessThan36(double doorWidthDouble, double doorHeightDouble, String doorHeightString, int panels, GraphicsContext gc) {
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40);
+        int doorWidthRatio = (i - 40) * 10;
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = ((j - 84));
+        int doorHeightRatio = ((j - 84) * 10);
         //Far Left Vertical
         gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(1438, 500, 12, 350 + doorHeightRatio + 12 + 15 + 350);
@@ -200,11 +199,11 @@ public class Windows {
     public void lessThan84RailGreaterThan36(double doorWidthDouble, double doorHeightDouble, String doorHeightString, int panels, GraphicsContext gc) {
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40);
+        int doorWidthRatio = (i - 40) * 10;
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = ((j - 84) );
+        int doorHeightRatio = ((j - 84) * 10);
         //Far Left Vertical
         gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(1438, 500, 12, 350 + doorHeightRatio + 12 + 15 + 350);
@@ -260,11 +259,11 @@ public class Windows {
     public void lessThan84Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, int panels, GraphicsContext gc) {
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40);
+        int doorWidthRatio = (i - 40) * 10;
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84);
+        int doorHeightRatio = (j - 84) * 10;
         //Far Left Vertical
         gc.setFill(Color.rgb(95, 87, 87));
         gc.strokeRect(1438, 500, 12, 350 + doorHeightRatio + 12 + 15 + 350);
@@ -301,11 +300,11 @@ public class Windows {
     public void lessThanOrEqual84Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, int panels, GraphicsContext gc) {
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40);
+        int doorWidthRatio = (i - 40) * 10;
 
         for (j = 83; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84);
+        int doorHeightRatio = (j - 84) * 10;
         //Far Left Vertical
         gc.setFill(Color.rgb(95, 87, 87));
         gc.strokeRect(1438, 500, 12, 350 + doorHeightRatio + 12 + 15 + 350);
@@ -342,11 +341,11 @@ public class Windows {
     public void lessThan84RailGreaterThan36Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, int panels, GraphicsContext gc) {
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40);
+        int doorWidthRatio = (i - 40) * 10;
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84);
+        int doorHeightRatio = (j - 84) * 10;
         //Far Left Vertical
         gc.setFill(Color.rgb(95, 87, 87));
         gc.strokeRect(1438, 500, 12, 350 + doorHeightRatio + 12 + 15 + 350);
@@ -383,11 +382,11 @@ public class Windows {
     public void greaterThanOrEqual84Clear(double doorWidthDouble, double doorHeightDouble, String doorHeightString, int panels, GraphicsContext gc) {
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40);
+        int doorWidthRatio = (i - 40) * 10;
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84);
+        int doorHeightRatio = (j - 84) * 10;
         //Far Left Vertical
         gc.setFill(Color.rgb(95, 87, 87));
         gc.strokeRect(1438, 500, 12, 350 + doorHeightRatio + 12 + 15 + 350);
@@ -429,11 +428,11 @@ public class Windows {
                                           int quantity, String type, int panels, GraphicsContext gc) {
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40) * 4;
+        int doorWidthRatio = (i - 40) * 10;
 
         for (j = 83; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84) * 4;
+        int doorHeightRatio = (j - 84) * 10;
 
         //Glass
         if (type.equals("3/16 Clr") || type.equals("1/4 Clr") || type.equals("3/16 Tint") || type.equals("Pattern 62")
@@ -446,20 +445,20 @@ public class Windows {
 
         if (panels == 1) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 20));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 540);
         }
         if (panels == 2) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 3.75) / 2)), 1460, 540);
         } else if (panels == 3) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 5.0) / 3)), 1460, 540);
         } else if (panels == 4) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 540);
         }
         //Overall Text
@@ -483,11 +482,11 @@ public class Windows {
                                                    int quantity, String type, int panels, GraphicsContext gc) {
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40);
+        int doorWidthRatio = (i - 40) * 10;
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84);
+        int doorHeightRatio = (j - 84) * 10;
 
         //Glass
         if (type.equals("3/16 Clr") || type.equals("1/4 Clr") || type.equals("3/16 Tint") || type.equals("Pattern 62")
@@ -500,20 +499,20 @@ public class Windows {
 
         if (panels == 1) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 540);
         }
         if (panels == 2) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 3.75) / 2)), 1460, 540);
         } else if (panels == 3) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 5.0) / 3)), 1460, 540);
         } else if (panels == 4) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 540);
         }
         //Overall Text
@@ -537,11 +536,11 @@ public class Windows {
                                 int quantity, String type, int panels, GraphicsContext gc) {
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40);
+        int doorWidthRatio = (i - 40) * 10;
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84);
+        int doorHeightRatio = (j - 84) * 10;
 
         //Glass
         if (type.equals("3/16 Clr") || type.equals("1/4 Clr") || type.equals("3/16 Tint") || type.equals("Pattern 62")
@@ -554,23 +553,23 @@ public class Windows {
 
         if (panels == 1) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 540);
         }
         if (panels == 2) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 3.75) / 2)), 1460, 540);
         } else if (panels == 3) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             BigDecimal num1 = new BigDecimal(doorWidthDouble - 5.0);
             BigDecimal num2 = new BigDecimal(3);
             double x = num1.divide(num2, 2, RoundingMode.HALF_DOWN).doubleValue();
             gc.fillText(fTD.convertDecimalToFraction(x), 1460, 540);
         } else if (panels == 4) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 540);
         }
 
@@ -595,11 +594,11 @@ public class Windows {
                                                           int quantity, String type, int panels, GraphicsContext gc) {
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40);
+        int doorWidthRatio = (i - 40) * 10;
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84);
+        int doorHeightRatio = (j - 84) * 10;
 
         //Glass
         if (type.equals("3/16 Clr") || type.equals("1/4 Clr") || type.equals("3/16 Tint") || type.equals("Pattern 62")
@@ -612,20 +611,20 @@ public class Windows {
 
         if (panels == 1) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 540);
         }
         if (panels == 2) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 3.75) / 2)), 1460, 540);
         } else if (panels == 3) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 5.0) / 3)), 1460, 540);
         } else if (panels == 4) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 540);
         }
         //Overall Text
@@ -651,11 +650,11 @@ public class Windows {
                                      int quantity, String type, int panels, GraphicsContext gc) {
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40);
+        int doorWidthRatio = (i - 40) * 10;
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84);
+        int doorHeightRatio = (j - 84) * 10;
 
         //Glass
         if (type.equals("3/16 Clr") || type.equals("1/4 Clr") || type.equals("3/16 Tint") || type.equals("Pattern 62")
@@ -668,20 +667,20 @@ public class Windows {
 
         if (panels == 1) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 540);
         }
         if (panels == 2) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 3.75) / 2)), 1460, 540);
         } else if (panels == 3) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 5.0) / 3)), 1460, 540);
         } else if (panels == 4) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 540);
         }
         //Header
@@ -698,11 +697,11 @@ public class Windows {
                                             int quantity, String type, int panels, GraphicsContext gc) {
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40);
+        int doorWidthRatio = (i - 40) * 10;
 
         for (j = 83; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84);
+        int doorHeightRatio = (j - 84) * 10;
 
         //Glass
         if (type.equals("3/16 Clr") || type.equals("1/4 Clr") || type.equals("3/16 Tint") || type.equals("Pattern 62")
@@ -715,20 +714,20 @@ public class Windows {
 
         if (panels == 1) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 540);
         }
         if (panels == 2) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 3.75) / 2)), 1460, 540);
         } else if (panels == 3) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 5.0) / 3)), 1460, 540);
         } else if (panels == 4) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 540);
         }
         //Header
@@ -745,11 +744,11 @@ public class Windows {
                                                int quantity, String type, int panels, GraphicsContext gc) {
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40);
+        int doorWidthRatio = (i - 40) * 10;
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84);
+        int doorHeightRatio = (j - 84) * 10;
 
         //Glass
         if (type.equals("3/16 Clr") || type.equals("1/4 Clr") || type.equals("3/16 Tint") || type.equals("Pattern 62")
@@ -762,20 +761,20 @@ public class Windows {
 
         if (panels == 1) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 540);
         }
         if (panels == 2) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 3.75) / 2)), 1460, 540);
         } else if (panels == 3) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 5.0) / 3)), 1460, 540);
         } else if (panels == 4) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 540);
         }
         //Header
@@ -792,11 +791,11 @@ public class Windows {
                                                               int quantity, String type, int panels, GraphicsContext gc) {
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
-        int doorWidthRatio = (i - 40);
+        int doorWidthRatio = (i - 40) * 10;
 
         for (j = 0; j < doorHeightDouble; j++)
             j = j;
-        int doorHeightRatio = (j - 84);
+        int doorHeightRatio = (j - 84) * 10;
         //Glass
         if (type.equals("3/16 Clr") || type.equals("1/4 Clr") || type.equals("3/16 Tint") || type.equals("Pattern 62")
                 || type.equals("Ribbed") || type.equals("1/4 Tint"))
@@ -808,20 +807,20 @@ public class Windows {
 
         if (panels == 1) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction(doorWidthDouble - 2.5)), 1460, 540);
         }
         if (panels == 2) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 3.75) / 2)), 1460, 540);
         } else if (panels == 3) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 5.0) / 3)), 1460, 540);
         } else if (panels == 4) {
             //Horizontal Text
-            gc.setFont(Font.font("default", FontWeight.BOLD, 25));
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 540);
         }
         //Header

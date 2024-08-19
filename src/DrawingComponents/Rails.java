@@ -29,6 +29,7 @@ public class Rails {
         gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(startX, startY, recWidth + doorWidthRatio, recHeight);
         //Top Rail Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 15, startY + (2 * recHeight) + 35);
         //Bottom Rail
@@ -54,6 +55,7 @@ public class Rails {
         gc.strokeRect(startX, startY, recWidth + doorWidthRatio + 2, recHeight);
         gc.setStroke(Color.BLACK);
         //Top Rail Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight) + 35);
         //Bottom Rail
@@ -82,6 +84,7 @@ public class Rails {
         gc.strokeRect(startX, startY, recWidth + doorWidthRatio + 2, recHeight);
         gc.setStroke(Color.BLACK);
         //Top Rail Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight) + 35);
         //Bottom Rail
@@ -105,6 +108,7 @@ public class Rails {
         gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(startX, startY, recWidth + doorWidthRatio, recHeight);
         //Top Rail Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight) + 35);
         //Bottom Rail
@@ -126,6 +130,7 @@ public class Rails {
         //Top Rail
         gc.strokeRect(startX, startY, recWidth + doorWidthRatio, recHeight);
         //Top Rail Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight) + 35);
         //Bottom Rail
@@ -144,6 +149,7 @@ public class Rails {
         //Top Rail
         gc.strokeRect(startX, startY, recWidth + doorWidthRatio, recHeight);
         //Top Rail Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight) + 35);
         //Bottom Rail
@@ -162,6 +168,7 @@ public class Rails {
         //Top Rail
         gc.strokeRect(startX, startY, recWidth + doorWidthRatio, recHeight);
         //Top Rail Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight) + 35);
         //Bottom Rail
@@ -180,6 +187,7 @@ public class Rails {
         //Top Rail
         gc.strokeRect(startX, startY, recWidth + doorWidthRatio, recHeight);
         //Top Rail Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight) + 35);
         //Bottom Rail
@@ -205,6 +213,7 @@ public class Rails {
         gc.strokeRect(startX, startY, recWidth + doorWidthRatio + 2, recHeight);
         gc.setStroke(Color.BLACK);
         //Top Rail Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight) + 35);
         //10" Bottom Rail
@@ -234,6 +243,7 @@ public class Rails {
         gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(startX, startY, recWidth + doorWidthRatio, recHeight);
         //Top Rail Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 15, startY + (2 * recHeight) + 35);
         //Bottom Rail
@@ -263,6 +273,7 @@ public class Rails {
         gc.strokeRect(startX, startY, recWidth + doorWidthRatio + 2, recHeight);
         gc.setStroke(Color.BLACK);
         //Top Rail Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight) + 35);
         //Bottom Rail
@@ -289,6 +300,7 @@ public class Rails {
         gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(startX, startY, recWidth + doorWidthRatio, recHeight);
         //Top Rail Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight) + 35);
         //Bottom Rail
@@ -315,6 +327,7 @@ public class Rails {
         //Top Rail
         gc.strokeRect(startX, startY, recWidth + doorWidthRatio, recHeight);
         //Top Rail Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight) + 35);
         //Bottom Rail
@@ -338,6 +351,7 @@ public class Rails {
         //Top Rail
         gc.strokeRect(startX, startY, recWidth + doorWidthRatio, recHeight);
         //Top Rail Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight) + 35);
         //Bottom Rail
@@ -361,6 +375,7 @@ public class Rails {
         //Top Rail
         gc.strokeRect(startX, startY, recWidth + doorWidthRatio, recHeight);
         //Top Rail Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight) + 35);
         //Bottom Rail
@@ -384,6 +399,7 @@ public class Rails {
         //Top Rail
         gc.strokeRect(startX, startY, recWidth + doorWidthRatio, recHeight);
         //Top Rail Text
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
         gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY + (2 * recHeight) + 35);
         //Bottom Rail
