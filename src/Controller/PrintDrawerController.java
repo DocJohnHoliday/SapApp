@@ -344,7 +344,7 @@ public class PrintDrawerController implements Initializable {
         }
         sideLightQuantity.setValue(1);
         for (int i = 1; i <= 10; i++) {
-            numOfPanelsSideLight.getItems().add(1);
+            numOfPanelsSideLight.getItems().add(i);
         }
         numOfPanelsSideLight.setValue(1);
 
@@ -1785,9 +1785,9 @@ public class PrintDrawerController implements Initializable {
                 slFrameHeightDouble >= 84
         ) {
             //Horizontals
-            sideLightsRight.railsGreaterThanOrEqual36(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, gc);
+            sideLightsRight.railsGreaterThanOrEqual36(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, panels, gc);
             //Verticals
-            sideLightsRight.stilesGreaterThanOrEqual84(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, gc);
+            sideLightsRight.stilesGreaterThanOrEqual84(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, panels, gc);
 
             //Width less than 36 and height less than 84
         } else if (slColor.equals("Bronze") &&
@@ -1796,7 +1796,7 @@ public class PrintDrawerController implements Initializable {
             //Horizontals
             sideLightsRight.railsLessThan36(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, gc);
             //Verticals
-            sideLightsRight.stilesLessThan84(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, gc);
+            sideLightsRight.stilesLessThan84(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, panels, gc);
 
             //Width less than 36 and height greater or equal to 84
         } else if (slColor.equals("Bronze") &&
@@ -1805,7 +1805,7 @@ public class PrintDrawerController implements Initializable {
             //Horizontals
             sideLightsRight.railsLessThan36StilesGreaterThan84(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, gc);
             //Verticals
-            sideLightsRight.stilesGreaterThanOrEqual84RailsLessThan36(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, gc);
+            sideLightsRight.stilesGreaterThanOrEqual84RailsLessThan36(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, panels, gc);
 
             //Width greater or equal 36 and height less than 84
         } else if (slColor.equals("Bronze") &&
@@ -1814,7 +1814,7 @@ public class PrintDrawerController implements Initializable {
             //Horizontals
             sideLightsRight.railsGreaterThanOrEqual36StilesLessThan84(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, gc);
             //Verticals
-            sideLightsRight.stilesLessThan84RailGreaterThan36(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, gc);
+            sideLightsRight.stilesLessThan84RailGreaterThan36(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, panels, gc);
 
             //Width less than 36 and height less than 84
         } else if (slColor.equals("Clear") &&

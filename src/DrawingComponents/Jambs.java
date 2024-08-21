@@ -43,97 +43,10 @@ public class Jambs {
         gc.fillRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
     }
 
-    public void stilesLessThan84SL28(double doorWidthDouble, double doorHeightDouble, String doorHeightString, String slAnswer, GraphicsContext gc) {
-
-        for (i = 0; i < doorWidthDouble; i++)
-            i = i;
-        int doorWidthRatio = (i - 40) * 2;
-
-        for (j = 0; j < doorHeightDouble; j++)
-            j = j;
-        int doorHeightRatio = (j - 84) * 2;
-
-        //Stile
-        gc.setFill(Color.rgb(95, 87, 87));
-        gc.fillRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
-        //Second Stile
-        gc.setFill(Color.rgb(95, 87, 87));
-        gc.fillRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
-        //SL
-        gc.setFill(Color.rgb(95, 87, 87));
-        gc.fillRect(startX + recWidth + doorWidthRatio + 240, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
-    }
-
-    public void stilesLessThan84SL12(double doorWidthDouble, double doorHeightDouble, String doorHeightString, String slAnswer, GraphicsContext gc) {
-
-
-        for (i = 0; i < doorWidthDouble; i++)
-            i = i;
-        int doorWidthRatio = (i - 40) * 2;
-
-        for (j = 0; j < doorHeightDouble; j++)
-            j = j;
-        int doorHeightRatio = (j - 84) * 2;
-
-        //Stile
-        gc.setFill(Color.rgb(95, 87, 87));
-        gc.fillRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
-        //Second Stile
-        gc.setFill(Color.rgb(95, 87, 87));
-        gc.fillRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
-        //SL
-        gc.setFill(Color.rgb(95, 87, 87));
-        gc.fillRect(startX + recWidth + doorWidthRatio + 140, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
-    }
-
-    public void stilesGreaterThanOrEqual84SL28(double doorWidthDouble, double doorHeightDouble, String doorHeightString, String slAnswer, GraphicsContext gc) {
-
-        for (i = 35; i < doorWidthDouble; i++)
-            i = i;
-        int doorWidthRatio = (i - 40) * 2;
-
-        for (j = 83; j < doorHeightDouble; j++)
-            j = j;
-        int doorHeightRatio = (j - 84) * 2;
-
-        //Stile
-        gc.setFill(Color.rgb(95, 87, 87));
-        gc.fillRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
-        //Second Stile
-        gc.setFill(Color.rgb(95, 87, 87));
-        gc.fillRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
-        //SL
-        gc.setFill(Color.rgb(95, 87, 87));
-        gc.fillRect(startX + recWidth + doorWidthRatio + 240, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
-    }
-
-    public void stilesGreaterThanOrEqual84SL12(double doorWidthDouble, double doorHeightDouble, String doorHeightString, String slAnswer, GraphicsContext gc) {
-
-        for (i = 35; i < doorWidthDouble; i++)
-            i = i;
-        int doorWidthRatio = (i - 40) * 2;
-
-        for (j = 83; j < doorHeightDouble; j++)
-            j = j;
-        int doorHeightRatio = (j - 84) * 2;
-
-        //Stile
-        gc.setFill(Color.rgb(95, 87, 87));
-        gc.fillRect(startX - recHeight, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
-        //Second Stile
-        gc.setFill(Color.rgb(95, 87, 87));
-        gc.fillRect(startX + recWidth + doorWidthRatio, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
-        //SL
-        gc.setFill(Color.rgb(95, 87, 87));
-        gc.fillRect(startX + recWidth + doorWidthRatio + 140, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
-    }
-
     public void stilesLessThan84(double doorWidthDouble, double doorHeightDouble, String doorHeightString, String sl, GraphicsContext gc) {
 
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
-        System.out.println(i);
-        System.out.println((int) doorWidthDouble);
         int doorWidthRatio = (int) ((doorWidthDouble - 40) * 2);
 
 
