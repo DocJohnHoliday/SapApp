@@ -20,10 +20,12 @@ public class Rails {
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
         int doorWidthRatio = (i - 40) * 2;
+        System.out.println("Rails Greater Than or equal 36: " + doorWidthDouble);
 
         for (j = 83; j < doorHeightDouble; j++)
             j = j;
         int doorHeightRatio = (j - 84) * 2;
+        System.out.println("Rails Greater Than or equal 36: " + doorHeightRatio);
 
         //Top Rail
         gc.setFill(Color.rgb(95, 87, 87));
@@ -42,12 +44,12 @@ public class Rails {
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
         int doorWidthRatio = (i - 40) * 2;
-
+        System.out.println("Rails Less than 36 Stiles Greater Than 84: " + doorWidthDouble);
 
         for (j = 83; j < doorHeightDouble; j++)
             j = j;
         int doorHeightRatio = (j - 84) * 2;
-
+        System.out.println("Rails Less than 36 Stiles Greater Than 84: " + doorHeightRatio);
         //Top Rail
         gc.setFill(Color.rgb(95, 87, 87));
         gc.setStroke(Color.WHITE);

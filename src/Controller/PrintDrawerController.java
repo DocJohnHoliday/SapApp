@@ -118,6 +118,7 @@ public class PrintDrawerController implements Initializable {
     PairRails pairRails = new PairRails();
     PairStiles pairStiles = new PairStiles();
     SideLightsRight sideLightsRight = new SideLightsRight();
+    SideLightLeft sideLightLeft = new SideLightLeft();
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -1786,8 +1787,10 @@ public class PrintDrawerController implements Initializable {
         ) {
             //Horizontals
             sideLightsRight.railsGreaterThanOrEqual36(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, panels, gc);
+            sideLightLeft.railsGreaterThanOrEqual36(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, panels, gc);
             //Verticals
             sideLightsRight.stilesGreaterThanOrEqual84(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, panels, gc);
+            sideLightLeft.stilesGreaterThanOrEqual84(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, panels, gc);
 
             //Width less than 36 and height less than 84
         } else if (slColor.equals("Bronze") &&
@@ -1795,8 +1798,10 @@ public class PrintDrawerController implements Initializable {
                 slFrameHeightDouble < 84) {
             //Horizontals
             sideLightsRight.railsLessThan36(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, gc);
+            sideLightLeft.railsLessThan36(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, gc);
             //Verticals
             sideLightsRight.stilesLessThan84(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, panels, gc);
+            sideLightLeft.stilesLessThan84(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, panels, gc);
 
             //Width less than 36 and height greater or equal to 84
         } else if (slColor.equals("Bronze") &&

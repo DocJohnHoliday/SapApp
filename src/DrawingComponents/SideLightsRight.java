@@ -18,7 +18,7 @@ public class SideLightsRight {
 
 
     /////////////////////////////////////////Bronze
-    public void stilesGreaterThanOrEqual84(double doorWidthDouble, double doorHeightDouble, double slWidthDouble, String doorHeightString,int panels, GraphicsContext gc) {
+    public void stilesGreaterThanOrEqual84(double doorWidthDouble, double doorHeightDouble, double slWidthDouble, String doorHeightString, int panels, GraphicsContext gc) {
 
         for (i = 35; i < doorWidthDouble; i++)
             i = i;
@@ -290,7 +290,6 @@ public class SideLightsRight {
 
     public void stilesLessThan84(double doorWidthDouble, double doorHeightDouble, double slWidthDouble, String doorHeightString, int panels, GraphicsContext gc) {
 
-        System.out.println("Here");
         for (i = 0; i < doorWidthDouble; i++)
             i = i;
         int doorWidthRatio = (int) ((doorWidthDouble - 40) * 2);
@@ -1213,6 +1212,8 @@ public class SideLightsRight {
         double sideLightRailsDouble = slWidthDouble - (doorWidthDouble + 3.5) - 0.5 - 1.25;
         String sideLightRailString = ftd.convertDecimalToFraction(sideLightRailsDouble);
 
+        double rightJamb = startX + 1 + recWidth + doorWidthRatio;
+
         //Header
         gc.setFill(Color.rgb(95, 87, 87));
         gc.setStroke(Color.WHITE);
@@ -1223,18 +1224,66 @@ public class SideLightsRight {
         gc.fillRect(startX + recWidth + doorWidthRatio + recHeight + 10, startY + recWidth + doorHeightRatio + 350 + 15, (startX + recWidth + slWidthRatio) - (startX + recWidth + doorWidthRatio) - 25, recHeight);
         gc.setStroke(Color.BLACK);
 
-        String twoPanel = String.valueOf((sideLightRailsDouble / 2 ) - 1.25);
 
-        if(panels == 1) {
+        if (panels == 1) {
             //Header Text
             gc.setFill(Color.BLACK);
             gc.setFont(Font.font("default", FontWeight.BOLD, 30));
             gc.fillText(sideLightRailString, ((double) ((startX + recWidth + slWidthRatio) - (startX + recWidth + doorWidthRatio)) / 2) + startX + recWidth + doorWidthRatio - 15, startY + (2 * recHeight) + 35);
         } else if (panels == 2) {
+            String twoPanel = String.valueOf(ftd.convertDecimalToFraction((sideLightRailsDouble - 1.25) / 2));
             //Header Text
             gc.setFill(Color.BLACK);
             gc.setFont(Font.font("default", FontWeight.BOLD, 30));
-            gc.fillText(twoPanel, ((double) ((startX + recWidth + slWidthRatio) - (startX + recWidth + doorWidthRatio)) * 0.33) + startX + recWidth + doorWidthRatio - 15, startY + (2 * recHeight) + 35);
+            gc.fillText(twoPanel, rightJamb + 20, startY + (2 * recHeight) + 25);
+        } else if (panels == 3) {
+            String threePanel = String.valueOf(ftd.convertDecimalToFraction((sideLightRailsDouble - 2.5) / 3));
+            //Header Text
+            gc.setFill(Color.BLACK);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 30));
+            gc.fillText(threePanel, rightJamb + 20, startY + (2 * recHeight) + 25);
+        } else if (panels == 4) {
+            String fourPanel = String.valueOf(ftd.convertDecimalToFraction((sideLightRailsDouble - 3.75) / 4));
+            //Header Text
+            gc.setFill(Color.BLACK);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 20));
+            gc.fillText(fourPanel, rightJamb + 20, startY + (2 * recHeight) + 20);
+        } else if (panels == 5) {
+            String fivePanel = String.valueOf(ftd.convertDecimalToFraction((sideLightRailsDouble - 5) / 5));
+            //Header Text
+            gc.setFill(Color.BLACK);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 20));
+            gc.fillText(fivePanel, rightJamb + 20, startY + (2 * recHeight) + 20);
+        } else if (panels == 6) {
+            String sixPanel = String.valueOf(ftd.convertDecimalToFraction((sideLightRailsDouble - 6.25) / 6));
+            //Header Text
+            gc.setFill(Color.BLACK);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 20));
+            gc.fillText(sixPanel, rightJamb + 20, startY + (2 * recHeight) + 20);
+        } else if (panels == 7) {
+            String sevenPanel = String.valueOf(ftd.convertDecimalToFraction((sideLightRailsDouble - 7.5) / 7));
+            //Header Text
+            gc.setFill(Color.BLACK);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 20));
+            gc.fillText(sevenPanel, rightJamb + 20, startY + (2 * recHeight) + 20);
+        } else if (panels == 8) {
+            String eightPanel = String.valueOf(ftd.convertDecimalToFraction((sideLightRailsDouble - 8.75) / 8));
+            //Header Text
+            gc.setFill(Color.BLACK);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 20));
+            gc.fillText(eightPanel, rightJamb + 20, startY + (2 * recHeight) + 20);
+        } else if (panels == 9) {
+            String ninePanel = String.valueOf(ftd.convertDecimalToFraction((sideLightRailsDouble - 10) / 9));
+            //Header Text
+            gc.setFill(Color.BLACK);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 20));
+            gc.fillText(ninePanel, rightJamb + 20, startY + (2 * recHeight) + 20);
+        } else if (panels == 10) {
+            String tenPanel = String.valueOf(ftd.convertDecimalToFraction((sideLightRailsDouble - 11.25) / 10));
+            //Header Text
+            gc.setFill(Color.BLACK);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 20));
+            gc.fillText(tenPanel, rightJamb + 20, startY + (2 * recHeight) + 20);
         }
     }
 

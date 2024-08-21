@@ -67,6 +67,18 @@ public class FractionsAndDecimals {
                 case "70":
                     decimalFraction = "6875";
                     break;
+                case "08":
+                    decimalFraction = "0625";
+                    break;
+                case "41":
+                    decimalFraction = "375";
+                    break;
+                case "46":
+                    decimalFraction = "4375";
+                    break;
+                case "19":
+                    decimalFraction = "1875";
+                    break;
             }
 
 
