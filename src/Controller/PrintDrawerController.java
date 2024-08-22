@@ -1267,7 +1267,6 @@ public class PrintDrawerController implements Initializable {
             gc.setFont(Font.font("default", FontWeight.EXTRA_BOLD, 75));
             gc.fillText("Hand", 2500, 2200);
             gc.strokeLine(2500, 2225, 3250, 2225);
-            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
             gc.fillText(doorHand, 2500, 2275);
 
             //Glass Label
@@ -1301,169 +1300,7 @@ public class PrintDrawerController implements Initializable {
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
             gc.fillText(fTD.convertDecimalToFraction(frameWidthDouble) + " x " + frameHeightString, 2500, 1475);
 
-            if (color.getValue().equals("Bronze")) {
-                if (stileSize.getValue().equals("Narrow")) {
 
-                    if (yesSideLight) {
-                        //submitSideLight(actionEvent);
-                    }
-                    if (doorWidthDouble >= 36) {
-                        if (doorHeightDouble >= 84) {
-                            //Rails and Glass
-                            if (bottomRail.getValue().equals("4")) {
-                                rails.railsGreaterThanOrEqual36(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
-                                glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, type, qty, gc);
-                            }
-                            if (bottomRail.getValue().equals("10")) {
-                                rails.tenRailsGreaterThanOrEqual36(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
-                                glass.doorGlass5mm10BR(doorWidthDouble, doorHeightDouble, gc);
-                            }
-                            SideLightsRight slr = new SideLightsRight();
-
-                            //Stile
-                            stiles.stilesGreaterThanOrEqual84(doorWidthDouble, doorHeightDouble, doorHeightString, gc);
-                            //Jambs
-                            jambs.stilesGreaterThanOrEqual84(frameWidthDouble, frameHeightDouble, frameHeightString, slAnswer, gc);
-                            //Header and Threshold
-                            hAT.railsGreaterThanOrEqual36(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
-                        }
-                        if (doorHeightDouble < 84) {
-                            //Rails and Glass
-                            if (bottomRail.getValue().equals("4")) {
-                                rails.railsGreaterThanOrEqual36StilesLessThan84(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
-                                glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, type, qty, gc);
-                            }
-                            if (bottomRail.getValue().equals("10")) {
-                                rails.tenRailsGreaterThanOrEqual36StilesLessThan84(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
-                                glass.doorGlass5mm10BR(doorWidthDouble, doorHeightDouble, gc);
-                            }
-                            //Stiles
-                            stiles.stilesLessThan84RailGreaterThan36(doorWidthDouble, doorHeightDouble, doorHeightString, gc);
-                            //Jambs
-                            jambs.stilesLessThan84RailGreaterThan36(frameWidthDouble, frameHeightDouble, frameHeightString, slAnswer, gc);
-                            //Header and Threshold
-                            hAT.railsGreaterThanOrEqual36StilesLessThan84(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
-                        }
-                    }
-                    if (doorWidthDouble < 36) {
-                        if (doorHeightDouble >= 84) {
-                            //Rails and Glass
-                            if (bottomRail.getValue().equals("4")) {
-                                rails.railsLessThan36StilesGreaterThan84(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
-                                glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, type, qty, gc);
-                            }
-                            if (bottomRail.getValue().equals("10")) {
-                                rails.tenRailsLessThan36StilesGreaterThan84(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
-                                glass.doorGlass5mm10BR(doorWidthDouble, doorHeightDouble, gc);
-                            }
-                            //Stiles
-                            stiles.stilesGreaterThanOrEqual84RailsLessThan36(doorWidthDouble, doorHeightDouble, doorHeightString, gc);
-                            //Jambs
-                            jambs.stilesGreaterThanOrEqual84RailsLessThan36(frameWidthDouble, frameHeightDouble, frameHeightString, slAnswer, gc);
-                            //Header and Threshold
-                            hAT.railsLessThan36StilesGreaterThan84(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
-                        }
-                        if (doorHeightDouble < 84) {
-                            //Rails and Glass
-                            if (bottomRail.getValue().equals("4")) {
-                                rails.railsLessThan36(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
-                                glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, type, qty, gc);
-                            }
-                            if (bottomRail.getValue().equals("10")) {
-                                rails.tenRailsLessThan36(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
-                                glass.doorGlass5mm10BR(doorWidthDouble, doorHeightDouble, gc);
-                            }
-                            //Stiles
-                            stiles.stilesLessThan84(doorWidthDouble, doorHeightDouble, doorHeightString, gc);
-                            //Jambs
-                            jambs.stilesLessThan84(frameWidthDouble, frameHeightDouble, frameHeightString, slAnswer, gc);
-                            //Header and Threshold
-                            hAT.railsLessThan36(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
-                        }
-                    }
-                }
-            }
-
-            if (color.getValue().equals("Clear") &&
-                    doorWidthDouble < 36 &&
-                    stileSize.getValue().equals("Narrow") &&
-                    doorHeightDouble < 84) {
-                //Rails and Glass
-                if (bottomRail.getValue().equals("4")) {
-                    rails.railsLessThan36Clear(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
-                    glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, type, qty, gc);
-                }
-                if (bottomRail.getValue().equals("10")) {
-                    rails.tenRailsLessThan36Clear(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
-                    glass.doorGlass5mm10BR(doorWidthDouble, doorHeightDouble, gc);
-                }
-                //Stiles
-                stiles.stilesLessThan84Clear(doorWidthDouble, doorHeightDouble, doorHeightString, gc);
-                //Jambs
-                jambs.stilesLessThan84Clear(frameWidthDouble, frameHeightDouble, frameHeightString, slAnswer, gc);
-                //Header and Threshold
-                hAT.railsLessThan36Clear(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
-
-            } else if (color.getValue().equals("Clear") &&
-                    doorWidthDouble >= 36 &&
-                    stileSize.getValue().equals("Narrow") &&
-                    doorHeightDouble >= 84) {
-                //Rails and Glass
-                if (bottomRail.getValue().equals("4")) {
-                    rails.railsLessThan36Clear(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
-                    glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, type, qty, gc);
-                }
-                if (bottomRail.getValue().equals("10")) {
-                    rails.tenRailsLessThanOrEqual36Clear(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
-                    glass.doorGlass5mm10BR(doorWidthDouble, doorHeightDouble, gc);
-                }
-                //Stiles
-                stiles.stilesLessThanOrEqual84Clear(doorWidthDouble, doorHeightDouble, doorHeightString, gc);
-                //Jambs
-                jambs.stilesLessThanOrEqual84Clear(frameWidthDouble, frameHeightDouble, frameHeightString, slAnswer, gc);
-                //Header and Threshold
-                hAT.railsLessThanOrEqual36Clear(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
-
-            } else if (color.getValue().equals("Clear") &&
-                    doorWidthDouble >= 36 &&
-                    stileSize.getValue().equals("Narrow") &&
-                    doorHeightDouble < 84) {
-                //Rails and Glass
-                if (bottomRail.getValue().equals("4")) {
-                    rails.railsGreaterThanOrEqual36Clear(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
-                    glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, type, qty, gc);
-                }
-                if (bottomRail.getValue().equals("10")) {
-                    rails.tenRailsGreaterThanOrEqual36Clear(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
-                    glass.doorGlass5mm10BR(doorWidthDouble, doorHeightDouble, gc);
-                }
-                //Stiles
-                stiles.stilesLessThan84RailGreaterThan36Clear(doorWidthDouble, doorHeightDouble, doorHeightString, gc);
-                //Jambs
-                jambs.stilesLessThan84RailGreaterThan36Clear(frameWidthDouble, frameHeightDouble, frameHeightString, slAnswer, gc);
-                //Header and Threshold
-                hAT.railsGreaterThanOrEqual36Clear(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
-            } else if (color.getValue().equals("Clear") &&
-                    doorWidthDouble < 36 &&
-                    stileSize.getValue().equals("Narrow") &&
-                    doorHeightDouble >= 84) {
-                //Rails and Glass
-                if (bottomRail.getValue().equals("4")) {
-                    rails.railsLessThan36ClearStileGreaterThanOrEqual84(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
-                    glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, type, qty, gc);
-                }
-                if (bottomRail.getValue().equals("10")) {
-                    rails.tenRailsLessThan36ClearStileGreaterThanOrEqual84(doorWidthDouble, doorHeightDouble, doorWidthString, gc);
-                    glass.doorGlass5mm10BR(doorWidthDouble, doorHeightDouble, gc);
-                }
-                //Stiles
-                stiles.stilesGreaterThanOrEqual84Clear(doorWidthDouble, doorHeightDouble, doorHeightString, gc);
-                //Jambs
-                jambs.stilesGreaterThanOrEqual84Clear(frameWidthDouble, frameHeightDouble, frameHeightString, slAnswer, gc);
-                //Header and Threshold
-                hAT.railsLessThan36ClearStileGreaterThanOrEqual84(frameWidthDouble, frameHeightDouble, frameWidthString, gc);
-
-            }
 
             /////////////////////////////Hardware
             String cylinder = "Cylinder";
@@ -1694,7 +1531,7 @@ public class PrintDrawerController implements Initializable {
         } catch (NumberFormatException e) {
             Drawing_Warning.singleOpeningNotEntered();
         }
-    }
+        }
 
     public void clearSingle(ActionEvent actionEvent) {
         GraphicsContext gc = previewCanvas.getGraphicsContext2D();
