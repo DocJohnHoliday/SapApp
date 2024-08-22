@@ -111,7 +111,6 @@ public class PrintDrawerController implements Initializable {
     Hardware hw = new Hardware();
     Handles handles = new Handles();
     HingeType hingeType = new HingeType();
-    PanicDevices panics = new PanicDevices();
     Windows windows = new Windows();
     PairJambs pairJambs = new PairJambs();
     PairHeaderAndThreshold pairHaT = new PairHeaderAndThreshold();
@@ -559,418 +558,6 @@ public class PrintDrawerController implements Initializable {
             gc.strokeLine(2500, 1425, 3250, 1425);
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
             gc.fillText(fTD.convertDecimalToFraction(pairFrameWidthDouble) + " x " + pairFrameHeightString, 2600, 1475);
-
-            if (pairColor.getValue().equals("Bronze")) {
-                if (pairStileSize.getValue().equals("Narrow")) {
-
-                    if (yesSideLight && pairRoughWidthDouble == 68) {
-                        pairFrameWidthDouble = 36;
-                        pairFrameWidthString = "36";
-                        pairDoorWidthDouble = 31.5625;
-                        pairDoorWidthString = "31 9/16";
-                        if (pairDoorHeightDouble >= 84) {
-                            pairJambs.stilesGreaterThanOrEqual84SL28(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, gc);
-                            pairHaT.railsLessThan36SL28(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
-                        } else {
-                            pairJambs.stilesLessThan84SL28(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, gc);
-                            pairHaT.railsLessThan36SL28(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
-                        }
-                    }
-                    if (yesSideLight && pairRoughWidthDouble == 52) {
-                        pairFrameWidthDouble = 36;
-                        pairFrameWidthString = "36";
-                        pairDoorWidthDouble = 31.5625;
-                        pairDoorWidthString = "31 9/16";
-                        if (pairDoorHeightDouble >= 84) {
-                            pairJambs.stilesGreaterThanOrEqual84SL12(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, gc);
-                            pairHaT.railsLessThan36SL12(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
-                        } else {
-                            pairJambs.stilesLessThan84SL12(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, gc);
-                            pairHaT.railsLessThan36SL12(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
-                        }
-                    }
-                    if (pairDoorWidthDouble >= 36) {
-                        if (pairDoorHeightDouble >= 84) {
-                            //Rails and Glass
-                            if (pairBottomRail.getValue().equals("4")) {
-                                pairRails.railsGreaterThanOrEqual36(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
-                                glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, qty, gc);
-                            }
-                            if (pairBottomRail.getValue().equals("10")) {
-                                pairRails.tenRailsGreaterThanOrEqual36(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
-                                glass.doorGlass5mm10BR(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            }
-                            //Stile
-                            pairStiles.stilesGreaterThanOrEqual84(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorHeightString, gc);
-                            //Jambs
-                            pairJambs.stilesGreaterThanOrEqual84(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, gc);
-                            //Header and Threshold
-                            pairHaT.railsGreaterThanOrEqual36(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
-                        }
-                        if (pairDoorHeightDouble < 84) {
-                            //Rails and Glass
-                            if (pairBottomRail.getValue().equals("4")) {
-                                pairRails.railsGreaterThanOrEqual36StilesLessThan84(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
-                                glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, qty, gc);
-                            }
-                            if (pairBottomRail.getValue().equals("10")) {
-                                pairRails.tenRailsGreaterThanOrEqual36StilesLessThan84(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
-                                glass.doorGlass5mm10BR(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            }
-                            //Stiles
-                            pairStiles.stilesLessThan84RailGreaterThan36(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorHeightString, gc);
-                            //Jambs
-                            pairJambs.stilesLessThan84RailGreaterThan36(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, gc);
-                            //Header and Threshold
-                            pairHaT.railsGreaterThanOrEqual36StilesLessThan84(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
-                        }
-                    }
-                    if (pairDoorWidthDouble < 36) {
-                        if (pairDoorHeightDouble >= 84) {
-                            //Rails and Glass
-                            if (pairBottomRail.getValue().equals("4")) {
-                                pairRails.railsLessThan36StilesGreaterThan84(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
-                                glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, qty, gc);
-                            }
-                            if (pairBottomRail.getValue().equals("10")) {
-                                pairRails.tenRailsLessThan36StilesGreaterThan84(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
-                                glass.doorGlass5mm10BR(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            }
-                            //Stiles
-                            pairStiles.stilesGreaterThanOrEqual84RailsLessThan36(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorHeightString, gc);
-                            //Jambs
-                            pairJambs.stilesGreaterThanOrEqual84RailsLessThan36(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, slAnswer, gc);
-                            //Header and Threshold
-                            pairHaT.railsLessThan36StilesGreaterThan84(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
-                        }
-                        if (pairDoorHeightDouble < 84) {
-                            //Rails and Glass
-                            if (pairBottomRail.getValue().equals("4")) {
-                                pairRails.railsLessThan36(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
-                                glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, qty, gc);
-                            }
-                            if (pairBottomRail.getValue().equals("10")) {
-                                pairRails.tenRailsLessThan36(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
-                                glass.doorGlass5mm10BR(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            }
-                            //Stiles
-                            pairStiles.stilesLessThan84(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorHeightString, gc);
-                            //Jambs
-                            pairJambs.stilesLessThan84(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, slAnswer, gc);
-                            //Header and Threshold
-                            pairHaT.railsLessThan36StilesGreaterThan84(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
-                        }
-                    }
-                }
-            }
-
-            if (pairColor.getValue().equals("Clear") &&
-                    pairDoorWidthDouble < 36 &&
-                    pairStileSize.getValue().equals("Narrow") &&
-                    pairDoorHeightDouble < 84) {
-                //Rails and Glass
-                if (pairBottomRail.getValue().equals("4")) {
-                    pairRails.railsLessThan36Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
-                    glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, qty, gc);
-                }
-                if (pairBottomRail.getValue().equals("10")) {
-                    pairRails.tenRailsLessThan36Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
-                    glass.doorGlass5mm10BR(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                }
-                //Stiles
-                pairStiles.stilesLessThan84Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorHeightString, gc);
-                //Jambs
-                pairJambs.stilesLessThan84Clear(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, gc);
-                //Header and Threshold
-                pairHaT.railsLessThan36Clear(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
-
-            } else if (pairColor.getValue().equals("Clear") &&
-                    pairDoorWidthDouble >= 36 &&
-                    pairStileSize.getValue().equals("Narrow") &&
-                    pairDoorHeightDouble >= 84) {
-                //Rails and Glass
-                if (pairBottomRail.getValue().equals("4")) {
-                    pairRails.railsLessThan36Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
-                    glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, qty, gc);
-                }
-                if (pairBottomRail.getValue().equals("10")) {
-                    pairRails.tenRailsLessThanOrEqual36Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
-                    glass.doorGlass5mm10BR(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                }
-                //Stiles
-                pairStiles.stilesLessThanOrEqual84Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorHeightString, gc);
-                //Jambs
-                pairJambs.stilesLessThanOrEqual84Clear(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, gc);
-                //Header and Threshold
-                pairHaT.railsLessThanOrEqual36Clear(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
-
-            } else if (pairColor.getValue().equals("Clear") &&
-                    pairDoorWidthDouble >= 36 &&
-                    pairStileSize.getValue().equals("Narrow") &&
-                    pairDoorHeightDouble < 84) {
-                //Rails and Glass
-                if (pairBottomRail.getValue().equals("4")) {
-                    pairRails.railsGreaterThanOrEqual36Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
-                    glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, qty, gc);
-                }
-                if (pairBottomRail.getValue().equals("10")) {
-                    pairRails.tenRailsGreaterThanOrEqual36Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
-                    glass.doorGlass5mm10BR(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                }
-                //Stiles
-                pairStiles.stilesLessThan84RailGreaterThan36Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorHeightString, gc);
-                //Jambs
-                pairJambs.stilesLessThan84RailGreaterThan36Clear(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, gc);
-                //Header and Threshold
-                pairHaT.railsGreaterThanOrEqual36Clear(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
-            } else if (pairColor.getValue().equals("Clear") &&
-                    pairDoorWidthDouble < 36 &&
-                    pairStileSize.getValue().equals("Narrow") &&
-                    pairDoorHeightDouble >= 84) {
-                //Rails and Glass
-                if (pairBottomRail.getValue().equals("4")) {
-                    pairRails.railsLessThan36ClearStileGreaterThanOrEqual84(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
-                    glass.doorGlass5mm4BR(pairDoorWidthDouble, pairDoorHeightDouble, type, qty, gc);
-                }
-                if (pairBottomRail.getValue().equals("10")) {
-                    pairRails.tenRailsLessThan36ClearStileGreaterThanOrEqual84(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, gc);
-                    glass.doorGlass5mm10BR(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                }
-                //Stiles
-                pairStiles.stilesGreaterThanOrEqual84Clear(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorHeightString, gc);
-                //Jambs
-                pairJambs.stilesGreaterThanOrEqual84Clear(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameHeightString, gc);
-                //Header and Threshold
-                pairHaT.railsLessThan36ClearStileGreaterThanOrEqual84(pairFrameWidthDouble, pairFrameHeightDouble, pairFrameWidthString, gc);
-
-            }
-
-            /////////////////////////////Hardware
-            String cylinder = "Cylinder";
-            String deadBolt = "Deadbolt";
-            String rim = "RIM";
-            String cvr = "CVR";
-            String thumbTurn = "Thumb-turn";
-            String hookBolt = "Hook Bolt";
-            String leverLatch = "Lever Latch";
-            String eSSurfaceMount = "Electric Strike Surface Mount";
-            String eSIntegrated = "Electric Strike Integrated";
-
-            String pairHinge = pairHinging.getValue();
-
-            //Hinging Type
-            gc.setFill(Color.BLACK);
-            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-            gc.fillText(pairHinge, 200, 2475);
-
-            boolean cylinderTrue = hardware1.equals("Cylinder") || hardware2.equals("Cylinder");
-            boolean rimTrue = panicHardware.equals("RIM");
-
-            if (doorColor.equals("Bronze") || doorColor.equals("Black")) {
-                if (doorHand.equals("Left")) {
-                    switch (pairHinge) {
-                        case "Pivots":
-                            if (pairDoorHeightDouble > 84)
-                                hingeType.leftHandPivots(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            if (pairDoorHeightDouble < 84)
-                                hingeType.leftHandPivotsSmall(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            break;
-                        case "Continuous Hinge":
-                            if (pairDoorHeightDouble > 84)
-                                hingeType.leftHandContinuous(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            if (pairDoorHeightDouble < 84)
-                                hingeType.leftHandContinuousSmall(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            break;
-                        case "Butt Hinge":
-                            if (pairDoorHeightDouble > 84)
-                                hingeType.leftHandButt(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            if (pairDoorHeightDouble < 84)
-                                hingeType.leftHandButtSmall(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            break;
-                    }
-                    switch (pullHandle) {
-                        case "8\" In-house":
-                            handles.leftHandPull(pairDoorHeightDouble, gc);
-                            break;
-                        case "8\" Chrome":
-                            handles.leftHandPull8Chrome(pairDoorHeightDouble, gc);
-                            break;
-                        case "12\" Chrome":
-                            handles.leftHandPull12(pairDoorHeightDouble, gc);
-                            break;
-                    }
-                    if (rimTrue) {
-                        pairPush.setSelected(false);
-                        panics.rimLeftHandPush(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                        panics.rimLeftHandPull(pairDoorHeightDouble, gc);
-                        hw.leftHandCylindersBronzeRIM(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                    }
-                    if (pairPush.isSelected() && !rimTrue) {
-                        handles.leftHandPush(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                    } else {
-                        gc.setFill(Color.BLACK);
-                        gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-                        gc.fillText("No Push Bar", 200, 2425);
-                    }
-                    if (cylinderTrue && !rimTrue) {
-                        hw.leftHandCylindersBronze(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                    }
-                } else {
-                    ///////////////////Right Hand Hardware
-                    switch (pairHinge) {
-                        case "Pivots":
-                            if (pairDoorHeightDouble > 84)
-                                hingeType.rightHandPivots(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            if (pairDoorHeightDouble < 84)
-                                hingeType.rightHandPivotsSmall(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            break;
-                        case "Continuous Hinge":
-                            if (pairDoorHeightDouble > 84)
-                                hingeType.rightHandContinuous(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            if (pairDoorHeightDouble < 84)
-                                hingeType.rightHandContinuousSmall(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            break;
-                        case "Butt Hinge":
-                            if (pairDoorHeightDouble > 84)
-                                hingeType.rightHandButt(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            if (pairDoorHeightDouble < 84)
-                                hingeType.rightHandButtSmall(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            break;
-                    }
-                    switch (pullHandle) {
-                        case "8\" In-house":
-                            handles.rightHandPull(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            break;
-                        case "8\" Chrome":
-                            handles.rightHandPull8Chrome(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-                            gc.fillText("8\" Chrome", 200, 2425);
-                            break;
-                        case "12\" Chrome":
-                            handles.rightHandPull12(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-                            gc.fillText("12\" Chrome", 200, 2425);
-                            break;
-                    }
-                    if (rimTrue) {
-                        push.setSelected(false);
-                        panics.rimRightHandPush(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                        panics.rimRightHandPull(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                        hw.rightHandCylindersBronzeRIM(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                    }
-                    if (push.isSelected() && !rimTrue) {
-                        handles.rightHandPush(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                    } else {
-                        gc.setFill(Color.BLACK);
-                        gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-                        gc.fillText("No Push Bar", 200, 2425);
-                    }
-                    if (cylinderTrue && !rimTrue) {
-                        hw.rightHandCylindersBronze(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                    }
-                }
-            } else {
-                if (doorHand.equals("Left")) {
-                    switch (pairHinge) {
-                        case "Pivots":
-                            if (pairDoorHeightDouble > 84)
-                                hingeType.leftHandPivots(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            if (pairDoorHeightDouble < 84)
-                                hingeType.leftHandPivotsSmall(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            break;
-                        case "Continuous Hinge":
-                            if (pairDoorHeightDouble > 84)
-                                hingeType.leftHandContinuous(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            if (pairDoorHeightDouble < 84)
-                                hingeType.leftHandContinuousSmall(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            break;
-                        case "Butt Hinge":
-                            if (pairDoorHeightDouble > 84)
-                                hingeType.leftHandButt(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            if (pairDoorHeightDouble < 84)
-                                hingeType.leftHandButtSmall(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            break;
-                    }
-                    switch (pullHandle) {
-                        case "8\" In-house":
-                            handles.leftHandPull(pairDoorHeightDouble, gc);
-                            break;
-                        case "8\" Chrome":
-                            handles.leftHandPull8Chrome(pairDoorHeightDouble, gc);
-                            break;
-                        case "12\" Chrome":
-                            handles.leftHandPull12(pairDoorHeightDouble, gc);
-                            break;
-                    }
-                    if (rimTrue) {
-                        push.setSelected(false);
-                        panics.rimLeftHandPush(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                        panics.rimLeftHandPull(pairDoorHeightDouble, gc);
-                        hw.leftHandCylindersClearRIM(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                    }
-                    if (push.isSelected() && !rimTrue) {
-                        handles.leftHandPush(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                    } else {
-                        gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-                        gc.fillText("No Push Bar", 200, 2425);
-                    }
-                    if (cylinderTrue && !rimTrue) {
-                        hw.leftHandCylindersClear(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                    }
-                } else {
-                    ///////////////////Right Hand Hardware
-                    switch (pairHinge) {
-                        case "Pivots":
-                            if (pairDoorHeightDouble > 84)
-                                hingeType.rightHandPivots(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            if (pairDoorHeightDouble < 84)
-                                hingeType.rightHandPivotsSmall(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            break;
-                        case "Continuous Hinge":
-                            if (pairDoorHeightDouble > 84)
-                                hingeType.rightHandContinuous(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            if (pairDoorHeightDouble < 84)
-                                hingeType.rightHandContinuousSmall(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            break;
-                        case "Butt Hinge":
-                            if (pairDoorHeightDouble > 84)
-                                hingeType.rightHandButt(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            if (pairDoorHeightDouble < 84)
-                                hingeType.rightHandButtSmall(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            break;
-                    }
-                    switch (pullHandle) {
-                        case "8\" In-house":
-                            handles.rightHandPull(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            break;
-                        case "8\" Chrome":
-                            handles.rightHandPull8Chrome(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-                            gc.fillText("8\" Chrome", 200, 2425);
-                            break;
-                        case "12\" Chrome":
-                            handles.rightHandPull12(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-                            gc.fillText("12\" Chrome", 200, 2425);
-                            break;
-                    }
-                    if (rimTrue) {
-                        pairPush.setSelected(false);
-                        panics.rimRightHandPush(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                        panics.rimRightHandPull(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                        hw.rightHandCylindersClearRIM(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                    }
-                    if (pairPush.isSelected() && !rimTrue) {
-                        handles.rightHandPush(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                    } else {
-                        gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-                        gc.fillText("No Push Bar", 200, 2425);
-                    }
-                    if (cylinderTrue && !rimTrue) {
-                        hw.rightHandCylindersClear(pairDoorWidthDouble, pairDoorHeightDouble, gc);
-                    }
-                }
-            }
         } catch (NumberFormatException e) {
             Drawing_Warning.singleOpeningNotEntered();
         }
@@ -1165,14 +752,6 @@ public class PrintDrawerController implements Initializable {
             double roughWidthDouble = fTD.fractionToDecimal(singleWidth.getText());
             double roughHeightDouble = fTD.fractionToDecimal(singleHeight.getText());
 
-            boolean yesSideLight;
-            yesSideLight = singleSideLightQuestion.getValue().equals("Yes");
-
-            String slAnswer = singleSideLightQuestion.getValue();
-
-            sideLightHeight.setText(singleHeight.getText());
-
-
             switch (openingType) {
                 case "Rough Opening":
                     doorWidthDouble = fTD.fractionToDecimal(String.valueOf(singleWidthDouble - 8.4375));
@@ -1238,15 +817,49 @@ public class PrintDrawerController implements Initializable {
                     break;
             }
 
-            String type = glassType.getValue();
+            //Side Light Questions
+            String slAnswer = singleSideLightQuestion.getValue();
+            sideLightHeight.setText(singleHeight.getText());
+
+            ////////////////////////////////Door Basics
+            String bottomRailSize = bottomRail.getValue();
+            String singleHinging = hinging.getValue();
             String doorColor = color.getValue();
             String doorHand = hand.getValue();
+
+            ///////////////////////////////Handles and panics
+            String pullHandle = pull.getValue();
+            String panicHardware = panicDevices.getValue();
+            boolean hasPanic = panicHardware.equals("RIM");
+            boolean hasPush = push.isSelected();
+
+            //////////////////////////////Glass
+            String type = glassType.getValue();
+
+            //////////////////////////////Door Quantity
             String doorQuantity = quantity.getText();
             int qty = Integer.parseInt(doorQuantity);
+
+            /////////////////////////////Hardware
             String hardware1 = hardware.getValue();
             String hardware2 = secondHardware.getValue();
-            String panicHardware = panicDevices.getValue();
-            String pullHandle = pull.getValue();
+            String cylinder = "Cylinder";
+            String deadBolt = "Deadbolt";
+            String rim = "RIM";
+            String cvr = "CVR";
+            String thumbTurn = "Thumb-turn";
+            String hookBolt = "Hook Bolt";
+            String leverLatch = "Lever Latch";
+            String eSSurfaceMount = "Electric Strike Surface Mount";
+            String eSIntegrated = "Electric Strike Integrated";
+
+            stiles.narrowSingleStile(doorWidthDouble, doorHeightDouble, doorHeightString, doorColor, gc);
+            rails.narrowSingleRails(doorWidthDouble, doorHeightDouble, doorWidthString, doorColor, bottomRailSize,  gc);
+            handles.narrowSingleHandles(doorWidthDouble, doorHeightDouble, doorHand, pullHandle, hasPanic, hasPush, gc);
+            hw.narrowSingleCylinders(doorWidthDouble, doorHeightDouble, doorHand, hasPanic, gc);
+            hingeType.narrowHinging(doorWidthDouble, doorHeightDouble, doorHand, singleHinging, gc);
+            jambs.jambs(doorWidthDouble, doorHeightDouble, frameHeightString, slAnswer, doorColor, gc);
+            hAT.headersAndThresholds(doorWidthDouble, doorHeightDouble, frameWidthString, doorColor, gc);
 
             //Hardware Label
             gc.setFill(Color.BLACK);
@@ -1267,6 +880,7 @@ public class PrintDrawerController implements Initializable {
             gc.setFont(Font.font("default", FontWeight.EXTRA_BOLD, 75));
             gc.fillText("Hand", 2500, 2200);
             gc.strokeLine(2500, 2225, 3250, 2225);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
             gc.fillText(doorHand, 2500, 2275);
 
             //Glass Label
@@ -1300,238 +914,15 @@ public class PrintDrawerController implements Initializable {
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
             gc.fillText(fTD.convertDecimalToFraction(frameWidthDouble) + " x " + frameHeightString, 2500, 1475);
 
-
-
-            /////////////////////////////Hardware
-            String cylinder = "Cylinder";
-            String deadBolt = "Deadbolt";
-            String rim = "RIM";
-            String cvr = "CVR";
-            String thumbTurn = "Thumb-turn";
-            String hookBolt = "Hook Bolt";
-            String leverLatch = "Lever Latch";
-            String eSSurfaceMount = "Electric Strike Surface Mount";
-            String eSIntegrated = "Electric Strike Integrated";
-
-            String singleHinging = hinging.getValue();
-
             //Hinging Type
             gc.setFill(Color.BLACK);
             gc.setFont(Font.font("default", FontWeight.BOLD, 40));
             gc.fillText(singleHinging, 200, 2475);
 
-            boolean cylinderTrue = hardware1.equals("Cylinder") || hardware2.equals("Cylinder") || hardware1.equals("Thumb-turn") || hardware2.equals("Thumb-turn");
-            boolean rimTrue = panicHardware.equals("RIM");
-
-            if (doorColor.equals("Bronze") || doorColor.equals("Black")) {
-                if (doorHand.equals("Left")) {
-                    switch (singleHinging) {
-                        case "Pivots":
-                            if (doorHeightDouble > 84)
-                                hingeType.leftHandPivots(doorWidthDouble, doorHeightDouble, gc);
-                            if (doorHeightDouble < 84)
-                                hingeType.leftHandPivotsSmall(doorWidthDouble, doorHeightDouble, gc);
-                            break;
-                        case "Continuous Hinge":
-                            if (doorHeightDouble > 84)
-                                hingeType.leftHandContinuous(doorWidthDouble, doorHeightDouble, gc);
-                            if (doorHeightDouble < 84)
-                                hingeType.leftHandContinuousSmall(doorWidthDouble, doorHeightDouble, gc);
-                            break;
-                        case "Butt Hinge":
-                            if (doorHeightDouble > 84)
-                                hingeType.leftHandButt(doorWidthDouble, doorHeightDouble, gc);
-                            if (doorHeightDouble < 84)
-                                hingeType.leftHandButtSmall(doorWidthDouble, doorHeightDouble, gc);
-                            break;
-                    }
-                    switch (pullHandle) {
-                        case "8\" In-house":
-                            handles.leftHandPull(doorHeightDouble, gc);
-                            break;
-                        case "8\" Chrome":
-                            handles.leftHandPull8Chrome(doorHeightDouble, gc);
-                            break;
-                        case "12\" Chrome":
-                            handles.leftHandPull12(doorHeightDouble, gc);
-                            break;
-                    }
-                    if (rimTrue) {
-                        push.setSelected(false);
-                        panics.rimLeftHandPush(doorWidthDouble, doorHeightDouble, gc);
-                        panics.rimLeftHandPull(doorHeightDouble, gc);
-                        hw.leftHandCylindersBronzeRIM(doorWidthDouble, doorHeightDouble, gc);
-                    }
-                    if (push.isSelected() && !rimTrue) {
-                        handles.leftHandPush(doorWidthDouble, doorHeightDouble, gc);
-                    } else {
-                        gc.setFill(Color.BLACK);
-                        gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-                        gc.fillText("No Push Bar", 200, 2425);
-                    }
-                    if (cylinderTrue && !rimTrue) {
-                        hw.leftHandCylindersBronze(doorWidthDouble, doorHeightDouble, gc);
-                    }
-                } else {
-                    ///////////////////Right Hand Hardware
-                    switch (singleHinging) {
-                        case "Pivots":
-                            if (doorHeightDouble > 84)
-                                hingeType.rightHandPivots(doorWidthDouble, doorHeightDouble, gc);
-                            if (doorHeightDouble < 84)
-                                hingeType.rightHandPivotsSmall(doorWidthDouble, doorHeightDouble, gc);
-                            break;
-                        case "Continuous Hinge":
-                            if (doorHeightDouble > 84)
-                                hingeType.rightHandContinuous(doorWidthDouble, doorHeightDouble, gc);
-                            if (doorHeightDouble < 84)
-                                hingeType.rightHandContinuousSmall(doorWidthDouble, doorHeightDouble, gc);
-                            break;
-                        case "Butt Hinge":
-                            if (doorHeightDouble > 84)
-                                hingeType.rightHandButt(doorWidthDouble, doorHeightDouble, gc);
-                            if (doorHeightDouble < 84)
-                                hingeType.rightHandButtSmall(doorWidthDouble, doorHeightDouble, gc);
-                            break;
-                    }
-                    switch (pullHandle) {
-                        case "8\" In-house":
-                            handles.rightHandPull(doorWidthDouble, doorHeightDouble, gc);
-                            break;
-                        case "8\" Chrome":
-                            handles.rightHandPull8Chrome(doorWidthDouble, doorHeightDouble, gc);
-                            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-                            gc.fillText("8\" Chrome", 200, 2425);
-                            break;
-                        case "12\" Chrome":
-                            handles.rightHandPull12(doorWidthDouble, doorHeightDouble, gc);
-                            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-                            gc.fillText("12\" Chrome", 200, 2425);
-                            break;
-                    }
-                    if (rimTrue) {
-                        push.setSelected(false);
-                        panics.rimRightHandPush(doorWidthDouble, doorHeightDouble, gc);
-                        panics.rimRightHandPull(doorWidthDouble, doorHeightDouble, gc);
-                        hw.rightHandCylindersBronzeRIM(doorWidthDouble, doorHeightDouble, gc);
-                    }
-                    if (push.isSelected() && !rimTrue) {
-                        handles.rightHandPush(doorWidthDouble, doorHeightDouble, gc);
-                    } else {
-                        gc.setFill(Color.BLACK);
-                        gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-                        gc.fillText("No Push Bar", 200, 2425);
-                    }
-                    if (cylinderTrue && !rimTrue) {
-                        hw.rightHandCylindersBronze(doorWidthDouble, doorHeightDouble, gc);
-                    }
-                }
-            } else {
-                if (doorHand.equals("Left")) {
-                    switch (singleHinging) {
-                        case "Pivots":
-                            if (doorHeightDouble > 84)
-                                hingeType.leftHandPivots(doorWidthDouble, doorHeightDouble, gc);
-                            if (doorHeightDouble < 84)
-                                hingeType.leftHandPivotsSmall(doorWidthDouble, doorHeightDouble, gc);
-                            break;
-                        case "Continuous Hinge":
-                            if (doorHeightDouble > 84)
-                                hingeType.leftHandContinuous(doorWidthDouble, doorHeightDouble, gc);
-                            if (doorHeightDouble < 84)
-                                hingeType.leftHandContinuousSmall(doorWidthDouble, doorHeightDouble, gc);
-                            break;
-                        case "Butt Hinge":
-                            if (doorHeightDouble > 84)
-                                hingeType.leftHandButt(doorWidthDouble, doorHeightDouble, gc);
-                            if (doorHeightDouble < 84)
-                                hingeType.leftHandButtSmall(doorWidthDouble, doorHeightDouble, gc);
-                            break;
-                    }
-                    switch (pullHandle) {
-                        case "8\" In-house":
-                            handles.leftHandPull(doorHeightDouble, gc);
-                            break;
-                        case "8\" Chrome":
-                            handles.leftHandPull8Chrome(doorHeightDouble, gc);
-                            break;
-                        case "12\" Chrome":
-                            handles.leftHandPull12(doorHeightDouble, gc);
-                            break;
-                    }
-                    if (rimTrue) {
-                        push.setSelected(false);
-                        panics.rimLeftHandPush(doorWidthDouble, doorHeightDouble, gc);
-                        panics.rimLeftHandPull(doorHeightDouble, gc);
-                        hw.leftHandCylindersClearRIM(doorWidthDouble, doorHeightDouble, gc);
-                    }
-                    if (push.isSelected() && !rimTrue) {
-                        handles.leftHandPush(doorWidthDouble, doorHeightDouble, gc);
-                    } else {
-                        gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-                        gc.fillText("No Push Bar", 200, 2425);
-                    }
-                    if (cylinderTrue && !rimTrue) {
-                        hw.leftHandCylindersClear(doorWidthDouble, doorHeightDouble, gc);
-                    }
-                } else {
-                    ///////////////////Right Hand Hardware
-                    switch (singleHinging) {
-                        case "Pivots":
-                            if (doorHeightDouble > 84)
-                                hingeType.rightHandPivots(doorWidthDouble, doorHeightDouble, gc);
-                            if (doorHeightDouble < 84)
-                                hingeType.rightHandPivotsSmall(doorWidthDouble, doorHeightDouble, gc);
-                            break;
-                        case "Continuous Hinge":
-                            if (doorHeightDouble > 84)
-                                hingeType.rightHandContinuous(doorWidthDouble, doorHeightDouble, gc);
-                            if (doorHeightDouble < 84)
-                                hingeType.rightHandContinuousSmall(doorWidthDouble, doorHeightDouble, gc);
-                            break;
-                        case "Butt Hinge":
-                            if (doorHeightDouble > 84)
-                                hingeType.rightHandButt(doorWidthDouble, doorHeightDouble, gc);
-                            if (doorHeightDouble < 84)
-                                hingeType.rightHandButtSmall(doorWidthDouble, doorHeightDouble, gc);
-                            break;
-                    }
-                    switch (pullHandle) {
-                        case "8\" In-house":
-                            handles.rightHandPull(doorWidthDouble, doorHeightDouble, gc);
-                            break;
-                        case "8\" Chrome":
-                            handles.rightHandPull8Chrome(doorWidthDouble, doorHeightDouble, gc);
-                            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-                            gc.fillText("8\" Chrome", 200, 2425);
-                            break;
-                        case "12\" Chrome":
-                            handles.rightHandPull12(doorWidthDouble, doorHeightDouble, gc);
-                            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-                            gc.fillText("12\" Chrome", 200, 2425);
-                            break;
-                    }
-                    if (rimTrue) {
-                        push.setSelected(false);
-                        panics.rimRightHandPush(doorWidthDouble, doorHeightDouble, gc);
-                        panics.rimRightHandPull(doorWidthDouble, doorHeightDouble, gc);
-                        hw.rightHandCylindersClearRIM(doorWidthDouble, doorHeightDouble, gc);
-                    }
-                    if (push.isSelected() && !rimTrue) {
-                        handles.rightHandPush(doorWidthDouble, doorHeightDouble, gc);
-                    } else {
-                        gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-                        gc.fillText("No Push Bar", 200, 2425);
-                    }
-                    if (cylinderTrue && !rimTrue) {
-                        hw.rightHandCylindersClear(doorWidthDouble, doorHeightDouble, gc);
-                    }
-                }
-            }
         } catch (NumberFormatException e) {
             Drawing_Warning.singleOpeningNotEntered();
         }
-        }
+    }
 
     public void clearSingle(ActionEvent actionEvent) {
         GraphicsContext gc = previewCanvas.getGraphicsContext2D();

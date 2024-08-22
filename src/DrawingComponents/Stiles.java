@@ -10,7 +10,7 @@ public class Stiles {
     int i = 0;
     /////////////////////////////////////////Bronze
 
-    public void narrowStileBronze(double doorWidthDouble, double doorHeightDouble, String doorHeightString, String color,  GraphicsContext gc) {
+    public void narrowSingleStile(double doorWidthDouble, double doorHeightDouble, String doorHeightString, String color,  GraphicsContext gc) {
 
         int doorWidthRatio = (int) ((Math.ceil(doorWidthDouble) - 40) * 2);
         int doorHeightRatio = (int) ((Math.ceil(doorHeightDouble) - 84) * 2);
