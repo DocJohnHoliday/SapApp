@@ -15,7 +15,7 @@ public class Hardware {
         int doorHeightRatio = (int) ((Math.ceil(doorHeightDouble) - 84) * 2);
 
         if (!panic) {
-            gc.setFill(Color.WHITE);
+            gc.setFill(Color.rgb(173, 172, 172));
             if (hand.equals("Left")) {
                 gc.fillOval(startX - recHeight + 1, startX + recWidth + doorHeightRatio + recHeight + 15 + 100, 20, 20);
                 gc.setStroke(Color.BLACK);
@@ -25,7 +25,7 @@ public class Hardware {
             }
         } else {
             /////////////////////////////////RIM Cylinders
-            gc.setFill(Color.WHITE);
+            gc.setFill(Color.rgb(173, 172, 172));
             if (hand.equals("Left")) {
                 gc.fillOval(startX - recHeight + 1, startX + recWidth + doorHeightRatio + recHeight + 15 + 100 - 75, 20, 20);
                 gc.setStroke(Color.BLACK);

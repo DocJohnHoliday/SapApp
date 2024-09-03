@@ -18,51 +18,53 @@ public class Glass {
         //Door glass
         String doorWidth = fTD.convertDecimalToFraction(doorWidthDouble - 0.5 + 0.0625);
         String doorHeight = fTD.convertDecimalToFraction(doorHeightDouble - 6.75 + 0.125);
-        String glassSize;
-        glassSize = glass + "   " + doorWidth + " x " + doorHeight;
-        String standardGlass = "Std 4\" BR Glass";
+        String glassSize = glass + "  (Qty " + quantity + ") " + doorWidth + " x " + doorHeight;
 
-        if (glassSize.equals("3/16 Clr  31-1/8 x 76-5/8")) {
-            gc.setFill(Color.BLACK);
-            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-            gc.fillText(standardGlass, 2500, 2075);
-        } else {
-            gc.setFill(Color.BLACK);
-            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-            gc.fillText(glassSize, 2500, 2075);
-        }
+        gc.setFill(Color.BLACK);
+        gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+        gc.fillText(glassSize, 2500, 2075);
     }
 
-    public void doorGlass5mm10BR(double doorWidthDouble, double doorHeightDouble, GraphicsContext gc) {
+    public void doorGlass5mm7BR(double doorWidthDouble, double doorHeightDouble, String glass, int quantity, GraphicsContext gc) {
+        //Door glass
+        String doorWidth = fTD.convertDecimalToFraction(doorWidthDouble - 0.5 + 0.0625);
+        String doorHeight = fTD.convertDecimalToFraction(doorHeightDouble - 10.25 + 0.125);
+        String glassSize = glass + "  (Qty " + quantity + ") " + doorWidth + " x " + doorHeight;
+
+        gc.setFill(Color.BLACK);
+        gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+        gc.fillText(glassSize, 2500, 2075);
+    }
+
+    public void doorGlassIG7BR(double doorWidthDouble, double doorHeightDouble, String glass, int quantity, GraphicsContext gc) {
+        //Door glass
+        String doorWidth = fTD.convertDecimalToFraction(doorWidthDouble - 0.5 + 0.0625);
+        String doorHeight = fTD.convertDecimalToFraction(doorHeightDouble - 10.25);
+        String glassSize = glass + "  (Qty " + quantity + ") " + doorWidth + " x " + doorHeight;
+
+        gc.setFill(Color.BLACK);
+        gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+        gc.fillText(glassSize, 2500, 2075);
+    }
+
+    public void doorGlass5mm10BR(double doorWidthDouble, double doorHeightDouble, String glass, int quantity, GraphicsContext gc) {
         //Door glass
         String doorWidth = fTD.convertDecimalToFraction(doorWidthDouble - 0.5 + 0.0625);
         String doorHeight = fTD.convertDecimalToFraction(doorHeightDouble - 12.25 + 0.125);
-        String glassSize = doorWidth + " x " + doorHeight;
-        String stdTenGlass = "Std 10\" BR Glass";
+        String glassSize = glass + "  (Qty " + quantity + ") " + doorWidth + " x " + doorHeight;
 
-        if (glassSize.equals("3/16 Clr  31-1/8 x 71-1/8")) {
-            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-            gc.fillText(stdTenGlass, 2500, 2075);
-        } else {
-            gc.setFont(Font.font("default", FontWeight.BOLD, 40));
-            gc.fillText(glassSize, 2500, 2075);
-        }
+        gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+        gc.fillText(glassSize, 2500, 2075);
     }
 
-    public void doorGlassIG10BR(double doorWidthDouble, double doorHeightDouble, GraphicsContext gc) {
+    public void doorGlassIG10BR(double doorWidthDouble, double doorHeightDouble, String glass, int quantity, GraphicsContext gc) {
         //Door glass
         String doorWidth = fTD.convertDecimalToFraction(doorWidthDouble - 0.5);
         String doorHeight = fTD.convertDecimalToFraction(doorHeightDouble - 12.25);
-        String glassSize = doorWidth + " x " + doorHeight;
-        String stdTenGlass = "IG 10\" BR Glass";
+        String glassSize = glass + "  (Qty " + quantity + ") " + doorWidth + " x " + doorHeight;
 
-        if (glassSize.equals("31-1/16 x 71")) {
-            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(stdTenGlass, 2500, 2075);
-        } else {
-            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(glassSize, 2500, 2075);
-        }
+        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+        gc.fillText(glassSize, 2500, 2075);
     }
 
     public void windowGlassIG(double windowWidthDouble, double windowHeightDouble, int quantity, String glass, int panels, GraphicsContext gc) {
@@ -128,7 +130,8 @@ public class Glass {
     }
 
     public void noGlass(GraphicsContext gc) {
+        gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText("\"No Glass\"", 2500, 2100);
+        gc.fillText("No Glass", 2500, 2100);
     }
 }

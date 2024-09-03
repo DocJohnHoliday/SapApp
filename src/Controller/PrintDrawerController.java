@@ -167,6 +167,7 @@ public class PrintDrawerController implements Initializable {
         hardware.getItems().add("Lever Latch");
         hardware.getItems().add("Electric Strike Surface Mount");
         hardware.getItems().add("Electric Strike Integrated");
+        hardware.getItems().add("Special Hardware");
         hardware.setValue("Deadbolt");
 
         secondHardware.getItems().add("No Hardware");
@@ -575,7 +576,6 @@ public class PrintDrawerController implements Initializable {
         GraphicsContext gc = previewCanvas.getGraphicsContext2D();
         gc.clearRect(0, 0, previewCanvas.getWidth(), previewCanvas.getHeight());
 
-
         FractionsAndDecimals fTD = new FractionsAndDecimals();
 
         String windowWidthString = windowWidth.getText();
@@ -586,7 +586,6 @@ public class PrintDrawerController implements Initializable {
         int quantity = Integer.parseInt(windowQuantity.getValue());
         String type = windowGlass.getValue();
 
-//        try {
         double windowWidthDouble = fTD.fractionToDecimal(windowWidth.getText());
         double windowHeightDouble = fTD.fractionToDecimal(windowHeight.getText());
 
@@ -622,80 +621,13 @@ public class PrintDrawerController implements Initializable {
         gc.setFont(Font.font("default", FontWeight.BOLD, 40));
         gc.fillText(fTD.convertDecimalToFraction(windowWidthDouble) + " x " + fTD.convertDecimalToFraction(windowHeightDouble), 2600, 1475);
 
-        //Width > 36 and height >= 84
-        if (windowColor.getValue().equals("Bronze") || windowColor.getValue().equals("PC Black") &&
-                windowWidthDouble >= 36 &&
-                windowHeightDouble >= 84
-        ) {
-            //Horizontals
-            windows.railsGreaterThanOrEqual36(windowWidthDouble, windowHeightDouble, windowWidthString, quantity, type, panels, gc);
-            //Verticals
-            windows.greaterThanOrEqual84(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
 
-            //Width less than 36 and height less than 84
-        } else if (windowColor.getValue().equals("Bronze") || windowColor.getValue().equals("PC Black") &&
-                windowWidthDouble < 36 &&
-                windowHeightDouble < 84) {
-            //Horizontals
-            windows.railsLessThan36(windowWidthDouble, windowHeightDouble, windowWidthString, quantity, type, panels, gc);
-            //Verticals
-            windows.lessThan84(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
-
-            //Width less than 36 and height greater or equal to 84
-        } else if (windowColor.getValue().equals("Bronze") || windowColor.getValue().equals("PC Black") &&
-                windowWidthDouble < 36 &&
-                windowHeightDouble >= 84) {
-            //Horizontals
-            windows.railsLessThan36StilesGreaterThan84(windowWidthDouble, windowHeightDouble, windowWidthString, quantity, type, panels, gc);
-            //Verticals
-            windows.greaterThanOrEqual84RailsLessThan36(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
-
-            //Width greater or equal 36 and height less than 84
-        } else if (windowColor.getValue().equals("Bronze") || windowColor.getValue().equals("PC Black") &&
-                windowWidthDouble >= 36 &&
-                windowHeightDouble < 84) {
-            //Horizontals
-            windows.railsGreaterThanOrEqual36StilesLessThan84(windowWidthDouble, windowHeightDouble, windowWidthString, quantity, type, panels, gc);
-            //Verticals
-            windows.lessThan84RailGreaterThan36(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
-
-            //Width less than 36 and height less than 84
-        } else if (windowColor.getValue().equals("Clear") || windowColor.getValue().equals("PC White") &&
-                windowWidthDouble < 36 &&
-                windowHeightDouble < 84) {
-            //Horizontals
-            windows.railsLessThan36Clear(windowWidthDouble, windowHeightDouble, windowWidthString, quantity, type, panels, gc);
-            //Verticals
-            windows.lessThan84Clear(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
-
-        } else if (windowColor.getValue().equals("Clear") || windowColor.getValue().equals("PC White") &&
-                windowWidthDouble >= 36 &&
-                windowHeightDouble >= 84) {
-            //Horizontals
-            windows.railsLessThanOrEqual36Clear(windowWidthDouble, windowHeightDouble, windowWidthString, quantity, type, panels, gc);
-            //Verticals
-            windows.lessThanOrEqual84Clear(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
-
-        } else if (windowColor.getValue().equals("Clear") || windowColor.getValue().equals("PC White") &&
-                windowWidthDouble >= 36 &&
-                windowHeightDouble < 84) {
-            //Horizontals
-            windows.railsGreaterThanOrEqual36Clear(windowWidthDouble, windowHeightDouble, windowWidthString, quantity, type, panels, gc);
-            //Verticals
-            windows.lessThan84RailGreaterThan36Clear(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
-
-        } else if (windowColor.getValue().equals("Clear") || windowColor.getValue().equals("PC White") &&
-                windowWidthDouble < 36 &&
-                windowHeightDouble >= 84) {
-            //Horizontals
-            windows.railsLessThan36ClearStileGreaterThanOrEqual84(windowWidthDouble, windowHeightDouble, windowWidthString, quantity, type, panels, gc);
-            //Verticals
-            windows.greaterThanOrEqual84Clear(windowWidthDouble, windowHeightDouble, windowHeightString, panels, gc);
-
+        if (color.equals("Bronze") || color.equals("Black")) {
+            windows.windowsBronze(windowWidthDouble, windowHeightDouble, windowWidthString, windowHeightString, panels,
+                    quantity, type, gc);
+        } else {
+            windows.windowsClear(windowWidthDouble, windowHeightDouble, windowWidthString, windowHeightString, panels, quantity, type, gc);
         }
-//        } catch (NumberFormatException e) {
-//            Drawing_Warning.stringEmptyEntered();
-//        }
     }
 
     public void clearWindow(ActionEvent actionEvent) {
@@ -852,14 +784,35 @@ public class PrintDrawerController implements Initializable {
             String leverLatch = "Lever Latch";
             String eSSurfaceMount = "Electric Strike Surface Mount";
             String eSIntegrated = "Electric Strike Integrated";
+            String stile = stileSize.getValue();
 
-            stiles.narrowSingleStile(doorWidthDouble, doorHeightDouble, doorHeightString, doorColor, gc);
-            rails.narrowSingleRails(doorWidthDouble, doorHeightDouble, doorWidthString, doorColor, bottomRailSize,  gc);
-            handles.narrowSingleHandles(doorWidthDouble, doorHeightDouble, doorHand, pullHandle, hasPanic, hasPush, gc);
-            hw.narrowSingleCylinders(doorWidthDouble, doorHeightDouble, doorHand, hasPanic, gc);
-            hingeType.narrowHinging(doorWidthDouble, doorHeightDouble, doorHand, singleHinging, gc);
-            jambs.jambs(doorWidthDouble, doorHeightDouble, frameHeightString, slAnswer, doorColor, gc);
-            hAT.headersAndThresholds(doorWidthDouble, doorHeightDouble, frameWidthString, doorColor, gc);
+            switch (stile) {
+                case "Narrow":
+                    stiles.narrowSingleStile(doorWidthDouble, doorHeightDouble, doorHeightString, doorColor, gc);
+                    rails.narrowSingleRails(doorWidthDouble, doorHeightDouble, doorWidthString, doorColor, bottomRailSize, type, qty, gc);
+                    handles.narrowSingleHandles(doorWidthDouble, doorHeightDouble, doorHand, pullHandle, hasPanic, hasPush, gc);
+                    hw.narrowSingleCylinders(doorWidthDouble, doorHeightDouble, doorHand, hasPanic, gc);
+                    hingeType.narrowHinging(doorWidthDouble, doorHeightDouble, doorHand, singleHinging, gc);
+                    jambs.jambs(doorWidthDouble, doorHeightDouble, frameHeightString, slAnswer, doorColor, gc);
+                    hAT.headersAndThresholds(doorWidthDouble, doorHeightDouble, frameWidthString, doorColor, gc);
+                    break;
+                case "Medium":
+                    if (bottomRailSize.equals("4"))
+                        Drawing_Warning.mediumStileBottom();
+                    stiles.mediumSingleStile(doorWidthDouble, doorHeightDouble, doorHeightString, doorColor, gc);
+                    rails.mediumSingleRails(doorWidthDouble, doorHeightDouble, doorWidthString, doorColor, bottomRailSize, type, qty, gc);
+                    hingeType.narrowHinging(doorWidthDouble, doorHeightDouble, doorHand, singleHinging, gc);
+                    jambs.jambs(doorWidthDouble, doorHeightDouble, frameHeightString, slAnswer, doorColor, gc);
+                    hAT.headersAndThresholds(doorWidthDouble, doorHeightDouble, frameWidthString, doorColor, gc);
+                    break;
+                case "Wide":
+                    stiles.wideSingleStile(doorWidthDouble, doorHeightDouble, doorHeightString, doorColor, gc);
+                    rails.wideSingleRails(doorWidthDouble, doorHeightDouble, doorWidthString, doorColor, bottomRailSize, type, qty, gc);
+                    hingeType.narrowHinging(doorWidthDouble, doorHeightDouble, doorHand, singleHinging, gc);
+                    jambs.jambs(doorWidthDouble, doorHeightDouble, frameHeightString, slAnswer, doorColor, gc);
+                    hAT.headersAndThresholds(doorWidthDouble, doorHeightDouble, frameWidthString, doorColor, gc);
+                    break;
+            }
 
             //Hardware Label
             gc.setFill(Color.BLACK);
@@ -1007,81 +960,12 @@ public class PrintDrawerController implements Initializable {
                 Drawing_Warning.singleOpeningNotEntered();
                 break;
         }
-
-        //Width > 36 and height >= 84
-        if (slColor.equals("Bronze") &&
-                slFrameWidthDouble >= 36 &&
-                slFrameHeightDouble >= 84
-        ) {
-            //Horizontals
-            sideLightsRight.railsGreaterThanOrEqual36(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, panels, gc);
-            sideLightLeft.railsGreaterThanOrEqual36(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, panels, gc);
-            //Verticals
-            sideLightsRight.stilesGreaterThanOrEqual84(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, panels, gc);
-            sideLightLeft.stilesGreaterThanOrEqual84(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, panels, gc);
-
-            //Width less than 36 and height less than 84
-        } else if (slColor.equals("Bronze") &&
-                slFrameWidthDouble < 36 &&
-                slFrameHeightDouble < 84) {
-            //Horizontals
-            sideLightsRight.railsLessThan36(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, gc);
-            sideLightLeft.railsLessThan36(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, gc);
-            //Verticals
-            sideLightsRight.stilesLessThan84(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, panels, gc);
-            sideLightLeft.stilesLessThan84(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, panels, gc);
-
-            //Width less than 36 and height greater or equal to 84
-        } else if (slColor.equals("Bronze") &&
-                slFrameWidthDouble < 36 &&
-                slFrameHeightDouble >= 84) {
-            //Horizontals
-            sideLightsRight.railsLessThan36StilesGreaterThan84(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, gc);
-            //Verticals
-            sideLightsRight.stilesGreaterThanOrEqual84RailsLessThan36(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, panels, gc);
-
-            //Width greater or equal 36 and height less than 84
-        } else if (slColor.equals("Bronze") &&
-                slFrameWidthDouble >= 36 &&
-                slFrameHeightDouble < 84) {
-            //Horizontals
-            sideLightsRight.railsGreaterThanOrEqual36StilesLessThan84(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, gc);
-            //Verticals
-            sideLightsRight.stilesLessThan84RailGreaterThan36(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, panels, gc);
-
-            //Width less than 36 and height less than 84
-        } else if (slColor.equals("Clear") &&
-                slFrameWidthDouble < 36 &&
-                slFrameHeightDouble < 84) {
-            //Horizontals
-            sideLightsRight.railsLessThan36Clear(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, gc);
-            //Verticals
-            sideLightsRight.stilesLessThan84Clear(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, gc);
-
-        } else if (slColor.equals("Clear") &&
-                slFrameWidthDouble >= 36 &&
-                slFrameHeightDouble >= 84) {
-            //Horizontals
-            sideLightsRight.railsLessThanOrEqual36Clear(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, gc);
-            //Verticals
-            sideLightsRight.stilesLessThanOrEqual84Clear(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, gc);
-
-        } else if (slColor.equals("Clear") &&
-                slFrameWidthDouble >= 36 &&
-                slFrameHeightDouble < 84) {
-            //Horizontals
-            sideLightsRight.railsGreaterThanOrEqual36Clear(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, gc);
-            //Verticals
-            sideLightsRight.stilesLessThan84RailGreaterThan36Clear(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, gc);
-
-        } else if (slColor.equals("Clear") &&
-                slFrameWidthDouble < 36 &&
-                slFrameHeightDouble >= 84) {
-            //Horizontals
-            sideLightsRight.railsLessThan36ClearStileGreaterThanOrEqual84(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, gc);
-            //Verticals
-            sideLightsRight.stilesGreaterThanOrEqual84Clear(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, gc);
-
+        if (slColor.equals("Bronze") || slColor.equals("Black")) {
+            sideLightLeft.bronzeSideLightVerticalLeft(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, panels, gc);
+            sideLightLeft.bronzeSideLightHorizontalsLeft(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, panels, gc);
+        } else {
+            sideLightLeft.clearSideLightVerticalLeft(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, panels, gc);
+            sideLightLeft.clearSideLightHorizontalsLeft(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, panels, gc);
         }
     }
 

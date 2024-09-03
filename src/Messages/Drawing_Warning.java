@@ -41,6 +41,15 @@ public class Drawing_Warning {
         });
     }
 
+    public static void mediumStileBottom() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Warning");
+        alert.setContentText("A medium stile door should have 7 1/2\" Bottom Rail.");
+        alert.showAndWait().ifPresent((btnType) -> {
+            clearDialogOptionSelections();
+        });
+    }
+
     private static void clearDialogOptionSelections() {
     }
 }

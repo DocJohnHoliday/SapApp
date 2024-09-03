@@ -5,7 +5,6 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public class HingeType {
-
     int startX = 1450; //Start in X axis
     int recWidth = 350; //Rectangle Width
     int recHeight = 24; //Rectangle Height
