@@ -59,6 +59,7 @@ public class FractionsAndDecimals {
                     decimalFraction = "3125";
                     break;
                 case "17":
+                case "15":
                     decimalFraction = "125";
                     break;
                 case "83":
@@ -77,7 +78,11 @@ public class FractionsAndDecimals {
                     decimalFraction = "4375";
                     break;
                 case "19":
+                case "18":
                     decimalFraction = "1875";
+                    break;
+                case "65":
+                    decimalFraction = "5625";
                     break;
             }
 
@@ -121,19 +126,5 @@ public class FractionsAndDecimals {
                 return i;
         }
         return 1;
-    }
-
-    public Double rOWidthToRailWidth(String roughOpeningWidth) {
-
-        double roughOpeningWidthDouble = Double.parseDouble(roughOpeningWidth);
-
-        return roughOpeningWidthDouble - 8.4375;
-    }
-
-    public Double rOHeightToRailHeight(String roughOpeningHeight) {
-
-        double roughOpeningHeightDouble = Double.parseDouble(roughOpeningHeight);
-
-        return roughOpeningHeightDouble - 2.75;
     }
 }

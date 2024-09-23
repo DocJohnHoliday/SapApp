@@ -35,4 +35,28 @@ public class HeaderAndThreshold {
             gc.strokeRect(startX, startY, recWidth + doorWidthRatio, recHeight);
         }
     }
+
+    public void pairHeadersAndThresholds(double doorWidthDouble, double doorHeightDouble, String doorWidthString, String color, GraphicsContext gc) {
+        int doorWidthRatio = (int) ((Math.ceil(doorWidthDouble) - 40) * 2);
+        int doorHeightRatio = (int) ((Math.ceil(doorHeightDouble) - 84) * 2);
+
+        //Header Text
+        gc.setFill(Color.BLACK);
+        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+        gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) + 200, startY + (2 * recHeight) + 35);
+        gc.fillText("Frame", (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 30 + 200, startY + (2 * recHeight) + 35 + 55);
+        //Threshold
+        gc.setFill(Color.rgb(173, 172, 172));
+        gc.fillRect(startX - 1, startY + recWidth + doorHeightRatio + 350 + 15, recWidth + doorWidthRatio + 401, recHeight - 3);
+        gc.setStroke(Color.BLACK);
+
+        if (color.equals("Bronze") || color.equals("Black")) {
+            //Header
+            gc.setFill(Color.rgb(95, 87, 87));
+            gc.fillRect(startX, startY, recWidth + doorWidthRatio + 400, recHeight);
+        } else {
+            //Header
+            gc.strokeRect(startX, startY, recWidth + doorWidthRatio + 400, recHeight);
+        }
+    }
 }

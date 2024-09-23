@@ -9,7 +9,7 @@ public class HingeType {
     int recWidth = 350; //Rectangle Width
     int recHeight = 24; //Rectangle Height
 
-    public void narrowHinging(double doorWidthDouble, double doorHeightDouble, String hand, String hingingType, GraphicsContext gc) {
+    public void narrowSingleHinging(double doorWidthDouble, double doorHeightDouble, String hand, String hingingType, GraphicsContext gc) {
 
         int doorWidthRatio = (int) ((Math.ceil(doorWidthDouble) - 40) * 2);
         int doorHeightRatio = (int) ((Math.ceil(doorHeightDouble) - 84) * 2);
@@ -61,6 +61,160 @@ public class HingeType {
                     gc.fillRect(startX - recHeight + 1, startX + recWidth + doorHeightRatio + recHeight + 145 + 205, 14, 20);
                     gc.setFill(Color.rgb(173, 172, 172));
                     gc.fillRect(startX - recHeight + 1, startX + recWidth + doorHeightRatio + recHeight + 145 + 205, 12, 18);
+                    break;
+                case "Butt Hinge":
+                    //Top Pivot RH
+                    gc.setFill(Color.WHITE);
+                    gc.fillRect(startX - recHeight + 1, startX + 50, 20, 40);
+                    gc.setFill(Color.rgb(173, 172, 172));
+                    gc.fillRect(startX - recHeight + 1, startX + 50, 18, 38);
+
+                    //Bottom Pivot RH
+                    gc.setFill(Color.WHITE);
+                    gc.fillRect(startX - recHeight + 1, startX + recWidth + doorHeightRatio + recHeight + 145 + 205 - 50, 20, 40);
+                    gc.setFill(Color.rgb(173, 172, 172));
+                    gc.fillRect(startX - recHeight + 1, startX + recWidth + doorHeightRatio + recHeight + 145 + 205 - 50, 18, 38);
+                    break;
+                case "Continuous Hinge":
+                    gc.setFill(Color.WHITE);
+                    gc.fillRect(startX - recHeight + 1, startX, 14, 739 + doorHeightRatio);
+                    gc.setFill(Color.rgb(173, 172, 172));
+                    gc.fillRect(startX - recHeight + 1, startX, 12, 739 + doorHeightRatio);
+                    break;
+            }
+        }
+    }
+
+    public void wideHinging(double doorWidthDouble, double doorHeightDouble, String hand, String hingingType, GraphicsContext gc) {
+
+        int doorWidthRatio = (int) ((Math.ceil(doorWidthDouble) - 40) * 2);
+        int doorHeightRatio = (int) ((Math.ceil(doorHeightDouble) - 84) * 2);
+
+        if (hand.equals("Left")) {
+            switch (hingingType) {
+                case "Pivots":
+                    //Top Pivot LH
+                    gc.setFill(Color.WHITE);
+                    gc.fillRect(startX + 58 + recWidth + doorWidthRatio, startX, 14, 20);
+                    gc.setFill(Color.rgb(173, 172, 172));
+                    gc.fillRect(startX + 58 + recWidth + doorWidthRatio, startX, 12, 18);
+                    //Bottom Pivot LH
+                    gc.setFill(Color.WHITE);
+                    gc.fillRect(startX + 58 + recWidth + doorWidthRatio, startX + recWidth + doorHeightRatio + recHeight + 145 + 205, 14, 20);
+                    gc.setFill(Color.rgb(173, 172, 172));
+                    gc.fillRect(startX + 58 + recWidth + doorWidthRatio, startX + recWidth + doorHeightRatio + recHeight + 145 + 205, 12, 18);
+                    break;
+                case "Butt Hinge":
+                    //Top Butt Hinge
+                    gc.setFill(Color.WHITE);
+                    gc.fillRect(startX + 58 + recWidth + doorWidthRatio, startX + 50, 20, 40);
+                    gc.setFill(Color.rgb(173, 172, 172));
+                    gc.fillRect(startX + 58 + recWidth + doorWidthRatio, startX + 50, 18, 38);
+                    //Bottom Butt Hinge
+                    gc.setFill(Color.WHITE);
+                    gc.fillRect(startX + 58 + recWidth + doorWidthRatio, startX + recWidth + doorHeightRatio + recHeight + 145 + 205 - 50, 20, 40);
+                    gc.setFill(Color.rgb(173, 172, 172));
+                    gc.fillRect(startX + 58 + recWidth + doorWidthRatio, startX + recWidth + doorHeightRatio + recHeight + 145 + 205 - 50, 18, 38);
+                    break;
+                case "Continuous Hinge":
+                    gc.setFill(Color.WHITE);
+                    gc.fillRect(startX + 58 + recWidth + doorWidthRatio, startX, 14, 739 + doorHeightRatio);
+                    gc.setFill(Color.rgb(173, 172, 172));
+                    gc.fillRect(startX + 58 + recWidth + doorWidthRatio, startX, 12, 739 + doorHeightRatio);
+                    break;
+            }
+        } else if (hand.equals("Right")) {
+            switch (hingingType) {
+                case "Pivots":
+                    //Top Pivot RH
+                    gc.setFill(Color.WHITE);
+                    gc.fillRect(startX - recHeight + 1, startX, 14, 20);
+                    gc.setFill(Color.rgb(173, 172, 172));
+                    gc.fillRect(startX - recHeight + 1, startX, 12, 18);
+
+                    //Bottom Pivot RH
+                    gc.setFill(Color.WHITE);
+                    gc.fillRect(startX - recHeight + 1, startX + recWidth + doorHeightRatio + recHeight + 145 + 205, 14, 20);
+                    gc.setFill(Color.rgb(173, 172, 172));
+                    gc.fillRect(startX - recHeight + 1, startX + recWidth + doorHeightRatio + recHeight + 145 + 205, 12, 18);
+                    break;
+                case "Butt Hinge":
+                    //Top Pivot RH
+                    gc.setFill(Color.WHITE);
+                    gc.fillRect(startX - recHeight + 1, startX + 50, 20, 40);
+                    gc.setFill(Color.rgb(173, 172, 172));
+                    gc.fillRect(startX - recHeight + 1, startX + 50, 18, 38);
+
+                    //Bottom Pivot RH
+                    gc.setFill(Color.WHITE);
+                    gc.fillRect(startX - recHeight + 1, startX + recWidth + doorHeightRatio + recHeight + 145 + 205 - 50, 20, 40);
+                    gc.setFill(Color.rgb(173, 172, 172));
+                    gc.fillRect(startX - recHeight + 1, startX + recWidth + doorHeightRatio + recHeight + 145 + 205 - 50, 18, 38);
+                    break;
+                case "Continuous Hinge":
+                    gc.setFill(Color.WHITE);
+                    gc.fillRect(startX - recHeight + 1, startX, 14, 739 + doorHeightRatio);
+                    gc.setFill(Color.rgb(173, 172, 172));
+                    gc.fillRect(startX - recHeight + 1, startX, 12, 739 + doorHeightRatio);
+                    break;
+            }
+        }
+    }
+
+    public void narrowPairHinging(double doorWidthDouble, double doorHeightDouble, String hand, String hingingType, GraphicsContext gc) {
+
+        int doorWidthRatio = (int) ((Math.ceil(doorWidthDouble) - 40) * 2);
+        int doorHeightRatio = (int) ((Math.ceil(doorHeightDouble) - 84) * 2);
+
+        int activeRightStile = ((1450 + 2) + (350 + doorWidthRatio - 4) + 56) + 350 + doorWidthRatio - 1;
+
+        if (hand.equals("Left")) {
+            switch (hingingType) {
+                case "Pivots":
+                    //Top Pivot LH
+                    gc.setFill(Color.WHITE);
+                    gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startX, 14, 20);
+                    gc.setFill(Color.rgb(173, 172, 172));
+                    gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startX, 12, 18);
+                    //Bottom Pivot LH
+                    gc.setFill(Color.WHITE);
+                    gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startX + recWidth + doorHeightRatio + recHeight + 145 + 205, 14, 20);
+                    gc.setFill(Color.rgb(173, 172, 172));
+                    gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startX + recWidth + doorHeightRatio + recHeight + 145 + 205, 12, 18);
+                    break;
+                case "Butt Hinge":
+                    //Top Butt Hinge
+                    gc.setFill(Color.WHITE);
+                    gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startX + 50, 20, 40);
+                    gc.setFill(Color.rgb(173, 172, 172));
+                    gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startX + 50, 18, 38);
+                    //Bottom Butt Hinge
+                    gc.setFill(Color.WHITE);
+                    gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startX + recWidth + doorHeightRatio + recHeight + 145 + 205 - 50, 20, 40);
+                    gc.setFill(Color.rgb(173, 172, 172));
+                    gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startX + recWidth + doorHeightRatio + recHeight + 145 + 205 - 50, 18, 38);
+                    break;
+                case "Continuous Hinge":
+                    gc.setFill(Color.WHITE);
+                    gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startX, 14, 739 + doorHeightRatio);
+                    gc.setFill(Color.rgb(173, 172, 172));
+                    gc.fillRect(startX + 5 + recWidth + doorWidthRatio, startX, 12, 739 + doorHeightRatio);
+                    break;
+            }
+        } else if (hand.equals("Right")) {
+            switch (hingingType) {
+                case "Pivots":
+                    //Top Pivot RH
+                    gc.setFill(Color.WHITE);
+                    gc.fillRect(activeRightStile + 10, startX, 14, 20);
+                    gc.setFill(Color.rgb(173, 172, 172));
+                    gc.fillRect(activeRightStile + 10, startX, 12, 18);
+
+                    //Bottom Pivot RH
+                    gc.setFill(Color.WHITE);
+                    gc.fillRect(activeRightStile + 10, startX + recWidth + doorHeightRatio + recHeight + 145 + 205, 14, 20);
+                    gc.setFill(Color.rgb(173, 172, 172));
+                    gc.fillRect(activeRightStile + 10, startX + recWidth + doorHeightRatio + recHeight + 145 + 205, 12, 18);
                     break;
                 case "Butt Hinge":
                     //Top Pivot RH

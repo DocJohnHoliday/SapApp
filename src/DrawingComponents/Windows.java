@@ -33,6 +33,27 @@ public class Windows {
         gc.setFill(Color.rgb(95, 87, 87));
         gc.fillRect(1450 + 3 + 350 + doorWidthRatio, 500, 12, 350 + doorHeightRatio + 12 + 15 + 350);
 
+        if(panels != 1) {
+            //Overall Text
+            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+            gc.fillText(doorWidthString, (1450 - 12) + ((double) (350 + doorWidthRatio) / 2), 500);
+        }
+        //Horizontal Text
+        gc.setFont(Font.font("default", FontWeight.BOLD, 45));
+        gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 2.5))), 1460, 550);
+        //Top 125
+        gc.setFill(Color.rgb(95, 87, 87));
+        gc.setStroke(Color.WHITE);
+        gc.fillRect(1451, 500, 350 + doorWidthRatio - 1, 12);
+        gc.strokeRect(1450, 500, 350 + doorWidthRatio + 2, 12);
+        gc.setStroke(Color.BLACK);
+        //Bottom 125
+        gc.setFill(Color.rgb(95, 87, 87));
+        gc.setStroke(Color.WHITE);
+        gc.fillRect(1450 + 1, 500 + 350 + doorHeightRatio + 350 + 15, 350 + doorWidthRatio + 1, 12);
+        gc.strokeRect(1450, 500 + 350 + doorHeightRatio + 350 + 15, 350 + doorWidthRatio + 3, 12);
+        gc.setStroke(Color.BLACK);
+
         if (panels == 2) {
             //White Rectangle
             gc.setFill(Color.WHITE);
@@ -82,21 +103,6 @@ public class Windows {
             gc.setFont(Font.font("default", FontWeight.BOLD, 45));
             gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 6.25) / 4)), 1460, 550);
         }
-        //Overall Text
-        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorWidthString, (1450 - 12) + ((double) (350 + doorWidthRatio) / 2), 500);
-        //Top 125
-        gc.setFill(Color.rgb(95, 87, 87));
-        gc.setStroke(Color.WHITE);
-        gc.fillRect(1451, 500, 350 + doorWidthRatio - 1, 12);
-        gc.strokeRect(1450, 500, 350 + doorWidthRatio + 2, 12);
-        gc.setStroke(Color.BLACK);
-        //Bottom 125
-        gc.setFill(Color.rgb(95, 87, 87));
-        gc.setStroke(Color.WHITE);
-        gc.fillRect(1450 + 1, 500 + 350 + doorHeightRatio + 350 + 15, 350 + doorWidthRatio + 1, 12);
-        gc.strokeRect(1450, 500 + 350 + doorHeightRatio + 350 + 15, 350 + doorWidthRatio + 3, 12);
-        gc.setStroke(Color.BLACK);
     }
 
     /////////////////////////////////////Clear

@@ -35,4 +35,31 @@ public class Hardware {
             }
         }
     }
+
+    public void narrowPairCylinders(double doorWidthDouble, double doorHeightDouble, String hand, boolean panic, GraphicsContext gc) {
+
+        int doorWidthRatio = (int) ((Math.ceil(doorWidthDouble) - 40) * 2);
+        int doorHeightRatio = (int) ((Math.ceil(doorHeightDouble) - 84) * 2);
+
+        if (!panic) {
+            gc.setFill(Color.rgb(173, 172, 172));
+            if (hand.equals("Left")) {
+                gc.fillOval(startX - recHeight + 1, startX + recWidth + doorHeightRatio + recHeight + 15 + 100, 20, 20);
+                gc.setStroke(Color.BLACK);
+            } else if (hand.equals("Right")) {
+                gc.fillOval(startX + recWidth + doorWidthRatio + 31, startX + recWidth + doorHeightRatio + recHeight + 15 + 100, 20, 20);
+                gc.setStroke(Color.BLACK);
+            }
+        } else {
+            /////////////////////////////////RIM Cylinders
+            gc.setFill(Color.rgb(173, 172, 172));
+            if (hand.equals("Left")) {
+                gc.fillOval(startX - recHeight + 1, startX + recWidth + doorHeightRatio + recHeight + 15 + 100 - 75, 20, 20);
+                gc.setStroke(Color.BLACK);
+            } else if (hand.equals("Right")) {
+                gc.fillOval(startX + recWidth + doorWidthRatio + 31, startX + recWidth + doorHeightRatio + recHeight + 15 + 100 - 75, 20, 20);
+                gc.setStroke(Color.BLACK);
+            }
+        }
+    }
 }
