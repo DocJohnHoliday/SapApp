@@ -310,7 +310,7 @@
                                        <children>
                                           <VBox alignment="TOP_CENTER" prefHeight="875.0" prefWidth="235.0" spacing="5.0">
                                              <children>
-                                                <AnchorPane prefHeight="177.0" prefWidth="452.0" style="-fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #8ac7db;">
+                                                <AnchorPane prefHeight="241.0" prefWidth="409.0" style="-fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #8ac7db;">
                                                    <children>
                                                       <Label layoutX="156.0" layoutY="8.0" prefHeight="27.0" prefWidth="114.0" text="Dimensions">
                                                          <font>
@@ -339,6 +339,12 @@
                                                       <TextField fx:id="sideLightHeight" layoutX="224.0" layoutY="139.0" prefHeight="25.0" prefWidth="74.0" promptText="Height" />
                                                       <ChoiceBox fx:id="sideLightSelection" layoutX="13.0" layoutY="139.0" prefWidth="150.0" />
                                                       <TextField fx:id="sideLightWidth" layoutX="314.0" layoutY="139.0" prefHeight="25.0" prefWidth="74.0" promptText="Width" />
+                                                      <Label layoutX="20.0" layoutY="173.0" prefHeight="27.0" prefWidth="114.0" text="Pair or Single?">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <ChoiceBox fx:id="pairOrSingleQuestion" layoutX="13.0" layoutY="200.0" prefWidth="150.0" />
                                                    </children>
                                                    <padding>
                                                       <Insets bottom="15.0" />

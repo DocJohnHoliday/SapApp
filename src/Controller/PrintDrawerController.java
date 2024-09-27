@@ -104,6 +104,7 @@ public class PrintDrawerController implements Initializable {
     public ChoiceBox<String> sideLightSelection;
     public ChoiceBox<String> singleTransomQuestion;
     public ChoiceBox<String> pairTransomQuestion;
+    public ChoiceBox<String> pairOrSingleQuestion;
 
     Stiles stiles = new Stiles();
     Rails rails = new Rails();
@@ -114,12 +115,17 @@ public class PrintDrawerController implements Initializable {
     Handles handles = new Handles();
     HingeType hingeType = new HingeType();
     Windows windows = new Windows();
-    SideLightsRight sideLightsRight = new SideLightsRight();
+    SideLightsRight sideLightRight = new SideLightsRight();
     SideLightLeft sideLightLeft = new SideLightLeft();
     Transoms transoms = new Transoms();
 
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        //Side Light
+        pairOrSingleQuestion.getItems().add("Pair");
+        pairOrSingleQuestion.getItems().add("Single");
+        pairOrSingleQuestion.setValue("Single");
 
         //Single
         singleHeight.setText("86");
@@ -356,12 +362,12 @@ public class PrintDrawerController implements Initializable {
         }
         numOfPanelsSideLight.setValue(1);
 
-        for (int i = 1; i <= 10; i++) {
-            rightOfDoorSideLight.getItems().add(1);
+        for (int i = 0; i <= 10; i++) {
+            rightOfDoorSideLight.getItems().add(i);
         }
         rightOfDoorSideLight.setValue(1);
-        for (int i = 1; i <= 10; i++) {
-            leftOfDoorSideLight.getItems().add(1);
+        for (int i = 0; i <= 10; i++) {
+            leftOfDoorSideLight.getItems().add(i);
         }
         leftOfDoorSideLight.setValue(1);
 
@@ -435,8 +441,6 @@ public class PrintDrawerController implements Initializable {
 
             boolean yesSideLight;
             yesSideLight = pairSideLightQuestion.getValue().equals("Yes");
-
-            String slAnswer = pairSideLightQuestion.getValue();
 
             boolean yesTransom;
             yesTransom = pairTransomQuestion.getValue().equals("Yes");
@@ -556,29 +560,29 @@ public class PrintDrawerController implements Initializable {
                     hw.narrowPairCylinders(pairDoorWidthDouble, pairDoorHeightDouble, doorHand, hasPanic, gc);
                     hingeType.narrowSingleHinging(pairDoorWidthDouble, pairDoorHeightDouble, doorHand, hingingPair, gc);
                     hingeType.narrowPairHinging(pairDoorWidthDouble, pairDoorHeightDouble, doorHand, hingingPair, gc);
-                    jambs.pairJambs(pairDoorWidthDouble, pairDoorHeightDouble, pairFrameHeightString, slAnswer, doorColor, gc);
+                    jambs.pairJambs(pairDoorWidthDouble, pairDoorHeightDouble, pairFrameHeightString, yesSideLight, doorColor, gc);
                     hAT.pairHeadersAndThresholds(pairDoorWidthDouble, pairDoorHeightDouble, pairFrameWidthString, doorColor, gc);
                     if (yesTransom) {
                         transoms.pairTransom(transomWidthDouble, transomHeightDouble, pairDoorWidthDouble, pairDoorHeightDouble, transomWidthString, transomHeightString, doorColor, gc);
                     }
                     break;
                 case "Medium":
-                    if (bottomRailSize.equals("4"))
-                        Drawing_Warning.mediumStileBottom();
-                    stiles.mediumSingleStile(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorHeightString, doorColor, gc);
-                    rails.mediumSingleRails(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, doorColor, bottomRailSize, type, qty, gc);
-                    hingeType.narrowSingleHinging(pairDoorWidthDouble, pairDoorHeightDouble, doorHand, hingingPair, gc);
-                    jambs.jambs(pairDoorWidthDouble, pairDoorHeightDouble, pairFrameHeightString, slAnswer, doorColor, gc);
-                    hAT.headersAndThresholds(pairDoorWidthDouble, pairDoorHeightDouble, pairFrameWidthString, doorColor, gc);
+//                    if (bottomRailSize.equals("4"))
+//                        Drawing_Warning.mediumStileBottom();
+//                    stiles.mediumSingleStile(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorHeightString, doorColor, gc);
+//                    rails.mediumSingleRails(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, doorColor, bottomRailSize, type, qty, gc);
+//                    hingeType.narrowSingleHinging(pairDoorWidthDouble, pairDoorHeightDouble, doorHand, hingingPair, gc);
+//                    jambs.jambs(pairDoorWidthDouble, pairDoorHeightDouble, pairFrameHeightString, yesSideLight, doorColor, gc);
+//                    hAT.headersAndThresholds(pairDoorWidthDouble, pairDoorHeightDouble, pairFrameWidthString, doorColor, gc);
                     break;
                 case "Wide":
-                    pairDoorWidthDouble = pairDoorWidthDouble - 5.75;
-                    pairDoorWidthString = fTD.convertDecimalToFraction(pairDoorWidthDouble);
-                    stiles.wideSingleStile(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorHeightString, doorColor, gc);
-                    rails.wideSingleRails(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, doorColor, bottomRailSize, type, qty, gc);
-                    hingeType.wideHinging(pairDoorWidthDouble, pairDoorHeightDouble, doorHand, hingingPair, gc);
-                    jambs.jambs(pairDoorWidthDouble, pairDoorHeightDouble, pairFrameHeightString, slAnswer, doorColor, gc);
-                    hAT.headersAndThresholds(pairDoorWidthDouble, pairDoorHeightDouble, pairFrameWidthString, doorColor, gc);
+//                    pairDoorWidthDouble = pairDoorWidthDouble - 5.75;
+//                    pairDoorWidthString = fTD.convertDecimalToFraction(pairDoorWidthDouble);
+//                    stiles.wideSingleStile(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorHeightString, doorColor, gc);
+//                    rails.wideSingleRails(pairDoorWidthDouble, pairDoorHeightDouble, pairDoorWidthString, doorColor, bottomRailSize, type, qty, gc);
+//                    hingeType.wideHinging(pairDoorWidthDouble, pairDoorHeightDouble, doorHand, hingingPair, gc);
+//                    jambs.jambs(pairDoorWidthDouble, pairDoorHeightDouble, pairFrameHeightString, slAnswer, doorColor, gc);
+//                    hAT.headersAndThresholds(pairDoorWidthDouble, pairDoorHeightDouble, pairFrameWidthString, doorColor, gc);
                     break;
             }
 
@@ -1011,19 +1015,38 @@ public class PrintDrawerController implements Initializable {
     public void submitSideLight(ActionEvent actionEvent) {
         GraphicsContext gc = previewCanvas.getGraphicsContext2D();
         gc.clearRect(0, 0, previewCanvas.getWidth(), previewCanvas.getHeight());
-        submitSingle(actionEvent);
         FractionsAndDecimals fTD = new FractionsAndDecimals();
 
-        sideLightRoughHeight.clear();
-        sideLightRoughWidth.clear();
-        sideLightFrameHeight.clear();
-        sideLightFrameWidth.clear();
+        String singleOrPair = pairOrSingleQuestion.getValue();
 
-        String doorFrameWidthString = frameWidth.getText();
-        String doorFrameHeightString = frameHeight.getText();
+        String doorFrameWidthString;
+        String doorFrameHeightString;
 
-        double doorFrameWidth = fTD.fractionToDecimalWithDash(doorFrameWidthString);
-        double doorFrameHeight = fTD.fractionToDecimalWithDash(doorFrameHeightString);
+        double doorFrameWidth;
+        double doorFrameHeight;
+
+
+        if (singleOrPair.equals("Single")) {
+            doorFrameWidthString = frameWidth.getText();
+            doorFrameHeightString = frameHeight.getText();
+
+            doorFrameWidth = fTD.fractionToDecimalWithDash(doorFrameWidthString);
+            doorFrameHeight = fTD.fractionToDecimalWithDash(doorFrameHeightString);
+            submitSingle(actionEvent);
+        } else {
+            doorFrameWidthString = pairFrameWidth.getText();
+            doorFrameHeightString = pairFrameHeight.getText();
+
+            doorFrameWidth = fTD.fractionToDecimalWithDash(doorFrameWidthString);
+            doorFrameHeight = fTD.fractionToDecimalWithDash(doorFrameHeightString);
+            submitPair(actionEvent);
+        }
+
+//        sideLightRoughHeight.clear();
+//        sideLightRoughWidth.clear();
+//        sideLightFrameHeight.clear();
+//        sideLightFrameWidth.clear();
+
 
         double slWidthDouble = fTD.fractionToDecimal(sideLightWidth.getText());
 
@@ -1078,9 +1101,22 @@ public class PrintDrawerController implements Initializable {
                 Drawing_Warning.singleOpeningNotEntered();
                 break;
         }
+
+
         if (slColor.equals("Bronze") || slColor.equals("Black")) {
-            sideLightLeft.bronzeSideLightVerticalLeft(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, panels, gc);
-            sideLightLeft.bronzeSideLightHorizontalsLeft(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, qty, type, panels, gc);
+            if (toLeft > 0 && toRight > 0) {
+                System.out.println(slWidthDouble);
+                System.out.println(doorFrameWidth);
+                sideLightLeft.bronzeSideLightVerticalLeft(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, panels, gc);
+                sideLightLeft.bronzeSideLightHorizontalsLeft(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, qty, type, panels, gc);
+                sideLightRight.bronzeSideLightVerticalRight(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, panels, gc);
+                sideLightRight.bronzeSideLightHorizontalsRight(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, qty, type, panels, gc);
+            } else {
+                //                sideLightLeft.bronzeSideLightVerticalLeft(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, panels, gc);
+//                sideLightLeft.bronzeSideLightHorizontalsLeft(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, qty, type, panels, gc);
+                sideLightRight.bronzeSideLightVerticalRight(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, panels, gc);
+                sideLightRight.bronzeSideLightHorizontalsRight(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, qty, type, panels, gc);
+            }
         } else {
             sideLightLeft.clearSideLightVerticalLeft(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameHeightString, panels, gc);
             sideLightLeft.clearSideLightHorizontalsLeft(doorFrameWidth, doorFrameHeight, slWidthDouble, doorFrameWidthString, qty, type, panels, gc);

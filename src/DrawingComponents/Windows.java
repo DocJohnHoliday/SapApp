@@ -39,8 +39,10 @@ public class Windows {
             gc.fillText(doorWidthString, (1450 - 12) + ((double) (350 + doorWidthRatio) / 2), 500);
         }
         //Horizontal Text
-        gc.setFont(Font.font("default", FontWeight.BOLD, 45));
-        gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 2.5))), 1460, 550);
+        if(panels == 1){
+            gc.setFont(Font.font("default", FontWeight.BOLD, 45));
+            gc.fillText(String.valueOf(fTD.convertDecimalToFraction((doorWidthDouble - 2.5))), 1460, 550);
+        }
         //Top 125
         gc.setFill(Color.rgb(95, 87, 87));
         gc.setStroke(Color.WHITE);

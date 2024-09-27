@@ -28,7 +28,6 @@ public class Glass {
     public void doorGlass5mm4BRPair(double doorWidthDouble, double doorHeightDouble, String glass, int quantity, GraphicsContext gc) {
         //Door glass
         String doorWidth = fTD.convertDecimalToFraction(doorWidthDouble - 0.5);
-        System.out.println(doorWidth);
         String doorHeight = fTD.convertDecimalToFraction(doorHeightDouble - 6.75 + 0.125);
         String glassSize = glass + "  (Qty " + quantity + ") " + doorWidth + " x " + doorHeight;
 
@@ -71,9 +70,7 @@ public class Glass {
 
     public void doorGlass5mm10BRPair(double doorWidthDouble, double doorHeightDouble, String glass, int quantity, GraphicsContext gc) {
         //Door glass
-        System.out.println(doorWidthDouble);
         String doorWidth = fTD.convertDecimalToFraction(doorWidthDouble);
-        System.out.println(doorWidth);
         String doorHeight = fTD.convertDecimalToFraction(doorHeightDouble - 12.25 + 0.125);
         String glassSize = glass + "  (Qty " + quantity + ") " + doorWidth + " x " + doorHeight;
 
