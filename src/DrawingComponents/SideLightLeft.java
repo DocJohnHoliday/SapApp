@@ -21,10 +21,10 @@ public class SideLightLeft {
         int doorWidthRatio = (int) ((Math.ceil(doorWidthDouble) - 40) * 2);
         int doorHeightRatio = (int) ((Math.ceil(doorHeightDouble) - 84) * 2);
 
-        int slWidthRatio = (int) ((Math.ceil(slWidthDouble) - 40) * 10);
+        int slWidthRatio = (int) ((Math.ceil(slWidthDouble) + 40) * 10);
 
         double leftJamb = startX - recHeight;
-        double farLeft125 = startX - recHeight - slWidthRatio + 600;
+        double farLeft125 = leftJamb - slWidthRatio + 400;
 
         //Far 125 Text
 //        gc.setFill(Color.BLACK);
@@ -286,16 +286,17 @@ public class SideLightLeft {
         int doorWidthRatio = (int) ((Math.ceil(doorWidthDouble) - 40) * 2);
         int doorHeightRatio = (int) ((Math.ceil(doorHeightDouble) - 84) * 2);
 
-        int slWidthRatio = (int) ((Math.ceil(slWidthDouble) - 40) * 10);
+        int slWidthRatio = (int) ((Math.ceil(slWidthDouble) + 40) * 10);
 
         double leftJamb = startX - recHeight;
-        double farLeft125 = startX - recHeight - slWidthRatio;
+        double farLeft125 = leftJamb - slWidthRatio + 400;
 
         //Far 125 Text
 //        gc.setFill(Color.BLACK);
 //        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
 //        gc.fillText(doorHeightString, (startX + 1 + recWidth) + recHeight + slWidthRatio, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
         //Far 125
+        gc.setFill(Color.rgb(95, 87, 87));
         gc.strokeRect(farLeft125, startY, recHeight, recWidth + doorHeightRatio + recHeight + 15 + 350);
 
         if (panels == 2) {
@@ -551,25 +552,24 @@ public class SideLightLeft {
         int doorWidthRatio = (int) ((Math.ceil(doorWidthDouble) - 40) * 2);
         int doorHeightRatio = (int) ((Math.ceil(doorHeightDouble) - 84) * 2);
 
-        int slWidthRatio = (int) ((Math.ceil(slWidthDouble) - 40) * 10);
+        int slWidthRatio = (int) ((Math.ceil(slWidthDouble) + 40) * 10);
 
-        double sideLightRailsDouble = ((slWidthDouble - (doorWidthDouble + 3.5) - 1.25 - 1.25) / 2) - 0.25;
+        double sideLightRailsDouble = (slWidthDouble - 1.25);
         String sideLightRailString = ftd.convertDecimalToFraction(sideLightRailsDouble);
 
         Glass glass = new Glass();
-        //glass.slGlass5mm(sideLightRailsDouble - 0.5, doorHeightDouble - 3.0, quantity, type, panels, gc);
+        glass.slGlass5mm(sideLightRailsDouble - 0.5, doorHeightDouble - 3.0, quantity, type, panels, gc);
 
         double leftJamb = startX - recHeight;
-        double farLeft125 = startX - recHeight - slWidthRatio + 600;
+        double farLeft125 = leftJamb - slWidthRatio + 400;
 
         //Header
         gc.setFill(Color.rgb(95, 87, 87));
-        gc.setStroke(Color.WHITE);
-        gc.fillRect(farLeft125 + 15, startY, (startX + recWidth + slWidthRatio) - (startX + recWidth + doorWidthRatio) - 25 - 530, recHeight);
+        gc.fillRect(farLeft125 + 15, startY, ((leftJamb - farLeft125) - 17), recHeight);
         gc.setStroke(Color.BLACK);
         //Threshold
         gc.setFill(Color.rgb(95, 87, 87));
-        gc.fillRect(farLeft125 + 15, startY + recWidth + doorHeightRatio + 350 + 15, (startX + recWidth + slWidthRatio) - (startX + recWidth + doorWidthRatio) - 25 - 530, recHeight);
+        gc.fillRect(farLeft125 + 15, startY + recWidth + doorHeightRatio + 350 + 15, ((leftJamb - farLeft125) - 17), recHeight);
         gc.setStroke(Color.BLACK);
 
 
@@ -603,8 +603,11 @@ public class SideLightLeft {
             gc.setFont(Font.font("default", FontWeight.BOLD, 20));
             gc.fillText(fivePanel, farLeft125 + 20, startY + (2 * recHeight) + 20);
         } else if (panels == 6) {
-
-
+            String sixPanel = String.valueOf(ftd.convertDecimalToFraction((sideLightRailsDouble - 6.25) / 6));
+            //Header Text
+            gc.setFill(Color.BLACK);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 20));
+            gc.fillText(sixPanel, farLeft125 + 20, startY + (2 * recHeight) + 20);
         } else if (panels == 7) {
             String sevenPanel = String.valueOf(ftd.convertDecimalToFraction((sideLightRailsDouble - 7.5) / 7));
             //Header Text
@@ -639,22 +642,26 @@ public class SideLightLeft {
         int doorWidthRatio = (int) ((Math.ceil(doorWidthDouble) - 40) * 2);
         int doorHeightRatio = (int) ((Math.ceil(doorHeightDouble) - 84) * 2);
 
-        int slWidthRatio = (int) ((Math.ceil(slWidthDouble) - 40) * 10);
+        int slWidthRatio = (int) ((Math.ceil(slWidthDouble) + 40) * 10);
 
-        double sideLightRailsDouble = slWidthDouble - (doorWidthDouble + 3.5) - 0.5 - 1.25;
+        double sideLightRailsDouble = (slWidthDouble - 1.25);
         String sideLightRailString = ftd.convertDecimalToFraction(sideLightRailsDouble);
 
-        double leftJamb = startX - recHeight;
-        double farLeft125 = startX - recHeight - slWidthRatio;
-
-        //Top 125
-        gc.strokeRect(farLeft125 + 15, startY, (startX + recWidth + slWidthRatio) - (startX + recWidth + doorWidthRatio) - 25, recHeight);
-        gc.setStroke(Color.BLACK);
-        //Bottom 125
-        gc.strokeRect(farLeft125 + 15, startY + recWidth + doorHeightRatio + 350 + 15, (startX + recWidth + slWidthRatio) - (startX + recWidth + doorWidthRatio) - 25, recHeight);
-        gc.setStroke(Color.BLACK);
-
         Glass glass = new Glass();
+        glass.slGlass5mm(sideLightRailsDouble - 0.5, doorHeightDouble - 3.0, quantity, type, panels, gc);
+
+        double leftJamb = startX - recHeight;
+        double farLeft125 = leftJamb - slWidthRatio + 400;
+
+        //Header
+        gc.setFill(Color.rgb(95, 87, 87));
+        gc.strokeRect(farLeft125 + 15, startY, ((leftJamb - farLeft125) - 17), recHeight);
+        gc.setStroke(Color.BLACK);
+        //Threshold
+        gc.setFill(Color.rgb(95, 87, 87));
+        gc.strokeRect(farLeft125 + 15, startY + recWidth + doorHeightRatio + 350 + 15, ((leftJamb - farLeft125) - 17), recHeight);
+        gc.setStroke(Color.BLACK);
+
 
         if (panels == 1) {
             //Header Text
@@ -667,7 +674,6 @@ public class SideLightLeft {
             gc.setFill(Color.BLACK);
             gc.setFont(Font.font("default", FontWeight.BOLD, 30));
             gc.fillText(twoPanel, farLeft125 + 20, startY + (2 * recHeight) + 25);
-            glass.slGlass5mm(((sideLightRailsDouble - 1.25) / 2) - 0.5, doorHeightDouble - 3.0, quantity, type, panels, gc);
         } else if (panels == 3) {
             String threePanel = String.valueOf(ftd.convertDecimalToFraction((sideLightRailsDouble - 2.5) / 3));
             //Header Text

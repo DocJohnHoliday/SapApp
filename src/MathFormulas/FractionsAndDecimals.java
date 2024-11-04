@@ -56,9 +56,11 @@ public class FractionsAndDecimals {
                     decimalFraction = "625";
                     break;
                 case "33":
+                case "40":
                     decimalFraction = "3125";
                     break;
                 case "17":
+                case "16":
                 case "15":
                     decimalFraction = "125";
                     break;
@@ -82,7 +84,11 @@ public class FractionsAndDecimals {
                     decimalFraction = "1875";
                     break;
                 case "65":
+                case "58":
                     decimalFraction = "5625";
+                    break;
+                case "96":
+                    decimalFraction = "9375";
                     break;
             }
 

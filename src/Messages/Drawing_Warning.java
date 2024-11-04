@@ -32,6 +32,15 @@ public class Drawing_Warning {
         });
     }
 
+    public static void singlePairNotEnteredCorrectly() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Error");
+        alert.setContentText("You must select single or pair based on measurements.");
+        alert.showAndWait().ifPresent((btnType) -> {
+            clearDialogOptionSelections();
+        });
+    }
+
     public static void pairOpeningNotEntered() {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Incomplete");
@@ -45,6 +54,15 @@ public class Drawing_Warning {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Warning");
         alert.setContentText("A medium stile door should have 7 1/2\" Bottom Rail.");
+        alert.showAndWait().ifPresent((btnType) -> {
+            clearDialogOptionSelections();
+        });
+    }
+
+    public static void saveSuccess() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("SAVED");
+        alert.setContentText("This drawing has be saved!");
         alert.showAndWait().ifPresent((btnType) -> {
             clearDialogOptionSelections();
         });

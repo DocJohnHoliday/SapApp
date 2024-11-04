@@ -322,7 +322,7 @@ public class Rails {
                     if (glassType.equals("No Glass")) {
                         glass.noGlass(gc);
                     } else {
-                        glass.doorGlass5mm4BRPair(doorWidthDouble, doorHeightDouble, glassType, qty * 2, gc);
+                        glass.doorGlass5mm4BR(doorWidthDouble, doorHeightDouble, glassType, qty * 2, gc);
                     }
                     break;
                 case "7 1/2":

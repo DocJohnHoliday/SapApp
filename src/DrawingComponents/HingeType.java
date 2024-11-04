@@ -231,9 +231,9 @@ public class HingeType {
                     break;
                 case "Continuous Hinge":
                     gc.setFill(Color.WHITE);
-                    gc.fillRect(startX - recHeight + 1, startX, 14, 739 + doorHeightRatio);
+                    gc.fillRect(activeRightStile + 10, startX, 14, 739 + doorHeightRatio);
                     gc.setFill(Color.rgb(173, 172, 172));
-                    gc.fillRect(startX - recHeight + 1, startX, 12, 739 + doorHeightRatio);
+                    gc.fillRect(activeRightStile + 10, startX, 12, 739 + doorHeightRatio);
                     break;
             }
         }

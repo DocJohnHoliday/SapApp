@@ -205,7 +205,7 @@ public class Handles {
                 gc.setLineWidth(1.0);
                 gc.setFill(Color.BLACK);
                 gc.setFont(Font.font("default", FontWeight.BOLD, 30));
-                gc.fillText("RIM", (double) ((startX + 20) + (startX + recWidth + doorWidthRatio - 18)) / 2, startX + recWidth + doorHeightRatio + recHeight - 50 + 100 + 7);
+                gc.fillText("CVR", (double) ((startX + 20) + (startX + recWidth + doorWidthRatio - 18)) / 2, startX + recWidth + doorHeightRatio + recHeight - 50 + 100 + 7);
             } else {
                 if (push) {
                     pushBarPoly[0] = startX;
@@ -278,7 +278,7 @@ public class Handles {
 
                 gc.setFill(Color.BLACK);
                 gc.setFont(Font.font("default", FontWeight.BOLD, 30));
-                gc.fillText("RIM", (double) ((startX + 20) + (startX + recWidth + doorWidthRatio - 18)) / 2, startX + recWidth + doorHeightRatio + recHeight - 50 + 100 + 7);
+                gc.fillText("CVR", (double) ((startX + 20) + (startX + recWidth + doorWidthRatio - 18)) / 2, startX + recWidth + doorHeightRatio + recHeight - 50 + 100 + 7);
             } else {
                 if (push) {
                     pushBarPoly[0] = startX + recWidth + doorWidthRatio + 50;

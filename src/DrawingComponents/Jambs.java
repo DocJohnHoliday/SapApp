@@ -11,17 +11,16 @@ public class Jambs {
     int recWidth = 350; //Rectangle Width
     int recHeight = 12; //Rectangle Height
 
-    public void jambs(double doorWidthDouble, double doorHeightDouble, String doorHeightString, String slAnswer, String color, GraphicsContext gc) {
+    public void jambs(double doorWidthDouble, double doorHeightDouble, String doorHeightString, int slAnswer, String color, GraphicsContext gc) {
 
         int doorWidthRatio = (int) ((Math.ceil(doorWidthDouble) - 40) * 2);
         int doorHeightRatio = (int) ((Math.ceil(doorHeightDouble) - 84) * 2);
 
-        //Stile Text
-//        if (slAnswer.equals("No")) {
+        //Jamb Text
         gc.setFill(Color.BLACK);
         gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-        gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
-//        }
+        if (slAnswer == 0)
+            gc.fillText(doorHeightString, (startX + 1 + recWidth + doorWidthRatio) + recHeight, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
 
         if (color.equals("Bronze") || color.equals("Black")) {
             //Left Jamb
@@ -38,17 +37,17 @@ public class Jambs {
         }
     }
 
-    public void pairJambs(double doorWidthDouble, double doorHeightDouble, String doorHeightString, boolean slAnswer, String color, GraphicsContext gc) {
+    public void pairJambs(double doorWidthDouble, double doorHeightDouble, String doorHeightString, int slAnswer, String color, GraphicsContext gc) {
 
         int doorWidthRatio = (int) ((Math.ceil(doorWidthDouble) - 40) * 2);
         int doorHeightRatio = (int) ((Math.ceil(doorHeightDouble) - 84) * 2);
 
-        //Stile Text
-        if (!slAnswer) {
-            gc.setFill(Color.BLACK);
-            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+        //Jamb Text
+        gc.setFill(Color.BLACK);
+        gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+        if (slAnswer == 0)
             gc.fillText(doorHeightString, 1250, ((double) (recWidth + doorHeightRatio + recHeight + 15 + 350) / 2) + startY);
-        }
+
 
         if (color.equals("Bronze") || color.equals("Black")) {
             //Left Jamb
