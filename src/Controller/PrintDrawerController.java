@@ -4,14 +4,18 @@ import DrawingComponents.*;
 import MathFormulas.FractionsAndDecimals;
 import Messages.Drawing_Warning;
 import ZoomOperator.AnimatedZoomOperator;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.Initializable;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.image.WritableImage;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -106,6 +110,7 @@ public class PrintDrawerController implements Initializable {
     public TextArea noteField;
     public ChoiceBox<String> windowDimensionSelection;
     public TextArea pairNoteField;
+    public ChoiceBox<Integer> hingingNum;
 
     Stiles stiles = new Stiles();
     Rails rails = new Rails();
@@ -565,7 +570,7 @@ public class PrintDrawerController implements Initializable {
             String bottomRailSize = pairBottomRail.getValue();
             String hingingPair = pairHinging.getValue();
 
-            boolean hasPanic = panicHardware.equals("RIM");
+            boolean hasPanic = panicHardware.equals("CVR");
             boolean hasPush = pairPush.isSelected();
 
             double slWidthDouble = 0;
@@ -821,8 +826,14 @@ public class PrintDrawerController implements Initializable {
             double roughWidthDouble = fTD.fractionToDecimal(singleWidth.getText());
             double roughHeightDouble = fTD.fractionToDecimal(singleHeight.getText());
 
+            int numOfRightSL = rightOfDoorSideLight.getValue();
+            int numOfLeftSL = leftOfDoorSideLight.getValue();
+
             boolean yesTransom;
             yesTransom = singleTransomQuestion.getValue().equals("Yes");
+
+            boolean yesSL;
+            yesSL = singleSideLightQuestion.getValue().equals("Yes");
 
             String transomHeightString = null;
             double transomHeightDouble = 0.0;
@@ -953,6 +964,8 @@ public class PrintDrawerController implements Initializable {
             String eSIntegrated = "Electric Strike Integrated";
             String stile = stileSize.getValue();
 
+            double slWidthDouble = 0;
+
             switch (stile) {
                 case "Narrow":
                     stiles.narrowSingleStile(doorWidthDouble, doorHeightDouble, doorHeightString, doorColor, gc);
@@ -962,8 +975,14 @@ public class PrintDrawerController implements Initializable {
                     hingeType.narrowSingleHinging(doorWidthDouble, doorHeightDouble, doorHand, singleHinging, gc);
                     jambs.jambs(doorWidthDouble, doorHeightDouble, frameHeightString, slAnswer, doorColor, gc);
                     hAT.headersAndThresholds(doorWidthDouble, doorHeightDouble, frameWidthString, doorColor, gc);
-                    if (yesTransom) {
-                        transoms.singleTransom(transomWidthDouble, transomHeightDouble, doorWidthDouble, doorHeightDouble, transomWidthString, transomHeightString, doorColor, gc);
+                    if (yesTransom && yesSL) {
+                        slWidthDouble = fTD.fractionToDecimal(sideLightWidth.getText());
+                        transoms.singleTransom(transomWidthDouble, transomHeightDouble, doorWidthDouble, doorHeightDouble,
+                                transomWidthString, transomHeightString, doorColor, numOfLeftSL, numOfRightSL, slWidthDouble, gc);
+                    }
+                    if (yesTransom && !yesSL) {
+                        transoms.singleTransom(transomWidthDouble, transomHeightDouble, doorWidthDouble, doorHeightDouble,
+                                transomWidthString, transomHeightString, doorColor, numOfLeftSL, numOfRightSL, slWidthDouble, gc);
                     }
                     break;
                 case "Medium":
@@ -1164,5 +1183,21 @@ public class PrintDrawerController implements Initializable {
             zoomFactor = 1 / zoomFactor;
         }
         zoomOperator.zoom(previewCanvas, zoomFactor, scrollEvent.getSceneX(), scrollEvent.getSceneY());
+    }
+
+    public void hingingNumChange(Event event) {
+
+        String hingingSingle = hinging.getValue();
+        hinging.setOnAction(event2 -> {
+            switch (hingingSingle) {
+                case "Butt Hinge":
+                    hingingNum.setValue(1);
+                    break;
+                case "Pivots":
+                    hingingNum.setValue(2);
+                    break;
+            }
+
+        });
     }
 }

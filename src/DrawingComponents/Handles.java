@@ -206,6 +206,32 @@ public class Handles {
                 gc.setFill(Color.BLACK);
                 gc.setFont(Font.font("default", FontWeight.BOLD, 30));
                 gc.fillText("CVR", (double) ((startX + 20) + (startX + recWidth + doorWidthRatio - 18)) / 2, startX + recWidth + doorHeightRatio + recHeight - 50 + 100 + 7);
+
+                /////////////Panic Pull
+                pullHandlePoly[0] = startX;                 //First X Point
+                pullHandlePoly[1] = startX - recHeight + 30 + 10;//Second X point
+                pullHandlePoly[2] = startX - recHeight + 30 + 10;//Third X point
+                pullHandlePoly[3] = startX;                 //Fourth X point
+                pullHandlePoly1[0] = startX + recWidth + doorHeightRatio + recHeight + 110;     //First Y Point
+                pullHandlePoly1[1] = startX + recWidth + doorHeightRatio + recHeight + 110;     //Second Y Point
+                pullHandlePoly1[2] = startX + recWidth + doorHeightRatio + recHeight - 50 + 100 - 40;//Third Y Point
+                pullHandlePoly1[3] = startX + recWidth + doorHeightRatio + recHeight - 50 + 100 - 40;
+                gc.setLineWidth(10.0);
+                gc.setStroke(Color.rgb(173, 172, 172));
+                gc.strokePolyline(pullHandlePoly, pullHandlePoly1, 4);
+                gc.setLineWidth(1.0);
+                ////////////Panic Push
+                pushBarPoly[0] = startX + 20;
+                pushBarPoly[1] = startX + recWidth + doorWidthRatio - 18;
+                pushBarPoly1[0] = startX + recWidth + doorHeightRatio + recHeight - 50 + 100;
+                pushBarPoly1[1] = startX + recWidth + doorHeightRatio + recHeight - 50 + 100;
+                gc.setLineWidth(40.0);
+                gc.setStroke(Color.rgb(173, 172, 172));
+                gc.strokePolyline(pushBarPoly, pushBarPoly1, 2);
+                gc.setLineWidth(1.0);
+                gc.setFill(Color.BLACK);
+                gc.setFont(Font.font("default", FontWeight.BOLD, 30));
+                gc.fillText("CVR", (double) ((startX + 20) + (startX + recWidth + doorWidthRatio - 18)) / 2, startX + recWidth + doorHeightRatio + recHeight - 50 + 100 + 7);
             } else {
                 if (push) {
                     pushBarPoly[0] = startX;
@@ -252,7 +278,7 @@ public class Handles {
         } else {
             ///////////////////////////////////Right Handed////////////////////////
             if (panic) {
-                //Panic Pull
+                //Panic Pull Inactive
                 pullHandlePoly[0] = startX + 2 + recWidth + doorWidthRatio;     //First X Point
                 pullHandlePoly[1] = startX + 2 + recWidth + doorWidthRatio - 20;//Second X point
                 pullHandlePoly[2] = startX + 2 + recWidth + doorWidthRatio - 20;//Third X point
@@ -265,7 +291,7 @@ public class Handles {
                 gc.setStroke(Color.rgb(173, 172, 172));
                 gc.strokePolyline(pullHandlePoly, pullHandlePoly1, 4);
                 gc.setLineWidth(1.0);
-                //Panic Push
+                //Panic Push Inactive
                 pushBarPoly[0] = startX + 20;
                 pushBarPoly[1] = startX + recWidth + doorWidthRatio - 18;
                 pushBarPoly1[0] = startX + recWidth + doorHeightRatio + recHeight - 50 + 100;
@@ -279,6 +305,34 @@ public class Handles {
                 gc.setFill(Color.BLACK);
                 gc.setFont(Font.font("default", FontWeight.BOLD, 30));
                 gc.fillText("CVR", (double) ((startX + 20) + (startX + recWidth + doorWidthRatio - 18)) / 2, startX + recWidth + doorHeightRatio + recHeight - 50 + 100 + 7);
+
+                //Panic Pull Active
+                pullHandlePoly[0] = startX + recWidth + doorWidthRatio + 50;     //First X Point
+                pullHandlePoly[1] = startX + recWidth + doorWidthRatio + 50 + 20;//Second X point
+                pullHandlePoly[2] = startX + recWidth + doorWidthRatio + 50 + 20;//Third X point
+                pullHandlePoly[3] = startX + recWidth + doorWidthRatio + 50;     //Fourth X point
+                pullHandlePoly1[0] = startX + recWidth + doorHeightRatio + recHeight + 110;     //First Y Point
+                pullHandlePoly1[1] = startX + recWidth + doorHeightRatio + recHeight + 110;     //Second Y Point
+                pullHandlePoly1[2] = startX + recWidth + doorHeightRatio + recHeight - 50 + 100 - 40;//Third Y Point
+                pullHandlePoly1[3] = startX + recWidth + doorHeightRatio + recHeight - 50 + 100 - 40;//Fourth Y Point
+                gc.setLineWidth(10.0);
+                gc.setStroke(Color.rgb(173, 172, 172));
+                gc.strokePolyline(pullHandlePoly, pullHandlePoly1, 4);
+                gc.setLineWidth(1.0);
+                //Panic Push Active
+                pushBarPoly[0] = startX + recWidth + doorWidthRatio + 70;
+                pushBarPoly[1] = startX + ( 2 * recWidth) + ( 2 * doorWidthRatio) + 35;
+                pushBarPoly1[0] = startX + recWidth + doorHeightRatio + recHeight - 50 + 100;
+                pushBarPoly1[1] = startX + recWidth + doorHeightRatio + recHeight - 50 + 100;
+
+                gc.setLineWidth(40.0);
+                gc.setStroke(Color.rgb(173, 172, 172));
+                gc.strokePolyline(pushBarPoly, pushBarPoly1, 2);
+                gc.setLineWidth(1.0);
+
+                gc.setFill(Color.BLACK);
+                gc.setFont(Font.font("default", FontWeight.BOLD, 30));
+                gc.fillText("CVR", startX + recWidth + doorWidthRatio + 200, startX + recWidth + doorHeightRatio + recHeight - 50 + 100 + 7);
             } else {
                 if (push) {
                     pushBarPoly[0] = startX + recWidth + doorWidthRatio + 50;

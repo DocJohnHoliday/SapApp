@@ -210,6 +210,12 @@
                                                    </font>
                                                 </Label>
                                                 <ChoiceBox fx:id="hinging" layoutX="14.0" layoutY="157.0" prefWidth="150.0" />
+                                                <Label layoutX="174.0" layoutY="127.0" prefHeight="24.0" prefWidth="79.0" text="How Many?">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <ChoiceBox fx:id="hingingNum" layoutX="177.0" layoutY="157.0" prefHeight="25.0" prefWidth="54.0" />
                                                 <Label layoutX="14.0" layoutY="196.0" prefHeight="27.0" prefWidth="114.0" text="Glass">
                                                    <font>
                                                       <Font size="14.0" />
