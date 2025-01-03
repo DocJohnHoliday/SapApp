@@ -28,6 +28,15 @@ public class Rails {
             gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 15, startX + (2 * recHeight) + 35);
 
             switch (bottomRail) {
+                case "KD":
+                    gc.setFill(Color.rgb(95, 87, 87));
+                    gc.fillRect(startX + 2, startX + recWidth + doorHeightRatio + 350, recWidth + doorWidthRatio - 4, recHeight + 15);
+                    if (glassType.equals("No Glass")) {
+                        glass.noGlass(gc);
+                    } else {
+                        glass.doorGlassKD(doorWidthDouble, doorHeightDouble, glassType, qty, gc);
+                    }
+                    break;
                 case "4":
                     gc.setFill(Color.rgb(95, 87, 87));
                     gc.fillRect(startX + 2, startX + recWidth + doorHeightRatio + 350, recWidth + doorWidthRatio - 4, recHeight + 15);
@@ -77,6 +86,14 @@ public class Rails {
             gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 15, startX + (2 * recHeight) + 35);
 
             switch (bottomRail) {
+                case "KD":
+                    gc.strokeRect(startX + 2, startX + recWidth + doorHeightRatio + 350, recWidth + doorWidthRatio - 4, recHeight + 15);
+                    if (glassType.equals("No Glass")) {
+                        glass.noGlass(gc);
+                    } else {
+                        glass.doorGlassKD(doorWidthDouble, doorHeightDouble, glassType, qty, gc);
+                    }
+                    break;
                 case "4":
                     gc.strokeRect(startX + 2, startX + recWidth + doorHeightRatio + 350, recWidth + doorWidthRatio - 4, recHeight + 15);
                     if (glassType.equals("No Glass")) {
@@ -315,6 +332,16 @@ public class Rails {
             gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 15, startX + (2 * recHeight) + 35);
 
             switch (bottomRail) {
+                case "KD":
+                    gc.setFill(Color.rgb(95, 87, 87));
+                    gc.fillRect(startX + 2, startX + recWidth + doorHeightRatio + 350, recWidth + doorWidthRatio - 4, recHeight + 15);
+                    gc.fillRect((startX + 2) + (recWidth + doorWidthRatio - 4) + 56, startX + recWidth + doorHeightRatio + 350, recWidth + doorWidthRatio - 4, recHeight + 15);
+                    if (glassType.equals("No Glass")) {
+                        glass.noGlass(gc);
+                    } else {
+                        glass.doorGlassKD(doorWidthDouble, doorHeightDouble, glassType, qty * 2, gc);
+                    }
+                    break;
                 case "4":
                     gc.setFill(Color.rgb(95, 87, 87));
                     gc.fillRect(startX + 2, startX + recWidth + doorHeightRatio + 350, recWidth + doorWidthRatio - 4, recHeight + 15);
@@ -369,6 +396,15 @@ public class Rails {
             gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 15, startX + (2 * recHeight) + 35);
 
             switch (bottomRail) {
+                case "KD":
+                    gc.strokeRect(startX + 2, startX + recWidth + doorHeightRatio + 350, recWidth + doorWidthRatio - 4, recHeight + 15);
+                    gc.strokeRect((startX + 2) + (recWidth + doorWidthRatio - 4) + 56, startX + recWidth + doorHeightRatio + 350, recWidth + doorWidthRatio - 4, recHeight + 15);
+                    if (glassType.equals("No Glass")) {
+                        glass.noGlass(gc);
+                    } else {
+                        glass.doorGlassKD(doorWidthDouble, doorHeightDouble, glassType, qty * 2, gc);
+                    }
+                    break;
                 case "4":
                     gc.strokeRect(startX + 2, startX + recWidth + doorHeightRatio + 350, recWidth + doorWidthRatio - 4, recHeight + 15);
                     gc.strokeRect((startX + 2) + (recWidth + doorWidthRatio - 4) + 56, startX + recWidth + doorHeightRatio + 350, recWidth + doorWidthRatio - 4, recHeight + 15);

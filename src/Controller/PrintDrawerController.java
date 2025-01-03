@@ -206,6 +206,7 @@ public class PrintDrawerController implements Initializable {
         bottomRail.getItems().add("4");
         bottomRail.getItems().add("7 1/2");
         bottomRail.getItems().add("10");
+        bottomRail.getItems().add("KD");
         bottomRail.setValue("4");
 
         stileSize.getItems().add("Narrow");
@@ -326,6 +327,7 @@ public class PrintDrawerController implements Initializable {
         pairBottomRail.getItems().add("4");
         pairBottomRail.getItems().add("7 1/2");
         pairBottomRail.getItems().add("10");
+        pairBottomRail.getItems().add("KD");
         pairBottomRail.setValue("4");
 
         pairStileSize.getItems().add("Narrow");
@@ -800,7 +802,7 @@ public class PrintDrawerController implements Initializable {
             gc.fillText("SFD-" + sfdNumber, (previewCanvas.getWidth() / 2) - 100, 150);
             gc.setFont(new Font(12));
         } else {
-            //Drawing_Warning.sfdNotEntered();
+            Drawing_Warning.sfdNotEntered();
         }
 
         try {

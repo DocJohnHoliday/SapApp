@@ -102,7 +102,6 @@ public class Transoms {
                 //Text
                 gc.setFont(Font.font("default", FontWeight.BOLD, 50));
                 gc.fillText(transomWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY - 200 - doorHeightRatio - 5);
-                gc.fillText(transomHeightString, 1250 + 200, startY - 200 - doorHeightRatio + 100);
             }
 
             if (left > 0 && 0 < right) {
@@ -133,14 +132,69 @@ public class Transoms {
 
 
         } else {
-            //Top 125
-            gc.strokeRect(startX - recHeight, startY - 200 - doorHeightRatio, recWidth + doorWidthRatio + 400 + 24, recHeight);
-            //Bottom 125
-            gc.strokeRect(startX - recHeight, startY - 15 - doorHeightRatio, recWidth + doorWidthRatio + 400 + 24, recHeight - 3);
+            gc.setFill(Color.rgb(95, 87, 87));
+
+            if (left > 0) {
+                //Top 125
+                gc.strokeRect(farLeft125, startY - 200 - doorHeightRatio, ((farRight125 - rightJamb) - 17) + recWidth + doorWidthRatio + 400 + 50, recHeight);
+                //Bottom 125
+                gc.strokeRect(farLeft125, startY - 15 - doorHeightRatio, ((farRight125 - rightJamb) - 17) + recWidth + doorWidthRatio + 400 + 50, recHeight - 3);
+                //Left Side Light Transom
+                //Far Left 125
+                gc.strokeRect(farLeft125, startY - 200 - doorHeightRatio + recHeight + 3, recHeight, doorHeightRatio + 168);
+                if (left > 1) {
+                    //Top 125
+                    gc.strokeRect(farLeft125, startY - 200 - doorHeightRatio, ((farRight125 - rightJamb) - 17) + recWidth + doorWidthRatio + 400 + 50, recHeight);
+                    //Bottom 125
+                    gc.strokeRect(farLeft125, startY - 15 - doorHeightRatio, ((farRight125 - rightJamb) - 17) + recWidth + doorWidthRatio + 400 + 50, recHeight - 3);
+                    //Left Side Light Transom
+                    //Far Left 125
+                    gc.strokeRect(farLeft125, startY - 200 - doorHeightRatio + recHeight + 3, recHeight, doorHeightRatio + 168);
+                }
+            } else if (right > 0) {
+                //Top 125
+                gc.strokeRect(startX - recHeight, startY - 200 - doorHeightRatio, ((farRight125 - rightJamb) - 17) + recWidth + doorWidthRatio + 400 + 50, recHeight);
+                //Bottom 125
+                gc.strokeRect(startX - recHeight, startY - 15 - doorHeightRatio, ((farRight125 - rightJamb) - 17) + recWidth + doorWidthRatio + 400 + 50, recHeight - 3);
+                //Far Right 125
+                gc.strokeRect(farRight125 + 80, startY - 200 - doorHeightRatio + recHeight + 3, recHeight, doorHeightRatio + 168);
+            } else if (left == 0 && right == 0) {
+                gc.setFill(Color.rgb(95, 87, 87));
+                //Top 125
+                gc.strokeRect(startX - recHeight, startY - 200 - doorHeightRatio, recWidth + doorWidthRatio + 24, recHeight);
+                //Bottom 125
+                gc.strokeRect(startX - recHeight, startY - 15 - doorHeightRatio, recWidth + doorWidthRatio + 24, recHeight - 3);
+                //Text
+                gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+                gc.fillText(transomWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2), startY - 200 - doorHeightRatio - 5);
+                gc.fillText(transomHeightString, 1250 + 200, startY - 200 - doorHeightRatio + 100);
+            }
+
+            if (left > 0 && 0 < right) {
+                //Top 125
+                gc.strokeRect(farLeft125, startY - 200 - doorHeightRatio, ((leftJamb - farLeft125) - 17) + recWidth + doorWidthRatio + 175, recHeight);
+                //Bottom 125
+                gc.strokeRect(farLeft125, startY - 15 - doorHeightRatio, ((leftJamb - farLeft125) - 17) + recWidth + doorWidthRatio + 175, recHeight - 3);
+                //Left Side Light Transom
+                //Far Left 125
+                gc.strokeRect(farLeft125, startY - 200 - doorHeightRatio + recHeight + 3, recHeight, doorHeightRatio + 168);
+                //Top 125
+                gc.strokeRect(startX - recHeight, startY - 200 - doorHeightRatio, ((farRight125 - rightJamb) - 17) + recWidth + doorWidthRatio + 175, recHeight);
+                //Bottom 125
+                gc.strokeRect(startX - recHeight, startY - 15 - doorHeightRatio, ((farRight125 - rightJamb) - 17) + recWidth + doorWidthRatio + 175, recHeight - 3);
+                //Far Right 125
+                gc.strokeRect(farRight125 + 80, startY - 200 - doorHeightRatio + recHeight + 3, recHeight, doorHeightRatio + 168);
+                //Text
+                gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+                gc.fillText(internalTransomSize, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 30, startY - 200 - doorHeightRatio - 5 + 55);
+            }
+
             //Left 125
+            gc.setFill(Color.rgb(95, 87, 87));
             gc.strokeRect(startX - recHeight, startY - 200 - doorHeightRatio + recHeight + 3, recHeight, doorHeightRatio + 168);
             //Right 125
-            gc.strokeRect(startX + recWidth + doorWidthRatio + 400, startY - 200 - doorHeightRatio + recHeight + 3, recHeight, doorHeightRatio + 168);
+            gc.setFill(Color.rgb(95, 87, 87));
+            gc.strokeRect(startX + recWidth + doorWidthRatio, startY - 200 - doorHeightRatio + recHeight + 3, recHeight, doorHeightRatio + 168);
         }
     }
 

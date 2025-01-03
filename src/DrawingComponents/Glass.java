@@ -13,6 +13,17 @@ public class Glass {
 
     FractionsAndDecimals fTD = new FractionsAndDecimals();
 
+    public void doorGlassKD(double doorWidthDouble, double doorHeightDouble, String glass, int quantity, GraphicsContext gc) {
+        //Door glass
+        String doorWidth = String.valueOf(doorWidthDouble - 0.5 + 0.0625);
+        String doorHeight = String.valueOf(doorHeightDouble - 7 + 0.125);
+        String glassSize = glass + "  (Qty " + quantity + ") " + doorWidth + " x " + doorHeight;
+
+        gc.setFill(Color.BLACK);
+        gc.setFont(Font.font("default", FontWeight.BOLD, 40));
+        gc.fillText(glassSize, 2500, 2275);
+    }
+
     // Glass for 3/16" Single doors
     public void doorGlass5mm4BR(double doorWidthDouble, double doorHeightDouble, String glass, int quantity, GraphicsContext gc) {
         //Door glass
@@ -142,7 +153,7 @@ public class Glass {
             doorWidth = String.valueOf(windowWidthDouble - 3.125);
             glassSize = glass + "  (Qty " + panels * quantity + ") " + doorWidth + " x " + doorHeight;
             gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(glassSize, 258/00, 2075);
+            gc.fillText(glassSize, 2500, 2075);
         } else if (panels == 2) {
             doorWidth = String.valueOf(((windowWidthDouble - 3.875) / 2) - 0.5);
             glassSize = glass + "  (Qty " + panels * quantity + ")  " + doorWidth + " x " + doorHeight;
