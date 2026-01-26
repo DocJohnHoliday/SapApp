@@ -26,8 +26,8 @@ public class Main extends Application {
      @param args args*/
     public static void main(String[] args) {
 
-//        JDBC.openConnection();
+        //JDBC.openConnection();
         launch(args);
-//        JDBC.closeConnection();
+        //JDBC.closeConnection();
     }
 }

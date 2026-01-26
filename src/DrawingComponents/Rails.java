@@ -140,14 +140,18 @@ public class Rails {
 
             ///////////////////////////Top Rail
             gc.setFill(Color.rgb(95, 87, 87));
-            gc.fillRect(startX + 27, startX, recWidth + doorWidthRatio - 29, recHeight + 15);
-
+            gc.fillRect(startX + 20 + 7, startX, recWidth + doorWidthRatio - 4 - 25, recHeight + 25);
             //Top Rail Text
             gc.setFill(Color.BLACK);
             gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 15, startX + (2 * recHeight) + 35);
-            gc.setFont(Font.font("default", FontWeight.BOLD, 27));
-            gc.fillText("4\" BR", startX - 50 + (double) ((recWidth + doorWidthRatio)) / 2, (startX + recWidth + doorHeightRatio + 350 - 30) + ((double) (recHeight + 15 + 30) / 2) + 10);
+            gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 45, startX + (2 * recHeight) + 45);
+            //Stile Text
+            gc.fillText("Medium \n   Stile", (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 45, startX + (2 * recHeight) + 150);
+            //Top Rail Text Showing size EX. 4"
+            gc.setFill(Color.WHITE);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+            gc.fillText("4\"", (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 15, startX + (2 * recHeight) - 5);
+
             switch (bottomRail) {
                 case "7 1/2":
                     gc.setFill(Color.rgb(95, 87, 87));
@@ -157,62 +161,73 @@ public class Rails {
                     gc.fillText("7 1/2\" BR", startX - 50 + (double) ((recWidth + doorWidthRatio)) / 2, (startX + recWidth + doorHeightRatio + 350 - 30) + ((double) (recHeight + 15 + 30) / 2) + 10);
                     gc.setFill(Color.BLACK);
                     if (glassType.equals("IG")) {
-                        glass.doorGlassIG7BR(doorWidthDouble, doorHeightDouble, glassType, qty, gc);
+                        glass.doorGlassIG7BR(doorWidthDouble, doorHeightDouble - 1.875, glassType, qty, gc);
                     } else if (glassType.equals("No Glass")) {
                         glass.noGlass(gc);
                     } else {
-                        glass.doorGlass5mm7BR(doorWidthDouble, doorHeightDouble, glassType, qty, gc);
+                        glass.doorGlass5mm7BR(doorWidthDouble, doorHeightDouble - 1.875, glassType, qty, gc);
                     }
                     break;
                 case "10":
                     gc.setFill(Color.rgb(95, 87, 87));
-                    gc.fillRect(startX + 27, startX + recWidth + doorHeightRatio + 350 - 45, recWidth + doorWidthRatio - 29, recHeight + 15 + 45);
+                    gc.fillRect(startX + 27, startX + recWidth + doorHeightRatio + 350 - 30, recWidth + doorWidthRatio - 29, recHeight + 15 + 30);
                     gc.setFill(Color.WHITE);
                     gc.setFont(Font.font("default", FontWeight.BOLD, 27));
                     gc.fillText("10\" BR", startX - 50 + (double) ((recWidth + doorWidthRatio)) / 2, (startX + recWidth + doorHeightRatio + 350 - 30) + ((double) (recHeight + 15 + 30) / 2) + 15);
                     gc.setFill(Color.BLACK);
                     if (glassType.equals("IG")) {
-                        glass.doorGlassIG10BR(doorWidthDouble, doorHeightDouble, glassType, qty, gc);
+                        glass.doorGlassIG10BR(doorWidthDouble, doorHeightDouble - 1.875, glassType, qty * 2, gc);
                     } else if (glassType.equals("No Glass")) {
                         glass.noGlass(gc);
                     } else {
-                        glass.doorGlass5mm10BR(doorWidthDouble, doorHeightDouble, glassType, qty, gc);
+                        glass.doorGlass5mm10BRPair(doorWidthDouble - 0.5, doorHeightDouble - 1.875, glassType, qty * 2, gc);
                     }
                     break;
             }
         } else {
-            //Top Rail
-            gc.strokeRect(startX + 2, startX, recWidth + doorWidthRatio - 4, recHeight + 15);
+            ///////////////////////////Top Rail
+            gc.setFill(Color.rgb(95, 87, 87));
+            gc.strokeRect(startX + 20 + 7, startX, recWidth + doorWidthRatio - 4 - 25, recHeight + 25);
             //Top Rail Text
             gc.setFill(Color.BLACK);
             gc.setFont(Font.font("default", FontWeight.BOLD, 50));
-            gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 15, startX + (2 * recHeight) + 35);
+            gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 45, startX + (2 * recHeight) + 45);
+            //Stile Text
+            gc.fillText("Medium \n   Stile", (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 45, startX + (2 * recHeight) + 150);
+            //Top Rail Text Showing size EX. 4"
+            gc.setFill(Color.BLACK);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+            gc.fillText("4\"", (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 15, startX + (2 * recHeight) - 5);
 
             switch (bottomRail) {
                 case "7 1/2":
-                    gc.strokeRect(startX + 2, startX + recWidth + doorHeightRatio + 350 - 30, recWidth + doorWidthRatio, recHeight + 15);
+                    gc.setFill(Color.rgb(95, 87, 87));
+                    gc.strokeRect(startX + 27, startX + recWidth + doorHeightRatio + 350 - 30, recWidth + doorWidthRatio - 29, recHeight + 15 + 30);
                     gc.setFill(Color.BLACK);
                     gc.setFont(Font.font("default", FontWeight.BOLD, 27));
                     gc.fillText("7 1/2\" BR", startX - 50 + (double) ((recWidth + doorWidthRatio)) / 2, (startX + recWidth + doorHeightRatio + 350 - 30) + ((double) (recHeight + 15 + 30) / 2) + 10);
+                    gc.setFill(Color.BLACK);
                     if (glassType.equals("IG")) {
-                        glass.doorGlassIG7BR(doorWidthDouble, doorHeightDouble, glassType, qty, gc);
+                        glass.doorGlassIG7BR(doorWidthDouble, doorHeightDouble - 1.875, glassType, qty, gc);
                     } else if (glassType.equals("No Glass")) {
                         glass.noGlass(gc);
                     } else {
-                        glass.doorGlass5mm7BR(doorWidthDouble, doorHeightDouble, glassType, qty, gc);
+                        glass.doorGlass5mm7BR(doorWidthDouble, doorHeightDouble - 1.875, glassType, qty, gc);
                     }
                     break;
                 case "10":
-                    gc.strokeRect(startX + 2, startX + recWidth + doorHeightRatio + 350 - 30, recWidth + doorWidthRatio, recHeight + 15 + 30);
+                    gc.setFill(Color.rgb(95, 87, 87));
+                    gc.strokeRect(startX + 27, startX + recWidth + doorHeightRatio + 350 - 30, recWidth + doorWidthRatio - 29, recHeight + 15 + 30);
                     gc.setFill(Color.BLACK);
                     gc.setFont(Font.font("default", FontWeight.BOLD, 27));
                     gc.fillText("10\" BR", startX - 50 + (double) ((recWidth + doorWidthRatio)) / 2, (startX + recWidth + doorHeightRatio + 350 - 30) + ((double) (recHeight + 15 + 30) / 2) + 15);
+                    gc.setFill(Color.BLACK);
                     if (glassType.equals("IG")) {
-                        glass.doorGlassIG10BR(doorWidthDouble, doorHeightDouble, glassType, qty, gc);
+                        glass.doorGlassIG10BR(doorWidthDouble, doorHeightDouble - 1.875, glassType, qty * 2, gc);
                     } else if (glassType.equals("No Glass")) {
                         glass.noGlass(gc);
                     } else {
-                        glass.doorGlass5mm10BR(doorWidthDouble, doorHeightDouble, glassType, qty, gc);
+                        glass.doorGlass5mm10BRPair(doorWidthDouble - 0.5, doorHeightDouble - 1.875, glassType, qty * 2, gc);
                     }
                     break;
             }
@@ -440,6 +455,116 @@ public class Rails {
                         glass.noGlass(gc);
                     } else {
                         glass.doorGlass5mm10BR(doorWidthDouble, doorHeightDouble, glassType, qty * 2, gc);
+                    }
+                    break;
+            }
+        }
+    }
+
+    public void medPairRails(double doorWidthDouble, double doorHeightDouble, String doorWidthString, String color, String bottomRail, String glassType, int qty, GraphicsContext gc) {
+        int doorWidthRatio = (int) ((Math.ceil(doorWidthDouble) - 40) * 2);
+        int doorHeightRatio = (int) ((Math.ceil(doorHeightDouble) - 84) * 2);
+
+        if (color.equals("Bronze") || color.equals("Black")) {
+
+            ///////////////////////////Top Rail Inactive
+            gc.setFill(Color.rgb(95, 87, 87));
+            gc.fillRect(startX + 20 + 7, startX, recWidth + doorWidthRatio - 4 - 25 - 23, recHeight + 25);
+            ///////////////////////////Top Rail Active
+            gc.setFill(Color.rgb(95, 87, 87));
+            gc.fillRect((startX + 2) + (recWidth + doorWidthRatio - 4) + 56 + 20 + 7, startX, recWidth + doorWidthRatio - 4 - 20 - 7, recHeight + 25);
+            //Top Rail Text
+            gc.setFill(Color.BLACK);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+            gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 45, startX + (2 * recHeight) + 45);
+            //Stile Text
+            gc.fillText("Medium \n   Stile", (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 45, startX + (2 * recHeight) + 150);
+            //Top Rail Text Showing size EX. 4"
+            gc.setFill(Color.WHITE);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+            gc.fillText("4\"", (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 15, startX + (2 * recHeight) - 5);
+
+            switch (bottomRail) {
+                case "7 1/2":
+                    gc.setFill(Color.rgb(95, 87, 87));
+                    gc.fillRect(startX + 27, startX + recWidth + doorHeightRatio + 350 - 30, recWidth + doorWidthRatio - 29 - 25, recHeight + 15 + 30);
+                    gc.fillRect((startX + 2) + (recWidth + doorWidthRatio - 4) + 83, startX + recWidth + doorHeightRatio + 350 - 30, recWidth + doorWidthRatio - 32, recHeight + 15 + 30);
+                    gc.setFill(Color.WHITE);
+                    gc.setFont(Font.font("default", FontWeight.BOLD, 27));
+                    gc.fillText("7 1/2\" BR", startX - 50 + (double) ((recWidth + doorWidthRatio)) / 2, (startX + recWidth + doorHeightRatio + 350 - 30) + ((double) (recHeight + 15 + 30) / 2) + 10);
+                    gc.setFill(Color.BLACK);
+                    if (glassType.equals("IG")) {
+                        glass.doorGlassIG7BR(doorWidthDouble, doorHeightDouble - 1.875, glassType, qty *2, gc);
+                    } else if (glassType.equals("No Glass")) {
+                        glass.noGlass(gc);
+                    } else {
+                        glass.doorGlass5mm7BR(doorWidthDouble, doorHeightDouble - 1.875, glassType, qty * 2, gc);
+                    }
+                    break;
+                case "10":
+                    gc.setFill(Color.rgb(95, 87, 87));
+                    gc.fillRect(startX + 27, startX + recWidth + doorHeightRatio + 350 - 30, recWidth + doorWidthRatio - 29 -25, recHeight + 15 + 30);
+                    gc.fillRect((startX + 2) + (recWidth + doorWidthRatio - 4) + 83, startX + recWidth + doorHeightRatio + 350 - 30, recWidth + doorWidthRatio - 32, recHeight + 15 + 30);
+                    gc.setFill(Color.WHITE);
+                    gc.setFont(Font.font("default", FontWeight.BOLD, 27));
+                    gc.fillText("10\" BR", startX - 50 + (double) ((recWidth + doorWidthRatio)) / 2, (startX + recWidth + doorHeightRatio + 350 - 30) + ((double) (recHeight + 15 + 30) / 2) + 15);
+                    gc.setFill(Color.BLACK);
+                    if (glassType.equals("IG")) {
+                        glass.doorGlassIG10BR(doorWidthDouble, doorHeightDouble - 1.875, glassType, qty * 2, gc);
+                    } else if (glassType.equals("No Glass")) {
+                        glass.noGlass(gc);
+                    } else {
+                        glass.doorGlass5mm10BRPair(doorWidthDouble - 0.5, doorHeightDouble - 1.875, glassType, qty * 2, gc);
+                    }
+                    break;
+            }
+        } else {
+            ///////////////////////////Top Rail Inactive
+            gc.setFill(Color.rgb(95, 87, 87));
+            gc.strokeRect(startX + 20 + 7, startX, recWidth + doorWidthRatio - 4 - 25 - 23, recHeight + 25);
+            ///////////////////////////Top Rail Active
+            gc.setFill(Color.rgb(95, 87, 87));
+            gc.strokeRect((startX + 2) + (recWidth + doorWidthRatio - 4) + 56 + 20 + 7, startX, recWidth + doorWidthRatio - 4 - 20 - 7, recHeight + 25);
+            //Top Rail Text
+            gc.setFill(Color.BLACK);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+            gc.fillText(doorWidthString, (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 45, startX + (2 * recHeight) + 45);
+            //Top Rail Text Showing size EX. 4"
+            gc.setFill(Color.BLACK);
+            gc.setFont(Font.font("default", FontWeight.BOLD, 50));
+            gc.fillText("4\"", (startX - recHeight) + ((double) (recWidth + doorWidthRatio) / 2) - 15, startX + (2 * recHeight) - 5);
+
+            switch (bottomRail) {
+                case "7 1/2":
+                    gc.setFill(Color.rgb(95, 87, 87));
+                    gc.strokeRect(startX + 27, startX + recWidth + doorHeightRatio + 350 - 30, recWidth + doorWidthRatio - 29 - 25, recHeight + 15 + 30);
+                    gc.strokeRect((startX + 2) + (recWidth + doorWidthRatio - 4) + 83, startX + recWidth + doorHeightRatio + 350 - 30, recWidth + doorWidthRatio - 32, recHeight + 15 + 30);
+                    gc.setFill(Color.BLACK);
+                    gc.setFont(Font.font("default", FontWeight.BOLD, 27));
+                    gc.fillText("7 1/2\" BR", startX - 50 + (double) ((recWidth + doorWidthRatio)) / 2, (startX + recWidth + doorHeightRatio + 350 - 30) + ((double) (recHeight + 15 + 30) / 2) + 10);
+                    gc.setFill(Color.BLACK);
+                    if (glassType.equals("IG")) {
+                        glass.doorGlassIG7BR(doorWidthDouble, doorHeightDouble - 1.875, glassType, qty * 2, gc);
+                    } else if (glassType.equals("No Glass")) {
+                        glass.noGlass(gc);
+                    } else {
+                        glass.doorGlass5mm7BR(doorWidthDouble, doorHeightDouble - 1.875, glassType, qty * 2, gc);
+                    }
+                    break;
+                case "10":
+                    gc.setFill(Color.rgb(95, 87, 87));
+                    gc.strokeRect(startX + 27, startX + recWidth + doorHeightRatio + 350 - 30, recWidth + doorWidthRatio - 29 -25, recHeight + 15 + 30);
+                    gc.strokeRect((startX + 2) + (recWidth + doorWidthRatio - 4) + 83, startX + recWidth + doorHeightRatio + 350 - 30, recWidth + doorWidthRatio - 32, recHeight + 15 + 30);
+                    gc.setFill(Color.BLACK);
+                    gc.setFont(Font.font("default", FontWeight.BOLD, 27));
+                    gc.fillText("10\" BR", startX - 50 + (double) ((recWidth + doorWidthRatio)) / 2, (startX + recWidth + doorHeightRatio + 350 - 30) + ((double) (recHeight + 15 + 30) / 2) + 15);
+                    gc.setFill(Color.BLACK);
+                    if (glassType.equals("IG")) {
+                        glass.doorGlassIG10BR(doorWidthDouble, doorHeightDouble - 1.875, glassType, qty * 2, gc);
+                    } else if (glassType.equals("No Glass")) {
+                        glass.noGlass(gc);
+                    } else {
+                        glass.doorGlass5mm10BRPair(doorWidthDouble - 0.5, doorHeightDouble - 1.875, glassType, qty * 2, gc);
                     }
                     break;
             }
